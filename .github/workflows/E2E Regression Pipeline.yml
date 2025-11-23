@@ -9,7 +9,8 @@ on:
       - main
   schedule:
     - cron: '*/5 * * * *'
-  workflow_dispatch:
+  repository_dispatch:
+      types: [ trigger-tests ]
 
 env:
   TARGET: "com.ferpfirstcode.tests.**"

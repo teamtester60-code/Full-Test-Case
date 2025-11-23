@@ -8,5 +8,6 @@ public class FirstTest extends BaseTest {
         webDriver.get("https://www.google.com");
         String title = webDriver.getTitle();
         LogsManager.info("Page title: " + title);
+        //aaaaa
     }
 }

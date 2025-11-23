@@ -12,7 +12,8 @@ on:
   workflow_dispatch:
 
 env:
-  TARGET: "%regex[.*Test.*]"
+  TARGET: "com.ferpfirstcode.tests.**"
+
 
 jobs:
   Chrome_Linux_Test:

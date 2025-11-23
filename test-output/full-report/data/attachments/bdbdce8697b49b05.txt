@@ -823,29 +823,3 @@
 [INFO] - [23-11-2025 14:34:00] [main] [FirstTest] - Opening the page...
 [INFO] - [23-11-2025 14:34:13] [main] [FirstTest] - Page title: Google
 [ERROR] - [23-11-2025 14:34:13] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Failed to Capture Screenshot Cannot invoke "org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)" because "driver" is null
-[INFO] - [23-11-2025 14:34:13] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Test: verifyLoginPageTitle Finished Successfully ========
-[INFO] - [23-11-2025 14:34:13] [main] [LoginTest] - تم تحميل بيانات الاختبار من JSON
-[INFO] - [23-11-2025 14:34:13] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
-[INFO] - [23-11-2025 14:34:13] [main] [com.ferpfirstcode.driver.GUIDriver] - قيمة المتصفح من الخصائص: EDGE
-[INFO] - [23-11-2025 14:34:13] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
-[INFO] - [23-11-2025 14:34:14] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Starting Test: validLoginTC ========
-[INFO] - [23-11-2025 14:34:18] [main] [com.ferpfirstcode.utils.actions.BrowserActions] - Navigated to URL:  http://localhost:4200/login
-[DEBUG] - [23-11-2025 14:34:18] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['username']
-[INFO] - [23-11-2025 14:34:19] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text:  1  in element:  By.id: username
-[DEBUG] - [23-11-2025 14:34:19] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['password']
-[INFO] - [23-11-2025 14:34:19] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text:  123456  in element:  By.id: pass
-[INFO] - [23-11-2025 14:34:19] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked on element: By.cssSelector: button.submitBtn
-[INFO] - [23-11-2025 14:34:23] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
-[INFO] - [23-11-2025 14:34:23] [main] [LoginTest] - تم تنفيذ اختبار تسجيل الدخول بنجاح
-[ERROR] - [23-11-2025 14:34:23] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Failed to Capture Screenshot Cannot invoke "org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)" because "driver" is null
-[INFO] - [23-11-2025 14:34:23] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Test: validLoginTC Finished Successfully ========
-[INFO] - [23-11-2025 14:34:28] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - 🛠️ Running Allure generate command: C:\Users\pc\.m2\repository\allure\allure-2.35.1\bin\allure.bat generate C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\allure-results -o C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\full-report --clean
-[INFO] - [23-11-2025 14:34:33] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - 🛠️ Running Allure generate command: C:\Users\pc\.m2\repository\allure\allure-2.35.1\bin\allure.bat generate C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\allure-results -o C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports --clean --single-file
-[INFO] - [23-11-2025 14:34:33] [main] [com.ferpfirstcode.FileUtils] - Target File Path: "C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports\index.html", file was renamed to "AllureReport_2025-11-23-14-34-33.html".
-[ERROR] - [23-11-2025 14:34:33] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - ❌ index.html not found. Report generation may have failed.
-[INFO] - [23-11-2025 14:34:33] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - REPORT PATH = C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports
-[INFO] - [23-11-2025 14:34:33] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - FULL FILE PATH = C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports\AllureReport_2025-11-23-14-34-33.html
-[INFO] - [23-11-2025 14:34:33] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - FILE EXISTS? true
-[INFO] - [23-11-2025 14:34:33] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - 🔥 Final Allure HTML report opened successfully
-[INFO] - [23-11-2025 14:34:33] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Allure Report Generated Successfully
-[INFO] - [23-11-2025 14:34:33] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Test Execution Finished ========

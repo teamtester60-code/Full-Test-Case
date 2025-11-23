@@ -1,0 +1,22 @@
+{
+    "Product": {
+   "name": "Men Tshirt",
+    "price": "Rs. 400",
+    "quantity": "1",
+    "total": "Rs. 400"
+  },
+
+
+  "Review": {
+    "name": "AutomationExercise",
+    "email": "AutomationExercise@example.com",
+    "review": "This is a great product!"
+  },
+   "messages" :
+  {
+    "cartAdded": "Your product has been added to cart.",
+    "reviewSuccess": "Thank you for your review."
+  }
+
+
+}

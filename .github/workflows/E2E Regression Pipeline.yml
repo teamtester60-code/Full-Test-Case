@@ -1,76 +1,64 @@
-name: E2E Regression
+name: E2E Regression Tests
 
+# يشتغل عند Push على main/master أو عند Pull Request
 on:
   push:
     branches:
       - main
+      - master
   pull_request:
     branches:
       - main
-  schedule:
-    - cron: '*/5 * * * *'
-  repository_dispatch:
-      types: [ trigger-tests ]
+      - master
 
 env:
   TARGET: "com.ferpfirstcode.tests.**"
 
-
 jobs:
-  Chrome_Linux_Test:
-    runs-on: ubuntu-latest
+  workflow-tests:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        browser: [Chrome, Edge]
+
     permissions:
       checks: write
+
     steps:
-      - name: checkout Code
+      # خطوة 1: سحب Main Repository
+      - name: Checkout Main Repository
         uses: actions/checkout@v6
 
-      - name: setup java
+      # خطوة 2: سحب Workflow Repository (Public Repo)
+      - name: Checkout Workflow Repository
+        uses: actions/checkout@v6
+        with:
+          repository: AhmedHassan1/Full-Test-Case
+          path: workflow-project
+
+      # خطوة 3: إعداد Java
+      - name: Setup Java
         uses: actions/setup-java@v5
         with:
-          distribution: 'temurin' # See 'Supported distributions' for available options
+          distribution: 'temurin'
           java-version: '17'
 
-      - name: setup maven
+      # خطوة 4: إعداد Maven
+      - name: Setup Maven
         uses: stCarolas/setup-maven@v5
         with:
           maven-version: 3.9.9
 
-      - name: Running Tests
-        continue-on-error: true
-        run: mvn -Dtest="${TARGET}" -DexecutionType="LocalHeadless"  -DbrowserType="Chrome" clean test
+      # خطوة 5: تشغيل اختبارات Workflow
+      - name: Run Workflow Automation
+        working-directory: workflow-project
+        continue-on-error: false  # فشل الاختبارات سيظهر مباشرة
+        run: mvn -Dtest="${TARGET}" -DexecutionType="LocalHeadless" -DbrowserType="${{ matrix.browser }}" clean test
 
+      # خطوة 6: رفع التقارير
       - name: Upload Test Results
         uses: actions/upload-artifact@v5
         with:
-          name: Chrome_Linux_Report
-          path: "test-output/reports/*.html"
-
-  Edge_Windows_Test:
-    runs-on: windows-latest
-    permissions:
-      checks: write
-    steps:
-      - name: checkout Code
-        uses: actions/checkout@v6
-
-      - name: setup java
-        uses: actions/setup-java@v5
-        with:
-          distribution: 'temurin' # See 'Supported distributions' for available options
-          java-version: '17'
-
-      - name: setup maven
-        uses: stCarolas/setup-maven@v5
-        with:
-          maven-version: 3.9.9
-
-      - name: Running Tests
-        continue-on-error: true
-        run: mvn -Dtest="${TARGET}" -DexecutionType="LocalHeadless"  -DbrowserType="Edge" clean test
-
-      - name: Upload Test Results
-        uses: actions/upload-artifact@v5
-        with:
-          name: Edge_Windows_Report
-          path: "test-output/reports/*.html"
+          name: ${{ matrix.browser }}_${{ matrix.os }}_Report
+          path: "workflow-project/test-output/reports/*.html"

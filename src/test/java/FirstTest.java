@@ -1,6 +1,7 @@
 import com.ferpfirstcode.utils.logs.LogsManager;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-
+@Listeners(com.ferpfirstcode.customlisteners.TestNGListeners.class)
 public class FirstTest extends BaseTest {
     @Test
     public void verifyLoginPageTitle() {

@@ -8,7 +8,7 @@ on:
     branches:
       - master
   schedule:
-    - cron: '*/30 * * * *'
+    - cron: '*/45 * * * *'
   workflow_dispatch:
 
 env:
@@ -21,7 +21,7 @@ jobs:
       checks: write
     steps:
       - name: checkout Code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: setup java
         uses: actions/setup-java@v5
@@ -30,7 +30,7 @@ jobs:
           java-version: '17'
 
       - name: setup maven
-        uses: stCarolas/setup-maven@v5
+        uses: stCarolas/setup-maven@v6
         with:
           maven-version: 3.9.9
 
@@ -39,7 +39,7 @@ jobs:
         run: mvn -Dtest="${TARGET}" -DexecutionType="LocalHeadless"  -DbrowserType="Chrome" clean test
 
       - name: Upload Test Results
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: Chrome_Linux_Report
           path: "test-output/reports/*.html"
@@ -50,16 +50,16 @@ jobs:
       checks: write
     steps:
       - name: checkout Code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: setup java
-        uses: actions/setup-java@v5
+        uses: actions/setup-java@v6
         with:
           distribution: 'temurin' # See 'Supported distributions' for available options
           java-version: '17'
 
       - name: setup maven
-        uses: stCarolas/setup-maven@v5
+        uses: stCarolas/setup-maven@v6
         with:
           maven-version: 3.9.9
 
@@ -68,7 +68,7 @@ jobs:
         run: mvn -Dtest="${TARGET}" -DexecutionType="LocalHeadless"  -DbrowserType="Edge" clean test
 
       - name: Upload Test Results
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: Edge_Windows_Report
           path: "test-output/reports/*.html"

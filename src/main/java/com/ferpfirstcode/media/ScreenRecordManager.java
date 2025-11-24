@@ -5,14 +5,14 @@ import com.automation.remarks.video.recorder.IVideoRecorder;
 import com.automation.remarks.video.recorder.VideoRecorder;
 import com.ferpfirstcode.utils.dataReader.PropertyReader;
 import com.ferpfirstcode.utils.logs.LogsManager;
-import ws.schild.jave.Encoder;
-import ws.schild.jave.EncoderException;
+import org.apache.commons.codec.EncoderException;
 import ws.schild.jave.MultimediaObject;
 import ws.schild.jave.encode.AudioAttributes;
 import ws.schild.jave.encode.EncodingAttributes;
 import ws.schild.jave.encode.VideoAttributes;
-
+import ws.schild.jave.Encoder;
 import java.io.File;
+import java.io.IOException;
 
 public class ScreenRecordManager {
     public final static String RECORDINGS_PATH = "test-output/recordings/";
@@ -79,14 +79,17 @@ public class ScreenRecordManager {
      */
     private static File encodeRecording(File sourceFile) {
         File targetFile = new File(sourceFile.getParent(), sourceFile.getName().replace(".avi", ".mp4"));
-        try {
 
+        try {
+            // Initialize audio attributes
             AudioAttributes audio = new AudioAttributes();
             audio.setCodec("aac"); // AAC audio codec
 
+            // Initialize video attributes
             VideoAttributes video = new VideoAttributes();
             video.setCodec("libx264"); // H.264 video codec
 
+            // Set encoding attributes
             EncodingAttributes encodingAttributes = new EncodingAttributes();
             encodingAttributes.setOutputFormat("mp4"); // Output format
             encodingAttributes.setAudioAttributes(audio);
@@ -94,16 +97,38 @@ public class ScreenRecordManager {
 
             // Encode the video
             Encoder encoder = new Encoder();
-            encoder.encode(new MultimediaObject(sourceFile), targetFile, encodingAttributes);
+            try {
+                encoder.encode(new MultimediaObject(sourceFile), targetFile, encodingAttributes);
 
-            // Delete the original .avi file after conversion
-            if (targetFile.exists()) {
-                sourceFile.delete();
-                LogsManager.info("Deleted original AVI file: " + sourceFile.getName());
+                // Verify the output file was created
+                if (targetFile.exists() && targetFile.length() > 0) {
+                    // Delete the original file only if conversion was successful
+                    if (sourceFile.delete()) {
+                        LogsManager.info("Successfully deleted original AVI file: " + sourceFile.getName());
+                    } else {
+                        LogsManager.warn("Could not delete original AVI file: " + sourceFile.getAbsolutePath());
+                    }
+                } else {
+                    throw new IOException("Failed to create output file or file is empty");
+                }
+
+            } catch (Exception e) {
+                // Log specific error details
+                LogsManager.error("Video conversion failed: " + e.getMessage());
+                // Delete the target file if it was partially created
+                if (targetFile.exists() && !targetFile.delete()) {
+                    LogsManager.warn("Failed to delete partially converted file: " + targetFile.getAbsolutePath());
+                }
+                // Re-throw as a runtime exception if needed
+                throw new RuntimeException("Video conversion failed", e);
             }
-        } catch (EncoderException e) {
-            LogsManager.error("Failed to convert video to MP4: " + e.getMessage());
+
+        } catch (Exception e) {
+            LogsManager.error("Error during video encoding process: " + e.getMessage(), e.getMessage());
+            // Return the source file if conversion fails
+            return sourceFile;
         }
+
         return targetFile;
     }
 }

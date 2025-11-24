@@ -15,80 +15,25 @@
         <allure.version>2.31.0</allure.version>
         <aspectj.version>1.9.25</aspectj.version>
     </properties>
-    <!--    <profiles>
-            <profile >
-                <id>testng</id>
-                <build>
-                    <directory>test-output/target</directory>
-                    <plugins>
-                        &lt;!&ndash; Add the following options to your maven-surefire-plugin &ndash;&gt;
-                        <plugin>
-                            <groupId>org.apache.maven.plugins</groupId>
-                            <artifactId>maven-surefire-plugin</artifactId>
-                            <version>3.5.4</version>
-                            <configuration>
-                                <argLine>
-                                    -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-                                </argLine>
-                            </configuration>
-                            <dependencies>
-                                <dependency>
-                                    <groupId>org.aspectj</groupId>
-                                    <artifactId>aspectjweaver</artifactId>
-                                    <version>${aspectj.version}</version>
-                                </dependency>
-                                <dependency>
-                                    <groupId>org.apache.maven.surefire</groupId>
-                                    <artifactId>surefire-testng</artifactId>
-                                    <version>3.5.4</version>
-                                </dependency>
-                            </dependencies>
-                        </plugin>
-                    </plugins>
-                </build>
-            </profile>
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
 
-            <profile >
-                <id>junit</id>
-                <build>
-                    <directory>test-output/target</directory>
-                    <plugins>
-                        &lt;!&ndash; Add the following options to your maven-surefire-plugin &ndash;&gt;
-                        <plugin>
-                            <groupId>org.apache.maven.plugins</groupId>
-                            <artifactId>maven-surefire-plugin</artifactId>
-                            <version>3.5.4</version>
-                            <configuration>
-                                <argLine>
-                                    -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-                                </argLine>
-                            </configuration>
-                            <dependencies>
-                                <dependency>
-                                    <groupId>org.aspectj</groupId>
-                                    <artifactId>aspectjweaver</artifactId>
-                                    <version>${aspectj.version}</version>
-                                </dependency>
-                                <dependency>
-                                    <groupId>org.apache.maven.surefire</groupId>
-                                    <artifactId>surefire-junit47</artifactId>
-                                    <version>3.5.4</version>
-                                </dependency>
-                            </dependencies>
-                        </plugin>
-                    </plugins>
-                </build>
-            </profile>
-        </profiles>-->
     <build>
         <directory>test-output/target</directory>
         <plugins>
-            <!-- Add the following options to your maven-surefire-plugin -->
+            <!-- Maven Surefire Plugin لتشغيل TestNG -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.5.4</version>
                 <configuration>
+                    <includes>
+                        <include>**/*Test.java</include>
+                    </includes>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
@@ -99,17 +44,18 @@
                         <artifactId>aspectjweaver</artifactId>
                         <version>${aspectj.version}</version>
                     </dependency>
+
+
                     <dependency>
                         <groupId>org.apache.maven.surefire</groupId>
                         <artifactId>surefire-testng</artifactId>
-                        <version>3.5.4</version>
+                        <version>3.5.3</version>
                     </dependency>
                 </dependencies>
             </plugin>
         </plugins>
     </build>
 
-    <!-- Add allure-bom to dependency management to ensure correct versions of all the dependencies are used -->
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -123,104 +69,90 @@
     </dependencyManagement>
 
     <dependencies>
-
-        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+        <!-- Selenium -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>4.38.0</version>
         </dependency>
         <dependency>
-    <groupId>org.seleniumhq.selenium</groupId>
-    <artifactId>selenium-edge-driver</artifactId>
-    <version>4.38.0</version>
-</dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-edge-driver</artifactId>
+            <version>4.38.0</version>
+        </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+        <!-- TestNG -->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>7.11.0</version>
             <scope>compile</scope>
         </dependency>
-        <!-- ... -->
+
+        <!-- JUnit (اختياري لو تستخدمه) -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>6.0.1</version> <!-- can be omitted when using the BOM -->
+            <version>6.0.1</version>
             <scope>compile</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+
+        <!-- Logging -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
             <version>2.25.2</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
             <version>2.25.2</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j2-impl -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-slf4j2-impl</artifactId>
             <version>2.25.2</version>
-            <scope>compile</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+
+        <!-- Utilities -->
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>2.21.0</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.jayway.jsonpath/json-path -->
         <dependency>
             <groupId>com.jayway.jsonpath</groupId>
             <artifactId>json-path</artifactId>
             <version>2.10.0</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
         <dependency>
             <groupId>com.googlecode.json-simple</groupId>
             <artifactId>json-simple</artifactId>
             <version>1.1.1</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
             <version>5.5.0</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
             <version>5.5.0</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
+
+        <!-- Allure -->
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjweaver</artifactId>
-            <version>${aspectj.version}</version>
         </dependency>
         <dependency>
             <groupId>com.github.automatedowl</groupId>
             <artifactId>allure-environment-writer</artifactId>
             <version>1.0.0</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/ws.schild/jave-all-deps -->
-        <dependency>
-            <groupId>ws.schild</groupId>
-            <artifactId>jave-all-deps</artifactId>
-            <version>3.5.0</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/com.automation-remarks/video-recorder-testng -->
+
+        <!-- Video Recorder -->
         <dependency>
             <groupId>com.automation-remarks</groupId>
             <artifactId>video-recorder-testng</artifactId>
@@ -240,23 +172,37 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <dependency>
-            <groupId>com.github.automatedowl</groupId>
-            <artifactId>allure-environment-writer</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
+
+        <!-- Jsoup -->
         <dependency>
             <groupId>org.jsoup</groupId>
             <artifactId>jsoup</artifactId>
             <version>1.21.2</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
+
+        <!-- REST Assured -->
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
             <version>5.5.6</version>
             <scope>compile</scope>
         </dependency>
+
+
+            <!-- تبعيات أخرى -->
+
+            <!-- JAVE for video processing -->
+        <dependency>
+            <groupId>ws.schild</groupId>
+            <artifactId>jave-core</artifactId>
+            <version>3.4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>ws.schild</groupId>
+            <artifactId>jave-nativebin-win64</artifactId>
+            <version>3.4.0</version>
+        </dependency>
+
     </dependencies>
+
 </project>

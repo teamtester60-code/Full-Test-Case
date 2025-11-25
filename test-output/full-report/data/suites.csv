@@ -1,3 +1,3 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","1196","verifyLoginPageTitle","Surefire suite","2025-11-24","passed","2025-11-24","FirstTest","Surefire test","FirstTest","verifyLoginPageTitle"
-"","13146","validLoginTC","Surefire suite","2025-11-24","passed","2025-11-24","LoginTest","Surefire test","LoginTest","validLoginTC"
+"","10671","validLoginTC","Surefire suite","2025-11-25","passed","2025-11-25","LoginTest","Surefire test","LoginTest","validLoginTC"
+"","1623","verifyLoginPageTitle","Surefire suite","2025-11-25","passed","2025-11-25","FirstTest","Surefire test","FirstTest","verifyLoginPageTitle"

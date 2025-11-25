@@ -3,8 +3,6 @@ stages:
 
 windows_edge_test:
   stage: test
-  tags:
-    - windows       # تأكد من أن الـ runner عنده هذا الـ tag
   script:
     - echo "تشغيل اختبارات Maven على Windows باستخدام Edge"
     - mvn clean test -DbrowserType="Edge"

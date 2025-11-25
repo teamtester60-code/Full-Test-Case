@@ -16,7 +16,6 @@ public class EdgeFactory extends AbstractDriver {
 
 
     private EdgeOptions getEdgeOptions() {
-        ;
         EdgeOptions options = new EdgeOptions();
         options.addArguments("--remote-allow-origins=*");
         options.addArguments("--disable-notifications");

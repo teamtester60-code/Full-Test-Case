@@ -13,29 +13,48 @@ public class ChromeFactory extends AbstractDriver {
 
     static {
         PropertyReader.loadProperties();
-    }   
+    }
 
 
     private ChromeOptions getChromeOptions() {
-        ;
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
-        options.addArguments("--disable-notifications");
-        options.addArguments("--start-maximized");
-        //  options.addExtensions(blurimageextensions);
-        switch (PropertyReader.getProperty("executionType")) {
-            case "localHeadless" -> options.addArguments("--headless=new");
-            case "Remote" -> {
+
+        // خيارات عامة
+        options.addArguments(
+                "--remote-allow-origins=*",
+                "--disable-notifications",
+                "--window-size=1920,1080" // بدلاً من start-maximized في headless
+        );
+
+        // قراءة نوع التنفيذ
+        String executionType = PropertyReader.getProperty("executionType");
+
+        switch (executionType) {
+            case "localHeadless" -> {
                 options.addArguments("--headless=new");
-                options.addArguments("--disable-gpu");
-                options.addArguments("--disable-extensions");
+                options.addArguments("--no-sandbox");          // مهم في CI/Docker
+                options.addArguments("--disable-dev-shm-usage"); // لتجنب مشاكل shared memory
             }
-
-
+            case "Remote" -> {
+                options.addArguments(
+                        "--headless=new",
+                        "--disable-gpu",
+                        "--disable-extensions",
+                        "--no-sandbox",
+                        "--disable-dev-shm-usage"
+                );
+            }
+            default -> {
+                // يمكن إضافة إعدادات خاصة بأنواع أخرى من التنفيذ
+            }
         }
+
+        // إذا كنت تحتاج إضافة Extensions
+        // options.addExtensions(blurimageextensions);
 
         return options;
     }
+
 
     @Override
     public WebDriver createDriver() {

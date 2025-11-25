@@ -1,0 +1,37 @@
+stages:
+  - test
+
+variables:
+  MAVEN_CLI_OPTS: "-B"
+
+# Job لتشغيل الاختبارات على Chrome
+test_chrome:
+  stage: test
+  image: maven:3.9.3-openjdk-21
+  variables:
+    BROWSER: "Chrome"
+  script:
+    - echo "Running tests on $BROWSER"
+    - mvn clean test -DbrowserType=$BROWSER
+  artifacts:
+    when: always
+    paths:
+      - target/surefire-reports/**/*.html
+      - target/surefire-reports/**/*.xml
+    expire_in: 1 week
+
+# Job لتشغيل الاختبارات على Edge
+test_edge:
+  stage: test
+  image: maven:3.9.3-openjdk-21
+  variables:
+    BROWSER: "Edge"
+  script:
+    - echo "Running tests on $BROWSER"
+    - mvn clean test -DbrowserType=$BROWSER
+  artifacts:
+    when: always
+    paths:
+      - target/surefire-reports/**/*.html
+      - target/surefire-reports/**/*.xml
+    expire_in: 1 week

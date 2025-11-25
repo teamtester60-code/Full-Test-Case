@@ -4,13 +4,15 @@ stages:
 variables:
   MAVEN_CLI_OPTS: "-B"
 
-maven_test:
+windows_edge_test:
   stage: test
-  image: maven:3.9.0-eclipse-temurin-17
+  tags:
+    - windows   # تأكد أن لديك Runner على Windows مع هذا tag
+  image: mcr.microsoft.com/windows/servercore:ltsc2022
   script:
-    - mvn clean test
+    - echo "تشغيل اختبارات Maven على Windows باستخدام Edge"
+    - mvn clean test -DbrowserType="Edge"
   artifacts:
     when: always
     paths:
-      - test-output/reports/**/*.html
-      - test-output/reports/**/*.xml
+      - test-output/reports/*.html

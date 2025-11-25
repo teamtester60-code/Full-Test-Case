@@ -7,13 +7,10 @@ variables:
   DISPLAY: ":99"
 
 before_script:
-  # تحديث الحزم الأساسية
-  - apt-get update && apt-get install -y wget unzip curl xvfb
+  # تحديث الحزم الأساسية وتثبيت الأدوات اللازمة
+  - apt-get update && apt-get install -y wget unzip curl xvfb google-chrome-stable
 
-  # تثبيت Google Chrome إذا لم يكن مثبتاً
-  - apt-get install -y google-chrome-stable
-
-  # معرفة نسخة Chrome الحالية
+  # الحصول على نسخة Chrome الحالية
   - CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+')
   - echo "Chrome version: $CHROME_VERSION"
 

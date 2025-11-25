@@ -1,0 +1,208 @@
+.ms-card {
+    background-color: #fff;
+    -webkit-box-shadow: 0 1px 6px 1px rgba(69, 65, 78, 0.1);
+    -moz-box-shadow: 0 1px 6px 1px rgba(69, 65, 78, 0.1);
+    box-shadow: 0 1px 6px 1px rgba(69, 65, 78, 0.1);
+    margin-bottom: 2rem;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  [class*="card-"] {
+    border: 0;
+  }
+  
+  [class*="card-"] .ms-card-body,
+  [class*="card-"]:not(.ms-card-fh) .ms-card-body p,
+  [class*="card-"]:not(.ms-card-fh) .ms-card-body h6,
+  [class*="card-gradient-"] .ms-card-body,
+  [class*="card-gradient-"]:not(.ms-card-fh) .ms-card-body p,
+  [class*="card-gradient-"]:not(.ms-card-fh) .ms-card-body h6 {
+    color: #fff;
+  }
+  
+  .ms-card.card-primary,
+  .ms-dark-theme .ms-card.card-primary {
+    background-color: #ff0018;
+  }
+  
+  .ms-card.card-secondary,
+  .ms-dark-theme .ms-card.card-secondary {
+    background-color: #374eae;
+  }
+  
+  .ms-card.card-success,
+  .ms-dark-theme .ms-card.card-success {
+    background-color: #07be6e;
+  }
+  
+  .ms-card.card-warning,
+  .ms-dark-theme .ms-card.card-warning {
+    background-color: #fda600;
+  }
+  
+  .ms-card.card-danger,
+  .ms-dark-theme .ms-card.card-danger {
+    background-color: #f9423c;
+  }
+  
+  .ms-card.card-info,
+  .ms-dark-theme .ms-card.card-info {
+    background-color: #4f8dca;
+  }
+  
+  .ms-card.card-dark,
+  .ms-dark-theme .ms-card.card-dark {
+    background-color: #262538;
+  }
+  
+  .ms-card.card-gradient-primary {
+    background-color: #ff0018;
+    background-image: linear-gradient(to right, #ff0018, #bc2634);
+  }
+  
+  .ms-card.card-gradient-secondary {
+    background-color: #000000;
+    background-image: linear-gradient(to right, #8f8f8fa6, #bc26341c);
+  }
+  
+  .ms-card.card-gradient-success {
+    background-color: #3fa243;
+    background-image: linear-gradient(to right, #3fa243, #59bc5d);
+  }
+  
+  .ms-card.card-gradient-warning {
+    background-color: #fea837;
+    background-image: linear-gradient(to right, #fea837, #fed257);
+  }
+  
+  .ms-card.card-gradient-danger {
+    background-color: #eb025d;
+    background-image: linear-gradient(to right, #eb025d, #fe4749);
+  }
+  
+  .ms-card.card-gradient-info {
+    background-color: #3e60ff;
+    background-image: linear-gradient(to right, #3e60ff, #5ba0fd);
+  }
+  
+  .ms-card.card-gradient-light {
+    background-color: #5f5f67;
+    background-image: linear-gradient(to right, #5f5f67, #858591);
+  }
+  
+  .ms-card.card-gradient-dark {
+    background-color: #252434;
+    background-image: linear-gradient(to right, #252434, #3a3850);
+  }
+  
+  .ms-card.card-facebook,
+  .ms-dark-theme .ms-card.card-facebook {
+    background-color: #3b5997;
+  }
+  
+  .ms-card.card-twitter,
+  .ms-dark-theme .ms-card.card-twitter {
+    background-color: #3da4f1;
+  }
+  
+  .ms-card.card-linkedin,
+  .ms-dark-theme .ms-card.card-linkedin {
+    background-color: #0177b5;
+  }
+  
+  .ms-card.card-instagram,
+  .ms-dark-theme .ms-card.card-instagram {
+    background: linear-gradient(to top right, #fa7e1e, #d82a74, #9a2ebc, #4f5bd5);
+  }
+  
+  .ms-card.ms-card-fh {
+    height: calc(100% - 2rem);
+  }
+  
+  .ms-card-header h6 {
+    margin-bottom: 0;
+    display: inline-block;
+  }
+  
+  .ms-card-header {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .ms-card-header .ms-btn-icon {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .ms-card-body,
+  .ms-card-footer {
+    position: relative;
+    padding: 1rem;
+    font-size: 14px;
+  }
+  
+  .ms-card-body h6 {
+    margin-bottom: 1rem;
+  }
+  
+  .ms-dark-theme .ms-card-body p {
+    color: #ffffff;
+  }
+  
+  .ms-card-body p {
+    color: #878793;
+  }
+  
+  .ms-card-footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .ms-card .ms-card-img img {
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+  }
+  
+  .ms-card .ms-card-body+.ms-card-img img {
+    border-radius: 0;
+  }
+  
+  .ms-card .ms-card-body>.media {
+    margin-bottom: 1rem;
+  }
+  
+  .ms-card .ms-card-body>.media h6 {
+    display: inline-block;
+    margin-bottom: 0;
+  }
+  
+  .ms-card .ms-card-body>.media img {
+    width: 50px;
+  }
+  
+  .ms-card .ms-card-body>.media i {
+    font-size: 18px;
+  }
+  
+  .ms-card .ms-card-options {
+    flex: 1;
+    text-align: center;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .ms-card .ms-card-options i {
+    margin-right: 5px;
+  }
+  
+  .ms-card .ms-card-options:last-child {
+    border-right: 0;
+  }
+  .card{
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border: 0;
+    margin: 0;
+    min-width: 100%;
+ }
+  

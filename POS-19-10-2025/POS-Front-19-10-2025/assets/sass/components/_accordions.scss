@@ -1,0 +1,158 @@
+
+/* Accordions */
+.card.editCard {
+    border: 1px solid #ccc !important;
+    border-radius: 5px !important;
+  }
+  
+
+  .accordion .card-header[aria-expanded="true"]::after {
+    content: "\e15b";
+  }
+  
+  .accordion .card-header[aria-expanded="false"]::after {
+    content: "\e145";
+  }
+  
+  .ms-accordion-chevron.accordion .card-header::after {
+    transition: 0.3s;
+    content: "\e313";
+  }
+  
+  .ms-accordion-chevron.accordion .card-header[aria-expanded="true"]::after {
+    transform: rotate(180deg);
+  }
+  
+  .ms-accordion-chevron.accordion .card-header[aria-expanded="false"]::after {
+    transform: rotate(0deg);
+  }
+  
+  .accordion .card-header span {
+    display: block;
+    vertical-align: inherit;
+    font-size: 14px;
+    max-width: 87%;
+    color: #3a3952;
+    font-weight: 600;
+  }
+  
+  .accordion .card-header span.has-icon {
+    margin-left: 40px;
+  }
+  
+  .accordion .card-header i::before {
+    font-size: 24px;
+  }
+  
+  .accordion .card-header.he i::before {
+    font-size: 16px !important;
+  }
+  
+  .accordion .card {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .accordion .card-body {
+    color: #878793;
+  }
+  
+  .accordion.has-gap .card-header {
+    border-radius: 3px 3px;
+  }
+  
+  .accordion.has-gap .card:first-of-type,
+  .accordion.has-gap .card:not(:first-of-type):not(:last-of-type) {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .accordion.has-gap .card {
+    margin-bottom: 1rem;
+  }
+  /*tax accordinate*/
+  .card.customClass , .panel.customClass {
+   
+    background: #4f8dca;
+    color: #fff ;
+
+}
+.panel-open{
+ .customClass .card-header{
+    background: #4f8dca;
+    
+  }
+  .btn.btn-link{
+    color: #fff ;
+  }
+}
+
+  .customClass .card-header{
+    background-color: #cce0f6;
+    border: 1px solid #4f8dca;
+  
+   }
+ 
+.customClass .panel-body {
+    background-color: #fff !important;
+    color: gray;
+}
+.card-header {
+    padding: 0 !important;
+}
+
+.btn.btn-link{
+  margin: 0;
+  font-size: 19px;
+  color: #4f8dca;
+  font-weight: 600;
+  letter-spacing: .1rem;
+    text-decoration: none !important;
+}
+.accordion .card-header:after {
+    font-family: 'FontAwesome';  
+    content: "\f068";
+    float: right; 
+}
+.accordion .card-header.collapsed:after {
+    /* symbol for "collapsed" panels */
+    content: "\f067"; 
+}
+
+.customClass{
+ .card-header{
+  position: relative;
+
+}
+.page-link {
+  position: relative;
+  display: block;
+  padding: 1rem 1.3rem;
+ } 
+ 
+}
+
+
+ .panel-collapse{
+   border: 1px solid #4f8dca;
+ }
+ .EditingCustomClass{
+  .card-body{
+    padding:0rem ;
+  }
+ }
+ .PageNumberAccord{
+    margin: 0 1rem;
+    color: #fff;
+    background-color: #4f8dca;
+    border-color: #4f8dca;
+    padding: .5rem;
+    text-align: center;
+
+ }
+.btn-link {
+  text-decoration: none !important;
+}
+.accordion-toggle{
+  .btn{
+    padding: .2rem;
+  }
+}

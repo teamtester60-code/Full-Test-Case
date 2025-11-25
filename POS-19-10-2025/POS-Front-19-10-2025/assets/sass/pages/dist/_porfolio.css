@@ -1,0 +1,15 @@
+.nav-tabs {
+  border-bottom: 1px solid #dee2e6 !important;
+}
+
+.labelUser {
+  color: gray !important;
+}
+
+.editMenu {
+  min-width: 8rem;
+}
+
+.welcomeImg {
+  background-repeat: repeat;
+}

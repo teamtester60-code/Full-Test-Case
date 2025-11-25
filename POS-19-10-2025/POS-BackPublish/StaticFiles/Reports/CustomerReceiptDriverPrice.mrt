@@ -1,0 +1,854 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Culture isNull="true" />
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="0" />
+    <DataSources isList="true" count="10">
+      <Branch Ref="2" type="DataTableSource" isKey="true">
+        <Alias>Branch</Alias>
+        <Columns isList="true" count="12">
+          <value>AddressDetails,System.String</value>
+          <value>DocumentId,System.String</value>
+          <value>FooterOne,System.String</value>
+          <value>FooterTwo,System.String</value>
+          <value>ForeignName,System.String</value>
+          <value>HeaderOne,System.String</value>
+          <value>HeaderTwo,System.String</value>
+          <value>Id,System.Int32</value>
+          <value>IsDefault,System.Boolean</value>
+          <value>Logo,System.Drawing.Image</value>
+          <value>Name,System.String</value>
+          <value>TaxNumber,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>d6aa1d4f27fb4ea5a3643251c294ee7c</Key>
+        <Name>Branch</Name>
+        <NameInSource>DynamicDataSource</NameInSource>
+      </Branch>
+      <Customer Ref="3" type="DataTableSource" isKey="true">
+        <Alias>Customer</Alias>
+        <Columns isList="true" count="2">
+          <value>Phone,System.String</value>
+          <value>TaxNo,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>1ac3c346deeb4fb78e36f45de8086114</Key>
+        <Name>Customer</Name>
+        <NameInSource>DynamicDataSource</NameInSource>
+      </Customer>
+      <CustomerAddress Ref="4" type="DataTableSource" isKey="true">
+        <Alias>CustomerAddress</Alias>
+        <Columns isList="true" count="6">
+          <value>Apartment,System.String</value>
+          <value>BuildingNumber,System.String</value>
+          <value>Description,System.String</value>
+          <value>Floor,System.String</value>
+          <value>StreetNumber,System.String</value>
+          <value>Zone,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>db4d5b07c8164c5d81b3f53a858efb85</Key>
+        <Name>CustomerAddress</Name>
+        <NameInSource>DynamicDataSource</NameInSource>
+      </CustomerAddress>
+      <ExtraItems Ref="5" type="DataTableSource" isKey="true">
+        <Alias>ExtraItems</Alias>
+        <Columns isList="true" count="4">
+          <value>Name,System.String</value>
+          <value>Price,System.Double</value>
+          <value>ProductIndex,System.Int32</value>
+          <value>Quantity,System.Double</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>e25326700d8d405980d5dd575cc47acb</Key>
+        <Name>ExtraItems</Name>
+        <NameInSource>DynamicDataSource</NameInSource>
+      </ExtraItems>
+      <InsuranceItems Ref="6" type="DataTableSource" isKey="true">
+        <Alias>InsuranceItems</Alias>
+        <Columns isList="true" count="5">
+          <value>Column,Column,System.Double,InsuranceItems.Price_x0020__x002A__x0020_InsuranceItems.Quantity</value>
+          <value>InsuranceDocumentId,System.String</value>
+          <value>InsuranceName,System.String</value>
+          <value>Price,System.Double</value>
+          <value>Quantity,System.Double</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>63e68eb770164f79866886332b64c9bd</Key>
+        <Name>InsuranceItems</Name>
+        <NameInSource>DynamicDataSource</NameInSource>
+      </InsuranceItems>
+      <OrderDetail Ref="7" type="DataTableSource" isKey="true">
+        <Alias>OrderDetail</Alias>
+        <Columns isList="true" count="15">
+          <value>ORIGINAL,DiscountAmount,DiscountAmount,DiscountAmount,System.Double,_x0032_a2ea4860cf749ae91fb758e4719421e</value>
+          <value>ORIGINAL,GroupName,GroupName,GroupName,System.String,_x0036_12e8f0d8d9a4860a1cb95d8cf081b2e</value>
+          <value>ORIGINAL,OrderDetailId,OrderDetailId,OrderDetailId,System.String,a6d17a8b901c4d259514d95e120c1f4c</value>
+          <value>ORIGINAL,OrderId,OrderId,OrderId,System.String,_x0036_ab288359a474806a7276d0e89b077e2</value>
+          <value>ORIGINAL,ProductFinalPrice,ProductFinalPrice,ProductFinalPrice,System.Double,c848149bda9040939361dbac88771c67</value>
+          <value>ORIGINAL,ProductId,ProductId,ProductId,System.Int32,_x0038_84831766e8244649c8fdda2df74456a</value>
+          <value>ProductIndex,System.Int32</value>
+          <value>ORIGINAL,ProductName,ProductName,ProductName,System.String,_x0037_b18593598384bbf8cc159fecbc01068</value>
+          <value>ORIGINAL,ProductPrice,ProductPrice,ProductPrice,System.Double,_x0032_b8b5ee53a454d148f7625afb3eef878</value>
+          <value>ORIGINAL,ProductQuantity,ProductQuantity,ProductQuantity,System.Double,_x0038_e69f519bcb84554ab4b34b7f097f7d9</value>
+          <value>ORIGINAL,RealPrice,RealPrice,RealPrice,System.Double,aeb295c926b641059f98be245e1b5be7</value>
+          <value>SubItemName,System.String</value>
+          <value>ORIGINAL,TaxAmount,TaxAmount,TaxAmount,System.Decimal,c5f0014e70794a7ba019e2450146df86</value>
+          <value>ORIGINAL,total,total,total,System.Single,_x0034_19abf13a92e49279b712cd61b34eee3</value>
+          <value>CALC,TotalPrice,TotalPrice,System.Double,_x0028_double_x0029_OrderDetail.ProductQuantity,_x0032_40a92531af64423a91f5f8592cec480</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>d7b258d780114268bc201f94d582939f</Key>
+        <Name>OrderDetail</Name>
+        <NameInSource>DynamicDataSource</NameInSource>
+      </OrderDetail>
+      <OrderDetailTaxes Ref="8" type="DataTableSource" isKey="true">
+        <Alias>OrderDetailTaxes</Alias>
+        <Columns isList="true" count="2">
+          <value>ORIGINAL,TaxAmount,TaxAmount,TaxAmount,System.Double,_x0038_830b54d41fc474f82b8fd9c97c47dcf</value>
+          <value>ORIGINAL,TaxName,TaxName,TaxName,System.String,a4fdaead96474fb8b8b98bdafab4899f</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>f4934d3f8fdb4b0c8c8ef19b9dbda954</Key>
+        <Name>OrderDetailTaxes</Name>
+        <NameInSource>DynamicDataSource</NameInSource>
+      </OrderDetailTaxes>
+      <OrderMaster Ref="9" type="DataTableSource" isKey="true">
+        <Alias>OrderMaster</Alias>
+        <Columns isList="true" count="49">
+          <value>ORIGINAL,CashierName,CashierName,CashierName,System.String,bdc05b0303ac4980b1e7a13620b2a0fe</value>
+          <value>ChannelName,System.String</value>
+          <value>ChannelOrderDisplayId,System.String</value>
+          <value>ORIGINAL,CloseDate,CloseDate,CloseDate,System.String,_x0035_e4710ee379f4fd0b4b1a73c57bbd4c4</value>
+          <value>ORIGINAL,ClosingUserName,ClosingUserName,ClosingUserName,System.String,ecb3fa94066b4af1bf4a865eb526b1ed</value>
+          <value>ORIGINAL,CreationTime,CreationTime,CreationTime,System.String,a6a0192cb5914d2d8522b3ebb08f46e9</value>
+          <value>ORIGINAL,CustomerName,CustomerName,CustomerName,System.String,_x0030_5a7ef64e01845c48756e42b218b542e</value>
+          <value>CustomerPhone,System.String</value>
+          <value>ORIGINAL,DeliveryPersonDeliveryPrice,DeliveryPersonDeliveryPrice,DeliveryPersonDeliveryPrice,System.Double,_x0035_f12b4c9f3dd4a08ab2c0198929d0869</value>
+          <value>ORIGINAL,DeliveryPrice,DeliveryPrice,DeliveryPrice,System.Double,e7f1c8ee92e74edcb487979a8df7835a</value>
+          <value>ORIGINAL,DetailsDiscount,DetailsDiscount,DetailsDiscount,System.Double,b8c81c68091b4c3d84738fb800e0e1dd</value>
+          <value>ORIGINAL,Discount,Discount,Discount,System.Double,_x0035_056a6a23cbc41f6bad65d1729251a8e</value>
+          <value>ORIGINAL,DiscountAmount,DiscountAmount,DiscountAmount,System.Double,_x0034_710c5b7e33545c9875cbbfa79778b17</value>
+          <value>ORIGINAL,DocumentId,DocumentId,DocumentId,System.String,_x0035_9cdfe7871a34494b632b8ff87888fc8</value>
+          <value>ORIGINAL,DriverName,DriverName,DriverName,System.String,_x0033_f0a74dcf20747f9b566870187e2ac7f</value>
+          <value>ORIGINAL,EmployeeName,EmployeeName,EmployeeName,System.String,ff3f583ab70343fc8779fcc5141257e2</value>
+          <value>ORIGINAL,HasMinimumCharge,HasMinimumCharge,HasMinimumCharge,System.Boolean,c9d094d3cdad4a89b505ca93477b7fb1</value>
+          <value>ORIGINAL,InsuranceNumber,InsuranceNumber,InsuranceNumber,System.Int32,_x0034_f78057ce54f4e2584313f344a5b7f38</value>
+          <value>IntegrationConfirmationId,System.String</value>
+          <value>minChargeTaxValue,System.Double</value>
+          <value>ORIGINAL,MinimumChargeDifferance,MinimumChargeDifferance,MinimumChargeDifferance,System.Double,_x0031_e5aa421c2d0494d9c280c4a7e506dfa</value>
+          <value>ORIGINAL,MinimumChargeValue,MinimumChargeValue,MinimumChargeValue,System.Double,_x0037_f5a787d08ca4c6d972d05ab07f5e5b5</value>
+          <value>ORIGINAL,NetTotal,NetTotal,NetTotal,System.Double,_x0035_9e0aac72555430da385998d32c1769d</value>
+          <value>ORIGINAL,NoteForOrder,NoteForOrder,NoteForOrder,System.String,d56d453c5ff24434831543164a5aa7c5</value>
+          <value>ORIGINAL,NoteForOrder,NoteForOrder,NoteForOrder,System.String,d56d453c5ff24434831543164a5aa7c5</value>
+          <value>ORIGINAL,OrderNumber,OrderNumber,OrderNumber,System.Int32,cf42e7877bb143c48d663c07a73af79b</value>
+          <value>ORIGINAL,OrderPayTypeName,OrderPayTypeName,OrderPayTypeName,System.String,_x0032_89b44e028a74b518f5aa0490f074450</value>
+          <value>ORIGINAL,OrderTypeName,OrderTypeName,OrderTypeName,System.String,_x0038_7f629da8fcd4b7e995493018757cfd8</value>
+          <value>Paid,System.Boolean</value>
+          <value>ORIGINAL,PayAmount,PayAmount,PayAmount,System.Double,_x0038_4608921a7f644eea8de5f3928eb8b94</value>
+          <value>ORIGINAL,PersonsCount,PersonsCount,PersonsCount,System.Double,_x0035_f04bf3777974cd38388ebead09218c2</value>
+          <value>ORIGINAL,QRCodeImage,QRCodeImage,QRCodeImage,System.String,_x0039_769b27e52414c91bd21ac491050eb5c</value>
+          <value>ORIGINAL,QRImage,QRImage,QRImage,System.String,c34f146218c7405a8010e0bdc4891550</value>
+          <value>ORIGINAL,RemainingAmount,RemainingAmount,RemainingAmount,System.Double,_x0030_08628cd4ce2424f84847702c17df6e1</value>
+          <value>ORIGINAL,RoundingFraction,RoundingFraction,RoundingFraction,System.Double,_x0039_1a4fcf3a8d24e9091e22762a0d5ea1b</value>
+          <value>ORIGINAL,ScheduledDate,ScheduledDate,ScheduledDate,System.String,f9f3de85c3bc4be7a6f8ec2435ceb469</value>
+          <value>ORIGINAL,SerialNumber,SerialNumber,SerialNumber,System.Int32,_x0036_c4138c381f04b45880770911d114135</value>
+          <value>ORIGINAL,ServiceChargePercentage,ServiceChargePercentage,ServiceChargePercentage,System.Double,a26a39782e9a45729399648f7378df39</value>
+          <value>ORIGINAL,ServiceChargeValue,ServiceChargeValue,ServiceChargeValue,System.Double,_x0030_03f359b08d94a28a7706cfde3d7ad29</value>
+          <value>ORIGINAL,SubTotal,SubTotal,SubTotal,System.Double,dc5acb671cb94be8b32d2ad968f2c29b</value>
+          <value>ORIGINAL,TableName,TableName,TableName,System.String,_x0032_fb11895467649f4b03ce19488fc5480</value>
+          <value>ORIGINAL,Total,Total,Total,System.Double,_x0030_94d52344f55406fa3aeaefffa03d9bb</value>
+          <value>ORIGINAL,TotalInsuranceAmount,TotalInsuranceAmount,TotalInsuranceAmount,System.Double,_x0035_38b7c406a0c4115a93d3e002722b4d3</value>
+          <value>ORIGINAL,TotalPayAmount,TotalPayAmount,TotalPayAmount,System.Double,e2f379d5458349558f9c9ea9377c21a5</value>
+          <value>ORIGINAL,TotalTaxAmount,TotalTaxAmount,TotalTaxAmount,System.Double,_x0031_251519c44904466ae5b9e0c0e92e58e</value>
+          <value>UUID,System.String</value>
+          <value>VerifiedByBoolean,System.Boolean</value>
+          <value>ORIGINAL,VerifiedByUserName,VerifiedByUserName,VerifiedByUserName,System.String,_x0034_299a306390448cb8bce2819298fef0a</value>
+          <value>ORIGINAL,WaiterName,WaiterName,WaiterName,System.String,_x0035_b51e26c28274074aee1eeb245a9d86d</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>7f9aa1261ae5465bb8a6f623048e3d37</Key>
+        <Name>OrderMaster</Name>
+        <NameInSource>DynamicDataSource</NameInSource>
+      </OrderMaster>
+      <OrderPayment Ref="10" type="DataTableSource" isKey="true">
+        <Alias>OrderPayment</Alias>
+        <Columns isList="true" count="5">
+          <value>Amount,System.Double</value>
+          <value>CustomerId,System.String</value>
+          <value>OrderId,System.String</value>
+          <value>PayAmount,System.Double</value>
+          <value>PayTypeName,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>16f4585c672e46609369c74b0be26ae2</Key>
+        <Name>OrderPayment</Name>
+        <NameInSource>DynamicDataSource</NameInSource>
+      </OrderPayment>
+      <Setting Ref="11" type="DataTableSource" isKey="true">
+        <Alias>Setting</Alias>
+        <Columns isList="true" count="4">
+          <value>PriceIncludesTax,System.Boolean</value>
+          <value>PrintSeparateInsuranceReport,System.Boolean</value>
+          <value>ShowQrCode,System.String</value>
+          <value>UseEInvoiceForKSA,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>2beef21d720f46078cd63374fdf79196</Key>
+        <Name>Setting</Name>
+        <NameInSource>DynamicDataSource</NameInSource>
+      </Setting>
+    </DataSources>
+    <Relations isList="true" count="0" />
+    <Report isRef="0" />
+    <Resources isList="true" count="0" />
+    <Variables isList="true" count="1">
+      <value>,orderid,orderid,,System.String,_x0036_0375ba480474c3e2063d045,False,False,False,False,,_x0032_8c30ce1352545ef841231cf33e62a37</value>
+    </Variables>
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <Key>c68975c647f04204af39b8c191013c7f</Key>
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="12" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="11">
+        <Text21 Ref="13" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>18.2,19.4,1.4,0.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Arial,10,Bold</Font>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text21</Name>
+          <Page isRef="12" />
+          <Parent isRef="12" />
+          <Text>{Customer.Phone}</Text>
+          <TextBrush>Black</TextBrush>
+          <VertAlignment>Center</VertAlignment>
+        </Text21>
+        <master Ref="14" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <CanShrink>True</CanShrink>
+          <ClientRectangle>0,0.4,7.4,1.74</ClientRectangle>
+          <Components isList="true" count="5">
+            <orderNumber Ref="15" type="Text" isKey="true">
+              <Alias>OrderNumber</Alias>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.2,0.4,2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>orderNumber</Name>
+              <Page isRef="12" />
+              <Parent isRef="14" />
+              <Text># OrderNumber :</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </orderNumber>
+            <Text1 Ref="16" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2.2,0.4,2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,16,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="12" />
+              <Parent isRef="14" />
+              <Text>{OrderMaster.OrderNumber}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text1>
+            <Text35 Ref="17" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4.4,0.4,3,0.51</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text35</Name>
+              <Page isRef="12" />
+              <Parent isRef="14" />
+              <Text>{OrderMaster.OrderTypeName}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text35>
+            <Text2 Ref="18" type="Text" isKey="true">
+              <Alias>Date</Alias>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.2,0.93,2,0.51</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Guid>2fb40734088e475b8a531575d4ebe570</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="12" />
+              <Parent isRef="14" />
+              <Text>Date :</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text2>
+            <Text5 Ref="19" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.2,0.93,4.2,0.51</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text5</Name>
+              <Page isRef="12" />
+              <Parent isRef="14" />
+              <Text>{OrderMaster.CloseDate}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="20" type="DateFormat" isKey="true">
+                <StringFormat>u</StringFormat>
+              </TextFormat>
+            </Text5>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName isNull="true" />
+          <DataSourceName>OrderMaster</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Name>master</Name>
+          <Page isRef="12" />
+          <Parent isRef="12" />
+          <Sort isList="true" count="0" />
+        </master>
+        <DataBand16 Ref="21" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,2.94,7.4,0.6</ClientRectangle>
+          <Components isList="true" count="2">
+            <Text63 Ref="22" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.4,0,3.5,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,14,Bold</Font>
+              <Guid>d7a599251d1b4f83aaf9de90fc2219e6</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text63</Name>
+              <Page isRef="12" />
+              <Parent isRef="21" />
+              <Text>{
+SumD(OrderMaster.DeliveryPersonDeliveryPrice)
++
+SumD(OrderMaster.DeliveryPrice)
+}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="23" type="NumberFormat" isKey="true">
+                <DecimalDigits>2</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalDigits</State>
+              </TextFormat>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text63>
+            <Text62 Ref="24" type="Text" isKey="true">
+              <Alias>DeliveryPrice</Alias>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.3,0,2.69,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Guid>955cee88226748009651f24fb363e5b5</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text62</Name>
+              <Page isRef="12" />
+              <Parent isRef="21" />
+              <Text>DeliveryPrice :</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text62>
+          </Components>
+          <Conditions isList="true" count="1">
+            <value>Multi&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;&lt;StiSerializer version="1.02" type="Net" application="State"&gt;&lt;Filters isList="true" count="2"&gt;&lt;value&gt;OrderMaster.DeliveryPrice,EqualTo,_x0030_,,Numeric&lt;/value&gt;&lt;value&gt;OrderMaster.DeliveryPersonDeliveryPrice,EqualTo,_x0030_,,Numeric&lt;/value&gt;&lt;/Filters&gt;&lt;Enabled&gt;False&lt;/Enabled&gt;&lt;TextColor&gt;Red&lt;/TextColor&gt;&lt;BackColor&gt;Transparent&lt;/BackColor&gt;&lt;Font&gt;Arial, 8pt&lt;/Font&gt;&lt;BorderSides&gt;None&lt;/BorderSides&gt;&lt;/StiSerializer&gt;</value>
+          </Conditions>
+          <DataRelationName isNull="true" />
+          <DataSourceName>OrderMaster</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Guid>0371e7855cbd49509bde9c3fafb32a48</Guid>
+          <Name>DataBand16</Name>
+          <Page isRef="12" />
+          <Parent isRef="12" />
+          <Sort isList="true" count="0" />
+        </DataBand16>
+        <CustomerName Ref="25" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <CanShrink>True</CanShrink>
+          <ClientRectangle>0,4.34,7.4,1.4</ClientRectangle>
+          <Components isList="true" count="4">
+            <Text4 Ref="26" type="Text" isKey="true">
+              <Alias>Customer</Alias>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.2,0.03,2.49,0.51</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Guid>154617f319ac40129e53c344c66e661f</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text4</Name>
+              <Page isRef="12" />
+              <Parent isRef="25" />
+              <Text>Customer</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text4>
+            <Text18 Ref="27" type="Text" isKey="true">
+              <Alias>Telephone</Alias>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.2,0.63,2.49,0.51</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Guid>0841593a78d94716a3e2ffa3a11abbff</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text18</Name>
+              <Page isRef="12" />
+              <Parent isRef="25" />
+              <Text>Telephone</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text18>
+            <Text19 Ref="28" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.2,0.03,3.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text19</Name>
+              <Page isRef="12" />
+              <Parent isRef="25" />
+              <Text>{OrderMaster.CustomerName}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text19>
+            <Text58 Ref="29" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.2,0.63,3.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text58</Name>
+              <Page isRef="12" />
+              <Parent isRef="25" />
+              <Text>{OrderMaster.CustomerPhone}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text58>
+          </Components>
+          <Conditions isList="true" count="1">
+            <value>_x007B_OrderMaster.CustomerName_x0020__x003D__x003D__x0020__x0022__x0022__x007D_,Red,Transparent,Arial_x002C_8,False,False,,,None</value>
+          </Conditions>
+          <DataRelationName isNull="true" />
+          <DataSourceName>OrderMaster</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Guid>a44b7938bf70436db87dcc0a4a1500fa</Guid>
+          <Name>CustomerName</Name>
+          <Page isRef="12" />
+          <Parent isRef="12" />
+          <Sort isList="true" count="0" />
+        </CustomerName>
+        <DriverName Ref="30" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <CanShrink>True</CanShrink>
+          <ClientRectangle>0,6.54,7.4,0.51</ClientRectangle>
+          <Components isList="true" count="2">
+            <Text17 Ref="31" type="Text" isKey="true">
+              <Alias>Driver</Alias>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.2,0,2.29,0.51</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Guid>fd89da77c04744cdae4dba0fb2db5243</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text17</Name>
+              <Page isRef="12" />
+              <Parent isRef="30" />
+              <Text>Driver :</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text17>
+            <Text16 Ref="32" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.2,0,4.42,0.51</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,11</Font>
+              <Guid>59aefac59c3d440d81e6b13da9074db5</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text16</Name>
+              <Page isRef="12" />
+              <Parent isRef="30" />
+              <Text>{OrderMaster.DriverName}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text16>
+          </Components>
+          <Conditions isList="true" count="1">
+            <value>_x007B_OrderMaster.DriverName_x003D__x003D__x0020__x0022__x0022__x007D_,Red,Transparent,Arial_x002C_8,False,False,,,None</value>
+          </Conditions>
+          <DataRelationName isNull="true" />
+          <DataSourceName>OrderMaster</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Guid>3a50e7dbb6b34e48bf2fe8883bfb56f1</Guid>
+          <Name>DriverName</Name>
+          <Page isRef="12" />
+          <Parent isRef="12" />
+          <Sort isList="true" count="0" />
+        </DriverName>
+        <DataBand28 Ref="33" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <CanShrink>True</CanShrink>
+          <ClientRectangle>0,7.85,7.4,0.62</ClientRectangle>
+          <Components isList="true" count="2">
+            <Text9 Ref="34" type="Text" isKey="true">
+              <Alias>CustomerAddress</Alias>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.2,-0.01,2.49,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Guid>8637a177331c40d78db4507bd30097d1</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text9</Name>
+              <Page isRef="12" />
+              <Parent isRef="33" />
+              <Text>CustomerAddress :</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text9>
+            <Text34 Ref="35" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.2,-0.01,4.6,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text34</Name>
+              <Page isRef="12" />
+              <Parent isRef="33" />
+              <Text>{CustomerAddress.Description }</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text34>
+          </Components>
+          <Conditions isList="true" count="1">
+            <value>_x007B_CustomerAddress.Description_x0020__x003D__x003D__x0020__x0022__x0022__x007D_,Red,Transparent,Arial_x002C_8,False,False,,,None</value>
+          </Conditions>
+          <DataRelationName isNull="true" />
+          <DataSourceName>OrderMaster</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Guid>1e7163697d7e4bdd855c01912e25f4a8</Guid>
+          <Name>DataBand28</Name>
+          <Page isRef="12" />
+          <Parent isRef="12" />
+          <Sort isList="true" count="0" />
+        </DataBand28>
+        <DataBand29 Ref="36" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <CanShrink>True</CanShrink>
+          <ClientRectangle>0,9.27,7.4,0.62</ClientRectangle>
+          <Components isList="true" count="2">
+            <Text14 Ref="37" type="Text" isKey="true">
+              <Alias>region</Alias>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.2,-0.03,2.49,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Guid>f16bc76751b2427b8ebefc7b55e09527</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text14</Name>
+              <Page isRef="12" />
+              <Parent isRef="36" />
+              <Text>Region :</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text14>
+            <Text23 Ref="38" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.2,0,4.2,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text23</Name>
+              <Page isRef="12" />
+              <Parent isRef="36" />
+              <Text>{CustomerAddress.Zone}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text23>
+          </Components>
+          <Conditions isList="true" count="1">
+            <value>_x007B_CustomerAddress.Zone_x0020__x003D__x003D__x0020__x0022__x0022__x007D_,Red,Transparent,Arial_x002C_8,False,False,,,None</value>
+          </Conditions>
+          <DataRelationName isNull="true" />
+          <DataSourceName>OrderMaster</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Guid>56a83ed3e59048aead8dafeb404ab50a</Guid>
+          <Name>DataBand29</Name>
+          <Page isRef="12" />
+          <Parent isRef="12" />
+          <Sort isList="true" count="0" />
+        </DataBand29>
+        <DataBand30 Ref="39" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <CanShrink>True</CanShrink>
+          <ClientRectangle>0,10.69,7.4,0.62</ClientRectangle>
+          <Components isList="true" count="2">
+            <Text32 Ref="40" type="Text" isKey="true">
+              <Alias>street</Alias>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.2,0,2.49,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Guid>94b567c28e7a40cb8af28538ac09fd88</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text32</Name>
+              <Page isRef="12" />
+              <Parent isRef="39" />
+              <Text>street :</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text32>
+            <Text20 Ref="41" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.2,0,4.2,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text20</Name>
+              <Page isRef="12" />
+              <Parent isRef="39" />
+              <Text>{CustomerAddress.StreetNumber}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text20>
+          </Components>
+          <Conditions isList="true" count="1">
+            <value>_x007B_CustomerAddress.StreetNumber_x0020__x003D__x003D__x0020__x0022__x0022__x007D_,Red,Transparent,Arial_x002C_8,False,False,,,None</value>
+          </Conditions>
+          <DataRelationName isNull="true" />
+          <DataSourceName>OrderMaster</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Guid>0b5633db6cd54e3eb5fe1038a1a3437f</Guid>
+          <Name>DataBand30</Name>
+          <Page isRef="12" />
+          <Parent isRef="12" />
+          <Sort isList="true" count="0" />
+        </DataBand30>
+        <DataBand31 Ref="42" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <CanShrink>True</CanShrink>
+          <ClientRectangle>0,12.11,7.4,0.62</ClientRectangle>
+          <Components isList="true" count="2">
+            <Text27 Ref="43" type="Text" isKey="true">
+              <Alias>Floor</Alias>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.2,0.13,2.49,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Guid>38aa66a93180422c8eccaf78ce34790f</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text27</Name>
+              <Page isRef="12" />
+              <Parent isRef="42" />
+              <Text>Floor :</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text27>
+            <Text6 Ref="44" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.2,0.13,4.2,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text6</Name>
+              <Page isRef="12" />
+              <Parent isRef="42" />
+              <Text>{CustomerAddress.Floor}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text6>
+          </Components>
+          <Conditions isList="true" count="1">
+            <value>_x007B_CustomerAddress.Floor_x0020__x003D__x003D__x0020__x0022__x0022__x007D_,Red,Transparent,Arial_x002C_8,False,False,,,None</value>
+          </Conditions>
+          <DataRelationName isNull="true" />
+          <DataSourceName>OrderMaster</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Guid>766c569832a64c319b9a51ec113a846b</Guid>
+          <Name>DataBand31</Name>
+          <Page isRef="12" />
+          <Parent isRef="12" />
+          <Sort isList="true" count="0" />
+        </DataBand31>
+        <DataBand32 Ref="45" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <CanShrink>True</CanShrink>
+          <ClientRectangle>0,13.53,7.4,0.62</ClientRectangle>
+          <Components isList="true" count="2">
+            <Text30 Ref="46" type="Text" isKey="true">
+              <Alias>Building</Alias>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.2,0.11,2.49,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Guid>972e18ea95de4ff6918ee7ded0f80fd9</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text30</Name>
+              <Page isRef="12" />
+              <Parent isRef="45" />
+              <Text>Building :</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text30>
+            <Text8 Ref="47" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.2,0.11,4.2,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text8</Name>
+              <Page isRef="12" />
+              <Parent isRef="45" />
+              <Text>{CustomerAddress.BuildingNumber}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text8>
+          </Components>
+          <Conditions isList="true" count="1">
+            <value>_x007B_CustomerAddress.BuildingNumber_x0020__x003D__x003D__x0020__x0022__x0022__x007D_,Red,Transparent,Arial_x002C_8,False,False,,,None</value>
+          </Conditions>
+          <DataRelationName isNull="true" />
+          <DataSourceName>OrderMaster</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Guid>c623ec9c2bd84aa8922cb8dd452a905d</Guid>
+          <Name>DataBand32</Name>
+          <Page isRef="12" />
+          <Parent isRef="12" />
+          <Sort isList="true" count="0" />
+        </DataBand32>
+        <DataBand33 Ref="48" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <CanShrink>True</CanShrink>
+          <ClientRectangle>0,14.95,7.4,0.62</ClientRectangle>
+          <Components isList="true" count="2">
+            <Text28 Ref="49" type="Text" isKey="true">
+              <Alias>Apartment</Alias>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.2,0.09,2.49,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Guid>9b2b66de921e483ba90a78531d93cb32</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text28</Name>
+              <Page isRef="12" />
+              <Parent isRef="48" />
+              <Text>Apartment :</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text28>
+            <Text7 Ref="50" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.2,0.09,4.2,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text7</Name>
+              <Page isRef="12" />
+              <Parent isRef="48" />
+              <Text>{CustomerAddress.Apartment}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text7>
+          </Components>
+          <Conditions isList="true" count="1">
+            <value>_x007B_CustomerAddress.Apartment_x0020__x003D__x003D__x0020__x0022__x0022__x007D_,Red,Transparent,Arial_x002C_8,False,False,,,None</value>
+          </Conditions>
+          <DataRelationName isNull="true" />
+          <DataSourceName>OrderMaster</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Guid>bc0c3a5b0a594904933b090ba3b20020</Guid>
+          <Name>DataBand33</Name>
+          <Page isRef="12" />
+          <Parent isRef="12" />
+          <Sort isList="true" count="0" />
+        </DataBand33>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>9c2d688fb56f4220989c2de3922e6d26</Guid>
+      <Margins>0,0.1,0,0</Margins>
+      <Name>Page1</Name>
+      <PageHeight>50</PageHeight>
+      <PageWidth>7.5</PageWidth>
+      <Report isRef="0" />
+      <UnlimitedBreakable>False</UnlimitedBreakable>
+    </Page1>
+  </Pages>
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>1/27/2025 5:08:53 PM</ReportChanged>
+  <ReportCreated>11/3/2020 8:52:40 PM</ReportCreated>
+  <ReportFile>f:\repos\pos_backend\pos.web\staticfiles\reports\customerreceiptdriverprice.mrt</ReportFile>
+  <ReportGuid>d3757ef3a487425a8bc8ef9a9592d045</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2020.2.3.0</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+</StiSerializer>

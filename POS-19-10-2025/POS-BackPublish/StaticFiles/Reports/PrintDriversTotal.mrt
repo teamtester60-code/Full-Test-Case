@@ -1,0 +1,468 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="0" />
+    <DataSources isList="true" count="1">
+      <PrintDriverDetail Ref="2" type="DataTableSource" isKey="true">
+        <Alias>PrintDriverDetail</Alias>
+        <Columns isList="true" count="8">
+          <value>DriverName,System.String</value>
+          <value>Count,System.Int32</value>
+          <value>PaidCount,System.Int32</value>
+          <value>ORIGINAL,PaidOrdersTotals,PaidOrdersTotals,PaidOrdersTotals,System.Decimal,_x0032_31332ef9deb480fa071d57e925e9d58</value>
+          <value>NotPaidCount,System.Int32</value>
+          <value>NotPaidOrdersTotals,System.Decimal</value>
+          <value>subTotal,System.Decimal</value>
+          <value>DeliveryPersonDeliveryPrice,System.Decimal</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>f7c2c254e89748c5b6553f67738f6159</Key>
+        <Name>PrintDriverDetail</Name>
+        <NameInSource>DynamicDataSource</NameInSource>
+      </PrintDriverDetail>
+    </DataSources>
+    <Relations isList="true" count="0" />
+    <Report isRef="0" />
+    <Resources isList="true" count="0" />
+    <Variables isList="true" count="1">
+      <value>,PrintedBy,PrintedBy,,System.String,,False,False,False,False</value>
+    </Variables>
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <Key>4a77a9c81ec84e50a694370778cf658c</Key>
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="3" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="4">
+        <HeaderTotalDrivers Ref="4" type="HeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,20.8,1.6</ClientRectangle>
+          <Components isList="true" count="1">
+            <HeaderTotalDrivers_Count Ref="5" type="Text" isKey="true">
+              <Alias>DriversTotalReport</Alias>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0.2,21,1.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,19,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderTotalDrivers_Count</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>التقرير التفصيلي للسائق</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderTotalDrivers_Count>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>HeaderTotalDrivers</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+        </HeaderTotalDrivers>
+        <HeaderPrintDriverDetail Ref="6" type="HeaderBand" isKey="true">
+          <Border>Top, Bottom;Black;1;Solid;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,2.8,20.8,0.8</ClientRectangle>
+          <Components isList="true" count="8">
+            <HeaderPrintDriverDetail_DriverName Ref="7" type="Text" isKey="true">
+              <Alias>DriverName</Alias>
+              <Border>Left;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,2.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderPrintDriverDetail_DriverName</Name>
+              <Page isRef="3" />
+              <Parent isRef="6" />
+              <Text>DriverName</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderPrintDriverDetail_DriverName>
+            <HeaderPrintDriverDetail_Count Ref="8" type="Text" isKey="true">
+              <Alias>OrdersCount</Alias>
+              <Border>Left;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2.6,0,2.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderPrintDriverDetail_Count</Name>
+              <Page isRef="3" />
+              <Parent isRef="6" />
+              <Text>Count</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderPrintDriverDetail_Count>
+            <HeaderPrintDriverDetail_PaidCount Ref="9" type="Text" isKey="true">
+              <Alias>PaidOrdersTotal</Alias>
+              <Border>Left;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.2,0,2.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderPrintDriverDetail_PaidCount</Name>
+              <Page isRef="3" />
+              <Parent isRef="6" />
+              <Text>PaidCount</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderPrintDriverDetail_PaidCount>
+            <HeaderPrintDriverDetail_PaidOrdersTotals Ref="10" type="Text" isKey="true">
+              <Alias>PaidOrdersTotal</Alias>
+              <Border>Left;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>7.8,0,2.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderPrintDriverDetail_PaidOrdersTotals</Name>
+              <Page isRef="3" />
+              <Parent isRef="6" />
+              <Text>PaidOrdersTotals</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderPrintDriverDetail_PaidOrdersTotals>
+            <HeaderPrintDriverDetail_NotPaidCount Ref="11" type="Text" isKey="true">
+              <Alias>NotPaid</Alias>
+              <Border>Left;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>10.4,0,2.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderPrintDriverDetail_NotPaidCount</Name>
+              <Page isRef="3" />
+              <Parent isRef="6" />
+              <Text>NotPaidCount</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderPrintDriverDetail_NotPaidCount>
+            <HeaderPrintDriverDetail_NotPaidOrdersTotals Ref="12" type="Text" isKey="true">
+              <Alias>NotPaidOrdersTotal</Alias>
+              <Border>Left;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>13,0,2.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderPrintDriverDetail_NotPaidOrdersTotals</Name>
+              <Page isRef="3" />
+              <Parent isRef="6" />
+              <Text>NotPaidOrdersTotals</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderPrintDriverDetail_NotPaidOrdersTotals>
+            <HeaderPrintDriverDetail_subTotal Ref="13" type="Text" isKey="true">
+              <Alias>Total</Alias>
+              <Border>Left;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>15.6,0,2.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderPrintDriverDetail_subTotal</Name>
+              <Page isRef="3" />
+              <Parent isRef="6" />
+              <Text>Total</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderPrintDriverDetail_subTotal>
+            <HeaderPrintDriverDetail_DeliveryPersonDeliveryPrice Ref="14" type="Text" isKey="true">
+              <Alias>DeliveryPersonPrice</Alias>
+              <Border>Left;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>18,0,2.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderPrintDriverDetail_DeliveryPersonDeliveryPrice</Name>
+              <Page isRef="3" />
+              <Parent isRef="6" />
+              <Text>DeliveryPersonPrice</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderPrintDriverDetail_DeliveryPersonDeliveryPrice>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>HeaderPrintDriverDetail</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+        </HeaderPrintDriverDetail>
+        <DataPrintDriverDetail Ref="15" type="DataBand" isKey="true">
+          <Border>Bottom;Black;1;Solid;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,4.4,20.8,0.8</ClientRectangle>
+          <Components isList="true" count="8">
+            <DataPrintDriverDetail_DriverName Ref="16" type="Text" isKey="true">
+              <Border>Left;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,2.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataPrintDriverDetail_DriverName</Name>
+              <Page isRef="3" />
+              <Parent isRef="15" />
+              <Text>{PrintDriverDetail.DriverName}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataPrintDriverDetail_DriverName>
+            <DataPrintDriverDetail_Count Ref="17" type="Text" isKey="true">
+              <Border>Left;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>2.6,0,2.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataPrintDriverDetail_Count</Name>
+              <Page isRef="3" />
+              <Parent isRef="15" />
+              <Text>{PrintDriverDetail.Count}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataPrintDriverDetail_Count>
+            <DataPrintDriverDetail_PaidCount Ref="18" type="Text" isKey="true">
+              <Border>Left;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>5.2,0,2.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataPrintDriverDetail_PaidCount</Name>
+              <Page isRef="3" />
+              <Parent isRef="15" />
+              <Text>{PrintDriverDetail.PaidCount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataPrintDriverDetail_PaidCount>
+            <DataPrintDriverDetail_PaidOrdersTotals Ref="19" type="Text" isKey="true">
+              <Border>Left;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>7.8,0,2.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataPrintDriverDetail_PaidOrdersTotals</Name>
+              <Page isRef="3" />
+              <Parent isRef="15" />
+              <Text>{PrintDriverDetail.PaidOrdersTotals}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataPrintDriverDetail_PaidOrdersTotals>
+            <DataPrintDriverDetail_NotPaidCount Ref="20" type="Text" isKey="true">
+              <Border>Left;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>10.4,0,2.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataPrintDriverDetail_NotPaidCount</Name>
+              <Page isRef="3" />
+              <Parent isRef="15" />
+              <Text>{PrintDriverDetail.NotPaidCount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataPrintDriverDetail_NotPaidCount>
+            <DataPrintDriverDetail_NotPaidOrdersTotals Ref="21" type="Text" isKey="true">
+              <Border>Left;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>13,0,2.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataPrintDriverDetail_NotPaidOrdersTotals</Name>
+              <Page isRef="3" />
+              <Parent isRef="15" />
+              <Text>{PrintDriverDetail.NotPaidOrdersTotals}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataPrintDriverDetail_NotPaidOrdersTotals>
+            <DataPrintDriverDetail_subTotal Ref="22" type="Text" isKey="true">
+              <Border>Left;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>15.6,0,2.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataPrintDriverDetail_subTotal</Name>
+              <Page isRef="3" />
+              <Parent isRef="15" />
+              <Text>{PrintDriverDetail.subTotal}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataPrintDriverDetail_subTotal>
+            <DataPrintDriverDetail_DeliveryPersonDeliveryPrice Ref="23" type="Text" isKey="true">
+              <Border>Left;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>18,0,2.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataPrintDriverDetail_DeliveryPersonDeliveryPrice</Name>
+              <Page isRef="3" />
+              <Parent isRef="15" />
+              <Text>{PrintDriverDetail.DeliveryPersonDeliveryPrice}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataPrintDriverDetail_DeliveryPersonDeliveryPrice>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataSourceName>PrintDriverDetail</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Name>DataPrintDriverDetail</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <Sort isList="true" count="0" />
+        </DataPrintDriverDetail>
+        <DataBand1 Ref="24" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,6,20.8,0.8</ClientRectangle>
+          <Components isList="true" count="2">
+            <Text1 Ref="25" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>15.6,0,2.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="3" />
+              <Parent isRef="24" />
+              <Text>{Sum(DataPrintDriverDetail,PrintDriverDetail.subTotal)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text1>
+            <Text2 Ref="26" type="Text" isKey="true">
+              <Alias>GrandTotal</Alias>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>13,0,2.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="3" />
+              <Parent isRef="24" />
+              <Text>Total</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text2>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName isNull="true" />
+          <Filters isList="true" count="0" />
+          <Name>DataBand1</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <Sort isList="true" count="0" />
+        </DataBand1>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>a7cc2d6ac1cb4ec6903fba36793085cb</Guid>
+      <Margins>0.1,0.1,0,0</Margins>
+      <Name>Page1</Name>
+      <PageHeight>29.7</PageHeight>
+      <PageWidth>21</PageWidth>
+      <PaperSize>A4</PaperSize>
+      <Report isRef="0" />
+    </Page1>
+  </Pages>
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>4/28/2025 4:43:02 PM</ReportChanged>
+  <ReportCreated>7/14/2021 12:27:43 PM</ReportCreated>
+  <ReportFile>f:\repos\pos_backend\pos.web\staticfiles\reports\printdriverstotal.mrt</ReportFile>
+  <ReportGuid>9fe771adffeb4df5a67abd0e61424d93</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2020.2.3.0</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+</StiSerializer>

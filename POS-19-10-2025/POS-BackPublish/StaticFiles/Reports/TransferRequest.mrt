@@ -1,0 +1,681 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="0" />
+    <DataSources isList="true" count="3">
+      <Branch Ref="2" type="DataTableSource" isKey="true">
+        <Alias>Branch</Alias>
+        <Columns isList="true" count="12">
+          <value>AddressDetails,System.String</value>
+          <value>DocumentId,System.String</value>
+          <value>FooterOne,System.String</value>
+          <value>FooterTwo,System.String</value>
+          <value>ForeignName,System.String</value>
+          <value>HeaderOne,System.String</value>
+          <value>HeaderTwo,System.String</value>
+          <value>Id,System.Int32</value>
+          <value>IsDefault,System.Boolean</value>
+          <value>Logo,System.Drawing.Image</value>
+          <value>Name,System.String</value>
+          <value>TaxNumber,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>d6aa1d4f27fb4ea5a3643251c294ee7c</Key>
+        <Name>Branch</Name>
+        <NameInSource>DynamicDataSource</NameInSource>
+      </Branch>
+      <TransferRequest Ref="3" type="Stimulsoft.Report.Dictionary.StiUserSource" isKey="true">
+        <Alias>TransferRequest</Alias>
+        <Columns isList="true" count="6">
+          <value>ORIGINAL,DocumentNumber,DocumentNumber,DocumentNumber,System.String,_x0039_54de895e2684b5faf74640379638186</value>
+          <value>ORIGINAL,Description,Description,Description,System.String,_x0031_bbee52919a84fd4971322792edbf35f</value>
+          <value>ORIGINAL,FromStockName,FromStockName,FromStockName,System.String,_x0039_984e65ba9594ef686213de9041164c0</value>
+          <value>ORIGINAL,CostCenterName,CostCenterName,CostCenterName,System.String,ea8010f924a744aaaf8b396a375c1262</value>
+          <value>ORIGINAL,ToStockName,ToStockName,ToStockName,System.String,_x0039_2c7e1cf64cd479cb28110ca02f6ce82</value>
+          <value>DocumentDate,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>f7b10aa47def4c3f94ce14eb2f6fd9c5</Key>
+        <Name>TransferRequest</Name>
+        <NameInSource>DynamicDataSource</NameInSource>
+      </TransferRequest>
+      <Details Ref="4" type="Stimulsoft.Report.Dictionary.StiUserSource" isKey="true">
+        <Alias>Details</Alias>
+        <Columns isList="true" count="4">
+          <value>ItemName,System.String</value>
+          <value>UnitName,System.String</value>
+          <value>Quantity,System.Double</value>
+          <value>Description,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>b5b759c562f44e01a6affae8d80832a4</Key>
+        <Name>Details</Name>
+        <NameInSource>DynamicDataSource</NameInSource>
+      </Details>
+    </DataSources>
+    <Relations isList="true" count="0" />
+    <Report isRef="0" />
+    <Resources isList="true" count="0" />
+    <Variables isList="true" count="1">
+      <value>,orderid,orderid,,System.String,_x0036_0375ba480474c3e2063d045,False,False,False,False,,_x0032_8c30ce1352545ef841231cf33e62a37</value>
+    </Variables>
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <Key>c68975c647f04204af39b8c191013c7f</Key>
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="5" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="8">
+        <Text3 Ref="6" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <CanGrow>True</CanGrow>
+          <ClientRectangle>3.4,-3.4,7.4,0.8</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Viner Hand ITC,20</Font>
+          <Guid>3f6154837efe42a7af57ab98253665f2</Guid>
+          <HorAlignment>Center</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text3</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+          <Text>{Branch.Name}</Text>
+          <TextBrush>Black</TextBrush>
+          <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+          <Type>DataColumn</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text3>
+        <DataPOSBranches Ref="7" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,7.4,4.6</ClientRectangle>
+          <Components isList="true" count="3">
+            <DataPOSBranches_Name Ref="8" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0.2,3,7.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Berlin Sans FB Demi,20</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataPOSBranches_Name</Name>
+              <Page isRef="5" />
+              <Parent isRef="7" />
+              <Text>{Branch.Name}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </DataPOSBranches_Name>
+            <Image7 Ref="9" type="Image" isKey="true">
+              <AspectRatio>True</AspectRatio>
+              <Border>None;[43:43:43];1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,7.2,2.83</ClientRectangle>
+              <ComponentPlacement>ph.PageHeaderBand1</ComponentPlacement>
+              <Conditions isList="true" count="0" />
+              <DataColumn>Branch.Logo</DataColumn>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Image7</Name>
+              <Page isRef="5" />
+              <Parent isRef="7" />
+              <Stretch>True</Stretch>
+              <VertAlignment>Center</VertAlignment>
+            </Image7>
+            <Text1 Ref="10" type="Text" isKey="true">
+              <Alias>ItemTransferRequest</Alias>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.2,4,7,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Berlin Sans FB Demi,18,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="5" />
+              <Parent isRef="7" />
+              <Text>ItemTransferRequest</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text1>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName isNull="true" />
+          <Filters isList="true" count="0" />
+          <Name>DataPOSBranches</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+          <Sort isList="true" count="0" />
+        </DataPOSBranches>
+        <master Ref="11" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <CanShrink>True</CanShrink>
+          <ClientRectangle>0,5.8,7.4,3.34</ClientRectangle>
+          <Components isList="true" count="10">
+            <TransferStock Ref="12" type="Text" isKey="true">
+              <Alias>TransferStock</Alias>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,1.37,3.2,0.51</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>_x007B_OrderPayment.Count_x0020__x003E__x0020_1_x007D_,Red,Transparent,Arial_x002C_8,False,False,,,None</value>
+              </Conditions>
+              <Font>Arial,10,Bold</Font>
+              <Guid>fc567da8eb9f45eb8f1332b1bbea2bb3</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>TransferStock</Name>
+              <Page isRef="5" />
+              <Parent isRef="11" />
+              <Text>مخزن التحويل</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </TransferStock>
+            <Text2 Ref="13" type="Text" isKey="true">
+              <Alias>ReceivingStock</Alias>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,1.93,3.2,0.51</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Guid>2fb40734088e475b8a531575d4ebe570</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="5" />
+              <Parent isRef="11" />
+              <Text>مخزن الاستلام:</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text2>
+            <Text73 Ref="14" type="Text" isKey="true">
+              <Alias>DocumentNumber</Alias>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,3.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Guid>abca6ff86b69453591271a398027ddb7</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text73</Name>
+              <Page isRef="5" />
+              <Parent isRef="11" />
+              <Text>رقم الوثيقه</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text73>
+            <Text5 Ref="15" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.4,0,3.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text5</Name>
+              <Page isRef="5" />
+              <Parent isRef="11" />
+              <Text>{TransferRequest.DocumentNumber}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text5>
+            <Text6 Ref="16" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.4,1.2,3.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text6</Name>
+              <Page isRef="5" />
+              <Parent isRef="11" />
+              <Text>{TransferRequest.FromStockName}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text6>
+            <Text7 Ref="17" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.4,1.8,3.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text7</Name>
+              <Page isRef="5" />
+              <Parent isRef="11" />
+              <Text>{TransferRequest.ToStockName}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text7>
+            <Text8 Ref="18" type="Text" isKey="true">
+              <Alias>CostCenter</Alias>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,2.4,3.2,0.51</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Guid>13e9f4e74f2d45c1a87398aadcc2a841</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text8</Name>
+              <Page isRef="5" />
+              <Parent isRef="11" />
+              <Text>مركز التكلفه:</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text8>
+            <Text11 Ref="19" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.4,2.4,3.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text11</Name>
+              <Page isRef="5" />
+              <Parent isRef="11" />
+              <Text>{TransferRequest.CostCenterName}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text11>
+            <Text4 Ref="20" type="Text" isKey="true">
+              <Alias>DocumentDate</Alias>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0.6,3.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Guid>132b81f2763b4a209049404d32691f89</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text4</Name>
+              <Page isRef="5" />
+              <Parent isRef="11" />
+              <Text>تاريخ الوثيقه</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text4>
+            <Text12 Ref="21" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.4,0.6,3.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text12</Name>
+              <Page isRef="5" />
+              <Parent isRef="11" />
+              <Text>{TransferRequest.DocumentDate}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+            </Text12>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName isNull="true" />
+          <DataSourceName>OrderMaster</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Name>master</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+          <Sort isList="true" count="0" />
+        </master>
+        <HeadervwOrderDetail Ref="22" type="HeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,9.94,7.4,0.8</ClientRectangle>
+          <Components isList="true" count="4">
+            <HeadervwOrderDetail_DiscountAmount Ref="23" type="Text" isKey="true">
+              <Alias>Quantity</Alias>
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[231:231:231]</Brush>
+              <ClientRectangle>1.8,0,1.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeadervwOrderDetail_DiscountAmount</Name>
+              <Page isRef="5" />
+              <Parent isRef="22" />
+              <Text>الكميه</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeadervwOrderDetail_DiscountAmount>
+            <Item Ref="24" type="Text" isKey="true">
+              <Alias>Item</Alias>
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[231:231:231]</Brush>
+              <ClientRectangle>5,0,2.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Item</Name>
+              <Page isRef="5" />
+              <Parent isRef="22" />
+              <Text>الصنف</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Item>
+            <Unit Ref="25" type="Text" isKey="true">
+              <Alias>Unit</Alias>
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[231:231:231]</Brush>
+              <ClientRectangle>3.2,0,1.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Unit</Name>
+              <Page isRef="5" />
+              <Parent isRef="22" />
+              <Text> الوحده</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Unit>
+            <Description Ref="26" type="Text" isKey="true">
+              <Alias>Description</Alias>
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[231:231:231]</Brush>
+              <ClientRectangle>0,0,1.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Description</Name>
+              <Page isRef="5" />
+              <Parent isRef="22" />
+              <Text>الوصف</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Description>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>HeadervwOrderDetail</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+        </HeadervwOrderDetail>
+        <DataBand8 Ref="27" type="DataBand" isKey="true">
+          <Border>All;Black;1;Solid;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <CanShrink>True</CanShrink>
+          <ClientRectangle>0,11.54,7.4,0.5</ClientRectangle>
+          <Components isList="true" count="4">
+            <Text43 Ref="28" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>3.2,0,1.8,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9,Bold</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text43</Name>
+              <Page isRef="5" />
+              <Parent isRef="27" />
+              <Text>{Details.UnitName}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text43>
+            <Text44 Ref="29" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>5,0,2.4,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8,Bold</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text44</Name>
+              <Page isRef="5" />
+              <Parent isRef="27" />
+              <Text>{Details.ItemName}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text44>
+            <Text45 Ref="30" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>1.8,0,1.4,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9,Bold</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text45</Name>
+              <Page isRef="5" />
+              <Parent isRef="27" />
+              <Text>{Details.Quantity}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="31" type="NumberFormat" isKey="true">
+                <DecimalDigits>2</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalDigits</State>
+              </TextFormat>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text45>
+            <Text37 Ref="32" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,1.8,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9,Bold</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text37</Name>
+              <Page isRef="5" />
+              <Parent isRef="27" />
+              <Text>{Details.Description}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text37>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName isNull="true" />
+          <DataSourceName>Details</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Name>DataBand8</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+          <Sort isList="true" count="0" />
+        </DataBand8>
+        <Cashier Ref="33" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <CanShrink>True</CanShrink>
+          <ClientRectangle>0,12.84,7.4,1.21</ClientRectangle>
+          <Components isList="true" count="3">
+            <Text9 Ref="34" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2.5,0,4.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial Narrow,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text9</Name>
+              <Page isRef="5" />
+              <Parent isRef="33" />
+              <Text>{OrderMaster.CashierName}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text9>
+            <Text10 Ref="35" type="Text" isKey="true">
+              <Alias>CashierName</Alias>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.1,0,2.29,1.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial Narrow,10,Bold</Font>
+              <Guid>eda14d035258491fb747d209a75ab461</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text10</Name>
+              <Page isRef="5" />
+              <Parent isRef="33" />
+              <Text>Cashier Name :</Text>
+              <TextBrush>Red</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text10>
+            <Text36 Ref="36" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2.5,0.51,4.8,0.51</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text36</Name>
+              <Page isRef="5" />
+              <Parent isRef="33" />
+              <Text>{Time}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>SystemVariables</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text36>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName isNull="true" />
+          <Filters isList="true" count="0" />
+          <Name>Cashier</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+          <Sort isList="true" count="0" />
+        </Cashier>
+        <DataBand10 Ref="37" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,14.85,7.4,0.8</ClientRectangle>
+          <Components isList="true" count="1">
+            <Text33 Ref="38" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,7.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,14,Bold</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Guid>657f7d74ecff4a2293db9cbe4b433781</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text33</Name>
+              <Page isRef="5" />
+              <Parent isRef="37" />
+              <Text>{Branch.FooterOne}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text33>
+          </Components>
+          <Conditions isList="true" count="1">
+            <value>Branch.FooterOne,IsNull,,,String,Red,Transparent,Arial_x002C_8,False,False,,,None</value>
+          </Conditions>
+          <DataRelationName isNull="true" />
+          <Filters isList="true" count="0" />
+          <Guid>bb4cdedbd67c457ea0958a4d2bdddedd</Guid>
+          <Name>DataBand10</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+          <Sort isList="true" count="0" />
+        </DataBand10>
+        <DataBand9 Ref="39" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,16.45,7.4,0.8</ClientRectangle>
+          <Components isList="true" count="1">
+            <Text31 Ref="40" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,7.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,14,Bold</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Guid>e6a57e75cb9c4f4ab5c8dee459728d1c</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text31</Name>
+              <Page isRef="5" />
+              <Parent isRef="39" />
+              <Text>{Branch.FooterTwo}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text31>
+          </Components>
+          <Conditions isList="true" count="1">
+            <value>Branch.FooterTwo,IsNull,,,String,Red,Transparent,Arial_x002C_8,False,False,,,None</value>
+          </Conditions>
+          <DataRelationName isNull="true" />
+          <Filters isList="true" count="0" />
+          <Guid>426f502b64464ebb987809062be1482a</Guid>
+          <Name>DataBand9</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+          <Sort isList="true" count="0" />
+        </DataBand9>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>9c2d688fb56f4220989c2de3922e6d26</Guid>
+      <Margins>0,0.1,0,0</Margins>
+      <Name>Page1</Name>
+      <PageHeight>50</PageHeight>
+      <PageWidth>7.5</PageWidth>
+      <Report isRef="0" />
+      <UnlimitedBreakable>False</UnlimitedBreakable>
+    </Page1>
+  </Pages>
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>6/27/2022 6:52:14 PM</ReportChanged>
+  <ReportCreated>11/3/2020 8:52:40 PM</ReportCreated>
+  <ReportFile>C:\Users\alhas\source\repos\POS-Restaurants\Backend\POS.Web\StaticFiles\Reports\TransferRequest.mrt</ReportFile>
+  <ReportGuid>a194048b9ea24e738a78943dc4dae252</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2020.2.3.0</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+</StiSerializer>

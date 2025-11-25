@@ -1,0 +1,1045 @@
+.btnShiftOpen {
+  width: 130px !important;
+  box-sizing: border-box;
+  font-size: 16px;
+  background-color: #00c9b7 !important;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  color: #fff !important;
+  border: none;
+  clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 0 53%, 0% 0%);
+}
+
+.btnShiftClosed {
+  width: 130px !important;
+  box-sizing: border-box;
+  font-size: 16px;
+  background-color: #ff0018 !important;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+  position: fixed;
+  top: 60%;
+  left: 0;
+  color: #fff !important;
+  border: none;
+  clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 0 53%, 0% 0%);
+}
+
+.main-header {
+  position: relative;
+  background-image: linear-gradient(to right top, #38438b, #944b94, #d75a88, #ff7e71, #ffb25f, #ffeb68);
+  clip-path: polygon(0 0, 100% 0, 100% 74%, 0 90%);
+  height: 340px;
+}
+
+.bgAll {
+  background-color: #fdfdfc9a;
+}
+
+/*header style*/
+.editshapImg {
+  padding: 17px;
+}
+
+.shapImg {
+  width: 22rem;
+  height: 14rem;
+  margin: auto;
+}
+
+.logoImg {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.logoImg img.logoHome {
+  width: 5rem !important;
+  height: 5rem !important;
+}
+
+.restaurantName7 {
+  padding-right: 0rem;
+  color: #fff !important;
+  font-weight: 600;
+  font-family: "Roboto", cursive;
+  text-shadow: 0.1rem 0.1rem 0.1rem #445373;
+  font-size: 2.2rem !important;
+  position: relative;
+  display: inline-block;
+  padding: 10px;
+}
+
+.restaurantName7::before {
+  content: "";
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-top: 7px solid #fff;
+  border-left: 7px solid #fff;
+}
+
+.restaurantName7::after {
+  content: "";
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-bottom: 7px solid #fff;
+  border-right: 7px solid #fff;
+}
+
+.containerEdit {
+  max-width: 1170px;
+  margin: auto;
+}
+
+.rowEdit {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/*end header style*/
+/*team-section*/
+.team-section {
+  min-height: 100%;
+  /* background-color: #19222e; */
+  background-color: #fff;
+  padding-top: 30px;
+}
+
+.team-section button.cardEdit {
+  width: calc((100% / 6) - 12px);
+  margin: 0 15px 10px;
+  padding: 10px 0 0;
+  position: relative;
+  background-color: transparent;
+  border: transparent;
+}
+
+.team-section .cardEdit-img {
+  width: 150px;
+  height: 150px;
+  margin: auto;
+  border-radius: 50%;
+  transition: box-shadow 0.3s ease;
+  border: 5px solid transparent;
+  cursor: pointer;
+}
+
+.team-section button.cardEdit:focus .cardEdit-img {
+  border: 5px solid transparent;
+  cursor: pointer !important;
+}
+
+.team-section .cardEdit-img img {
+  border-radius: 50%;
+  margin: auto;
+}
+
+.cardEdit-img {
+  display: flex;
+  justify-content: center;
+}
+
+.cardEdit-img .ms-panel {
+  border-radius: 50%;
+  border: transparent !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  cursor: pointer;
+}
+
+.cardEdit-img .ms-panel .ms-panel-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.media-body h5 {
+  padding: 0.5rem;
+  color: #ffff;
+  font-weight: 700;
+}
+
+.team-section .cardEdit-info {
+  padding: 5px;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  bottom: 100%;
+  width: 100%;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.team-section button.cardEdit:focus .cardEdit-info {
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.team-section .cardEdit-info::before {
+  content: "";
+  position: absolute;
+  left: calc(50% - 20px);
+  top: 100%;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+}
+
+.team-section .cardEdit-info.transactionInfo::before {
+  content: "";
+  position: absolute;
+  left: -45px;
+  top: 80%;
+  border-right: 20px solid #d75a88;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+}
+
+.team-section .cardEdit-info.transactionInfo {
+  padding: 5px;
+  text-align: center;
+  position: absolute;
+  left: 96%;
+  bottom: 0%;
+  width: 100%;
+  z-index: 55;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.team-section .cardEdit-info.InputsInfo::before {
+  content: "";
+  position: absolute;
+  left: -45px;
+  top: 80%;
+  border-right: 20px solid #38438b;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+}
+
+.team-section .cardEdit-info.InputsInfo {
+  padding: 5px;
+  text-align: center;
+  position: absolute;
+  left: 96%;
+  bottom: 0%;
+  width: 100%;
+  z-index: 55;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.team-section .cardEdit-info .cardEdit-infoU ul li {
+  padding: 12px;
+}
+
+.team-section .cardEdit-info .cardEdit-infoU ul li:not(:last-child) {
+  border-bottom: #ddd 1px solid;
+}
+
+.team-section .cardEdit-info .cardEdit-infoU ul li:hover {
+  background-color: #fff;
+}
+
+.team-section .cardEdit-info .cardEdit-infoU a {
+  color: #fff !important;
+  font-size: 1.2rem;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.team-section .cardEdit-info .cardEdit-infoU img {
+  width: 25px;
+}
+
+/********* bg color **********/
+/*bg1*/
+.cardEdit-img .ms-panel.bg1 {
+  background-color: #944b94;
+}
+
+.team-section button.cardEdit.bg1:hover .cardEdit-img {
+  box-shadow: 0 0 10px rgba(148, 75, 148, 0.5);
+}
+
+.team-section button.cardEdit.bg1 .cardEdit-img {
+  box-shadow: 0 0 10px rgba(148, 75, 148, 0.5);
+}
+
+.cardEdit-img .ms-panel.bg1 .mainIcon {
+  color: #944b94 !important;
+}
+
+.bg1 .cardEdit-info {
+  box-shadow: 0 0 10px rgba(148, 75, 148, 0.5);
+  border: 5px solid transparent;
+  background-color: #944b94;
+  color: #fff;
+}
+
+.bg1 .cardEdit-info::before {
+  border-top: 20px solid #944b94;
+}
+
+.team-section .bg1 .cardEdit-info .cardEdit-infoU ul li:hover a {
+  color: #944b94 !important;
+}
+
+@media (max-width: 991px) {
+  button.cardEdit.bg1 {
+    background-color: #944b94 !important;
+  }
+
+  .cardEdit-img .ms-panel.bg1 {
+    background-color: #fff;
+  }
+
+  .bg1 .cardEdit-info {
+    box-shadow: 0 0 10px rgba(148, 75, 148, 0.5);
+    border: 5px solid transparent;
+    background-color: #fff;
+    color: #fff;
+  }
+
+  .team-section .bg1 .cardEdit-info .cardEdit-infoU ul li a {
+    color: #944b94 !important;
+  }
+
+  .bg1 .ms-panel-body .media-body h5 {
+    padding: 0.5rem;
+    color: #944b94 !important;
+    font-family: "Roboto", cursive !important;
+    font-weight: bold;
+  }
+
+  .team-section .bg1 .cardEdit-info .cardEdit-infoU ul li:hover a {
+    color: #fff !important;
+  }
+
+  .team-section .bg1 .cardEdit-info .cardEdit-infoU ul li:hover {
+    background-color: #944b94 !important;
+  }
+}
+/*bg2*/
+.cardEdit-img .ms-panel.bg2 {
+  background-color: #d75a88;
+}
+
+.team-section button.cardEdit.bg2 .cardEdit-img {
+  box-shadow: 0 0 10px rgba(215, 90, 136, 0.5);
+}
+
+.team-section button.cardEdit.bg2:hover .cardEdit-img {
+  box-shadow: 0 0 10px rgba(215, 90, 136, 0.5);
+}
+
+.cardEdit-img .ms-panel.bg2 .mainIcon {
+  color: #d75a88 !important;
+}
+
+.bg2 .cardEdit-info {
+  box-shadow: 0 0 10px rgba(215, 90, 136, 0.5);
+  border: 5px solid transparent;
+  background-color: #d75a88;
+  color: #fff;
+}
+
+.bg2 .cardEdit-info::before {
+  border-top: 20px solid #d75a88;
+}
+
+.team-section .bg2 .cardEdit-info .cardEdit-infoU ul li:hover a {
+  color: #d75a88 !important;
+}
+
+@media (max-width: 991px) {
+  button.cardEdit.bg2 {
+    background-color: #d75a88 !important;
+  }
+
+  .cardEdit-img .ms-panel.bg2 {
+    background-color: #fff;
+  }
+
+  .bg2 .cardEdit-info {
+    box-shadow: 0 0 10px rgba(215, 90, 136, 0.5);
+    border: 5px solid transparent;
+    background-color: #fff;
+    color: #fff;
+  }
+
+  .team-section .bg2 .cardEdit-info .cardEdit-infoU ul li a {
+    color: #d75a88 !important;
+  }
+
+  .bg2 .ms-panel-body .media-body h5 {
+    padding: 0.5rem;
+    color: #d75a88 !important;
+    font-family: "Roboto", cursive !important;
+    font-weight: bold;
+  }
+
+  .team-section .bg2 .cardEdit-info .cardEdit-infoU ul li:hover a {
+    color: #fff !important;
+  }
+
+  .team-section .bg2 .cardEdit-info .cardEdit-infoU ul li:hover {
+    background-color: #d75a88 !important;
+  }
+}
+/*bg3*/
+.cardEdit-img .ms-panel.bg3 {
+  background-color: #c30052;
+}
+
+.team-section button.cardEdit.bg3 .cardEdit-img {
+  box-shadow: 0 0 10px rgba(195, 0, 82, 0.5);
+}
+
+.team-section button.cardEdit.bg3:hover .cardEdit-img {
+  box-shadow: 0 0 10px rgba(195, 0, 82, 0.5);
+}
+
+.cardEdit-img .ms-panel.bg3 .mainIcon {
+  color: #c30052 !important;
+}
+
+.bg3 .cardEdit-info {
+  box-shadow: 0 0 10px rgba(195, 0, 82, 0.5);
+  border: 5px solid transparent;
+  background-color: #c30052;
+  color: #fff;
+}
+
+.bg3 .cardEdit-info::before {
+  border-top: 20px solid #c30052;
+}
+
+.team-section .bg3 .cardEdit-info .cardEdit-infoU ul li:hover a {
+  color: #c30052 !important;
+}
+
+@media (max-width: 991px) {
+  button.cardEdit.bg3 {
+    background-color: #c30052 !important;
+  }
+
+  .cardEdit-img .ms-panel.bg3 {
+    background-color: #fff;
+  }
+
+  .bg3 .cardEdit-info {
+    box-shadow: 0 0 10px rgba(195, 0, 82, 0.5);
+    border: 5px solid transparent;
+    background-color: #fff;
+    color: #fff;
+  }
+
+  .team-section .bg3 .cardEdit-info .cardEdit-infoU ul li a {
+    color: #c30052 !important;
+  }
+
+  .bg3 .ms-panel-body .media-body h5 {
+    padding: 0.5rem;
+    color: #c30052 !important;
+    font-family: "Roboto", cursive !important;
+    font-weight: bold;
+  }
+
+  .team-section .bg3 .cardEdit-info .cardEdit-infoU ul li:hover a {
+    color: #fff !important;
+  }
+
+  .team-section .bg3 .cardEdit-info .cardEdit-infoU ul li:hover {
+    background-color: #c30052 !important;
+  }
+}
+/*bg4*/
+.cardEdit-img .ms-panel.bg4 {
+  background-color: #ffa84b;
+}
+
+.team-section button.cardEdit.bg4 .cardEdit-img {
+  box-shadow: 0 0 10px rgba(255, 168, 75, 0.5);
+}
+
+.team-section .cardEdit.bg4:hover .cardEdit-img {
+  box-shadow: 0 0 10px rgba(255, 168, 75, 0.5);
+}
+
+.cardEdit-img .ms-panel.bg4 .mainIcon {
+  color: #ffa84b !important;
+}
+
+.bg4 .cardEdit-info {
+  box-shadow: 0 0 10px rgba(255, 168, 75, 0.5);
+  border: 5px solid transparent;
+  background-color: #ffa84b;
+  color: #fff;
+}
+
+.bg4 .cardEdit-info::before {
+  border-top: 20px solid #ffa84b;
+}
+
+.team-section .bg4 .cardEdit-info .cardEdit-infoU ul li:hover a {
+  color: #ffa84b !important;
+}
+
+@media (max-width: 991px) {
+  .cardEdit.bg4 {
+    background-color: #ffa84b !important;
+  }
+
+  .cardEdit-img .ms-panel.bg4 {
+    background-color: #fff;
+  }
+
+  .bg4 .cardEdit-info {
+    box-shadow: 0 0 10px rgba(255, 168, 75, 0.5);
+    border: 5px solid transparent;
+    background-color: #fff;
+    color: #fff;
+  }
+
+  .team-section .bg4 .cardEdit-info .cardEdit-infoU ul li a {
+    color: #ffa84b !important;
+  }
+
+  .bg4 .ms-panel-body .media-body h5 {
+    padding: 0.5rem;
+    color: #ffa84b !important;
+    font-family: "Roboto", cursive !important;
+    font-weight: bold;
+  }
+
+  .team-section .bg4 .cardEdit-info .cardEdit-infoU ul li:hover a {
+    color: #fff !important;
+  }
+
+  .team-section .bg4 .cardEdit-info .cardEdit-infoU ul li:hover {
+    background-color: #ffa84b !important;
+  }
+}
+/*bg5*/
+.cardEdit-img .ms-panel.bg5 {
+  background-color: #38438b;
+}
+
+.team-section .cardEdit.bg5 .cardEdit-img {
+  box-shadow: 0 0 10px rgba(56, 67, 139, 0.5);
+}
+
+.team-section .cardEdit.bg5:hover .cardEdit-img {
+  box-shadow: 0 0 10px rgba(56, 67, 139, 0.5);
+}
+
+.cardEdit-img .ms-panel.bg5 .mainIcon {
+  color: #38438b !important;
+}
+
+.bg5 .cardEdit-info {
+  box-shadow: 0 0 10px rgba(56, 67, 139, 0.5);
+  border: 5px solid transparent;
+  background-color: #38438b;
+  color: #fff;
+}
+
+.bg5 .cardEdit-info::before {
+  border-top: 20px solid #38438b;
+}
+
+.team-section .bg5 .cardEdit-info .cardEdit-infoU ul li:hover a {
+  color: #38438b !important;
+}
+
+@media (max-width: 991px) {
+  .cardEdit.bg5 {
+    background-color: #38438b !important;
+  }
+
+  .cardEdit-img .ms-panel.bg5 {
+    background-color: #fff;
+  }
+
+  .bg5 .cardEdit-info {
+    box-shadow: 0 0 10px rgba(56, 67, 139, 0.5);
+    border: 5px solid transparent;
+    background-color: #fff;
+    color: #fff;
+  }
+
+  .team-section .bg5 .cardEdit-info .cardEdit-infoU ul li a {
+    color: #38438b !important;
+  }
+
+  .bg5 .ms-panel-body .media-body h5 {
+    padding: 0.5rem;
+    color: #38438b !important;
+    font-family: "Roboto", cursive !important;
+    font-weight: bold;
+  }
+
+  .team-section .bg5 .cardEdit-info .cardEdit-infoU ul li:hover a {
+    color: #fff !important;
+  }
+
+  .team-section .bg5 .cardEdit-info .cardEdit-infoU ul li:hover {
+    background-color: #38438b !important;
+  }
+}
+/*bg6*/
+.cardEdit-img .ms-panel.bg6 {
+  background-color: #ab85a9;
+}
+
+.team-section .cardEdit.bg6 .cardEdit-img {
+  box-shadow: 0 0 10px rgba(171, 133, 169, 0.5);
+}
+
+.team-section .cardEdit.bg6:hover .cardEdit-img {
+  box-shadow: 0 0 10px rgba(171, 133, 169, 0.5);
+}
+
+.cardEdit-img .ms-panel.bg6 .mainIcon {
+  color: #AB85A9 !important;
+}
+
+.bg6 .cardEdit-info {
+  box-shadow: 0 0 10px rgba(171, 133, 169, 0.5);
+  border: 5px solid transparent;
+  background-color: #AB85A9;
+  color: #fff;
+}
+
+.bg6 .cardEdit-info::before {
+  border-top: 20px solid #AB85A9;
+}
+
+.team-section .bg6 .cardEdit-info .cardEdit-infoU ul li:hover a {
+  color: #AB85A9 !important;
+}
+
+@media (max-width: 991px) {
+  .cardEdit.bg6 {
+    background-color: #AB85A9 !important;
+  }
+
+  .cardEdit-img .ms-panel.bg6 {
+    background-color: #fff;
+  }
+
+  .bg6 .cardEdit-info {
+    box-shadow: 0 0 10px rgba(171, 133, 169, 0.5);
+    border: 5px solid transparent;
+    background-color: #fff;
+    color: #fff;
+  }
+
+  .team-section .bg6 .cardEdit-info .cardEdit-infoU ul li a {
+    color: #AB85A9 !important;
+  }
+
+  .bg6 .ms-panel-body .media-body h5 {
+    padding: 0.5rem;
+    color: #AB85A9 !important;
+    font-family: "Roboto", cursive !important;
+    font-weight: bold;
+  }
+
+  .team-section .bg6 .cardEdit-info .cardEdit-infoU ul li:hover a {
+    color: #fff !important;
+  }
+
+  .team-section .bg6 .cardEdit-info .cardEdit-infoU ul li:hover {
+    background-color: #AB85A9 !important;
+  }
+}
+/*bg7*/
+.cardEdit-img .ms-panel.bg7 {
+  background-color: #ac3032;
+}
+
+.team-section .cardEdit.bg7 .cardEdit-img {
+  box-shadow: 0 0 10px rgba(172, 48, 50, 0.5);
+}
+
+.team-section .cardEdit.bg7:hover .cardEdit-img {
+  box-shadow: 0 0 10px rgba(172, 48, 50, 0.5);
+}
+
+.cardEdit-img .ms-panel.bg7 .mainIcon {
+  color: #ac3032 !important;
+}
+
+.bg7 .cardEdit-info {
+  box-shadow: 0 0 10px rgba(172, 48, 50, 0.5);
+  border: 5px solid transparent;
+  background-color: #ac3032;
+  color: #fff;
+}
+
+.bg7 .cardEdit-info::before {
+  border-top: 20px solid #ac3032;
+}
+
+.team-section .bg7 .cardEdit-info .cardEdit-infoU ul li:hover a {
+  color: #ac3032 !important;
+}
+
+@media (max-width: 991px) {
+  .cardEdit.bg7 {
+    background-color: #ac3032 !important;
+  }
+
+  .cardEdit-img .ms-panel.bg7 {
+    background-color: #fff;
+  }
+
+  .bg7 .cardEdit-info {
+    box-shadow: 0 0 10px rgba(172, 48, 50, 0.5);
+    border: 5px solid transparent;
+    background-color: #fff;
+    color: #fff;
+  }
+
+  .team-section .bg7 .cardEdit-info .cardEdit-infoU ul li a {
+    color: #ac3032 !important;
+  }
+
+  .bg7 .ms-panel-body .media-body h5 {
+    padding: 0.3rem;
+    color: #ac3032 !important;
+    font-family: "Roboto", cursive !important;
+    font-weight: bold;
+  }
+
+  .team-section .bg7 .cardEdit-info .cardEdit-infoU ul li:hover a {
+    color: #fff !important;
+  }
+
+  .team-section .bg7 .cardEdit-info .cardEdit-infoU ul li:hover {
+    background-color: #ac3032 !important;
+  }
+}
+/*bg8*/
+.cardEdit-img .ms-panel.bg8 {
+  background-color: #db745d;
+}
+
+.team-section button.cardEdit.bg8:hover .cardEdit-img {
+  box-shadow: 0 0 10px rgba(219, 116, 93, 0.5);
+}
+
+.team-section button.cardEdit.bg8 .cardEdit-img {
+  box-shadow: 0 0 10px rgba(219, 116, 93, 0.5);
+}
+
+.cardEdit-img .ms-panel.bg8 .mainIcon {
+  color: #db745d !important;
+}
+
+.bg8 .cardEdit-info {
+  box-shadow: 0 0 10px rgba(219, 116, 93, 0.5);
+  border: 5px solid transparent;
+  background-color: #db745d;
+  color: #fff;
+}
+
+.bg8 .cardEdit-info::before {
+  border-top: 20px solid #db745d;
+}
+
+.team-section .bg8 .cardEdit-info .cardEdit-infoU ul li:hover a {
+  color: #db745d !important;
+}
+
+@media (max-width: 991px) {
+  button.cardEdit.bg8 {
+    background-color: #db745d !important;
+  }
+
+  .cardEdit-img .ms-panel.bg8 {
+    background-color: #fff;
+  }
+
+  .bg8 .cardEdit-info {
+    box-shadow: 0 0 10px rgba(219, 116, 93, 0.5);
+    border: 5px solid transparent;
+    background-color: #fff;
+    color: #fff;
+  }
+
+  .team-section .bg8 .cardEdit-info .cardEdit-infoU ul li a {
+    color: #db745d !important;
+  }
+
+  .bg8 .ms-panel-body .media-body h5 {
+    padding: 0.5rem;
+    color: #db745d !important;
+    font-family: "Roboto", cursive !important;
+    font-weight: bold;
+  }
+
+  .team-section .bg8 .cardEdit-info .cardEdit-infoU ul li:hover a {
+    color: #fff !important;
+  }
+
+  .team-section .bg8 .cardEdit-info .cardEdit-infoU ul li:hover {
+    background-color: #db745d !important;
+  }
+}
+/*bg12*/
+.cardEdit-img .ms-panel.bg12 {
+  background-color: #ff8885;
+}
+.cardEdit-img .ms-panel.bg12 img {
+  width: 45px;
+  height: 35px;
+}
+
+.team-section button.cardEdit.bg12:hover .cardEdit-img {
+  box-shadow: 0 0 10px rgba(255, 136, 133, 0.5);
+}
+
+.team-section button.cardEdit.bg12 .cardEdit-img {
+  box-shadow: 0 0 10px rgba(255, 136, 133, 0.5);
+}
+
+.cardEdit-img .ms-panel.bg12 .mainIcon {
+  color: #ff8885 !important;
+}
+
+.bg12 .cardEdit-info {
+  box-shadow: 0 0 10px rgba(255, 136, 133, 0.5);
+  border: 5px solid transparent;
+  background-color: #ff8885;
+  color: #fff;
+}
+
+.bg12 .cardEdit-info::before {
+  border-top: 20px solid #ff8885;
+}
+
+.team-section .bg12 .cardEdit-info .cardEdit-infoU ul li:hover a {
+  color: #ff8885 !important;
+}
+
+@media (max-width: 991px) {
+  button.cardEdit.bg12 {
+    background-color: #ff8885 !important;
+  }
+
+  .cardEdit-img .ms-panel.bg12 {
+    background-color: #fff;
+  }
+
+  .bg12 .cardEdit-info {
+    box-shadow: 0 0 10px rgba(255, 136, 133, 0.5);
+    border: 5px solid transparent;
+    background-color: #fff;
+    color: #fff;
+  }
+
+  .team-section .bg12 .cardEdit-info .cardEdit-infoU ul li a {
+    color: #ff8885 !important;
+  }
+
+  .bg12 .ms-panel-body .media-body h5 {
+    padding: 0.5rem;
+    color: #ff8885 !important;
+    font-family: "Roboto", cursive !important;
+    font-weight: bold;
+  }
+
+  .team-section .bg12 .cardEdit-info .cardEdit-infoU ul li:hover a {
+    color: #fff !important;
+  }
+
+  .team-section .bg12 .cardEdit-info .cardEdit-infoU ul li:hover {
+    background-color: #ff8885 !important;
+  }
+}
+/* end bg color*/
+.modal-header {
+  border-bottom: 1px solid #ddd;
+}
+
+button.success {
+  background-color: #ddd !important;
+  color: #fff !important;
+}
+
+/*responsive*/
+@media (max-width: 991px) {
+  .team-section button.cardEdit {
+    width: calc(50% - 30px);
+    background-color: #ffffff;
+    padding: 0 15px;
+  }
+
+  .team-section .cardEdit-info {
+    position: relative;
+    visibility: visible;
+    opacity: 1;
+    bottom: auto;
+    left: auto;
+  }
+
+  .team-section .cardEdit-img {
+    margin: 10px auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .team-section .cardEdit:hover .cardEdit-img {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .team-section .cardEdit-info::before {
+    content: none;
+  }
+
+  .team-section .cardEdit-info {
+    padding: 20px 3px;
+  }
+}
+@media (max-width: 574px) {
+  .team-section button.cardEdit {
+    width: calc(100% - 30px);
+  }
+}
+/** 4 button styles **/
+.dashboardImg {
+  width: 100%;
+  max-height: 10rem;
+  height: 10rem;
+}
+
+.modal-title.has-icon.ms-icon-round i {
+  line-height: 0.5;
+}
+
+.btnShift {
+  margin-top: 0 !important;
+  width: 100% !important;
+  text-align: left !important;
+}
+
+.btn.disabled {
+  cursor: not-allowed !important;
+  opacity: 0.4 !important;
+}
+
+.shift {
+  padding-bottom: 3px;
+  position: relative;
+  display: inline-block !important;
+}
+
+.shift::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: 1px;
+  left: 0;
+  border-bottom: 0.1px solid;
+}
+
+.ctt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ctt:hover {
+  background-color: #e9ecef !important;
+}
+
+.text-green {
+  color: green !important;
+}
+
+.ms-card-heading-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.ms-card .ms-card-img img {
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.ms-card-body,
+.ms-card-footer {
+  position: relative;
+  padding: 1rem;
+  font-size: 14px;
+}
+
+img {
+  vertical-align: middle;
+  border-style: none;
+  max-width: 100%;
+  height: auto;
+}
+
+.modal.show .modal-dialog.editModal-dialog {
+  transform: translate(20%, -10%) !important;
+}
+
+.labelDashboardModal {
+  font-size: 1rem !important;
+}
+
+.pinModal {
+  position: relative;
+}
+
+.pinModal::before {
+  content: "";
+  position: absolute;
+  height: 250%;
+  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 3010%;
+  top: -50%;
+  left: 0%;
+  transform: translate(-50%, 0%);
+}
+
+.dropdown-menu-language {
+  min-width: 9rem !important;
+  left: 0 !important;
+  top: 95% !important;
+}
+
+.ms-notification-widget img {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  padding: 3px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: #f0f0fa;
+  color: #ff0018;
+  margin-right: 1rem;
+  font-size: 20px;
+}

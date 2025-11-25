@@ -1,0 +1,679 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="1">
+      <main Ref="2" type="Stimulsoft.Report.Dictionary.StiSqlDatabase" isKey="true">
+        <Alias>main</Alias>
+        <ConnectionStringEncrypted>9FzPz8ZKQ5n5CE0A6QAiY9Fu94lIS+Oka03t7OHsoOvfcLULT22rmUUTvazDSWULwlb7AmVdqe1ofI0ATT1pf8Va+4lNA/PNa01NzOVJZV7TcMsrTkyj7Wlb/aU=</ConnectionStringEncrypted>
+        <Key>905e776c6efc4fa1b400b7c7af929a41</Key>
+        <Name>main</Name>
+      </main>
+    </Databases>
+    <DataSources isList="true" count="3">
+      <ItemsMoveTotallyWithCost Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>ItemsMoveTotallyWithCost</Alias>
+        <Columns isList="true" count="20">
+          <value>ORIGINAL,EndQuantity,EndQuantity,EndQuantity,System.Single,fffa28222dd0457a98279a5486354201</value>
+          <value>ORIGINAL,EndQuantityCost,EndQuantityCost,EndQuantityCost,System.Single,d8ea27acc4974133a519ee79cb32411c</value>
+          <value>ORIGINAL,GroupId,GroupId,GroupId,System.Int32,_x0033_276fb40c4f44315be89b8ec4a148aff</value>
+          <value>ORIGINAL,GroupName,GroupName,GroupName,System.String,bb641ea33ebf4e8d896b42358f0a8d50</value>
+          <value>ORIGINAL,InQuantity,InQuantity,InQuantity,System.Single,_x0033_465fe1c063a4b25872ca2c1f797d9fd</value>
+          <value>ORIGINAL,InQuantityCost,InQuantityCost,InQuantityCost,System.Single,_x0033_589bb8ac66047d39b8fd2829ae51013</value>
+          <value>ORIGINAL,ItemId,ItemId,ItemId,System.Int32,b82232331cfc4b9b9b5b34b3a4460752</value>
+          <value>ORIGINAL,ItemName,ItemName,ItemName,System.String,_x0038_a48213722c84e3c8dbaf033f0a94b90</value>
+          <value>ORIGINAL,MainUnitId,MainUnitId,MainUnitId,System.Int32,f0d244ac2f5f4e39812aeff1f6f6c872</value>
+          <value>ORIGINAL,OpenBalance,OpenBalance,OpenBalance,System.Single,_x0035_7a0a3b25d204a9884aefb114337db55</value>
+          <value>ORIGINAL,OpenBalanceCost,OpenBalanceCost,OpenBalanceCost,System.Single,_x0034_de2f9d4f99b48ceada8d7fe07944c53</value>
+          <value>ORIGINAL,OutQuantity,OutQuantity,OutQuantity,System.Single,_x0033_a513f6b5c4a4ad39b86f66cf33294bb</value>
+          <value>ORIGINAL,OutQuantityCost,OutQuantityCost,OutQuantityCost,System.Single,_x0033_4b3bb2483214899ad936568cfd70d8e</value>
+          <value>ORIGINAL,StockDocumentId,StockDocumentId,StockDocumentId,System.Int32,_x0034_8ad72e4cb2646bca13f0ee0f0d53e48</value>
+          <value>ORIGINAL,StockName,StockName,StockName,System.String,eff595a5dae14587bb40f8be85a64603</value>
+          <value>ORIGINAL,UnitId,UnitId,UnitId,System.Int32,_x0034_3f214fae472449082aef8980c462bd7</value>
+          <value>ORIGINAL,UnitName,UnitName,UnitName,System.String,_x0038_f78d0a874ba458e973e80933c0fdcd1</value>
+          <value>ORIGINAL,OpenBalanceAccumlated,OpenBalanceAccumlated,OpenBalanceAccumlated,System.Single,b40fdadfe5e74cedb0cd5594c52ce035</value>
+          <value>ORIGINAL,OpenBalanceCostAcc,OpenBalanceCostAcc,OpenBalanceCostAcc,System.Single,efe11ae9836e42599160e62928e24817</value>
+          <value>CALC,TotalEndBalanceCost,TotalEndBalanceCost,System.Double,ItemsMoveTotallyWithCost.OpenBalanceCost_x002B_ItemsMoveTotallyWithCost.OpenBalanceCostAcc,_x0035_cf2c5bb6f514b669a4ae76e7975a9f6</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>a8e53c64f7a64b699a33323211d2f649</Key>
+        <Name>ItemsMoveTotallyWithCost</Name>
+        <NameInSource>main</NameInSource>
+        <Parameters isList="true" count="6">
+          <value>_x0040_FDate,,4,0</value>
+          <value>_x0040_TDate,,4,0</value>
+          <value>_x0040_StockId,,18,0</value>
+          <value>_x0040_GroupId,,18,0</value>
+          <value>_x0040_BranchId,,8,0</value>
+          <value>_x0040_ItemId,,18,0</value>
+        </Parameters>
+        <SqlCommand>ItemsMoveTotallyWithCost</SqlCommand>
+        <Type>StoredProcedure</Type>
+      </ItemsMoveTotallyWithCost>
+      <TotalMovement Ref="4" type="Stimulsoft.Report.Dictionary.StiVirtualSource" isKey="true">
+        <Alias>TotalMovement</Alias>
+        <Columns isList="true" count="17">
+          <value>ORIGINAL,EndQuantity,EndQuantity,EndQuantity,System.Double,_x0035_a62cc9191584aceaafce38bf384a8aa</value>
+          <value>ORIGINAL,EndQuantityCost,EndQuantityCost,EndQuantityCost,System.Double,_x0039_9350045ab6d4c45b3dfad0a6f50592a</value>
+          <value>ORIGINAL,GroupName,GroupName,GroupName,System.String,_x0036_f7ef7390d414931b6444da6347f5142</value>
+          <value>ORIGINAL,InQuantity,InQuantity,InQuantity,System.Double,_x0032_8efbb02b05946eb8b76f287207ec3ff</value>
+          <value>ORIGINAL,InQuantityCost,InQuantityCost,InQuantityCost,System.Double,_x0035_3dff0f9c2654049b62b64c4d735cd10</value>
+          <value>ORIGINAL,ItemName,ItemName,ItemName,System.String,df39f8621e0649c789e937c3086345a3</value>
+          <value>ORIGINAL,OpenBalance,OpenBalance,OpenBalance,System.Double,fcbc2afe1da743c7aa6b39eb3bbd50bd</value>
+          <value>ORIGINAL,OpenBalanceCost,OpenBalanceCost,OpenBalanceCost,System.Double,eb08c3f1e3e54d5b9adc4ed5e9293e71</value>
+          <value>ORIGINAL,OutQuantity,OutQuantity,OutQuantity,System.Double,da9a7677f4d24a13bf2a2f1b543fafa3</value>
+          <value>ORIGINAL,OutQuantityCost,OutQuantityCost,OutQuantityCost,System.Double,a7d83d0ebff04f07bc1580e92dc45780</value>
+          <value>ORIGINAL,StockDocumentId,StockDocumentId,StockDocumentId,System.String,_x0033_f8c0e5d8a7c49f2a637476200d14ebd</value>
+          <value>ORIGINAL,StockName,StockName,StockName,System.String,_x0030_bda9740a2cd48129b773884588cdd94</value>
+          <value>ORIGINAL,UnitName,UnitName,UnitName,System.String,_x0034_cd325f8167d4951867475fc4852aa94</value>
+          <value>ORIGINAL,OpenBalanceAcc,OpenBalanceAcc,OpenBalanceAcc,System.Double,_x0037_18b1f35c47747fa9de6eb0dad37bf1f</value>
+          <value>ORIGINAL,OpenBalanceCostAcc,OpenBalanceCostAcc,OpenBalanceCostAcc,System.Double,_x0032_8cd8a4fa70b462d9a52f216db85c133</value>
+          <value>TotalEndBalanceCost,TotalEndBalanceCost,System.Double,TotalMovement.OpenBalanceCost_x0020__x002B__x0020_TotalMovement.OpenBalanceCostAcc</value>
+          <value>GroupDocumentId,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Filters isList="true" count="0" />
+        <GroupColumns isList="true" count="0" />
+        <Key>e1be3b411e9d424d8ddfa837d414de18</Key>
+        <Name>TotalMovement</Name>
+        <NameInSource>DynamicDataSource</NameInSource>
+        <Results isList="true" count="0" />
+        <Sort isList="true" count="0" />
+      </TotalMovement>
+      <Branch Ref="5" type="Stimulsoft.Report.Dictionary.StiVirtualSource" isKey="true">
+        <Alias>Branch</Alias>
+        <Columns isList="true" count="0" />
+        <Dictionary isRef="1" />
+        <Filters isList="true" count="0" />
+        <GroupColumns isList="true" count="0" />
+        <Key>9dd6c281c99e4f2796250351985f9e32</Key>
+        <Name>Branch</Name>
+        <NameInSource>DynamicDataSource</NameInSource>
+        <Results isList="true" count="0" />
+        <Sort isList="true" count="0" />
+      </Branch>
+    </DataSources>
+    <Relations isList="true" count="0" />
+    <Report isRef="0" />
+    <Resources isList="true" count="0" />
+    <Variables isList="true" count="1">
+      <value>,Title,Title,,System.String,,False,False,False,False</value>
+    </Variables>
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <Key>0141b06a3b4c4acc92c4018c119da63c</Key>
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="6" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="10">
+        <Text32 Ref="7" type="Text" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>11.2,19,5.6,0.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Arial,8,Bold</Font>
+          <HorAlignment>Center</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text32</Name>
+          <Page isRef="6" />
+          <Parent isRef="6" />
+          <Text>{PageNofM}</Text>
+          <TextBrush>Black</TextBrush>
+          <VertAlignment>Center</VertAlignment>
+        </Text32>
+        <Text26 Ref="8" type="Text" isKey="true">
+          <Brush>EmptyBrush</Brush>
+          <ClientRectangle>23.6,11,4,0.8</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Arial,14,Bold</Font>
+          <HorAlignment>Center</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text26</Name>
+          <Page isRef="6" />
+          <Parent isRef="6" />
+          <Text>{
+Sum(ItemsMoveTotallyWithCost.EndQuantityCost)
+}</Text>
+          <TextBrush>Red</TextBrush>
+          <TextFormat Ref="9" type="NumberFormat" isKey="true">
+            <DecimalDigits>2</DecimalDigits>
+            <GroupSeparator>,</GroupSeparator>
+            <NegativePattern>1</NegativePattern>
+          </TextFormat>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text26>
+        <Text28 Ref="10" type="Text" isKey="true">
+          <Brush>EmptyBrush</Brush>
+          <ClientRectangle>22,12.6,5.4,0.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Arial,14,Bold</Font>
+          <HorAlignment>Center</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text28</Name>
+          <Page isRef="6" />
+          <Parent isRef="6" />
+          <Text>{Sum(GroupHeaderBand1,ItemsMoveTotallyWithCost.EndQuantityCost)}</Text>
+          <TextBrush>Red</TextBrush>
+          <TextFormat Ref="11" type="NumberFormat" isKey="true">
+            <DecimalDigits>2</DecimalDigits>
+            <GroupSeparator>,</GroupSeparator>
+            <NegativePattern>1</NegativePattern>
+          </TextFormat>
+          <Type>Totals</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text28>
+        <HeaderBand1 Ref="12" type="HeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,19,0.8</ClientRectangle>
+          <Components isList="true" count="1">
+            <Text31 Ref="13" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4.4,0,18,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,13,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text31</Name>
+              <Page isRef="6" />
+              <Parent isRef="12" />
+              <Text>{Title}</Text>
+              <TextBrush>Red</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text31>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>HeaderBand1</Name>
+          <Page isRef="6" />
+          <Parent isRef="6" />
+        </HeaderBand1>
+        <GroupHeaderBand2 Ref="14" type="GroupHeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,2,19,0.2</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Conditions isList="true" count="0" />
+          <Name>GroupHeaderBand2</Name>
+          <Page isRef="6" />
+          <Parent isRef="6" />
+        </GroupHeaderBand2>
+        <GroupHeaderBand1 Ref="15" type="GroupHeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,3,19,2.4</ClientRectangle>
+          <Components isList="true" count="10">
+            <Text1 Ref="16" type="Text" isKey="true">
+              <Brush>EmptyBrush</Brush>
+              <ClientRectangle>7.2,0.4,11.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,14,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="6" />
+              <Parent isRef="15" />
+              <Text>{TotalMovement.StockName}</Text>
+              <TextBrush>[15:36:62]</TextBrush>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text1>
+            <Text12 Ref="17" type="Text" isKey="true">
+              <Alias>Item</Alias>
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>GlassBrush,[239:211:210],True,0</Brush>
+              <ClientRectangle>0,1.2,4.2,1.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,11,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text12</Name>
+              <Page isRef="6" />
+              <Parent isRef="15" />
+              <Text>الصنف</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text12>
+            <Text13 Ref="18" type="Text" isKey="true">
+              <Alias>UnitName</Alias>
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>GlassBrush,[239:211:210],True,0</Brush>
+              <ClientRectangle>4.2,1.2,1.6,1.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,11,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text13</Name>
+              <Page isRef="6" />
+              <Parent isRef="15" />
+              <Text>الوحده</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text13>
+            <Text14 Ref="19" type="Text" isKey="true">
+              <Alias>OpenBalance</Alias>
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>GlassBrush,[239:211:210],True,0</Brush>
+              <ClientRectangle>5.8,1.2,4.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,11,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text14</Name>
+              <Page isRef="6" />
+              <Parent isRef="15" />
+              <Text>الرصيد الافتتاحي</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text14>
+            <Text15 Ref="20" type="Text" isKey="true">
+              <Alias>OpeningBalance</Alias>
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>GlassBrush,[239:211:210],True,0</Brush>
+              <ClientRectangle>5.8,1.8,1.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text15</Name>
+              <Page isRef="6" />
+              <Parent isRef="15" />
+              <Text>افتتاحي</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text15>
+            <Text17 Ref="21" type="Text" isKey="true">
+              <Alias>IncomingTransactionQty</Alias>
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>GlassBrush,[239:211:210],True,0</Brush>
+              <ClientRectangle>10,1.2,3.2,1.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,11,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text17</Name>
+              <Page isRef="6" />
+              <Parent isRef="15" />
+              <Text>الـــوارد</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text17>
+            <Text20 Ref="22" type="Text" isKey="true">
+              <Alias>OutGoingQty</Alias>
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>GlassBrush,[239:211:210],True,0</Brush>
+              <ClientRectangle>13.2,1.2,3,1.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,11,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text20</Name>
+              <Page isRef="6" />
+              <Parent isRef="15" />
+              <Text>المنــصرف</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text20>
+            <Text23 Ref="23" type="Text" isKey="true">
+              <Alias>Balance</Alias>
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>GlassBrush,[239:211:210],True,0</Brush>
+              <ClientRectangle>16.2,1.2,2.8,1.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,11,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text23</Name>
+              <Page isRef="6" />
+              <Parent isRef="15" />
+              <Text>الرصـــيد</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text23>
+            <Text35 Ref="24" type="Text" isKey="true">
+              <Alias>OpenBalanceForPeriod</Alias>
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>GlassBrush,[239:211:210],True,0</Brush>
+              <ClientRectangle>7.2,1.8,1.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text35</Name>
+              <Page isRef="6" />
+              <Parent isRef="15" />
+              <Text>كميه افتتاحيه قبل الفتره</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text35>
+            <Text38 Ref="25" type="Text" isKey="true">
+              <Alias>TotalBalance</Alias>
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>GlassBrush,[239:211:210],True,0</Brush>
+              <ClientRectangle>8.6,1.8,1.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text38</Name>
+              <Page isRef="6" />
+              <Parent isRef="15" />
+              <Text>اجمالي الرصيد</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text38>
+          </Components>
+          <Condition>{TotalMovement.StockDocumentId}</Condition>
+          <Conditions isList="true" count="0" />
+          <Name>GroupHeaderBand1</Name>
+          <Page isRef="6" />
+          <Parent isRef="6" />
+          <PrintOnAllPages>True</PrintOnAllPages>
+        </GroupHeaderBand1>
+        <GroupHeaderBand3 Ref="26" type="GroupHeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,6.2,19,1.2</ClientRectangle>
+          <Components isList="true" count="1">
+            <Text33 Ref="27" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>1.6,0.6,8.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,13,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text33</Name>
+              <Page isRef="6" />
+              <Parent isRef="26" />
+              <Text>{TotalMovement.GroupName}</Text>
+              <TextBrush>Red</TextBrush>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text33>
+          </Components>
+          <Condition>{TotalMovement.GroupDocumentId}</Condition>
+          <Conditions isList="true" count="0" />
+          <Name>GroupHeaderBand3</Name>
+          <Page isRef="6" />
+          <Parent isRef="6" />
+        </GroupHeaderBand3>
+        <DataBand1 Ref="28" type="DataBand" isKey="true">
+          <Border>All;Black;1;Solid;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,8.2,19,0.6</ClientRectangle>
+          <Components isList="true" count="8">
+            <Text2 Ref="29" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>EmptyBrush</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,4.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9,Bold</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="6" />
+              <Parent isRef="28" />
+              <Text>{TotalMovement.ItemName}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text2>
+            <Text3 Ref="30" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>EmptyBrush</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>4.2,0,1.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9,Bold</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="6" />
+              <Parent isRef="28" />
+              <Text>{TotalMovement.UnitName}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text3>
+            <Text4 Ref="31" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>EmptyBrush</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>5.8,0,1.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text4</Name>
+              <Page isRef="6" />
+              <Parent isRef="28" />
+              <Text>{TotalMovement.OpenBalance}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text4>
+            <Text6 Ref="32" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>EmptyBrush</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>10,0,3.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text6</Name>
+              <Page isRef="6" />
+              <Parent isRef="28" />
+              <Text>{TotalMovement.InQuantity}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="33" type="NumberFormat" isKey="true">
+                <DecimalDigits>2</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+              </TextFormat>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text6>
+            <Text8 Ref="34" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>EmptyBrush</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>13.2,0,3,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text8</Name>
+              <Page isRef="6" />
+              <Parent isRef="28" />
+              <Text>{TotalMovement.OutQuantity}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="35" type="NumberFormat" isKey="true">
+                <DecimalDigits>2</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+              </TextFormat>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text8>
+            <Text10 Ref="36" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>EmptyBrush</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>16.2,0,2.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9,Bold</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text10</Name>
+              <Page isRef="6" />
+              <Parent isRef="28" />
+              <Text>{TotalMovement.EndQuantity}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="37" type="NumberFormat" isKey="true">
+                <DecimalDigits>2</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+              </TextFormat>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text10>
+            <Text36 Ref="38" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>EmptyBrush</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>7.2,0,1.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text36</Name>
+              <Page isRef="6" />
+              <Parent isRef="28" />
+              <Text>{TotalMovement.OpenBalanceAccumlated}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="39" type="NumberFormat" isKey="true">
+                <DecimalDigits>2</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+              </TextFormat>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text36>
+            <Text37 Ref="40" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[242:220:219]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>8.6,0,1.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text37</Name>
+              <Page isRef="6" />
+              <Parent isRef="28" />
+              <Text>{TotalMovement.OpenBalance + TotalMovement.OpenBalanceAcc}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="41" type="NumberFormat" isKey="true">
+                <DecimalDigits>2</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+              </TextFormat>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text37>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName isNull="true" />
+          <DataSourceName>ItemsMoveTotallyWithCost</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Name>DataBand1</Name>
+          <Page isRef="6" />
+          <Parent isRef="6" />
+          <Sort isList="true" count="2">
+            <value>ASC</value>
+            <value>ItemName</value>
+          </Sort>
+        </DataBand1>
+        <GroupFooterBand3 Ref="42" type="GroupFooterBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,9.6,19,0.2</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Conditions isList="true" count="0" />
+          <Name>GroupFooterBand3</Name>
+          <Page isRef="6" />
+          <Parent isRef="6" />
+        </GroupFooterBand3>
+        <GroupFooterBand2 Ref="43" type="GroupFooterBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,10.6,19,0.6</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Conditions isList="true" count="0" />
+          <Name>GroupFooterBand2</Name>
+          <Page isRef="6" />
+          <Parent isRef="6" />
+        </GroupFooterBand2>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>4f6502061ce54039b418013915ea5b1a</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page1</Name>
+      <PageHeight>29.7</PageHeight>
+      <PageWidth>21</PageWidth>
+      <Report isRef="0" />
+    </Page1>
+  </Pages>
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>11/10/2022 3:52:31 PM</ReportChanged>
+  <ReportCreated>3/30/2020 2:57:18 PM</ReportCreated>
+  <ReportFile>C:\Users\alhas\source\repos\POS-Restaurants\backend\POS_BackEnd\POS.Web\StaticFiles\Reports\ItemsMoveTotal.mrt</ReportFile>
+  <ReportGuid>69cf04dbee6047e89b056b470c0f0068</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2020.2.3.0</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+</StiSerializer>

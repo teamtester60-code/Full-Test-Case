@@ -1,0 +1,119 @@
+@charset "UTF-8";
+/* Basic Tables */
+.thead-primary thead {
+  background-color: #ff0018;
+}
+
+.thead-secondary thead {
+  background-color: #445cc8;
+}
+
+.thead-success thead {
+  background-color: #5cb85c;
+}
+
+.thead-info thead {
+  background-color: #5bc0de;
+}
+
+.thead-warning thead {
+  background-color: #f0ad4e;
+}
+
+.thead-danger thead {
+  background-color: #d9534f;
+}
+
+.thead-dark thead {
+  background-color: #34334a;
+}
+
+.thead-light thead {
+  background-color: #f4f4f4;
+}
+
+table img {
+  max-width: 30px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.ms-table-f-w {
+  min-width: 185px;
+}
+
+table img + span {
+  margin-left: 15px;
+  font-weight: 400;
+  color: #212529;
+}
+
+table i {
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.table thead tr th {
+  border-top: 0;
+}
+
+.thead-dark thead th,
+.thead-primary thead th,
+.thead-secondary thead th,
+.thead-success thead th,
+.thead-info thead th,
+.thead-warning thead th,
+.thead-danger thead th {
+  color: #fff;
+}
+
+.table thead th {
+  border-bottom: 1px solid #dee2e6;
+}
+
+.kitchenIncoming .table thead tr th {
+  text-align: center;
+  font-size: 0.9rem;
+  width: 90px;
+}
+.kitchenIncoming .table thead th {
+  vertical-align: middle !important;
+}
+
+/* Data tables */
+.dataTables_info {
+  color: #878793;
+}
+
+.dataTables_length label select {
+  margin-left: 10px;
+}
+
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_desc:before,
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_desc_disabled:before {
+  content: "";
+  font-family: "Material Icons";
+  font-weight: 700;
+  font-style: normal;
+}
+
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:after {
+  content: "";
+  font-family: "Material Icons";
+  font-weight: 700;
+  font-style: normal;
+  right: 1em;
+  bottom: 0.4em;
+}
+
+.dataTables_filter label input {
+  border-radius: 25px;
+  padding: 11px 14px;
+}

@@ -1,0 +1,429 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="1">
+      <MongoDB Ref="2" type="Stimulsoft.Report.Dictionary.StiMongoDbDatabase" isKey="true">
+        <Alias>MongoDB</Alias>
+        <ConnectionStringEncrypted>3RRPSGcWYajDGrSNZFhyl9LQ14JoAuOIwxL5COR1Mg==</ConnectionStringEncrypted>
+        <Key>c5f5136ca6134540b40b3ff8b5d7acfc</Key>
+        <Name>MongoDB</Name>
+      </MongoDB>
+    </Databases>
+    <DataSources isList="true" count="1">
+      <EODReport Ref="3" type="Stimulsoft.Report.Dictionary.StiMongoDbSource" isKey="true">
+        <Alias>EODReport</Alias>
+        <Columns isList="true" count="11">
+          <value>ORIGINAL,_id,_id,_id,System.String,_x0034_ed667a39d0641a9aed6b3a1f3356707</value>
+          <value>ORIGINAL,Amount,Amount,Amount,System.Single,_x0035_7625ad8a9e640119f81b308c2a7778c</value>
+          <value>ORIGINAL,PayTypeName,PayTypeName,PayTypeName,System.String,_x0038_d33df3269e54372ad3427d5b3244b66</value>
+          <value>ORIGINAL,CashierName,CashierName,CashierName,System.String,_x0036_8075b323fe346958c4f74c8ca81b076</value>
+          <value>ORIGINAL,PayType,PayType,PayType,System.Double,a280386bdcf0402f8402d4c6a404cc0b</value>
+          <value>ORIGINAL,RTAmount,RTAmount,RTAmount,System.Single,_x0032_b148d7ee8bd4f52a1da62ae4dea0a11</value>
+          <value>ORIGINAL,CreatorUserId,CreatorUserId,CreatorUserId,System.Double,e90cd93b12f249329d74ef0006373404</value>
+          <value>ORIGINAL,CRAmount,CRAmount,CRAmount,System.Single,_x0030_726a334ddf64a3aa590bcd24b268f1e</value>
+          <value>ORIGINAL,EEAmount,EEAmount,EEAmount,System.Single,_x0036_e42401fe2684ee988b28c12ef655ccf</value>
+          <value>ORIGINAL,TotalRow,TotalRow,TotalRow,System.Single,_x0037_e9db2fcf4db4c9da503e9c0e724fd94</value>
+          <value>ORIGINAL,CreationTime,CreationTime,CreationTime,System.DateTime,_x0030_b9c3339c65e47f3b3133b8d261c56fd</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>9bf323ff69b04e85b2638ee199649640</Key>
+        <Name>EODReport</Name>
+        <NameInSource>MongoDB</NameInSource>
+        <Parameters isList="true" count="0" />
+        <Query />
+        <SqlCommand />
+      </EODReport>
+    </DataSources>
+    <Relations isList="true" count="0" />
+    <Report isRef="0" />
+    <Resources isList="true" count="0" />
+    <Variables isList="true" count="2">
+      <value>,Cash,Cash,,System.String,نقدا,False,False,False,False,,f79695278367403fb62543a272f51cb1</value>
+      <value>,date,date,,System.DateTime,_x0033__x002F_15_x002F_2021_x0020_12:00:00_x0020_AM,False,False,False,False,,_x0032_9f394f901bb498e8daed4d4e13db6d9</value>
+    </Variables>
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <Key>f4156ee82b35472c8cde9bbc5bd1076c</Key>
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="4" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="2">
+        <Text1 Ref="5" type="Text" isKey="true">
+          <Border>None;[155:155:155];1;Solid;False;4;Black</Border>
+          <Brush>White</Brush>
+          <ClientRectangle>3.8,16.2,10.2,0.6</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Arial,8</Font>
+          <HorAlignment>Center</HorAlignment>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text1</Name>
+          <Page isRef="4" />
+          <Parent isRef="4" />
+          <Text>{date}</Text>
+          <TextBrush>[105:105:105]</TextBrush>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text1>
+        <CrossTab1 Ref="6" type="Stimulsoft.Report.CrossTab.StiCrossTab" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>1.2,8.6,15.4,7</ClientRectangle>
+          <Components isList="true" count="17">
+            <CrossTab1_SumHeader1 Ref="7" type="Stimulsoft.Report.CrossTab.StiCrossSummaryHeader" isKey="true">
+              <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>3.25,0.45,1,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>02b5565835e646a9b9cbab61986f8d1f</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>CrossTab1_SumHeader1</Name>
+              <Page isRef="4" />
+              <Parent isRef="6" />
+              <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+              <Text>المبيعات</Text>
+              <TextBrush>[105:105:105]</TextBrush>
+              <Type>Expression</Type>
+            </CrossTab1_SumHeader1>
+            <CrossTab1_SumHeader2 Ref="8" type="Stimulsoft.Report.CrossTab.StiCrossSummaryHeader" isKey="true">
+              <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>4.25,0.45,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>d15468189bc2434788de54455237eddd</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>CrossTab1_SumHeader2</Name>
+              <Page isRef="4" />
+              <Parent isRef="6" />
+              <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+              <Text>مردود المبيعات</Text>
+              <TextBrush>[105:105:105]</TextBrush>
+              <Type>Expression</Type>
+            </CrossTab1_SumHeader2>
+            <CrossTab1_SumHeader3 Ref="9" type="Stimulsoft.Report.CrossTab.StiCrossSummaryHeader" isKey="true">
+              <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>5.85,0.45,1.4,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>46b8cc1c609c477a8ad938b4ba85ad6a</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>CrossTab1_SumHeader3</Name>
+              <Page isRef="4" />
+              <Parent isRef="6" />
+              <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+              <Text>الإستلام النقدى</Text>
+              <TextBrush>[105:105:105]</TextBrush>
+              <Type>Expression</Type>
+            </CrossTab1_SumHeader3>
+            <CrossTab1_SumHeader4 Ref="10" type="Stimulsoft.Report.CrossTab.StiCrossSummaryHeader" isKey="true">
+              <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>7.25,0.45,2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>b8064c2fea644cada6d3d07a6e87bcec</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>CrossTab1_SumHeader4</Name>
+              <Page isRef="4" />
+              <Parent isRef="6" />
+              <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+              <Text>المصروفات الإضافيه</Text>
+              <TextBrush>[105:105:105]</TextBrush>
+              <Type>Expression</Type>
+            </CrossTab1_SumHeader4>
+            <CrossTab1_SummaryTitle Ref="11" type="CrossTitle" isKey="true">
+              <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>3.25,0.05,7.6,0.4</ClientRectangle>
+              <Font>Arial,8</Font>
+              <Guid>c90dbf1087084b0c8aac789ba5a16f14</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>CrossTab1_SummaryTitle</Name>
+              <Page isRef="4" />
+              <Parent isRef="6" />
+              <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+              <Text>الإجمالي اليومي</Text>
+              <TextBrush>[105:105:105]</TextBrush>
+              <Type>Expression</Type>
+              <TypeOfComponent>SummaryTitle</TypeOfComponent>
+            </CrossTab1_SummaryTitle>
+            <CrossTab1_SumHeader5 Ref="12" type="Stimulsoft.Report.CrossTab.StiCrossSummaryHeader" isKey="true">
+              <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>9.25,0.45,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>0663aba0aff340adb58fc64f64af3753</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>CrossTab1_SumHeader5</Name>
+              <Page isRef="4" />
+              <Parent isRef="6" />
+              <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+              <Text>Total         .</Text>
+              <TextBrush>[105:105:105]</TextBrush>
+              <Type>Expression</Type>
+            </CrossTab1_SumHeader5>
+            <CrossTab1_RowTotal1 Ref="13" type="CrossRowTotal" isKey="true">
+              <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+              <Brush>[255:255:255]</Brush>
+              <ClientRectangle>0,1.7,3.2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>423dd1d0cacd461eafb6a1e618edb264</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>CrossTab1_RowTotal1</Name>
+              <Page isRef="4" />
+              <Parent isRef="6" />
+              <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+              <Text>Total</Text>
+              <TextBrush>Black</TextBrush>
+            </CrossTab1_RowTotal1>
+            <CrossTab1_Row1_Title Ref="14" type="CrossTitle" isKey="true">
+              <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>0,0.05,2,0.8</ClientRectangle>
+              <Font>Arial,8</Font>
+              <Guid>50addeff728a4cb3a33ed0e961ecaa80</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>CrossTab1_Row1_Title</Name>
+              <Page isRef="4" />
+              <Parent isRef="6" />
+              <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+              <Text>CashierName</Text>
+              <TextBrush>[105:105:105]</TextBrush>
+              <TypeOfComponent>Row:CrossTab1_Row1</TypeOfComponent>
+            </CrossTab1_Row1_Title>
+            <CrossTab1_RowTotal2 Ref="15" type="CrossRowTotal" isKey="true">
+              <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+              <Brush>[255:255:255]</Brush>
+              <ClientRectangle>2,1.3,1.2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>837d0439351d465db75e7e84e971942e</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>CrossTab1_RowTotal2</Name>
+              <Page isRef="4" />
+              <Parent isRef="6" />
+              <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+              <Text>Total</Text>
+              <TextBrush>Black</TextBrush>
+            </CrossTab1_RowTotal2>
+            <CrossTab1_Row2_Title Ref="16" type="CrossTitle" isKey="true">
+              <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>2,0.05,1.2,0.8</ClientRectangle>
+              <Font>Arial,8</Font>
+              <Guid>6a9b0a5a5e624c6a91bae45c947b3ada</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>CrossTab1_Row2_Title</Name>
+              <Page isRef="4" />
+              <Parent isRef="6" />
+              <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+              <Text>PayType</Text>
+              <TextBrush>[105:105:105]</TextBrush>
+              <TypeOfComponent>Row:CrossTab1_Row2</TypeOfComponent>
+            </CrossTab1_Row2_Title>
+            <CrossTab1_Row1 Ref="17" type="CrossRow" isKey="true">
+              <Alias>CashierName</Alias>
+              <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>0,0.9,2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <DisplayValue>{EODReport.CashierName}</DisplayValue>
+              <Font>Arial,8</Font>
+              <Guid>afe55ec2fa4d4c10920f47915f455882</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>CrossTab1_Row1</Name>
+              <Page isRef="4" />
+              <Parent isRef="6" />
+              <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+              <Text>CashierName</Text>
+              <TextBrush>[105:105:105]</TextBrush>
+              <TotalGuid>423dd1d0cacd461eafb6a1e618edb264</TotalGuid>
+              <Value>{EODReport.CashierName}</Value>
+            </CrossTab1_Row1>
+            <CrossTab1_Row2 Ref="18" type="CrossRow" isKey="true">
+              <Alias>PayType</Alias>
+              <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>2,0.9,1.2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <DisplayValue>{Switch(EODReport.PayType == 10,Cash,EODReport.PayType == 20,"أجل"
+,EODReport.PayType == 30,"فيزا")}</DisplayValue>
+              <Font>Arial,8</Font>
+              <Guid>db1ab3da699d42b1856a47b02424369c</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>CrossTab1_Row2</Name>
+              <Page isRef="4" />
+              <Parent isRef="6" />
+              <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+              <Text>PayType</Text>
+              <TextBrush>[105:105:105]</TextBrush>
+              <TotalGuid>837d0439351d465db75e7e84e971942e</TotalGuid>
+              <Value>{EODReport.PayType}</Value>
+            </CrossTab1_Row2>
+            <CrossTab1_Sum1 Ref="19" type="CrossSummary" isKey="true">
+              <Alias>Amount</Alias>
+              <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+              <Brush>[255:255:255]</Brush>
+              <ClientRectangle>3.25,0.9,1,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>d363b0878deb44219521a20ba9f071c2</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>CrossTab1_Sum1</Name>
+              <Page isRef="4" />
+              <Parent isRef="6" />
+              <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+              <Text>0</Text>
+              <TextBrush>Black</TextBrush>
+              <Value>{EODReport.Amount}</Value>
+            </CrossTab1_Sum1>
+            <CrossTab1_Sum2 Ref="20" type="CrossSummary" isKey="true">
+              <Alias>RTAmount</Alias>
+              <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+              <Brush>[255:255:255]</Brush>
+              <ClientRectangle>4.25,0.9,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>bb7543efa8c944d9b265981f06ef6842</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>CrossTab1_Sum2</Name>
+              <Page isRef="4" />
+              <Parent isRef="6" />
+              <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+              <Text>0</Text>
+              <TextBrush>Black</TextBrush>
+              <Value>{EODReport.RTAmount}</Value>
+            </CrossTab1_Sum2>
+            <CrossTab1_Sum3 Ref="21" type="CrossSummary" isKey="true">
+              <Alias>CRAmount</Alias>
+              <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+              <Brush>[255:255:255]</Brush>
+              <ClientRectangle>5.85,0.9,1.4,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>78c1d5b6cf33417ebae74d5dada22337</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>CrossTab1_Sum3</Name>
+              <Page isRef="4" />
+              <Parent isRef="6" />
+              <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+              <Text>0</Text>
+              <TextBrush>Black</TextBrush>
+              <Value>{EODReport.CRAmount}</Value>
+            </CrossTab1_Sum3>
+            <CrossTab1_Sum4 Ref="22" type="CrossSummary" isKey="true">
+              <Alias>EEAmount</Alias>
+              <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+              <Brush>[255:255:255]</Brush>
+              <ClientRectangle>7.25,0.9,2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>8b0680e77e0d4a9ab74e31d12c4a0d0a</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>CrossTab1_Sum4</Name>
+              <Page isRef="4" />
+              <Parent isRef="6" />
+              <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+              <Text>0</Text>
+              <TextBrush>Black</TextBrush>
+              <Value>{EODReport.EEAmount}</Value>
+            </CrossTab1_Sum4>
+            <CrossTab1_Sum5 Ref="23" type="CrossSummary" isKey="true">
+              <Alias>TotalRow</Alias>
+              <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+              <Brush>[255:255:255]</Brush>
+              <ClientRectangle>9.25,0.9,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>873c26e71b644eb692f0702fd5faa0ae</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>CrossTab1_Sum5</Name>
+              <Page isRef="4" />
+              <Parent isRef="6" />
+              <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+              <Text>0</Text>
+              <TextBrush>Black</TextBrush>
+              <Value>{EODReport.Amount- EODReport.RTAmount
+ + EODReport.CRAmount - EODReport.EEAmount}</Value>
+            </CrossTab1_Sum5>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName />
+          <DataSourceName>EODReport</DataSourceName>
+          <EmptyValue />
+          <Filters isList="true" count="1">
+            <value>_x007B_EODReport.CreationTime_x0020__x003D__x003D__x0020_date_x007D_</value>
+          </Filters>
+          <Name>CrossTab1</Name>
+          <Page isRef="4" />
+          <Parent isRef="4" />
+          <Sort isList="true" count="0" />
+          <SummaryDirection>LeftToRight</SummaryDirection>
+        </CrossTab1>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>d3527b2f09254f7287d244cf18464fda</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page1</Name>
+      <PageHeight>29.7</PageHeight>
+      <PageWidth>21</PageWidth>
+      <Report isRef="0" />
+    </Page1>
+  </Pages>
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>3/15/2021 11:09:19 AM</ReportChanged>
+  <ReportCreated>3/10/2021 9:38:05 AM</ReportCreated>
+  <ReportFile>E:\Projects\POS\BackEnd\POS.Web\StaticFiles\Reports\EOD.mrt</ReportFile>
+  <ReportGuid>da2914d12c6241efbea634006bcea4a4</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2020.1.1.0</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+</StiSerializer>

@@ -1,0 +1,180 @@
+
+/* start return-Order style */
+  .btn:disabled:hover {
+    cursor: not-allowed !important;
+  }
+  
+  .EditingButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .editPillBtn {
+    outline: none !important;
+  }
+  
+  .bnOrderEit {
+    font-size: 12px !important;
+    padding: 0.3rem 0.4rem !important;
+    min-width: auto !important;
+    margin-right: 0.2rem;
+  }
+  
+  .bnOrderEit i {
+    font-size: 12px !important;
+    padding: 0 !important;
+    margin-right: 5px !important;
+  }
+  
+  .borderTop {
+    border-top: 1px solid #f3f3f3 !important;
+  }
+  
+  .editMainTab {
+    border: 1px solid transparent !important;
+    border-radius: 0.5rem;
+    padding-left: 0.4rem;
+  }
+  
+  .editMainTab li a {
+    border-top-left-radius: 0.25rem !important;
+    border-top-right-radius: 0.25rem !important;
+    font-weight: 600 !important;
+  }
+  
+  .EditTable th {
+    padding: 0.75rem 1rem !important;
+    width: auto !important;
+  }
+  
+  .basic-info.active {
+    color: #fff !important;
+  }
+  
+  .input-group-addon {
+    background-color: #ccc;
+    padding: 0.5rem 0.7rem;
+    border-radius: 0.25rem 0 0 0.25rem;
+    color: dimgray;
+  }
+  
+  .editInputGroup {
+    flex-wrap: nowrap !important;
+    border-radius: 0 !important;
+    position: relative !important;
+  }
+  
+  .borderRadius {
+    border-radius: 0 0.25rem 0.25rem 0 !important;
+  }
+  
+  .positionEdit.input-group {
+    position: initial !important;
+  }
+  
+  p.pargReturnOrder {
+    color: dimgray !important;
+    margin: 0 !important;
+  }
+  
+  @media (max-width: 768px) {
+    p.pargReturnOrder {
+      padding: 0 1rem;
+    }
+  }
+  
+  .borderNone {
+    border: 1px solid transparent !important;
+  }
+  
+  .navtabs-Edit li {
+    flex: none !important;
+  }
+  
+  .navtabs-Edit li a {
+    padding: 0.7rem 1.2rem;
+  }
+  
+  .navtabs-Edit li a.active {
+    color: #fff !important;
+  }
+  
+  input.searchInput2 {
+    border-bottom: 1px solid #ccc !important;
+    box-shadow: none;
+    border: 1px solid transparent;
+    border-radius: 0 !important;
+  }
+  
+  li a.router-link-active span {
+    color: #3d161a !important;
+  }
+  
+  .bg-gray {
+    background-color: #e4e3e8;
+  }
+  
+  .p-right {
+    padding-right: 1rem;
+  }
+  
+  .p-left {
+    padding-left: 1rem;
+  }
+  
+  .editAlertReturn {
+    top: 3rem;
+    text-align: left;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    font-size: 14px;
+    padding: 1rem;
+  }
+  
+  .editAlert {
+    top: 2.4rem;
+    text-align: left;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    font-size: 14px;
+    padding: 1rem;
+  }
+  
+  .editAlertCash {
+    top: 2.2rem;
+    text-align: left;
+    position: absolute;
+    width: 100%;
+    left: 0;
+  
+    padding: 0 !important;
+  }
+  
+  .stockValidationError {
+    top: 2.2rem;
+    text-align: left;
+    position: inherit;
+    width: 100%;
+    left: 0;
+  
+    padding: 0 !important;
+  }
+  
+  .calender-style {
+    border: 1px solid lightgray;
+    color: gray !important;
+  }
+  
+  .calender-style:hover {
+    border: 1px solid lightgray;
+    color: gray;
+  }
+ 
+  .page-link:focus {
+    box-shadow: none !important;
+  }
+  
+  /** end return-order style **/

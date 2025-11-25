@@ -1,0 +1,728 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="1">
+      <MongoDB Ref="2" type="Stimulsoft.Report.Dictionary.StiMongoDbDatabase" isKey="true">
+        <Alias>MongoDB</Alias>
+        <ConnectionStringEncrypted>3dz1SNdXYZR8GdT0ZBhyE4dqZynOAmH5ckn59WJANTfY0g==</ConnectionStringEncrypted>
+        <Key>821d3e2f8433430f8f99cf9ee78227e7</Key>
+        <Name>MongoDB</Name>
+      </MongoDB>
+    </Databases>
+    <DataSources isList="true" count="4">
+      <vwOrderDetNotes Ref="3" type="Stimulsoft.Report.Dictionary.StiMongoDbSource" isKey="true">
+        <Alias>vwOrderDetNotes</Alias>
+        <Columns isList="true" count="3">
+          <value>Note,System.String</value>
+          <value>OrderDetailID,System.String</value>
+          <value>OrderId,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>1b7002d5dacd4f548985782030a34692</Key>
+        <Name>vwOrderDetNotes</Name>
+        <NameInSource>MongoDB</NameInSource>
+        <Parameters isList="true" count="0" />
+        <Query />
+        <SqlCommand />
+      </vwOrderDetNotes>
+      <vwOrderDetSubItems Ref="4" type="Stimulsoft.Report.Dictionary.StiMongoDbSource" isKey="true">
+        <Alias>vwOrderDetSubItems</Alias>
+        <Columns isList="true" count="4">
+          <value>OrderDetailID,System.String</value>
+          <value>OrderId,System.String</value>
+          <value>SubItemName,System.String</value>
+          <value>SubItemQty,System.Double</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>ac560b0ead10472da202414ea814b859</Key>
+        <Name>vwOrderDetSubItems</Name>
+        <NameInSource>MongoDB</NameInSource>
+        <Parameters isList="true" count="0" />
+        <Query />
+        <SqlCommand />
+      </vwOrderDetSubItems>
+      <vwOrderDetail Ref="5" type="Stimulsoft.Report.Dictionary.StiMongoDbSource" isKey="true">
+        <Alias>vwOrderDetail</Alias>
+        <Columns isList="true" count="14">
+          <value>DiscountAmount,System.Double</value>
+          <value>GroupName,System.String</value>
+          <value>OrderDetailID,System.String</value>
+          <value>OrderId,System.String</value>
+          <value>ProductFinalPrice,System.Double</value>
+          <value>ProductId,System.Double</value>
+          <value>ProductName,System.String</value>
+          <value>ProductPrice,System.Double</value>
+          <value>ProductQuantity,System.Double</value>
+          <value>TaxAmount,System.Double</value>
+          <value>ProductGroupId,System.Double</value>
+          <value>TaxName,System.String</value>
+          <value>Printed,System.Boolean</value>
+          <value>ProductGroupDocumentId,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>b053b62f0cf4458c8764529a38646a6d</Key>
+        <Name>vwOrderDetail</Name>
+        <NameInSource>MongoDB</NameInSource>
+        <Parameters isList="true" count="0" />
+        <Query />
+        <SqlCommand />
+      </vwOrderDetail>
+      <vwOrderMaster Ref="6" type="Stimulsoft.Report.Dictionary.StiMongoDbSource" isKey="true">
+        <Alias>vwOrderMaster</Alias>
+        <Columns isList="true" count="32">
+          <value>_id,System.String</value>
+          <value>AddressApartment,System.String</value>
+          <value>AddressBuilding,System.Double</value>
+          <value>AddressDescription,System.String</value>
+          <value>AddressFloor,System.String</value>
+          <value>AddressStreet,System.Double</value>
+          <value>AddressZone,System.String</value>
+          <value>CashierName,System.String</value>
+          <value>Closed,System.String</value>
+          <value>CustomerName,System.String</value>
+          <value>CustomerPhone,System.Double</value>
+          <value>DeliveryPrice,System.Double</value>
+          <value>DiscountRate,System.Double</value>
+          <value>DiscountValue,System.Double</value>
+          <value>DriverName,System.String</value>
+          <value>EmployeeName,System.String</value>
+          <value>NoteForOrder,System.String</value>
+          <value>Opened,System.String</value>
+          <value>OrderNumber,System.Double</value>
+          <value>OrderPayType,System.String</value>
+          <value>OrderType,System.String</value>
+          <value>PaymentAmount,System.Double</value>
+          <value>Persons,System.Double</value>
+          <value>RemainingAmount,System.Double</value>
+          <value>ServiceChargePercentage,System.Double</value>
+          <value>ServiceChargeValue,System.Double</value>
+          <value>SubTotal,System.Double</value>
+          <value>TableName,System.String</value>
+          <value>Total,System.Double</value>
+          <value>TotalInsurance,System.Double</value>
+          <value>TotalTax,System.Double</value>
+          <value>WaiterName,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>4a0ab06cb9f94cff9965dcf0ac508fa1</Key>
+        <Name>vwOrderMaster</Name>
+        <NameInSource>MongoDB</NameInSource>
+        <Parameters isList="true" count="0" />
+        <Query />
+        <SqlCommand />
+      </vwOrderMaster>
+    </DataSources>
+    <Relations isList="true" count="2">
+      <Notes Ref="7" type="DataRelation" isKey="true">
+        <Alias>Notes</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>OrderDetailID</value>
+        </ChildColumns>
+        <ChildSource isRef="3" />
+        <Dictionary isRef="1" />
+        <Name>Notes</Name>
+        <NameInSource>Relation</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>OrderDetailID</value>
+        </ParentColumns>
+        <ParentSource isRef="5" />
+      </Notes>
+      <subitems Ref="8" type="DataRelation" isKey="true">
+        <Alias>subitems</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>OrderDetailID</value>
+        </ChildColumns>
+        <ChildSource isRef="4" />
+        <Dictionary isRef="1" />
+        <Name>subitems</Name>
+        <NameInSource>Relation2</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>OrderDetailID</value>
+        </ParentColumns>
+        <ParentSource isRef="5" />
+      </subitems>
+    </Relations>
+    <Report isRef="0" />
+    <Resources isList="true" count="0" />
+    <Variables isList="true" count="2">
+      <value>,orderid,orderid,,System.String,_x0036_14c48e80c79bc44d4ae97f9,False,False,False,False,,c6d05fbcf0364400b6f9801600c7929e</value>
+      <value>,GroupId,GroupId,,System.String,_x0036_149cc943c7e6d2a1c24b506,False,False,False,False,,_x0031_295e28bbed34a37a890b93f5290521a</value>
+    </Variables>
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <Key>3deafced0c9c4346993e83503ca3cb0a</Key>
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="9" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="12">
+        <GroupHeaderBand1 Ref="10" type="GroupHeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,7.8,0.8</ClientRectangle>
+          <Components isList="true" count="4">
+            <Text1 Ref="11" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>1.2,0.2,2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,14,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="9" />
+              <Parent isRef="10" />
+              <Text>{vwOrderMaster.OrderNumber}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text1>
+            <Text20 Ref="12" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.4,0.2,0.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,14,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text20</Name>
+              <Page isRef="9" />
+              <Parent isRef="10" />
+              <Text>#</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text20>
+            <Text21 Ref="13" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.2,0.2,0.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,14,Bold</Font>
+              <Guid>6782f55c3e1c411c8c81d9af7c4aaa96</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text21</Name>
+              <Page isRef="9" />
+              <Parent isRef="10" />
+              <Text>/</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text21>
+            <Text22 Ref="14" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4,0.2,3.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,14,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text22</Name>
+              <Page isRef="9" />
+              <Parent isRef="10" />
+              <Text>{vwOrderMaster.OrderType}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text22>
+          </Components>
+          <Condition>{vwOrderMaster.OrderNumber}</Condition>
+          <Conditions isList="true" count="0" />
+          <Name>GroupHeaderBand1</Name>
+          <Page isRef="9" />
+          <Parent isRef="9" />
+        </GroupHeaderBand1>
+        <DataBand1 Ref="15" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,2,7.8,0.6</ClientRectangle>
+          <Components isList="true" count="2">
+            <Text6 Ref="16" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,2.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,14,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text6</Name>
+              <Page isRef="9" />
+              <Parent isRef="15" />
+              <Text>الطاوله :</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text6>
+            <Text4 Ref="17" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2.8,0,3.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,14,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text4</Name>
+              <Page isRef="9" />
+              <Parent isRef="15" />
+              <Text>{vwOrderMaster.TableName}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text4>
+          </Components>
+          <Conditions isList="true" count="1">
+            <value>_x007B_vwOrderMaster.TableName_x0020__x003D__x003D__x0020__x0022__x0022__x007D_,Red,Transparent,Arial_x002C_8,False,False,,,None</value>
+          </Conditions>
+          <DataRelationName isNull="true" />
+          <Filters isList="true" count="0" />
+          <Name>DataBand1</Name>
+          <Page isRef="9" />
+          <Parent isRef="9" />
+          <Sort isList="true" count="0" />
+        </DataBand1>
+        <DataBand2 Ref="18" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,3.4,7.8,0.6</ClientRectangle>
+          <Components isList="true" count="1">
+            <Text7 Ref="19" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>0.6,0,6.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,14,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text7</Name>
+              <Page isRef="9" />
+              <Parent isRef="18" />
+              <Text>{vwOrderMaster.CustomerName}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text7>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName isNull="true" />
+          <Filters isList="true" count="0" />
+          <Name>DataBand2</Name>
+          <Page isRef="9" />
+          <Parent isRef="9" />
+          <Sort isList="true" count="0" />
+        </DataBand2>
+        <DataBand4 Ref="20" type="DataBand" isKey="true">
+          <Border>All;Black;1;Solid;False;4;Black</Border>
+          <Brush>[216:216:216]</Brush>
+          <ClientRectangle>0,4.8,7.8,0.6</ClientRectangle>
+          <Components isList="true" count="2">
+            <Text8 Ref="21" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,5,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,12,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text8</Name>
+              <Page isRef="9" />
+              <Parent isRef="20" />
+              <Text>الوجبه</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text8>
+            <Text9 Ref="22" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5,0,2.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,12,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text9</Name>
+              <Page isRef="9" />
+              <Parent isRef="20" />
+              <Text>الكميه</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text9>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName isNull="true" />
+          <Filters isList="true" count="0" />
+          <Name>DataBand4</Name>
+          <Page isRef="9" />
+          <Parent isRef="9" />
+          <Sort isList="true" count="0" />
+        </DataBand4>
+        <DatavwOrderDetail Ref="23" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,6.2,7.8,0.6</ClientRectangle>
+          <Components isList="true" count="1">
+            <DatavwOrderDetail_GroupName Ref="24" type="Text" isKey="true">
+              <Border>Right;Black;1;Dash;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,7.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,12,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DatavwOrderDetail_GroupName</Name>
+              <Page isRef="9" />
+              <Parent isRef="23" />
+              <Text>{vwOrderDetail.GroupName}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DatavwOrderDetail_GroupName>
+          </Components>
+          <Conditions isList="true" count="1">
+            <value>_x007B_Line_x0020__x003E__x003D__x0020_2_x007D_,Red,Transparent,Arial_x002C_8,False,False,,,None</value>
+          </Conditions>
+          <DataRelationName isNull="true" />
+          <DataSourceName>vwOrderDetail</DataSourceName>
+          <Filters isList="true" count="2">
+            <value>_x007B_vwOrderDetail.OrderId_x0020__x003D__x003D__x0020_orderid_x007D_</value>
+            <value>_x007B_vwOrderDetail.ProductGroupDocumentId_x0020__x003D__x003D__x0020_GroupId_x007D_</value>
+          </Filters>
+          <Name>DatavwOrderDetail</Name>
+          <Page isRef="9" />
+          <Parent isRef="9" />
+          <Sort isList="true" count="0" />
+        </DatavwOrderDetail>
+        <Products Ref="25" type="DataBand" isKey="true">
+          <Border>All;Black;1;Solid;False;4;Black</Border>
+          <Brush>White</Brush>
+          <ClientRectangle>0,7.6,7.8,0.6</ClientRectangle>
+          <Components isList="true" count="2">
+            <Text10 Ref="26" type="Text" isKey="true">
+              <Border>Right;Black;1;Dash;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.2,0,4.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,12,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text10</Name>
+              <Page isRef="9" />
+              <Parent isRef="25" />
+              <Text>{vwOrderDetail.ProductName}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text10>
+            <Text11 Ref="27" type="Text" isKey="true">
+              <Border>Right;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5,0,2.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,12,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text11</Name>
+              <Page isRef="9" />
+              <Parent isRef="25" />
+              <Text>{vwOrderDetail.ProductQuantity}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text11>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName isNull="true" />
+          <DataSourceName>vwOrderDetail</DataSourceName>
+          <Filters isList="true" count="3">
+            <value>_x007B_vwOrderDetail.OrderId_x0020__x003D__x003D__x0020_orderid_x007D_</value>
+            <value>_x007B_vwOrderDetail.ProductGroupDocumentId_x003D__x003D__x0020_GroupId_x007D_</value>
+            <value>Printed,NotEqualTo,true,,Boolean</value>
+          </Filters>
+          <Name>Products</Name>
+          <Page isRef="9" />
+          <Parent isRef="9" />
+          <PrintIfDetailEmpty>True</PrintIfDetailEmpty>
+          <Sort isList="true" count="0" />
+        </Products>
+        <HeaderBand1 Ref="28" type="HeaderBand" isKey="true">
+          <Brush>[242:242:242]</Brush>
+          <ClientRectangle>0,9,7.8,0.4</ClientRectangle>
+          <Components isList="true" count="1">
+            <Text18 Ref="29" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2,0,3.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text18</Name>
+              <Page isRef="9" />
+              <Parent isRef="28" />
+              <Text>ملاحظة</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Bottom</VertAlignment>
+            </Text18>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>HeaderBand1</Name>
+          <Page isRef="9" />
+          <Parent isRef="9" />
+        </HeaderBand1>
+        <Notes Ref="30" type="DataBand" isKey="true">
+          <Border>All;Black;1;Solid;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,10.2,7.8,0.6</ClientRectangle>
+          <Components isList="true" count="1">
+            <Text2 Ref="31" type="Text" isKey="true">
+              <Border>Right;Black;1;Dash;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0.6,0,7.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="9" />
+              <Parent isRef="30" />
+              <Text>{vwOrderDetNotes.Note}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text2>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName>Relation</DataRelationName>
+          <DataSourceName>vwOrderDetNotes</DataSourceName>
+          <Filters isList="true" count="0" />
+          <MasterComponent isRef="25" />
+          <Name>Notes</Name>
+          <Page isRef="9" />
+          <Parent isRef="9" />
+          <Sort isList="true" count="0" />
+        </Notes>
+        <HeaderBand2 Ref="32" type="HeaderBand" isKey="true">
+          <Brush>[242:242:242]</Brush>
+          <ClientRectangle>0,11.6,7.8,0.4</ClientRectangle>
+          <Components isList="true" count="1">
+            <Text19 Ref="33" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2,0,3.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text19</Name>
+              <Page isRef="9" />
+              <Parent isRef="32" />
+              <Text>طبق جانبي</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Bottom</VertAlignment>
+            </Text19>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>HeaderBand2</Name>
+          <Page isRef="9" />
+          <Parent isRef="9" />
+        </HeaderBand2>
+        <DataBand7 Ref="34" type="DataBand" isKey="true">
+          <Border>Top, Left, Bottom;Black;1;Solid;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,12.8,7.8,0.6</ClientRectangle>
+          <Components isList="true" count="2">
+            <Text5 Ref="35" type="Text" isKey="true">
+              <Border>Right;Black;1;Dash;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.6,0,4.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text5</Name>
+              <Page isRef="9" />
+              <Parent isRef="34" />
+              <Text>{vwOrderDetSubItems.SubItemName}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text5>
+            <Text17 Ref="36" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5,0,2.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text17</Name>
+              <Page isRef="9" />
+              <Parent isRef="34" />
+              <Text>{vwOrderDetSubItems.SubItemQty}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text17>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName>Relation2</DataRelationName>
+          <DataSourceName>vwOrderDetSubItems</DataSourceName>
+          <Filters isList="true" count="0" />
+          <MasterComponent isRef="25" />
+          <Name>DataBand7</Name>
+          <Page isRef="9" />
+          <Parent isRef="9" />
+          <Sort isList="true" count="0" />
+        </DataBand7>
+        <DataBand5 Ref="37" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,14.2,7.8,1.2</ClientRectangle>
+          <Components isList="true" count="3">
+            <Text12 Ref="38" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>1.8,0,5.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text12</Name>
+              <Page isRef="9" />
+              <Parent isRef="37" />
+              <Text>{vwOrderMaster.CashierName}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text12>
+            <Text15 Ref="39" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.2,0,1.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text15</Name>
+              <Page isRef="9" />
+              <Parent isRef="37" />
+              <Text>Cashier</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text15>
+            <Text16 Ref="40" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.2,0.6,6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text16</Name>
+              <Page isRef="9" />
+              <Parent isRef="37" />
+              <Text>{Time}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text16>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName isNull="true" />
+          <Filters isList="true" count="0" />
+          <Name>DataBand5</Name>
+          <Page isRef="9" />
+          <Parent isRef="9" />
+          <Sort isList="true" count="0" />
+        </DataBand5>
+        <DataBand6 Ref="41" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,16.2,7.8,0.6</ClientRectangle>
+          <Components isList="true" count="2">
+            <Text13 Ref="42" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>1.8,0,5.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text13</Name>
+              <Page isRef="9" />
+              <Parent isRef="41" />
+              <Text>{vwOrderMaster.WaiterName}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text13>
+            <Text14 Ref="43" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.2,0,1.6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text14</Name>
+              <Page isRef="9" />
+              <Parent isRef="41" />
+              <Text>Waiter</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text14>
+          </Components>
+          <Conditions isList="true" count="1">
+            <value>_x007B_vwOrderMaster.WaiterName_x0020__x003D__x003D__x0020__x0022__x0022__x007D_,Red,Transparent,Arial_x002C_8,False,False,,,None</value>
+          </Conditions>
+          <DataRelationName isNull="true" />
+          <Filters isList="true" count="0" />
+          <Name>DataBand6</Name>
+          <Page isRef="9" />
+          <Parent isRef="9" />
+          <Sort isList="true" count="0" />
+        </DataBand6>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>a27741da11db4549ac0a14b2174eaed0</Guid>
+      <Margins>0,0,0,0</Margins>
+      <Name>Page1</Name>
+      <PageHeight>297</PageHeight>
+      <PageWidth>7.8</PageWidth>
+      <Report isRef="0" />
+    </Page1>
+  </Pages>
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>9/23/2021 11:36:36 AM</ReportChanged>
+  <ReportCreated>11/3/2020 11:55:56 AM</ReportCreated>
+  <ReportFile>D:\POS\POS_BackEnd\POS.Web\StaticFiles\Reports\KOT.mrt</ReportFile>
+  <ReportGuid>6be517beea0342a89b1fdbb66219df82</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2020.4.1.0</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+</StiSerializer>

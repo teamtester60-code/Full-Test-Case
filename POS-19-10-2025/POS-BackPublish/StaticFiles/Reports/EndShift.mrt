@@ -1,0 +1,1482 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="0" />
+    <DataSources isList="true" count="5">
+      <POSIncomingUser Ref="2" type="DataTableSource" isKey="true">
+        <Alias>POSIncomingUser</Alias>
+        <Columns isList="true" count="25">
+          <value>ORIGINAL,Amount,Amount,Amount,System.Double,cf8257f89c0f4e45800398e9953ef72b</value>
+          <value>ORIGINAL,CreationTime,CreationTime,CreationTime,System.DateTime,cdf03ecb6ce04121acfdbcbc31bc6189</value>
+          <value>ORIGINAL,CreditAmount,CreditAmount,CreditAmount,System.Double,f91671eacc1a435ea819d274c1274f18</value>
+          <value>ORIGINAL,CreditDescription,CreditDescription,CreditDescription,System.String,da53bf7d3c2940fc96577ce46b93c818</value>
+          <value>ORIGINAL,DayName,DayName,DayName,System.String,_x0038_9e757c4e9044797be31ff211b95febf</value>
+          <value>ORIGINAL,DeficitOrIncreaseAmount,DeficitOrIncreaseAmount,DeficitOrIncreaseAmount,System.Double,_x0032_02ed8a4486c421d8ca0e987cf490ee9</value>
+          <value>ORIGINAL,EndCashAmount,EndCashAmount,EndCashAmount,System.Double,f8e0fed2984a46dbbd991df4f2795608</value>
+          <value>ORIGINAL,EndCreditAmount,EndCreditAmount,EndCreditAmount,System.Double,_x0030_47a14c0e1b3439f951cb176e9169dd8</value>
+          <value>ORIGINAL,EndVisaAmount,EndVisaAmount,EndVisaAmount,System.Double,_x0033_1502b57cb7a4215a27a5f7f9046845f</value>
+          <value>ORIGINAL,ExpensesAmount,ExpensesAmount,ExpensesAmount,System.Double,_x0038_a0e17b72f9046e38b02efc50c2ed4a4</value>
+          <value>ORIGINAL,IsAdmin,IsAdmin,IsAdmin,System.Nullable`1[System.Boolean],_x0036_c1eda826bbb444199074e0e2b46650e</value>
+          <value>ORIGINAL,ModificationTime,ModificationTime,ModificationTime,System.DateTime,a58049e4928f45ab89037f5e89e35995</value>
+          <value>ORIGINAL,OpenBalance,OpenBalance,OpenBalance,System.Double,_x0033_9dbb845bcd2423a91be3b383d2c6907</value>
+          <value>ORIGINAL,PrintedBy,PrintedBy,PrintedBy,System.String,_x0030_5651712e5aa43ad8ed9c1736863cb66</value>
+          <value>ORIGINAL,SalesAmount,SalesAmount,SalesAmount,System.Double,_x0037_4814e1f8a414143b42f555d4e9937fd</value>
+          <value>ORIGINAL,TotalRevenue,TotalRevenue,TotalRevenue,System.Double,_x0039_3eec8d5bac14814b95a3f28c9cb4be9</value>
+          <value>ORIGINAL,UserName,UserName,UserName,System.String,_x0034_00227c37f544aa5a2371831682ea6bc</value>
+          <value>ORIGINAL,VisaAmount,VisaAmount,VisaAmount,System.Double,_x0036_e86f39ee0bf47c9949347802a301880</value>
+          <value>ORIGINAL,VisaDescription,VisaDescription,VisaDescription,System.String,_x0036_943802fef294d83934a8d98ec358b14</value>
+          <value>ORIGINAL,EndDay,EndDay,EndDay,System.DateTime,_x0036_92a02b2a6184227b20ca4b88a34e333</value>
+          <value>ORIGINAL,TotalUserExtraExpenses,TotalUserExtraExpenses,TotalUserExtraExpenses,System.Double,_x0032_ba918fd8d1a4c3c96640b36373dbb95</value>
+          <value>ORIGINAL,CancelledOrders,CancelledOrders,CancelledOrders,System.Object,_x0036_7a9b4a78667453ea07dbb01a1d254cb</value>
+          <value>ORIGINAL,BranchName,BranchName,BranchName,System.String,_x0033_ccae8e1f6ac48beb8a8c12290371247</value>
+          <value>ORIGINAL,DeficitOrIncreaseVisa,DeficitOrIncreaseVisa,DeficitOrIncreaseVisa,System.Double,_x0033_b2c3e8a04c9455b94eb430c9a44ebd0</value>
+          <value>ORIGINAL,DeficitOrIncreaseCredit,DeficitOrIncreaseCredit,DeficitOrIncreaseCredit,System.Double,_x0032_6da70f75aae408c8e61289ecfff45e5</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>c125cce505ff48b794c81cd3b5f5ebac</Key>
+        <Name>POSIncomingUser</Name>
+        <NameInSource>DynamicDataSource</NameInSource>
+      </POSIncomingUser>
+      <CancelledOrders Ref="3" type="DataTableSource" isKey="true">
+        <Alias>CancelledOrders</Alias>
+        <Columns isList="true" count="3">
+          <value>ORIGINAL,ProductName,ProductName,ProductName,System.String,e792566bfe184facbb584943add839de</value>
+          <value>ORIGINAL,ProductQuantity,ProductQuantity,ProductQuantity,System.Double,_x0034_3a6f5c247cb4c78b6e3b61efafe0157</value>
+          <value>ORIGINAL,ProductPrice,ProductPrice,ProductPrice,System.Double,_x0034_50467878ae6402da1dca9c5085701fa</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>aebf5b0156f04e2a88b480c92751c0d5</Key>
+        <Name>CancelledOrders</Name>
+        <NameInSource>DynamicDataSource</NameInSource>
+      </CancelledOrders>
+      <Setting Ref="4" type="DataTableSource" isKey="true">
+        <Alias>Setting</Alias>
+        <Columns isList="true" count="3">
+          <value>ORIGINAL,OrderNumberGenerationPeriod,OrderNumberGenerationPeriod,OrderNumberGenerationPeriod,System.Int32,aed0aa18b5344822b22925084a65c6dd</value>
+          <value>ORIGINAL,IncludeExtraExpensesAndCancelOrdersInEndOfDayReport,IncludeExtraExpensesAndCancelOrdersInEndOfDayReport,IncludeExtraExpensesAndCancelOrdersInEndOfDayReport,System.Boolean,_x0030_32a1eeb6bc64b08b68f64ea163151d5</value>
+          <value>HideActualRevenueInEndShiftReport,System.Boolean</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>54cb95d332ae44e2861d6e171f75087a</Key>
+        <Name>Setting</Name>
+        <NameInSource>DynamicDataSource</NameInSource>
+      </Setting>
+      <ExtraExpenseEndShiftDetail Ref="5" type="DataTableSource" isKey="true">
+        <Alias>ExtraExpenseEndShiftDetail</Alias>
+        <Columns isList="true" count="4">
+          <value>ORIGINAL,BeneficiaryName,BeneficiaryName,BeneficiaryName,System.String,_x0035_a0050f36d464aeea77b7723749ade64</value>
+          <value>ExtraExpenseTypeName,System.String</value>
+          <value>Amount,System.Decimal</value>
+          <value>Description,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>85b19ad8b0984d5d92d508c8f38b640d</Key>
+        <Name>ExtraExpenseEndShiftDetail</Name>
+        <NameInSource>DynamicDataSource</NameInSource>
+      </ExtraExpenseEndShiftDetail>
+      <OrderTotals Ref="6" type="DataTableSource" isKey="true">
+        <Alias>OrderTotals</Alias>
+        <Columns isList="true" count="3">
+          <value>OrdersCount,System.Double</value>
+          <value>ProductsCount,System.Double</value>
+          <value>OrdersTotal,System.Double</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Key>a7fc50c6b5d74baa80104c7a822274c8</Key>
+        <Name>OrderTotals</Name>
+        <NameInSource>DynamicDataSource</NameInSource>
+      </OrderTotals>
+    </DataSources>
+    <Relations isList="true" count="0" />
+    <Report isRef="0" />
+    <Resources isList="true" count="0" />
+    <Variables isList="true" count="1">
+      <value>,PrintedBy,PrintedBy,,System.String,,False,False,False,False</value>
+    </Variables>
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <Key>4a77a9c81ec84e50a694370778cf658c</Key>
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="7" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="19">
+        <GroupHeaderBand1 Ref="8" type="GroupHeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,4,76,48</ClientRectangle>
+          <Components isList="true" count="10">
+            <Text1 Ref="9" type="Text" isKey="true">
+              <Alias>EndShiftReport</Alias>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2,2,72,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,16,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="7" />
+              <Parent isRef="8" />
+              <Text>تقرير اقفال ورديه</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text1>
+            <Text2 Ref="10" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>18,24,58,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,12,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="7" />
+              <Parent isRef="8" />
+              <Text>{POSIncomingUser.CreationTime}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text2>
+            <Text3 Ref="11" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,16,76,8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,14,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="7" />
+              <Parent isRef="8" />
+              <Text>{POSIncomingUser.DayName}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text3>
+            <Text14 Ref="12" type="Text" isKey="true">
+              <Alias>User</Alias>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2,38,20,8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,12,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text14</Name>
+              <Page isRef="7" />
+              <Parent isRef="8" />
+              <Text>المستخدم</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text14>
+            <Text15 Ref="13" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>24,38,52,8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,16,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text15</Name>
+              <Page isRef="7" />
+              <Parent isRef="8" />
+              <Text>{POSIncomingUser.UserName}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text15>
+            <Text20 Ref="14" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>18,30,58,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,12,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text20</Name>
+              <Page isRef="7" />
+              <Parent isRef="8" />
+              <Text>{POSIncomingUser.EndDay}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text20>
+            <Text29 Ref="15" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2,24,16,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,16,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text29</Name>
+              <Page isRef="7" />
+              <Parent isRef="8" />
+              <Text>Open</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text29>
+            <Text30 Ref="16" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2,30,16,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,16,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text30</Name>
+              <Page isRef="7" />
+              <Parent isRef="8" />
+              <Text>Close</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text30>
+            <Text40 Ref="17" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>20,10,48,6</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>POSIncomingUser.BranchName,IsNull,,,String,Red,Transparent,Arial_x002C_8,False,False,,,None</value>
+              </Conditions>
+              <Font>Arial,12,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text40</Name>
+              <Page isRef="7" />
+              <Parent isRef="8" />
+              <Text>{POSIncomingUser.BranchName}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text40>
+            <Text41 Ref="18" type="Text" isKey="true">
+              <Alias>BranchName</Alias>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2,10,20,6</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>POSIncomingUser.BranchName,IsNull,,,String,Red,Transparent,Arial_x002C_8,False,False,,,None</value>
+              </Conditions>
+              <Font>Arial,12,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text41</Name>
+              <Page isRef="7" />
+              <Parent isRef="8" />
+              <Text>BranchName</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text41>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>GroupHeaderBand1</Name>
+          <Page isRef="7" />
+          <Parent isRef="7" />
+        </GroupHeaderBand1>
+        <DataBand4 Ref="19" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,60,76,50</ClientRectangle>
+          <Components isList="true" count="10">
+            <Text22 Ref="20" type="Text" isKey="true">
+              <Alias>OpenBalance</Alias>
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[219:229:241]</Brush>
+              <ClientRectangle>0,0,28,10</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,12,Bold</Font>
+              <Guid>7aeaf0e4b87443348bf0283f80d7d7b8</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text22</Name>
+              <Page isRef="7" />
+              <Parent isRef="19" />
+              <Text>الرصيد الإفتتاحي </Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text22>
+            <Text23 Ref="21" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[219:229:241]</Brush>
+              <ClientRectangle>28,0,48,10</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,16,Bold</Font>
+              <Guid>3038afedf6c641f0afd7d949f5201f83</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text23</Name>
+              <Page isRef="7" />
+              <Parent isRef="19" />
+              <Text>{POSIncomingUser.OpenBalance}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+            </Text23>
+            <Text16 Ref="22" type="Text" isKey="true">
+              <Alias>Cash+OpenBalance</Alias>
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[219:229:241]</Brush>
+              <ClientRectangle>0,10,28,10</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,12,Bold</Font>
+              <Guid>707ae9cd77ea4908adc2cb993c0aa754</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text16</Name>
+              <Page isRef="7" />
+              <Parent isRef="19" />
+              <Text>النقد+الافتتاحي</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text16>
+            <Text17 Ref="23" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[219:229:241]</Brush>
+              <ClientRectangle>28,10,48,10</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,16,Bold</Font>
+              <Guid>57a8cfe96c8d4e51ae94dd928ff085d2</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text17</Name>
+              <Page isRef="7" />
+              <Parent isRef="19" />
+              <Text>{POSIncomingUser.EndCashAmount}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text17>
+            <Text21 Ref="24" type="Text" isKey="true">
+              <Alias>RevenueVisa</Alias>
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[219:229:241]</Brush>
+              <ClientRectangle>0,20,28,10</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,12,Bold</Font>
+              <Guid>182ed1c41fea4e8c90f278e97447bb98</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text21</Name>
+              <Page isRef="7" />
+              <Parent isRef="19" />
+              <Text>الايراد الفيزا</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text21>
+            <Text28 Ref="25" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[219:229:241]</Brush>
+              <ClientRectangle>28,20,48,10</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,16,Bold</Font>
+              <Guid>cac041eb701c4710b1414289acfa19f7</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text28</Name>
+              <Page isRef="7" />
+              <Parent isRef="19" />
+              <Text>{POSIncomingUser.EndVisaAmount}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text28>
+            <Text35 Ref="26" type="Text" isKey="true">
+              <Alias>RevenueCridet</Alias>
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[219:229:241]</Brush>
+              <ClientRectangle>0,30,28,10</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,12,Bold</Font>
+              <Guid>ac3dd9cd62ec485d96433cc92cc5b27a</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text35</Name>
+              <Page isRef="7" />
+              <Parent isRef="19" />
+              <Text>الايراد الاجل</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text35>
+            <Text36 Ref="27" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[219:229:241]</Brush>
+              <ClientRectangle>28,30,48,10</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,16,Bold</Font>
+              <Guid>895943b4ed7140f78d9f899e2775a8b6</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text36</Name>
+              <Page isRef="7" />
+              <Parent isRef="19" />
+              <Text>{POSIncomingUser.EndCreditAmount}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text36>
+            <Text31 Ref="28" type="Text" isKey="true">
+              <Alias>Extra Expenses</Alias>
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[219:229:241]</Brush>
+              <ClientRectangle>0,40,28,10</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>Setting.IncludeExtraExpensesAndCancelOrdersInEndOfDayReport,EqualTo,false,,Boolean,Red,Transparent,Arial_x002C_8,False,False,,,None</value>
+              </Conditions>
+              <Font>Arial,12,Bold</Font>
+              <Guid>d7df2b72b8bb4075b71d10ded49194a7</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text31</Name>
+              <Page isRef="7" />
+              <Parent isRef="19" />
+              <Text>المصاريف الإضافية</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text31>
+            <Text32 Ref="29" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[219:229:241]</Brush>
+              <ClientRectangle>28,40,48,10</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>Setting.IncludeExtraExpensesAndCancelOrdersInEndOfDayReport,EqualTo,false,,Boolean,Red,Transparent,Arial_x002C_8,False,False,,,None</value>
+              </Conditions>
+              <Font>Arial,16,Bold</Font>
+              <Guid>02e035a2c5d94581bbd481785c94f67d</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text32</Name>
+              <Page isRef="7" />
+              <Parent isRef="19" />
+              <Text>{POSIncomingUser.TotalUserExtraExpenses}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+            </Text32>
+          </Components>
+          <Conditions isList="true" count="1">
+            <value>Setting.HideActualRevenueInEndShiftReport,EqualTo,true,,Boolean,Red,Transparent,Arial_x002C_8,False,False,,,None</value>
+          </Conditions>
+          <DataRelationName isNull="true" />
+          <DataSourceName>POSIncomingUser</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Guid>5e5c9f7cf4c247d6af3c1fa2a8daa190</Guid>
+          <Name>DataBand4</Name>
+          <Page isRef="7" />
+          <Parent isRef="7" />
+          <Sort isList="true" count="0" />
+        </DataBand4>
+        <DataBand1 Ref="30" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,118,76,34</ClientRectangle>
+          <Components isList="true" count="8">
+            <Cash Ref="31" type="Text" isKey="true">
+              <Alias>RecipientCash</Alias>
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,28,10</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,16,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Cash</Name>
+              <Page isRef="7" />
+              <Parent isRef="30" />
+              <Text>المستلم نقدي</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Cash>
+            <Text5 Ref="32" type="Text" isKey="true">
+              <Alias>RecipientVisa</Alias>
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,10,28,12</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,16,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text5</Name>
+              <Page isRef="7" />
+              <Parent isRef="30" />
+              <Text>المستلم فيزا</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text5>
+            <Text6 Ref="33" type="Text" isKey="true">
+              <Alias>RecipientCridet</Alias>
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,22,28,12</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,16,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text6</Name>
+              <Page isRef="7" />
+              <Parent isRef="30" />
+              <Text>المستلم اجل</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text6>
+            <Text7 Ref="34" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>28,0,48,10</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,16,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text7</Name>
+              <Page isRef="7" />
+              <Parent isRef="30" />
+              <Text>{POSIncomingUser.Amount}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text7>
+            <Text8 Ref="35" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>28,10,48,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,16,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text8</Name>
+              <Page isRef="7" />
+              <Parent isRef="30" />
+              <Text>{POSIncomingUser.VisaAmount}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+            </Text8>
+            <Text9 Ref="36" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>28,22,48,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,16,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text9</Name>
+              <Page isRef="7" />
+              <Parent isRef="30" />
+              <Text>{POSIncomingUser.CreditAmount}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text9>
+            <Text4 Ref="37" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>28,16,48,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,16,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text4</Name>
+              <Page isRef="7" />
+              <Parent isRef="30" />
+              <Text>{POSIncomingUser.VisaDescription}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+            </Text4>
+            <Text13 Ref="38" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>28,28,48,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,16,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text13</Name>
+              <Page isRef="7" />
+              <Parent isRef="30" />
+              <Text>{POSIncomingUser.CreditDescription}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text13>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName isNull="true" />
+          <DataSourceName>DataSource1</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Name>DataBand1</Name>
+          <Page isRef="7" />
+          <Parent isRef="7" />
+          <Sort isList="true" count="0" />
+        </DataBand1>
+        <DataBand14 Ref="39" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,160,76,12</ClientRectangle>
+          <Components isList="true" count="2">
+            <Text54 Ref="40" type="Text" isKey="true">
+              <Alias>MatchesCash</Alias>
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,28,10</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,14,Bold</Font>
+              <Guid>6285f7ad3f57459db19ba652c94451ec</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text54</Name>
+              <Page isRef="7" />
+              <Parent isRef="39" />
+              <Text>مطابق نقدي</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text54>
+            <Text55 Ref="41" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>28,0,48,10</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,16,Bold</Font>
+              <Guid>4315196f36bf4a6085fd6bffcd8810e9</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text55</Name>
+              <Page isRef="7" />
+              <Parent isRef="39" />
+              <Text>{POSIncomingUser.DeficitOrIncreaseAmount}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+            </Text55>
+          </Components>
+          <Conditions isList="true" count="1">
+            <value>Multi&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;&lt;StiSerializer version="1.02" type="Net" application="State"&gt;&lt;Filters isList="true" count="2"&gt;&lt;value&gt;POSIncomingUser.DeficitOrIncreaseAmount,EqualTo,_x0030_,,Numeric&lt;/value&gt;&lt;value&gt;Setting.HideActualRevenueInEndShiftReport,NotEqualTo,true,,Boolean&lt;/value&gt;&lt;/Filters&gt;&lt;TextColor&gt;Red&lt;/TextColor&gt;&lt;BackColor&gt;Transparent&lt;/BackColor&gt;&lt;Font&gt;Arial, 8pt&lt;/Font&gt;&lt;BorderSides&gt;None&lt;/BorderSides&gt;&lt;/StiSerializer&gt;</value>
+          </Conditions>
+          <DataRelationName isNull="true" />
+          <DataSourceName>POSIncomingUser</DataSourceName>
+          <Enabled>False</Enabled>
+          <Filters isList="true" count="0" />
+          <Name>DataBand14</Name>
+          <Page isRef="7" />
+          <Parent isRef="7" />
+          <Sort isList="true" count="0" />
+        </DataBand14>
+        <DataBand2 Ref="42" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,180,76,12</ClientRectangle>
+          <Components isList="true" count="2">
+            <Text18 Ref="43" type="Text" isKey="true">
+              <Alias>MatchesVisa</Alias>
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,28,10</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,14,Bold</Font>
+              <Guid>8e458de7fde14569a70b506f0cad4814</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text18</Name>
+              <Page isRef="7" />
+              <Parent isRef="42" />
+              <Text>مطابق فيزا</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text18>
+            <Text19 Ref="44" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>28,0,48,10</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,16,Bold</Font>
+              <Guid>4937a65bcc014a7984d90a7fb8ab1464</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text19</Name>
+              <Page isRef="7" />
+              <Parent isRef="42" />
+              <Text>{POSIncomingUser.DeficitOrIncreaseVisa}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+            </Text19>
+          </Components>
+          <Conditions isList="true" count="1">
+            <value>Multi&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;&lt;StiSerializer version="1.02" type="Net" application="State"&gt;&lt;Filters isList="true" count="2"&gt;&lt;value&gt;POSIncomingUser.DeficitOrIncreaseVisa,EqualTo,_x0030_,,Numeric&lt;/value&gt;&lt;value&gt;Setting.HideActualRevenueInEndShiftReport,NotEqualTo,true,,Boolean&lt;/value&gt;&lt;/Filters&gt;&lt;TextColor&gt;Red&lt;/TextColor&gt;&lt;BackColor&gt;Transparent&lt;/BackColor&gt;&lt;Font&gt;Arial, 8pt&lt;/Font&gt;&lt;BorderSides&gt;None&lt;/BorderSides&gt;&lt;/StiSerializer&gt;</value>
+          </Conditions>
+          <DataRelationName isNull="true" />
+          <DataSourceName>POSIncomingUser</DataSourceName>
+          <Enabled>False</Enabled>
+          <Filters isList="true" count="0" />
+          <Name>DataBand2</Name>
+          <Page isRef="7" />
+          <Parent isRef="7" />
+          <Sort isList="true" count="0" />
+        </DataBand2>
+        <DataBand8 Ref="45" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,200,76,12</ClientRectangle>
+          <Components isList="true" count="2">
+            <Text44 Ref="46" type="Text" isKey="true">
+              <Alias>MatchesCridet</Alias>
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,28,10</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,14,Bold</Font>
+              <Guid>185d5872a67149da8574ec578bccea2b</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text44</Name>
+              <Page isRef="7" />
+              <Parent isRef="45" />
+              <Text>مطابق اجل</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text44>
+            <Text45 Ref="47" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>28,0,48,10</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,16,Bold</Font>
+              <Guid>9ceb6cf95c444e4cab5a229dbd31b345</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text45</Name>
+              <Page isRef="7" />
+              <Parent isRef="45" />
+              <Text>{POSIncomingUser.DeficitOrIncreaseCredit}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+            </Text45>
+          </Components>
+          <Conditions isList="true" count="1">
+            <value>Multi&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;&lt;StiSerializer version="1.02" type="Net" application="State"&gt;&lt;Filters isList="true" count="2"&gt;&lt;value&gt;POSIncomingUser.DeficitOrIncreaseCredit,EqualTo,_x0030_,,Numeric&lt;/value&gt;&lt;value&gt;Setting.HideActualRevenueInEndShiftReport,NotEqualTo,true,,Boolean&lt;/value&gt;&lt;/Filters&gt;&lt;TextColor&gt;Red&lt;/TextColor&gt;&lt;BackColor&gt;Transparent&lt;/BackColor&gt;&lt;Font&gt;Arial, 8pt&lt;/Font&gt;&lt;BorderSides&gt;None&lt;/BorderSides&gt;&lt;/StiSerializer&gt;</value>
+          </Conditions>
+          <DataRelationName isNull="true" />
+          <DataSourceName>POSIncomingUser</DataSourceName>
+          <Enabled>False</Enabled>
+          <Filters isList="true" count="0" />
+          <Name>DataBand8</Name>
+          <Page isRef="7" />
+          <Parent isRef="7" />
+          <Sort isList="true" count="0" />
+        </DataBand8>
+        <DataBand6 Ref="48" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,220,76,10</ClientRectangle>
+          <Components isList="true" count="2">
+            <Text26 Ref="49" type="Text" isKey="true">
+              <Alias>CashIncrease</Alias>
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,28,10</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,14,Bold</Font>
+              <Guid>9a6b6aa278cd4de586cca32f49464d82</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text26</Name>
+              <Page isRef="7" />
+              <Parent isRef="48" />
+              <Text>الزياده النقديه</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text26>
+            <Text27 Ref="50" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>28,0,48,10</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,16,Bold</Font>
+              <Guid>b590377b78e34c29bd7e61d84b12a0be</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text27</Name>
+              <Page isRef="7" />
+              <Parent isRef="48" />
+              <Text>{POSIncomingUser.DeficitOrIncreaseAmount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="51" type="NumberFormat" isKey="true">
+                <DecimalDigits>2</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalDigits</State>
+              </TextFormat>
+              <Type>DataColumn</Type>
+            </Text27>
+          </Components>
+          <Conditions isList="true" count="1">
+            <value>Multi&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;&lt;StiSerializer version="1.02" type="Net" application="State"&gt;&lt;Filters isList="true" count="2"&gt;&lt;value&gt;POSIncomingUser.DeficitOrIncreaseAmount,GreaterThan,_x0030_,,Numeric&lt;/value&gt;&lt;value&gt;Setting.HideActualRevenueInEndShiftReport,NotEqualTo,true,,Boolean&lt;/value&gt;&lt;/Filters&gt;&lt;TextColor&gt;Red&lt;/TextColor&gt;&lt;BackColor&gt;Transparent&lt;/BackColor&gt;&lt;Font&gt;Arial, 8pt&lt;/Font&gt;&lt;BorderSides&gt;None&lt;/BorderSides&gt;&lt;/StiSerializer&gt;</value>
+          </Conditions>
+          <DataRelationName isNull="true" />
+          <DataSourceName>POSIncomingUser</DataSourceName>
+          <Enabled>False</Enabled>
+          <Filters isList="true" count="0" />
+          <Guid>3c98e914a898486084b5ecf92762a396</Guid>
+          <Name>DataBand6</Name>
+          <Page isRef="7" />
+          <Parent isRef="7" />
+          <Sort isList="true" count="0" />
+        </DataBand6>
+        <DataBand10 Ref="52" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,238,76,10</ClientRectangle>
+          <Components isList="true" count="2">
+            <Text43 Ref="53" type="Text" isKey="true">
+              <Alias>VisaIncrease</Alias>
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,28,10</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,14,Bold</Font>
+              <Guid>7a87afb006da4f09b45c2151071ec6b6</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text43</Name>
+              <Page isRef="7" />
+              <Parent isRef="52" />
+              <Text>الزياده فيزا</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text43>
+            <Text48 Ref="54" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>28,0,48,10</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,16,Bold</Font>
+              <Guid>7bbc7b1ec15446f5a1c72af7d70726ff</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text48</Name>
+              <Page isRef="7" />
+              <Parent isRef="52" />
+              <Text>{POSIncomingUser.DeficitOrIncreaseVisa}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="55" type="NumberFormat" isKey="true">
+                <DecimalDigits>2</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalDigits</State>
+              </TextFormat>
+              <Type>DataColumn</Type>
+            </Text48>
+          </Components>
+          <Conditions isList="true" count="1">
+            <value>Multi&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;&lt;StiSerializer version="1.02" type="Net" application="State"&gt;&lt;Filters isList="true" count="2"&gt;&lt;value&gt;POSIncomingUser.DeficitOrIncreaseVisa,GreaterThan,_x0030_,,Numeric&lt;/value&gt;&lt;value&gt;Setting.HideActualRevenueInEndShiftReport,NotEqualTo,true,,Boolean&lt;/value&gt;&lt;/Filters&gt;&lt;TextColor&gt;Red&lt;/TextColor&gt;&lt;BackColor&gt;Transparent&lt;/BackColor&gt;&lt;Font&gt;Arial, 8pt&lt;/Font&gt;&lt;BorderSides&gt;None&lt;/BorderSides&gt;&lt;/StiSerializer&gt;</value>
+          </Conditions>
+          <DataRelationName isNull="true" />
+          <DataSourceName>POSIncomingUser</DataSourceName>
+          <Enabled>False</Enabled>
+          <Filters isList="true" count="0" />
+          <Guid>25feeca454a04b6b9e7767910749f4c8</Guid>
+          <Name>DataBand10</Name>
+          <Page isRef="7" />
+          <Parent isRef="7" />
+          <Sort isList="true" count="0" />
+        </DataBand10>
+        <DataBand11 Ref="56" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,256,76,10</ClientRectangle>
+          <Components isList="true" count="2">
+            <Text49 Ref="57" type="Text" isKey="true">
+              <Alias>CridetIncrease</Alias>
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,28,10</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,14,Bold</Font>
+              <Guid>2e3f495d38b841aab1e1bcd4e08acb0c</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text49</Name>
+              <Page isRef="7" />
+              <Parent isRef="56" />
+              <Text>الزياده الاجل</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text49>
+            <Text50 Ref="58" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>28,0,48,10</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,16,Bold</Font>
+              <Guid>a21227ae257347dfacdd0631ae8663bd</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text50</Name>
+              <Page isRef="7" />
+              <Parent isRef="56" />
+              <Text>{POSIncomingUser.DeficitOrIncreaseCredit}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="59" type="NumberFormat" isKey="true">
+                <DecimalDigits>2</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalDigits</State>
+              </TextFormat>
+              <Type>DataColumn</Type>
+            </Text50>
+          </Components>
+          <Conditions isList="true" count="1">
+            <value>Multi&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;&lt;StiSerializer version="1.02" type="Net" application="State"&gt;&lt;Filters isList="true" count="2"&gt;&lt;value&gt;POSIncomingUser.DeficitOrIncreaseCredit,GreaterThan,_x0030_,,Numeric&lt;/value&gt;&lt;value&gt;Setting.HideActualRevenueInEndShiftReport,NotEqualTo,true,,Boolean&lt;/value&gt;&lt;/Filters&gt;&lt;TextColor&gt;Red&lt;/TextColor&gt;&lt;BackColor&gt;Transparent&lt;/BackColor&gt;&lt;Font&gt;Arial, 8pt&lt;/Font&gt;&lt;BorderSides&gt;None&lt;/BorderSides&gt;&lt;/StiSerializer&gt;</value>
+          </Conditions>
+          <DataRelationName isNull="true" />
+          <DataSourceName>POSIncomingUser</DataSourceName>
+          <Enabled>False</Enabled>
+          <Filters isList="true" count="0" />
+          <Guid>7090c79def7b4fbd9919d0cce6fbc961</Guid>
+          <Name>DataBand11</Name>
+          <Page isRef="7" />
+          <Parent isRef="7" />
+          <Sort isList="true" count="0" />
+        </DataBand11>
+        <DataBand5 Ref="60" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,274,76,10</ClientRectangle>
+          <Components isList="true" count="2">
+            <Text24 Ref="61" type="Text" isKey="true">
+              <Alias>CashDeficit</Alias>
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,28,10</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,14,Bold</Font>
+              <Guid>bb0d524bac644907a6fbb0f7ebe5cb22</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text24</Name>
+              <Page isRef="7" />
+              <Parent isRef="60" />
+              <Text>العجز النقدي</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text24>
+            <Text25 Ref="62" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>28,0,48,10</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,16,Bold</Font>
+              <Guid>35122bbd0b794646a564326c0a5c8a0b</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text25</Name>
+              <Page isRef="7" />
+              <Parent isRef="60" />
+              <Text>{POSIncomingUser.DeficitOrIncreaseAmount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="63" type="NumberFormat" isKey="true">
+                <DecimalDigits>2</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalDigits</State>
+              </TextFormat>
+              <Type>Expression</Type>
+            </Text25>
+          </Components>
+          <Conditions isList="true" count="1">
+            <value>Multi&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;&lt;StiSerializer version="1.02" type="Net" application="State"&gt;&lt;Filters isList="true" count="2"&gt;&lt;value&gt;POSIncomingUser.DeficitOrIncreaseAmount,LessThan,_x0030_,,Numeric&lt;/value&gt;&lt;value&gt;Setting.HideActualRevenueInEndShiftReport,NotEqualTo,true,,Boolean&lt;/value&gt;&lt;/Filters&gt;&lt;TextColor&gt;Red&lt;/TextColor&gt;&lt;BackColor&gt;Transparent&lt;/BackColor&gt;&lt;Font&gt;Arial, 8pt&lt;/Font&gt;&lt;BorderSides&gt;None&lt;/BorderSides&gt;&lt;/StiSerializer&gt;</value>
+          </Conditions>
+          <DataRelationName isNull="true" />
+          <DataSourceName>POSIncomingUser</DataSourceName>
+          <Enabled>False</Enabled>
+          <Filters isList="true" count="0" />
+          <Guid>2a9a1f5f91d2464f9a136f5f1b6ecdec</Guid>
+          <Name>DataBand5</Name>
+          <Page isRef="7" />
+          <Parent isRef="7" />
+          <Sort isList="true" count="0" />
+        </DataBand5>
+        <DataBand12 Ref="64" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,292,76,10</ClientRectangle>
+          <Components isList="true" count="2">
+            <Text42 Ref="65" type="Text" isKey="true">
+              <Alias>VisaDeficit</Alias>
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,28,10</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,14,Bold</Font>
+              <Guid>aa608d80455b4a638a845ba3603c1bc2</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text42</Name>
+              <Page isRef="7" />
+              <Parent isRef="64" />
+              <Text>العجز فيزا</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text42>
+            <Text51 Ref="66" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>28,0,48,10</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,16,Bold</Font>
+              <Guid>403991ff6bc44ebb82af641bf1718c73</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text51</Name>
+              <Page isRef="7" />
+              <Parent isRef="64" />
+              <Text>{POSIncomingUser.DeficitOrIncreaseVisa}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="67" type="NumberFormat" isKey="true">
+                <DecimalDigits>2</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalDigits</State>
+              </TextFormat>
+              <Type>DataColumn</Type>
+            </Text51>
+          </Components>
+          <Conditions isList="true" count="1">
+            <value>Multi&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;&lt;StiSerializer version="1.02" type="Net" application="State"&gt;&lt;Filters isList="true" count="2"&gt;&lt;value&gt;POSIncomingUser.DeficitOrIncreaseVisa,LessThan,_x0030_,,Numeric&lt;/value&gt;&lt;value&gt;Setting.HideActualRevenueInEndShiftReport,NotEqualTo,true,,Boolean&lt;/value&gt;&lt;/Filters&gt;&lt;TextColor&gt;Red&lt;/TextColor&gt;&lt;BackColor&gt;Transparent&lt;/BackColor&gt;&lt;Font&gt;Arial, 8pt&lt;/Font&gt;&lt;BorderSides&gt;None&lt;/BorderSides&gt;&lt;/StiSerializer&gt;</value>
+          </Conditions>
+          <DataRelationName isNull="true" />
+          <DataSourceName>POSIncomingUser</DataSourceName>
+          <Enabled>False</Enabled>
+          <Filters isList="true" count="0" />
+          <Guid>0244ad06f23a4bd0a0398ddf6dfc1dc6</Guid>
+          <Name>DataBand12</Name>
+          <Page isRef="7" />
+          <Parent isRef="7" />
+          <Sort isList="true" count="0" />
+        </DataBand12>
+        <DataBand13 Ref="68" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,310,76,10</ClientRectangle>
+          <Components isList="true" count="2">
+            <Text52 Ref="69" type="Text" isKey="true">
+              <Alias>CridetDeficit</Alias>
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,28,10</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,14,Bold</Font>
+              <Guid>9f59b9213c4f467fa4807966060730ba</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text52</Name>
+              <Page isRef="7" />
+              <Parent isRef="68" />
+              <Text>العجز الاجل</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text52>
+            <Text53 Ref="70" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>28,0,48,10</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,16,Bold</Font>
+              <Guid>0a929c4e09244ec49472da5c46dd5b5f</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text53</Name>
+              <Page isRef="7" />
+              <Parent isRef="68" />
+              <Text>{POSIncomingUser.DeficitOrIncreaseCredit}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="71" type="NumberFormat" isKey="true">
+                <DecimalDigits>2</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalDigits</State>
+              </TextFormat>
+              <Type>DataColumn</Type>
+            </Text53>
+          </Components>
+          <Conditions isList="true" count="1">
+            <value>Multi&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;&lt;StiSerializer version="1.02" type="Net" application="State"&gt;&lt;Filters isList="true" count="2"&gt;&lt;value&gt;POSIncomingUser.DeficitOrIncreaseCredit,LessThan,_x0030_,,Numeric&lt;/value&gt;&lt;value&gt;Setting.HideActualRevenueInEndShiftReport,NotEqualTo,true,,Boolean&lt;/value&gt;&lt;/Filters&gt;&lt;TextColor&gt;Red&lt;/TextColor&gt;&lt;BackColor&gt;Transparent&lt;/BackColor&gt;&lt;Font&gt;Arial, 8pt&lt;/Font&gt;&lt;BorderSides&gt;None&lt;/BorderSides&gt;&lt;/StiSerializer&gt;</value>
+          </Conditions>
+          <DataRelationName isNull="true" />
+          <DataSourceName>POSIncomingUser</DataSourceName>
+          <Enabled>False</Enabled>
+          <Filters isList="true" count="0" />
+          <Guid>93edfcbc16744da2aac73ccfe949fe0c</Guid>
+          <Name>DataBand13</Name>
+          <Page isRef="7" />
+          <Parent isRef="7" />
+          <Sort isList="true" count="0" />
+        </DataBand13>
+        <HeaderBand2 Ref="72" type="HeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,328,76,7</ClientRectangle>
+          <Components isList="true" count="1">
+            <ExtraExpenses Ref="73" type="Text" isKey="true">
+              <Alias>ExtraExpenses</Alias>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,76,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,14,Bold</Font>
+              <Guid>80bfc58f52ec41b5a5907129e23b3b67</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>ExtraExpenses</Name>
+              <Page isRef="7" />
+              <Parent isRef="72" />
+              <Text>المصروفات الإضافية</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </ExtraExpenses>
+          </Components>
+          <Conditions isList="true" count="1">
+            <value>Multi&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;&lt;StiSerializer version="1.02" type="Net" application="State"&gt;&lt;Filters isList="true" count="2"&gt;&lt;value&gt;POSIncomingUser.TotalUserExtraExpenses,LessThanOrEqualTo,_x0030_,,Numeric&lt;/value&gt;&lt;value&gt;Setting.IncludeExtraExpensesAndCancelOrdersInEndOfDayReport,NotEqualTo,true,,Boolean&lt;/value&gt;&lt;/Filters&gt;&lt;FilterMode&gt;Or&lt;/FilterMode&gt;&lt;Enabled&gt;False&lt;/Enabled&gt;&lt;TextColor&gt;Red&lt;/TextColor&gt;&lt;BackColor&gt;Transparent&lt;/BackColor&gt;&lt;Font&gt;Arial, 8pt&lt;/Font&gt;&lt;BorderSides&gt;None&lt;/BorderSides&gt;&lt;/StiSerializer&gt;</value>
+          </Conditions>
+          <Name>HeaderBand2</Name>
+          <Page isRef="7" />
+          <Parent isRef="7" />
+        </HeaderBand2>
+        <HeaderBand1 Ref="74" type="HeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,343,76,5</ClientRectangle>
+          <Components isList="true" count="4">
+            <ExtraExpenseTypeName Ref="75" type="Text" isKey="true">
+              <Alias>ExtraExpenseTypeName</Alias>
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[231:231:231]</Brush>
+              <ClientRectangle>0,0,20,8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>ExtraExpenseTypeName</Name>
+              <Page isRef="7" />
+              <Parent isRef="74" />
+              <Text>ExtraExpenseTypeName</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </ExtraExpenseTypeName>
+            <Amount Ref="76" type="Text" isKey="true">
+              <Alias>Amount</Alias>
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[231:231:231]</Brush>
+              <ClientRectangle>20,0,19,8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Amount</Name>
+              <Page isRef="7" />
+              <Parent isRef="74" />
+              <Text>القيمة</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Amount>
+            <beneficiaryName Ref="77" type="Text" isKey="true">
+              <Alias>beneficiaryName</Alias>
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[231:231:231]</Brush>
+              <ClientRectangle>39,0,17,8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>beneficiaryName</Name>
+              <Page isRef="7" />
+              <Parent isRef="74" />
+              <Text>إسم المستفيد</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </beneficiaryName>
+            <Description Ref="78" type="Text" isKey="true">
+              <Alias>Description</Alias>
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[231:231:231]</Brush>
+              <ClientRectangle>56,0,20,8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Description</Name>
+              <Page isRef="7" />
+              <Parent isRef="74" />
+              <Text>الوصف</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Description>
+          </Components>
+          <Conditions isList="true" count="1">
+            <value>Multi&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;&lt;StiSerializer version="1.02" type="Net" application="State"&gt;&lt;Filters isList="true" count="2"&gt;&lt;value&gt;POSIncomingUser.TotalUserExtraExpenses,LessThanOrEqualTo,_x0030_,,Numeric&lt;/value&gt;&lt;value&gt;Setting.IncludeExtraExpensesAndCancelOrdersInEndOfDayReport,NotEqualTo,true,,Boolean&lt;/value&gt;&lt;/Filters&gt;&lt;FilterMode&gt;Or&lt;/FilterMode&gt;&lt;Enabled&gt;False&lt;/Enabled&gt;&lt;TextColor&gt;Red&lt;/TextColor&gt;&lt;BackColor&gt;Transparent&lt;/BackColor&gt;&lt;Font&gt;Arial, 8pt&lt;/Font&gt;&lt;BorderSides&gt;None&lt;/BorderSides&gt;&lt;/StiSerializer&gt;</value>
+          </Conditions>
+          <Name>HeaderBand1</Name>
+          <Page isRef="7" />
+          <Parent isRef="7" />
+        </HeaderBand1>
+        <DataBand7 Ref="79" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,356,76,8</ClientRectangle>
+          <Components isList="true" count="4">
+            <Text34 Ref="80" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,20,8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text34</Name>
+              <Page isRef="7" />
+              <Parent isRef="79" />
+              <Text>{ExtraExpenseEndShiftDetail.ExtraExpenseTypeName}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text34>
+            <Text37 Ref="81" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>20,0,19,8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text37</Name>
+              <Page isRef="7" />
+              <Parent isRef="79" />
+              <Text>{ExtraExpenseEndShiftDetail.Amount}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text37>
+            <Text38 Ref="82" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>39,0,17,8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text38</Name>
+              <Page isRef="7" />
+              <Parent isRef="79" />
+              <Text>{ExtraExpenseEndShiftDetail.BeneficiaryName}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text38>
+            <Text39 Ref="83" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>56,0,20,8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <GrowToHeight>True</GrowToHeight>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text39</Name>
+              <Page isRef="7" />
+              <Parent isRef="79" />
+              <Text>{ExtraExpenseEndShiftDetail.Description}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text39>
+          </Components>
+          <Conditions isList="true" count="1">
+            <value>Multi&lt;?xml version="1.0" encoding="utf-16" standalone="yes"?&gt;&lt;StiSerializer version="1.02" type="Net" application="State"&gt;&lt;Filters isList="true" count="2"&gt;&lt;value&gt;POSIncomingUser.TotalUserExtraExpenses,LessThanOrEqualTo,_x0030_,,Numeric&lt;/value&gt;&lt;value&gt;Setting.IncludeExtraExpensesAndCancelOrdersInEndOfDayReport,NotEqualTo,true,,Boolean&lt;/value&gt;&lt;/Filters&gt;&lt;FilterMode&gt;Or&lt;/FilterMode&gt;&lt;Enabled&gt;False&lt;/Enabled&gt;&lt;TextColor&gt;Red&lt;/TextColor&gt;&lt;BackColor&gt;Transparent&lt;/BackColor&gt;&lt;Font&gt;Arial, 8pt&lt;/Font&gt;&lt;BorderSides&gt;None&lt;/BorderSides&gt;&lt;/StiSerializer&gt;</value>
+          </Conditions>
+          <DataRelationName isNull="true" />
+          <DataSourceName>ExtraExpenseEndShiftDetail</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Name>DataBand7</Name>
+          <Page isRef="7" />
+          <Parent isRef="7" />
+          <Sort isList="true" count="0" />
+        </DataBand7>
+        <GroupHeaderBand2 Ref="84" type="GroupHeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,372,76,7</ClientRectangle>
+          <Components isList="true" count="1">
+            <Text33 Ref="85" type="Text" isKey="true">
+              <Alias>CancelledOrders</Alias>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6,0,56,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,14,Bold</Font>
+              <Guid>45037d114d484ab2aad16203dc5a0020</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text33</Name>
+              <Page isRef="7" />
+              <Parent isRef="84" />
+              <Text> الطلبات الملغيه </Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text33>
+          </Components>
+          <Conditions isList="true" count="1">
+            <value>Setting.IncludeExtraExpensesAndCancelOrdersInEndOfDayReport,NotEqualTo,true,,Boolean,Red,Transparent,Arial_x002C_8,False,False,,,None</value>
+          </Conditions>
+          <Name>GroupHeaderBand2</Name>
+          <Page isRef="7" />
+          <Parent isRef="7" />
+        </GroupHeaderBand2>
+        <DataCancelledOrders Ref="86" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,387,76,8</ClientRectangle>
+          <Components isList="true" count="3">
+            <DataCancelledOrders_ProductName Ref="87" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,38,8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,12,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataCancelledOrders_ProductName</Name>
+              <Page isRef="7" />
+              <Parent isRef="86" />
+              <Text>{CancelledOrders.ProductName}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataCancelledOrders_ProductName>
+            <DataCancelledOrders_ProductQuantity Ref="88" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>38,0,20,8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,12</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataCancelledOrders_ProductQuantity</Name>
+              <Page isRef="7" />
+              <Parent isRef="86" />
+              <Text>{CancelledOrders.ProductQuantity}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataCancelledOrders_ProductQuantity>
+            <DataCancelledOrders_ProductPrice Ref="89" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>58,0,18,8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,12</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataCancelledOrders_ProductPrice</Name>
+              <Page isRef="7" />
+              <Parent isRef="86" />
+              <Text>{CancelledOrders.ProductPrice}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataCancelledOrders_ProductPrice>
+          </Components>
+          <Conditions isList="true" count="1">
+            <value>Setting.IncludeExtraExpensesAndCancelOrdersInEndOfDayReport,NotEqualTo,true,,Boolean,Red,Transparent,Arial_x002C_8,False,False,,,None</value>
+          </Conditions>
+          <DataSourceName>CancelledOrders</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Name>DataCancelledOrders</Name>
+          <Page isRef="7" />
+          <Parent isRef="7" />
+          <Sort isList="true" count="0" />
+        </DataCancelledOrders>
+        <GroupFooterBand1 Ref="90" type="GroupFooterBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,403,76,2</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Conditions isList="true" count="0" />
+          <Name>GroupFooterBand1</Name>
+          <Page isRef="7" />
+          <Parent isRef="7" />
+        </GroupFooterBand1>
+        <DataBand3 Ref="91" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,413,76,14</ClientRectangle>
+          <Components isList="true" count="3">
+            <Text10 Ref="92" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>32,0,42,4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text10</Name>
+              <Page isRef="7" />
+              <Parent isRef="91" />
+              <Text>{POSIncomingUser.PrintedBy}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text10>
+            <Text11 Ref="93" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2,0,30,4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text11</Name>
+              <Page isRef="7" />
+              <Parent isRef="91" />
+              <Text>Printed By</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text11>
+            <Text12 Ref="94" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>32,6,42,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text12</Name>
+              <Page isRef="7" />
+              <Parent isRef="91" />
+              <Text>{Time}</Text>
+              <TextBrush>Black</TextBrush>
+            </Text12>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName isNull="true" />
+          <DataSourceName>POSIncomingUser</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Name>DataBand3</Name>
+          <Page isRef="7" />
+          <Parent isRef="7" />
+          <Sort isList="true" count="0" />
+        </DataBand3>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>a7cc2d6ac1cb4ec6903fba36793085cb</Guid>
+      <Margins>2,2,2,2</Margins>
+      <Name>Page1</Name>
+      <PageHeight>290</PageHeight>
+      <PageWidth>80</PageWidth>
+      <Report isRef="0" />
+    </Page1>
+  </Pages>
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>9/15/2025 12:05:15 PM</ReportChanged>
+  <ReportCreated>7/14/2021 12:27:43 PM</ReportCreated>
+  <ReportFile>D:\mostafa\ferp\POS_BackEnd\POS.Web\StaticFiles\Reports\EndShift.mrt</ReportFile>
+  <ReportGuid>74a06d080ba64ceb9e3315fc6f885fb7</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Millimeters</ReportUnit>
+  <ReportVersion>2020.2.3.0</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+</StiSerializer>

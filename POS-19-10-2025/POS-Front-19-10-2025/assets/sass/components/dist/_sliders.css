@@ -1,0 +1,150 @@
+/* Sliders */
+.carousel-control-next,
+.carousel-control-prev {
+  height: 60px;
+  width: auto;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 0 5px;
+  top: 50%;
+  margin-top: -30px;
+  opacity: 1;
+}
+
+.carousel-control-next:hover,
+.carousel-control-prev:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-control-next span,
+.carousel-control-prev span {
+  color: #fff;
+}
+
+.carousel-caption {
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0));
+}
+
+.carousel-caption h5,
+.carousel-caption p {
+  color: #fff;
+}
+
+.ms-button-slider .carousel-control-next,
+.ms-button-slider .carousel-control-prev {
+  position: relative;
+  height: auto;
+  width: 60px;
+  margin: 1rem 0.5rem 0 0.5rem;
+  display: inline-block;
+  padding: 5px;
+  background: #878793;
+  border-radius: 5px;
+}
+
+.ms-button-slider .carousel-control-next:hover,
+.ms-button-slider .carousel-control-prev:hover {
+  background: #75757c;
+}
+
+.ms-carousel-buttons {
+  text-align: center;
+}
+
+.ms-indicator-slider .carousel-indicators {
+  position: relative;
+  margin: 2rem 15% 1rem 15%;
+  bottom: auto;
+}
+
+.ms-indicator-slider .carousel-indicators li {
+  background: #445cc8;
+}
+
+.ms-indicator-slider .carousel-indicators li:not(.active) {
+  opacity: 0.6;
+  width: 20px;
+}
+
+ms-dotted-indicator-slider .carousel-indicators li {
+  width: 30px !important;
+  height: 30px !important;
+  border-radius: 10% !important;
+  color: #fff;
+}
+
+.carousel-indicators li {
+  text-indent: 9px !important;
+}
+
+.ms-dotted-indicator-slider .carousel-indicators li:not(.active) {
+  background-color: #ddd !important;
+  border: 1px solid #ddd;
+}
+
+.ms-dotted-indicator-slider .carousel-indicators li:not(.active) h6 {
+  color: #fff !important;
+}
+
+.carousel-indicators .active {
+  background-color: #ff0018;
+  color: #fff;
+}
+
+.carousel-indicators .activ h6 {
+  color: #fff !important;
+}
+
+.ms-dotted-indicator-slider .carousel-indicators li:not(.active) {
+  background: #fff;
+  border: 1px solid #fff;
+}
+
+.ms-dotted-indicator-slider .carousel-indicators li:not(.active) {
+  background-color: #ddd !important;
+  border: 1px solid #ddd;
+}
+
+.ms-dotted-indicator-slider .carousel-indicators li {
+  width: 30px !important;
+  height: 30px !important;
+  border-radius: 10% !important;
+  color: #fff;
+}
+
+.ms-image-slider .carousel-indicators {
+  margin: 2% 0 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 1rem 0;
+}
+
+.ms-image-slider .carousel-indicators li {
+  width: 100px;
+  height: auto;
+}
+
+.ms-image-slider .carousel-indicators li.active img {
+  border: 1px solid #fff;
+}
+
+.ms-image-slider .carousel-indicators li:not(.active) img {
+  opacity: 0.7;
+}
+
+.ms-swipe-slider .carousel-inner {
+  display: flex;
+}
+
+.ms-swipe-slider .carousel-item {
+  display: block;
+  flex: 0 1 auto;
+  margin: 0 1rem 0 0;
+}
+
+.ms-swipe-slider .carousel-item:last-child {
+  margin: 0;
+}

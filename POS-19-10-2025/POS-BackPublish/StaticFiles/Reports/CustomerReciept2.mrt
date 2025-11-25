@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="1">
+      <main Ref="2" type="Stimulsoft.Report.Dictionary.StiSqlDatabase" isKey="true">
+        <Alias>main</Alias>
+        <ConnectionStringEncrypted>9Fzdz8Zd89n5YYT8Zxykf9HEw4lITLuka1vtvcMloMOQbtFIxQ3DRexG7QjDbGD/wlaBiUUY84HMTeWY9ADjXuRU2YlHWTGtYklNBOp0pF6NcMsrTUw=</ConnectionStringEncrypted>
+        <Key>5ed28c72f73f4c1a836f67bfa0ad7743</Key>
+        <Name>main</Name>
+      </main>
+    </Databases>
+    <DataSources isList="true" count="2">
+      <GetOrderDetailById Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>GetOrderDetailById</Alias>
+        <Columns isList="true" count="10">
+          <value>ORIGINAL,DiscountAmount,DiscountAmount,DiscountAmount,System.Double,_x0034_44f3bd2fd524d239c242b38ca753f88</value>
+          <value>ORIGINAL,PrinterName,PrinterName,PrinterName,System.String,_x0039_a80c584799f45329b79217f6caf59a7</value>
+          <value>ORIGINAL,ProductFinalPrice,ProductFinalPrice,ProductFinalPrice,System.Decimal,f4a9454fcba149eaa69b626ab3c0eb52</value>
+          <value>ORIGINAL,ProductGroupId,ProductGroupId,ProductGroupId,System.Int32,_x0035_0f8f1cab90843c09e72091e9e70fb94</value>
+          <value>ORIGINAL,ProductName,ProductName,ProductName,System.String,_x0039_c775e00be8845069c1952f689bba70b</value>
+          <value>ORIGINAL,ProductPrice,ProductPrice,ProductPrice,System.Decimal,_x0037_66edf9c57d24c20acef2b568a708723</value>
+          <value>ORIGINAL,ProductQuantity,ProductQuantity,ProductQuantity,System.Double,_x0037_9a07e4b37024fcb9a59526f1c4d97c9</value>
+          <value>ORIGINAL,TaxAmount,TaxAmount,TaxAmount,System.Decimal,c112eb309d2d4db89dabf58aa6b7eea3</value>
+          <value>ORIGINAL,TaxName,TaxName,TaxName,System.String,_x0037_3d7df97137f4188a28d12c2202223ea</value>
+          <value>ORIGINAL,TotalProductFinalPrice,TotalProductFinalPrice,TotalProductFinalPrice,System.Double,dcaabb05eac944bfbc47efed07b9c9cd</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>3b79e6e68f624769a7950aaa3ce93b1f</Key>
+        <Name>GetOrderDetailById</Name>
+        <NameInSource>main</NameInSource>
+        <Parameters isList="true" count="1">
+          <value>_x0040_OrderId,_x0031_014,0,0,e4adc76fc13d4ef984d8bc485e3fba32</value>
+        </Parameters>
+        <SqlCommand>GetOrderDetailById</SqlCommand>
+        <Type>StoredProcedure</Type>
+      </GetOrderDetailById>
+      <GetOrderMasterById Ref="4" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>GetOrderMasterById</Alias>
+        <Columns isList="true" count="29">
+          <value>AddressApartment,System.String</value>
+          <value>AddressBuilding,System.String</value>
+          <value>AddressDescription,System.String</value>
+          <value>AddressFloor,System.String</value>
+          <value>AddressStreet,System.String</value>
+          <value>AddressZone,System.String</value>
+          <value>CashierName,System.String</value>
+          <value>Closed,System.DateTime</value>
+          <value>CustomerName,System.String</value>
+          <value>CustomerPhone,System.String</value>
+          <value>DeliveryPrice,System.Decimal</value>
+          <value>DiscountAmount,System.Decimal</value>
+          <value>DiscountRate,System.Decimal</value>
+          <value>DriverName,System.String</value>
+          <value>EmployeeName,System.String</value>
+          <value>Opened,System.DateTime</value>
+          <value>OrderNumber,System.Int32</value>
+          <value>OrderPayType,System.String</value>
+          <value>OrderType,System.String</value>
+          <value>PayAmount,System.Decimal</value>
+          <value>Persons,System.Int32</value>
+          <value>RemainingAmount,System.Decimal</value>
+          <value>ServiceChargePercentage,System.Decimal</value>
+          <value>ServiceChargeValue,System.Decimal</value>
+          <value>SubTotal,System.Decimal</value>
+          <value>TableName,System.String</value>
+          <value>Total,System.Decimal</value>
+          <value>TotalInsuranceAmount,System.Double</value>
+          <value>TotalTaxAmount,System.Double</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Key>a7eda8808d0f4fabbde32530cc54eaf4</Key>
+        <Name>GetOrderMasterById</Name>
+        <NameInSource>main</NameInSource>
+        <Parameters isList="true" count="1">
+          <value>_x0040_OrderId,_x0031_5101,0,0</value>
+        </Parameters>
+        <SqlCommand>GetOrderMasterById</SqlCommand>
+        <Type>StoredProcedure</Type>
+      </GetOrderMasterById>
+    </DataSources>
+    <Relations isList="true" count="0" />
+    <Report isRef="0" />
+    <Resources isList="true" count="0" />
+    <Variables isList="true" count="0" />
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <Key>dafdf0f6d2a541e09a2b23ff6726ff79</Key>
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="5" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="1">
+        <master Ref="6" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <CanShrink>True</CanShrink>
+          <ClientRectangle>0,4,76,25.4</ClientRectangle>
+          <Components isList="true" count="9">
+            <orderNumber Ref="7" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,17.8,5.1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial Narrow,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>orderNumber</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>Order#</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </orderNumber>
+            <OrderPayType Ref="8" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,5.1,22.9,5.1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial Narrow,10,Bold</Font>
+              <Guid>e14af9bd9e8f4923a55ce65fbc80d9f6</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>OrderPayType</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>pay type :</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </OrderPayType>
+            <Text2 Ref="9" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,15.2,22.9,5.1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Guid>33dc3ef4a9664b758569497190c7d1c9</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>opened at :</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text2>
+            <Text3 Ref="10" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,20.3,22.9,5.1</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>GetOrderMasterById.Closed,IsNull,_x0033__x002F_17_x002F_2020,_x0033__x002F_17_x002F_2020,DateTime,Red,Transparent,Arial_x002C_8,False,False,,,None</value>
+              </Conditions>
+              <Font>Arial,10,Bold</Font>
+              <Guid>caf63aa5cb3246619d9b1b1dab4836ce</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>Closed At :</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text3>
+            <Text4 Ref="11" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>17.8,0,20.3,5.1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,14,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text4</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>{GetOrderMasterById.OrderNumber}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text4>
+            <Text5 Ref="12" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>17.8,5.1,20.3,5.1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text5</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>{GetOrderMasterById.OrderPayType}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text5>
+            <Text6 Ref="13" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,10.2,71.1,5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,14,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text6</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>{GetOrderMasterById.OrderType}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text6>
+            <Text7 Ref="14" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>22.9,15.2,48.2,5.1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text7</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>{GetOrderMasterById.Opened}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="15" type="DateFormat" isKey="true">
+                <StringFormat>g</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text7>
+            <Text8 Ref="16" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>22.9,20.3,48.2,5.1</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>GetOrderMasterById.Closed,IsNull,_x0033__x002F_17_x002F_2020,_x0033__x002F_17_x002F_2020,DateTime,Red,Transparent,Arial_x002C_8,False,False,,,None</value>
+              </Conditions>
+              <Font>Arial,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text8</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+              <Text>{GetOrderMasterById.Closed}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="17" type="DateFormat" isKey="true">
+                <StringFormat>g</StringFormat>
+              </TextFormat>
+              <VertAlignment>Center</VertAlignment>
+            </Text8>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName isNull="true" />
+          <DataSourceName>GetOrderMasterById</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Name>master</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+          <Sort isList="true" count="0" />
+        </master>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>29b39cb7c39d48b395facb684902f86e</Guid>
+      <Margins>0,0,0,0</Margins>
+      <Name>Page1</Name>
+      <PageHeight>2970</PageHeight>
+      <PageWidth>76</PageWidth>
+      <Report isRef="0" />
+      <StretchToPrintArea>True</StretchToPrintArea>
+      <UnlimitedHeight>True</UnlimitedHeight>
+    </Page1>
+  </Pages>
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>11/11/2020 4:55:47 PM</ReportChanged>
+  <ReportCreated>3/17/2020 12:14:23 PM</ReportCreated>
+  <ReportFile>E:\Ultimate Solutions\Cashier System\POS_BackEnd\POS\POS.Web\StaticFiles\Reports\CustomerReciept2.mrt</ReportFile>
+  <ReportGuid>ad6c8de20caa4409a65e8a2dbe2be0e4</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Millimeters</ReportUnit>
+  <ReportVersion>2020.4.1.0</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+</StiSerializer>

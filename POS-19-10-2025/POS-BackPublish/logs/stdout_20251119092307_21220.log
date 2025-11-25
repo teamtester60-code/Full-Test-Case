@@ -1,0 +1,644 @@
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: D:\POS-19-10-2025\POS-BackPublish
+2025-11-19T11:23:32.468+0200	writing admin.system.version to 
+2025-11-19T11:23:32.472+0200	done dumping admin.system.version (1 document)
+2025-11-19T11:23:32.474+0200	writing newPOSdb.POSProductPricingClasses to 
+2025-11-19T11:23:32.523+0200	done dumping newPOSdb.POSProductPricingClasses (2724 documents)
+2025-11-19T11:23:32.525+0200	writing POSdbnew.POSProductPricingClasses to 
+2025-11-19T11:23:32.544+0200	done dumping POSdbnew.POSProductPricingClasses (1209 documents)
+2025-11-19T11:23:32.544+0200	writing POSdbnew.POSProductTaxes to 
+2025-11-19T11:23:32.550+0200	done dumping POSdbnew.POSProductTaxes (415 documents)
+2025-11-19T11:23:32.551+0200	writing POSdbhamdy.POSIncomingUsers to 
+2025-11-19T11:23:32.569+0200	done dumping POSdbhamdy.POSIncomingUsers (401 documents)
+2025-11-19T11:23:32.569+0200	writing POSdbhamdy.POSNotes to 
+2025-11-19T11:23:32.575+0200	done dumping POSdbhamdy.POSNotes (292 documents)
+2025-11-19T11:23:32.576+0200	writing newPOSdb.POSProductTaxes to 
+2025-11-19T11:23:32.581+0200	done dumping newPOSdb.POSProductTaxes (286 documents)
+2025-11-19T11:23:32.582+0200	writing newPOSdb.POSCostCenters to 
+2025-11-19T11:23:32.588+0200	done dumping newPOSdb.POSCostCenters (202 documents)
+2025-11-19T11:23:32.589+0200	writing POSdbhamdy.POSCustomerOrders to 
+2025-11-19T11:23:32.612+0200	done dumping POSdbhamdy.POSCustomerOrders (186 documents)
+2025-11-19T11:23:32.613+0200	writing POSdbnew.POSMobileOrders to 
+2025-11-19T11:23:32.701+0200	done dumping POSdbnew.POSMobileOrders (155 documents)
+2025-11-19T11:23:32.702+0200	writing POSdbhamdy.POSCashReceipts to 
+2025-11-19T11:23:32.707+0200	done dumping POSdbhamdy.POSCashReceipts (150 documents)
+2025-11-19T11:23:32.707+0200	writing POSdbnew.POSOrders to 
+2025-11-19T11:23:32.767+0200	done dumping POSdbnew.POSOrders (139 documents)
+2025-11-19T11:23:32.768+0200	writing POSdbhamdy.POSRegions to 
+2025-11-19T11:23:32.771+0200	done dumping POSdbhamdy.POSRegions (137 documents)
+2025-11-19T11:23:32.772+0200	writing POSdbhamdy.POSRegionsDeliveryPrices to 
+2025-11-19T11:23:32.775+0200	done dumping POSdbhamdy.POSRegionsDeliveryPrices (130 documents)
+2025-11-19T11:23:32.776+0200	writing POSdb.POSProductPricingClasses to 
+2025-11-19T11:23:32.778+0200	writing POSdbhamdy.POSUsersLogins to 
+2025-11-19T11:23:32.780+0200	done dumping POSdb.POSProductPricingClasses (108 documents)
+2025-11-19T11:23:32.780+0200	writing POSdbhamdy.POSOrders to 
+2025-11-19T11:23:32.780+0200	writing POSdbhamdy.POSCustomers to 
+2025-11-19T11:23:32.781+0200	writing POSdbhamdy.POSProductPricingClasses to 
+2025-11-19T11:23:32.789+0200	done dumping POSdbhamdy.POSProductPricingClasses (102 documents)
+2025-11-19T11:23:32.792+0200	writing Quiz.POSOrders to 
+2025-11-19T11:23:32.826+0200	done dumping POSdbhamdy.POSUsersLogins (1939 documents)
+2025-11-19T11:23:32.827+0200	writing POSdbhamdy.POSOpenDays to 
+2025-11-19T11:23:32.831+0200	done dumping POSdbhamdy.POSOpenDays (98 documents)
+2025-11-19T11:23:32.831+0200	writing POSdbnew.POSVendors to 
+2025-11-19T11:23:32.838+0200	done dumping POSdbnew.POSVendors (97 documents)
+2025-11-19T11:23:32.839+0200	writing POSdbnew.POSUsersLogins to 
+2025-11-19T11:23:32.844+0200	done dumping POSdbnew.POSUsersLogins (87 documents)
+2025-11-19T11:23:32.846+0200	writing Quiz.POSUsersLogins to 
+2025-11-19T11:23:32.848+0200	done dumping Quiz.POSOrders (99 documents)
+2025-11-19T11:23:32.851+0200	writing POSdb.POSScreens to 
+2025-11-19T11:23:32.853+0200	done dumping Quiz.POSUsersLogins (81 documents)
+2025-11-19T11:23:32.854+0200	writing POSdbhamdy.POSScreens to 
+2025-11-19T11:23:32.856+0200	done dumping POSdb.POSScreens (69 documents)
+2025-11-19T11:23:32.857+0200	writing POSdb.POSOrders to 
+2025-11-19T11:23:32.859+0200	done dumping POSdbhamdy.POSScreens (68 documents)
+2025-11-19T11:23:32.863+0200	writing new.POSScreens to 
+2025-11-19T11:23:32.871+0200	done dumping new.POSScreens (68 documents)
+2025-11-19T11:23:32.873+0200	writing newPOSdb.POSScreens to 
+2025-11-19T11:23:32.881+0200	done dumping newPOSdb.POSScreens (68 documents)
+2025-11-19T11:23:32.883+0200	writing Ofline.POSScreens to 
+2025-11-19T11:23:32.887+0200	done dumping Ofline.POSScreens (68 documents)
+2025-11-19T11:23:32.888+0200	writing Quiz.POSScreens to 
+2025-11-19T11:23:32.895+0200	done dumping Quiz.POSScreens (67 documents)
+2025-11-19T11:23:32.896+0200	writing POSdbnew.POSScreens to 
+2025-11-19T11:23:32.902+0200	done dumping POSdbnew.POSScreens (67 documents)
+2025-11-19T11:23:32.903+0200	writing POSdbnew.POSEmployees to 
+2025-11-19T11:23:32.906+0200	done dumping POSdb.POSOrders (68 documents)
+2025-11-19T11:23:32.907+0200	writing POSdb.POSMobileOrders to 
+2025-11-19T11:23:32.911+0200	done dumping POSdbnew.POSEmployees (63 documents)
+2025-11-19T11:23:32.912+0200	writing POSdb.POSProductTaxes to 
+2025-11-19T11:23:32.920+0200	done dumping POSdb.POSProductTaxes (53 documents)
+2025-11-19T11:23:32.921+0200	writing POSdbhamdy.POSReturnOrders to 
+2025-11-19T11:23:32.927+0200	done dumping POSdbhamdy.POSCustomers (2207 documents)
+2025-11-19T11:23:32.928+0200	writing POSdbhamdy.POSEmployees to 
+2025-11-19T11:23:32.936+0200	done dumping POSdbhamdy.POSEmployees (32 documents)
+2025-11-19T11:23:32.936+0200	done dumping POSdbhamdy.POSReturnOrders (36 documents)
+2025-11-19T11:23:32.938+0200	writing POSdb.POSUsersLogins to 
+2025-11-19T11:23:32.938+0200	writing newPOSdb.POSOrders to 
+2025-11-19T11:23:32.947+0200	done dumping POSdb.POSUsersLogins (28 documents)
+2025-11-19T11:23:32.948+0200	writing POSdbnew.POSIncomingUsers to 
+2025-11-19T11:23:32.957+0200	done dumping POSdbnew.POSIncomingUsers (26 documents)
+2025-11-19T11:23:32.959+0200	writing Quiz.POSOpenDays to 
+2025-11-19T11:23:32.963+0200	done dumping POSdb.POSMobileOrders (61 documents)
+2025-11-19T11:23:32.964+0200	done dumping Quiz.POSOpenDays (23 documents)
+2025-11-19T11:23:32.964+0200	writing Quiz.POSIncomingUsers to 
+2025-11-19T11:23:32.964+0200	writing POSdbnew.POSOpenDays to 
+2025-11-19T11:23:32.972+0200	done dumping POSdbnew.POSOpenDays (21 documents)
+2025-11-19T11:23:32.973+0200	done dumping Quiz.POSIncomingUsers (21 documents)
+2025-11-19T11:23:32.974+0200	writing POSdb.POSCategories to 
+2025-11-19T11:23:32.974+0200	writing Quiz.POSCustomerGroups to 
+2025-11-19T11:23:32.978+0200	done dumping POSdb.POSCategories (18 documents)
+2025-11-19T11:23:32.981+0200	writing POSdbnew.POSUnits to 
+2025-11-19T11:23:32.988+0200	done dumping POSdbnew.POSUnits (18 documents)
+2025-11-19T11:23:32.988+0200	done dumping Quiz.POSCustomerGroups (20 documents)
+2025-11-19T11:23:32.989+0200	writing POSdbnew.POSCategories to 
+2025-11-19T11:23:32.989+0200	writing Quiz.POSReturnOrders to 
+2025-11-19T11:23:32.997+0200	done dumping POSdbnew.POSCategories (17 documents)
+2025-11-19T11:23:32.997+0200	writing POSdbnew.POSItemGroups to 
+2025-11-19T11:23:32.998+0200	done dumping Quiz.POSReturnOrders (17 documents)
+2025-11-19T11:23:32.999+0200	writing POSdbnew.POSCustomers to 
+2025-11-19T11:23:33.005+0200	done dumping POSdbnew.POSCustomers (15 documents)
+2025-11-19T11:23:33.005+0200	done dumping newPOSdb.POSOrders (29 documents)
+2025-11-19T11:23:33.007+0200	writing Ofline.POSProductPricingClasses to 
+2025-11-19T11:23:33.009+0200	writing newPOSdb.POSCustomers to 
+2025-11-19T11:23:33.011+0200	done dumping Ofline.POSProductPricingClasses (13 documents)
+2025-11-19T11:23:33.012+0200	writing newPOSdb.POSUsersLogins to 
+2025-11-19T11:23:33.013+0200	done dumping newPOSdb.POSCustomers (14 documents)
+2025-11-19T11:23:33.020+0200	writing POSdbnew.POSEmployeeGroups to 
+2025-11-19T11:23:33.022+0200	done dumping newPOSdb.POSUsersLogins (13 documents)
+2025-11-19T11:23:33.027+0200	writing Quiz.POSProductPricingClasses to 
+2025-11-19T11:23:33.028+0200	done dumping POSdbnew.POSEmployeeGroups (13 documents)
+2025-11-19T11:23:33.029+0200	writing POSdb.POSUnits to 
+2025-11-19T11:23:33.030+0200	done dumping POSdbnew.POSItemGroups (16 documents)
+2025-11-19T11:23:33.035+0200	done dumping Quiz.POSProductPricingClasses (12 documents)
+2025-11-19T11:23:33.035+0200	writing POSdbhamdy.POSVendors to 
+2025-11-19T11:23:33.036+0200	done dumping POSdb.POSUnits (12 documents)
+2025-11-19T11:23:33.036+0200	writing newPOSdb.POSVendors to 
+2025-11-19T11:23:33.036+0200	writing POSdb.POSOrderTypeTaxes to 
+2025-11-19T11:23:33.038+0200	done dumping POSdbhamdy.POSVendors (11 documents)
+2025-11-19T11:23:33.039+0200	writing POSdbnew.POSVolumes to 
+2025-11-19T11:23:33.039+0200	done dumping POSdb.POSOrderTypeTaxes (10 documents)
+2025-11-19T11:23:33.044+0200	writing POSdbnew.POSOrderTypes to 
+2025-11-19T11:23:33.044+0200	done dumping newPOSdb.POSVendors (11 documents)
+2025-11-19T11:23:33.048+0200	writing new.POSOrders to 
+2025-11-19T11:23:33.049+0200	done dumping POSdbnew.POSVolumes (10 documents)
+2025-11-19T11:23:33.052+0200	writing POSdbnew.POSRegions to 
+2025-11-19T11:23:33.060+0200	done dumping POSdbnew.POSOrderTypes (10 documents)
+2025-11-19T11:23:33.060+0200	done dumping POSdbnew.POSRegions (9 documents)
+2025-11-19T11:23:33.060+0200	done dumping new.POSOrders (9 documents)
+2025-11-19T11:23:33.061+0200	writing POSdb.POSCustomers to 
+2025-11-19T11:23:33.062+0200	writing newPOSdb.POSPricingClasses to 
+2025-11-19T11:23:33.062+0200	writing POSdbhamdy.POSUnits to 
+2025-11-19T11:23:33.069+0200	done dumping newPOSdb.POSPricingClasses (8 documents)
+2025-11-19T11:23:33.070+0200	done dumping POSdbhamdy.POSUnits (8 documents)
+2025-11-19T11:23:33.070+0200	writing Quiz.POSCategories to 
+2025-11-19T11:23:33.073+0200	done dumping POSdb.POSCustomers (8 documents)
+2025-11-19T11:23:33.076+0200	writing POSdbhamdy.POSEmployeeGroups to 
+2025-11-19T11:23:33.076+0200	writing POSdbnew.applicationUsers to 
+2025-11-19T11:23:33.078+0200	done dumping Quiz.POSCategories (8 documents)
+2025-11-19T11:23:33.079+0200	writing POSdb.POSIncomingUsers to 
+2025-11-19T11:23:33.080+0200	done dumping POSdbhamdy.POSEmployeeGroups (8 documents)
+2025-11-19T11:23:33.087+0200	done dumping POSdbnew.applicationUsers (8 documents)
+2025-11-19T11:23:33.088+0200	writing POSdbnew.POSOrderPayTypes to 
+2025-11-19T11:23:33.094+0200	writing POSdbhamdy.applicationUsers to 
+2025-11-19T11:23:33.098+0200	done dumping POSdb.POSIncomingUsers (8 documents)
+2025-11-19T11:23:33.100+0200	done dumping POSdbnew.POSOrderPayTypes (7 documents)
+2025-11-19T11:23:33.102+0200	done dumping POSdbhamdy.applicationUsers (8 documents)
+2025-11-19T11:23:33.102+0200	writing POSdbnew.POSOrderTypeTaxes to 
+2025-11-19T11:23:33.103+0200	writing POSdbnew.POSStocks to 
+2025-11-19T11:23:33.105+0200	writing newPOSdb.POSUnits to 
+2025-11-19T11:23:33.111+0200	done dumping newPOSdb.POSUnits (7 documents)
+2025-11-19T11:23:33.112+0200	writing POSdb.POSEmployees to 
+2025-11-19T11:23:33.120+0200	done dumping POSdbnew.POSOrderTypeTaxes (7 documents)
+2025-11-19T11:23:33.121+0200	done dumping POSdb.POSEmployees (7 documents)
+2025-11-19T11:23:33.131+0200	writing newPOSdb.POSBranches to 
+2025-11-19T11:23:33.135+0200	writing newPOSdb.POSStocks to 
+2025-11-19T11:23:33.138+0200	done dumping newPOSdb.POSStocks (7 documents)
+2025-11-19T11:23:33.141+0200	writing POSdb.POSOrderPayTypes to 
+2025-11-19T11:23:33.142+0200	done dumping newPOSdb.POSBranches (7 documents)
+2025-11-19T11:23:33.143+0200	writing POSdbnew.POSProductTypes to 
+2025-11-19T11:23:33.145+0200	done dumping POSdb.POSOrderPayTypes (7 documents)
+2025-11-19T11:23:33.145+0200	done dumping POSdbnew.POSStocks (7 documents)
+2025-11-19T11:23:33.147+0200	writing newPOSdb.POSEmployees to 
+2025-11-19T11:23:33.148+0200	writing newPOSdb.POSCities to 
+2025-11-19T11:23:33.154+0200	done dumping newPOSdb.POSCities (6 documents)
+2025-11-19T11:23:33.154+0200	done dumping newPOSdb.POSEmployees (6 documents)
+2025-11-19T11:23:33.155+0200	writing POSdbnew.POSCustomerOrders to 
+2025-11-19T11:23:33.161+0200	writing Quiz.POSProductTaxes to 
+2025-11-19T11:23:33.168+0200	done dumping Quiz.POSProductTaxes (6 documents)
+2025-11-19T11:23:33.170+0200	done dumping POSdbnew.POSCustomerOrders (6 documents)
+2025-11-19T11:23:33.171+0200	writing POSdbnew.POSLanguages to 
+2025-11-19T11:23:33.171+0200	writing Quiz.POSUnits to 
+2025-11-19T11:23:33.178+0200	done dumping POSdbnew.POSLanguages (6 documents)
+2025-11-19T11:23:33.179+0200	writing new.POSProductPricingClasses to 
+2025-11-19T11:23:33.185+0200	done dumping Quiz.POSUnits (6 documents)
+2025-11-19T11:23:33.186+0200	done dumping new.POSProductPricingClasses (6 documents)
+2025-11-19T11:23:33.187+0200	writing POSdb.applicationUsers to 
+2025-11-19T11:23:33.187+0200	writing Ofline.POSLanguages to 
+2025-11-19T11:23:33.190+0200	done dumping Ofline.POSLanguages (6 documents)
+2025-11-19T11:23:33.194+0200	done dumping POSdb.applicationUsers (6 documents)
+2025-11-19T11:23:33.194+0200	writing Quiz.POSLanguages to 
+2025-11-19T11:23:33.195+0200	writing POSdb.POSLanguages to 
+2025-11-19T11:23:33.199+0200	done dumping Quiz.POSLanguages (6 documents)
+2025-11-19T11:23:33.201+0200	done dumping POSdb.POSLanguages (6 documents)
+2025-11-19T11:23:33.202+0200	writing newPOSdb.POSLanguages to 
+2025-11-19T11:23:33.202+0200	writing newPOSdb.POSRegions to 
+2025-11-19T11:23:33.206+0200	done dumping newPOSdb.POSRegions (6 documents)
+2025-11-19T11:23:33.206+0200	done dumping newPOSdb.POSLanguages (6 documents)
+2025-11-19T11:23:33.210+0200	writing new.POSLanguages to 
+2025-11-19T11:23:33.211+0200	writing POSdb.POSOpenDays to 
+2025-11-19T11:23:33.214+0200	done dumping new.POSLanguages (6 documents)
+2025-11-19T11:23:33.214+0200	done dumping POSdb.POSOpenDays (6 documents)
+2025-11-19T11:23:33.215+0200	writing Quiz.POSOrderInsurances to 
+2025-11-19T11:23:33.222+0200	writing POSdb.POSStocks to 
+2025-11-19T11:23:33.228+0200	done dumping Quiz.POSOrderInsurances (6 documents)
+2025-11-19T11:23:33.229+0200	writing POSdbhamdy.POSLanguages to 
+2025-11-19T11:23:33.231+0200	done dumping POSdbnew.POSProductTypes (7 documents)
+2025-11-19T11:23:33.232+0200	done dumping POSdbhamdy.POSLanguages (6 documents)
+2025-11-19T11:23:33.232+0200	writing Quiz.POSStocks to 
+2025-11-19T11:23:33.234+0200	writing new.POSProductTaxes to 
+2025-11-19T11:23:33.237+0200	done dumping new.POSProductTaxes (6 documents)
+2025-11-19T11:23:33.238+0200	writing newPOSdb.POSOrderTypes to 
+2025-11-19T11:23:33.238+0200	done dumping Quiz.POSStocks (5 documents)
+2025-11-19T11:23:33.238+0200	done dumping POSdb.POSStocks (6 documents)
+2025-11-19T11:23:33.240+0200	writing POSdbhamdy.POSProductProperties to 
+2025-11-19T11:23:33.240+0200	writing POSdb.POSOrderTypes to 
+2025-11-19T11:23:33.245+0200	done dumping newPOSdb.POSOrderTypes (5 documents)
+2025-11-19T11:23:33.245+0200	done dumping POSdbhamdy.POSProductProperties (5 documents)
+2025-11-19T11:23:33.245+0200	done dumping POSdb.POSOrderTypes (5 documents)
+2025-11-19T11:23:33.245+0200	writing newPOSdb.POSProductTypes to 
+2025-11-19T11:23:33.246+0200	writing Ofline.POSUsersLogins to 
+2025-11-19T11:23:33.246+0200	writing POSdbhamdy.POSItemGroups to 
+2025-11-19T11:23:33.253+0200	done dumping Ofline.POSUsersLogins (5 documents)
+2025-11-19T11:23:33.255+0200	done dumping POSdbhamdy.POSItemGroups (5 documents)
+2025-11-19T11:23:33.258+0200	writing newPOSdb.POSIncomingUsers to 
+2025-11-19T11:23:33.259+0200	writing POSdbhamdy.POSMobileOrders to 
+2025-11-19T11:23:33.264+0200	done dumping newPOSdb.POSIncomingUsers (5 documents)
+2025-11-19T11:23:33.264+0200	done dumping POSdbhamdy.POSMobileOrders (5 documents)
+2025-11-19T11:23:33.269+0200	writing newPOSdb.POSOrderPayTypes to 
+2025-11-19T11:23:33.270+0200	writing POSdbhamdy.POSPrinters to 
+2025-11-19T11:23:33.279+0200	done dumping newPOSdb.POSOrderPayTypes (5 documents)
+2025-11-19T11:23:33.280+0200	writing POSdbnew.POSRegionsDeliveryPrices to 
+2025-11-19T11:23:33.286+0200	done dumping POSdbnew.POSRegionsDeliveryPrices (5 documents)
+2025-11-19T11:23:33.286+0200	writing Quiz.POSVolumes to 
+2025-11-19T11:23:33.289+0200	done dumping POSdbhamdy.POSPrinters (5 documents)
+2025-11-19T11:23:33.289+0200	done dumping Quiz.POSVolumes (5 documents)
+2025-11-19T11:23:33.293+0200	writing POSdbnew.POSTaxes to 
+2025-11-19T11:23:33.293+0200	writing POSdb.POSRegions to 
+2025-11-19T11:23:33.297+0200	done dumping POSdbnew.POSTaxes (4 documents)
+2025-11-19T11:23:33.297+0200	done dumping POSdb.POSRegions (4 documents)
+2025-11-19T11:23:33.298+0200	writing POSdbhamdy.POSOrderPayTypes to 
+2025-11-19T11:23:33.301+0200	writing POSdbnew.POSPricingClasses to 
+2025-11-19T11:23:33.305+0200	done dumping POSdbnew.POSPricingClasses (4 documents)
+2025-11-19T11:23:33.306+0200	done dumping POSdbhamdy.POSOrderPayTypes (4 documents)
+2025-11-19T11:23:33.306+0200	writing Quiz.POSReturnOrderInsurances to 
+2025-11-19T11:23:33.308+0200	writing Quiz.POSBranches to 
+2025-11-19T11:23:33.325+0200	done dumping newPOSdb.POSProductTypes (5 documents)
+2025-11-19T11:23:33.326+0200	done dumping Quiz.POSBranches (4 documents)
+2025-11-19T11:23:33.326+0200	done dumping Quiz.POSReturnOrderInsurances (4 documents)
+2025-11-19T11:23:33.327+0200	writing POSdbnew.POSCashReceipts to 
+2025-11-19T11:23:33.327+0200	writing Quiz.POSTaxes to 
+2025-11-19T11:23:33.327+0200	writing POSdb.POSReturnOrders to 
+2025-11-19T11:23:33.332+0200	done dumping POSdbnew.POSCashReceipts (4 documents)
+2025-11-19T11:23:33.333+0200	writing POSdb.POSProductTypes to 
+2025-11-19T11:23:33.333+0200	done dumping POSdb.POSReturnOrders (4 documents)
+2025-11-19T11:23:33.334+0200	writing POSdb.POSTaxes to 
+2025-11-19T11:23:33.336+0200	done dumping POSdb.POSTaxes (4 documents)
+2025-11-19T11:23:33.336+0200	writing POSdbhamdy.POSCancellationReasons to 
+2025-11-19T11:23:33.338+0200	done dumping Quiz.POSTaxes (4 documents)
+2025-11-19T11:23:33.345+0200	done dumping POSdb.POSProductTypes (4 documents)
+2025-11-19T11:23:33.353+0200	writing Quiz.POSOrderTypes to 
+2025-11-19T11:23:33.355+0200	writing POSdb.POSVendors to 
+2025-11-19T11:23:33.355+0200	done dumping POSdbhamdy.POSCancellationReasons (4 documents)
+2025-11-19T11:23:33.356+0200	writing newPOSdb.applicationUsers to 
+2025-11-19T11:23:33.359+0200	done dumping POSdb.POSVendors (4 documents)
+2025-11-19T11:23:33.360+0200	writing Quiz.POSEmployees to 
+2025-11-19T11:23:33.360+0200	done dumping Quiz.POSOrderTypes (4 documents)
+2025-11-19T11:23:33.361+0200	writing Quiz.POSHalls to 
+2025-11-19T11:23:33.362+0200	done dumping Quiz.POSEmployees (3 documents)
+2025-11-19T11:23:33.362+0200	done dumping newPOSdb.applicationUsers (4 documents)
+2025-11-19T11:23:33.364+0200	writing Ofline.POSOrderPayTypes to 
+2025-11-19T11:23:33.364+0200	writing POSdb.POSEmployeeGroups to 
+2025-11-19T11:23:33.367+0200	done dumping Quiz.POSHalls (3 documents)
+2025-11-19T11:23:33.369+0200	writing POSdbnew.POSCancellationReasons to 
+2025-11-19T11:23:33.369+0200	done dumping Ofline.POSOrderPayTypes (3 documents)
+2025-11-19T11:23:33.371+0200	writing POSdb.POSPricingClasses to 
+2025-11-19T11:23:33.372+0200	done dumping POSdbnew.POSCancellationReasons (3 documents)
+2025-11-19T11:23:33.376+0200	writing Quiz.POSItemGroups to 
+2025-11-19T11:23:33.381+0200	done dumping POSdb.POSEmployeeGroups (3 documents)
+2025-11-19T11:23:33.388+0200	writing newPOSdb.POSReturnOrders to 
+2025-11-19T11:23:33.388+0200	done dumping Quiz.POSItemGroups (3 documents)
+2025-11-19T11:23:33.389+0200	done dumping POSdb.POSPricingClasses (3 documents)
+2025-11-19T11:23:33.389+0200	writing new.POSPrinters to 
+2025-11-19T11:23:33.396+0200	writing Quiz.POSOrderPayTypes to 
+2025-11-19T11:23:33.399+0200	done dumping new.POSPrinters (3 documents)
+2025-11-19T11:23:33.400+0200	done dumping newPOSdb.POSReturnOrders (3 documents)
+2025-11-19T11:23:33.401+0200	writing POSdb.POSDrivers to 
+2025-11-19T11:23:33.401+0200	writing Quiz.POSCities to 
+2025-11-19T11:23:33.401+0200	done dumping Quiz.POSOrderPayTypes (3 documents)
+2025-11-19T11:23:33.402+0200	writing new.POSOrderPayTypes to 
+2025-11-19T11:23:33.404+0200	done dumping POSdb.POSDrivers (3 documents)
+2025-11-19T11:23:33.406+0200	writing Quiz.POSCashReceipts to 
+2025-11-19T11:23:33.407+0200	done dumping Quiz.POSCities (3 documents)
+2025-11-19T11:23:33.408+0200	writing new.POSOrderTypes to 
+2025-11-19T11:23:33.412+0200	done dumping new.POSOrderPayTypes (3 documents)
+2025-11-19T11:23:33.413+0200	done dumping Quiz.POSCashReceipts (3 documents)
+2025-11-19T11:23:33.413+0200	writing POSdbhamdy.POSPointOfSales to 
+2025-11-19T11:23:33.413+0200	done dumping new.POSOrderTypes (3 documents)
+2025-11-19T11:23:33.417+0200	writing Quiz.POSOrderTypeTaxes to 
+2025-11-19T11:23:33.418+0200	writing Quiz.POSProductTypes to 
+2025-11-19T11:23:33.421+0200	done dumping POSdbhamdy.POSPointOfSales (3 documents)
+2025-11-19T11:23:33.422+0200	writing POSdb.POSVolumes to 
+2025-11-19T11:23:33.423+0200	done dumping Quiz.POSOrderTypeTaxes (3 documents)
+2025-11-19T11:23:33.431+0200	done dumping Quiz.POSProductTypes (3 documents)
+2025-11-19T11:23:33.435+0200	writing POSdb.POSItemGroups to 
+2025-11-19T11:23:33.439+0200	writing POSdbnew.POSBranches to 
+2025-11-19T11:23:33.442+0200	done dumping POSdb.POSVolumes (3 documents)
+2025-11-19T11:23:33.443+0200	writing Ofline.POSOrderTypes to 
+2025-11-19T11:23:33.447+0200	done dumping POSdbnew.POSBranches (3 documents)
+2025-11-19T11:23:33.447+0200	done dumping POSdb.POSItemGroups (3 documents)
+2025-11-19T11:23:33.447+0200	writing Quiz.POSProductClasses to 
+2025-11-19T11:23:33.448+0200	done dumping Ofline.POSOrderTypes (3 documents)
+2025-11-19T11:23:33.448+0200	writing POSdbnew.POSUsersGroups to 
+2025-11-19T11:23:33.452+0200	writing Quiz.POSPricingClasses to 
+2025-11-19T11:23:33.455+0200	done dumping POSdbnew.POSUsersGroups (2 documents)
+2025-11-19T11:23:33.455+0200	done dumping Quiz.POSPricingClasses (2 documents)
+2025-11-19T11:23:33.455+0200	writing Quiz.POSCostCenters to 
+2025-11-19T11:23:33.456+0200	writing Quiz.POSCustomers to 
+2025-11-19T11:23:33.461+0200	done dumping Quiz.POSProductClasses (3 documents)
+2025-11-19T11:23:33.463+0200	writing POSdbnew.POSPointOfSales to 
+2025-11-19T11:23:33.464+0200	done dumping Quiz.POSCostCenters (2 documents)
+2025-11-19T11:23:33.466+0200	done dumping Quiz.POSCustomers (2 documents)
+2025-11-19T11:23:33.467+0200	writing POSdbnew.POSHalls to 
+2025-11-19T11:23:33.471+0200	writing Quiz.POSCountries to 
+2025-11-19T11:23:33.477+0200	done dumping POSdbnew.POSPointOfSales (2 documents)
+2025-11-19T11:23:33.477+0200	done dumping Quiz.POSCountries (2 documents)
+2025-11-19T11:23:33.483+0200	writing POSdbhamdy.POSDrivers to 
+2025-11-19T11:23:33.484+0200	writing POSdbnew.POSInsurances to 
+2025-11-19T11:23:33.485+0200	done dumping POSdbnew.POSHalls (2 documents)
+2025-11-19T11:23:33.487+0200	done dumping POSdbnew.POSInsurances (2 documents)
+2025-11-19T11:23:33.487+0200	writing POSdbhamdy.POSVolumes to 
+2025-11-19T11:23:33.487+0200	done dumping POSdbhamdy.POSDrivers (2 documents)
+2025-11-19T11:23:33.489+0200	writing POSdbnew.POSCustomerGroups to 
+2025-11-19T11:23:33.489+0200	writing POSdbhamdy.POSWorkTime to 
+2025-11-19T11:23:33.495+0200	done dumping POSdbhamdy.POSVolumes (2 documents)
+2025-11-19T11:23:33.496+0200	done dumping POSdbhamdy.POSWorkTime (2 documents)
+2025-11-19T11:23:33.496+0200	writing Ofline.POSOrders to 
+2025-11-19T11:23:33.496+0200	writing new.POSProductTypes to 
+2025-11-19T11:23:33.497+0200	done dumping POSdbnew.POSCustomerGroups (2 documents)
+2025-11-19T11:23:33.502+0200	writing POSdbnew.POSPermissions to 
+2025-11-19T11:23:33.510+0200	done dumping new.POSProductTypes (2 documents)
+2025-11-19T11:23:33.511+0200	done dumping Ofline.POSOrders (2 documents)
+2025-11-19T11:23:33.512+0200	done dumping POSdbnew.POSPermissions (2 documents)
+2025-11-19T11:23:33.512+0200	writing new.POSUsersGroups to 
+2025-11-19T11:23:33.512+0200	writing new.POSDrivers to 
+2025-11-19T11:23:33.512+0200	writing new.POSBranches to 
+2025-11-19T11:23:33.519+0200	done dumping new.POSUsersGroups (2 documents)
+2025-11-19T11:23:33.520+0200	writing new.POSTaxes to 
+2025-11-19T11:23:33.520+0200	done dumping new.POSBranches (2 documents)
+2025-11-19T11:23:33.520+0200	writing POSdbhamdy.POSFollowOrderSettings to 
+2025-11-19T11:23:33.521+0200	done dumping new.POSDrivers (2 documents)
+2025-11-19T11:23:33.522+0200	writing new.POSPointOfSales to 
+2025-11-19T11:23:33.523+0200	done dumping POSdbhamdy.POSFollowOrderSettings (2 documents)
+2025-11-19T11:23:33.523+0200	done dumping new.POSTaxes (2 documents)
+2025-11-19T11:23:33.526+0200	done dumping new.POSPointOfSales (2 documents)
+2025-11-19T11:23:33.526+0200	writing POSdbnew.POSWorkTime to 
+2025-11-19T11:23:33.527+0200	writing POSdbhamdy.POSUsersGroups to 
+2025-11-19T11:23:33.528+0200	writing new.POSIncomingUsers to 
+2025-11-19T11:23:33.530+0200	done dumping POSdbnew.POSWorkTime (2 documents)
+2025-11-19T11:23:33.533+0200	writing POSdbhamdy.POSCustomerGroups to 
+2025-11-19T11:23:33.534+0200	done dumping new.POSIncomingUsers (2 documents)
+2025-11-19T11:23:33.536+0200	done dumping POSdbhamdy.POSCustomerGroups (2 documents)
+2025-11-19T11:23:33.537+0200	writing new.POSEmployees to 
+2025-11-19T11:23:33.537+0200	writing POSdb.POSPermissions to 
+2025-11-19T11:23:33.539+0200	done dumping POSdbhamdy.POSUsersGroups (2 documents)
+2025-11-19T11:23:33.545+0200	writing new.POSUsersLogins to 
+2025-11-19T11:23:33.546+0200	done dumping new.POSEmployees (2 documents)
+2025-11-19T11:23:33.547+0200	writing new.POSOpenDays to 
+2025-11-19T11:23:33.551+0200	done dumping new.POSUsersLogins (2 documents)
+2025-11-19T11:23:33.560+0200	writing POSdbhamdy.POSOrderTypes to 
+2025-11-19T11:23:33.563+0200	done dumping new.POSOpenDays (2 documents)
+2025-11-19T11:23:33.564+0200	writing newPOSdb.POSCustomerGroups to 
+2025-11-19T11:23:33.568+0200	done dumping POSdbhamdy.POSOrderTypes (2 documents)
+2025-11-19T11:23:33.570+0200	writing Ofline.POSProductTypes to 
+2025-11-19T11:23:33.571+0200	done dumping newPOSdb.POSCustomerGroups (2 documents)
+2025-11-19T11:23:33.571+0200	writing POSdb.POSInsurances to 
+2025-11-19T11:23:33.575+0200	done dumping POSdb.POSInsurances (2 documents)
+2025-11-19T11:23:33.576+0200	writing POSdb.POSPointOfSales to 
+2025-11-19T11:23:33.579+0200	done dumping POSdb.POSPermissions (2 documents)
+2025-11-19T11:23:33.580+0200	writing POSdb.POSUsersGroups to 
+2025-11-19T11:23:33.581+0200	done dumping Ofline.POSProductTypes (2 documents)
+2025-11-19T11:23:33.585+0200	done dumping POSdb.POSPointOfSales (2 documents)
+2025-11-19T11:23:33.587+0200	writing POSdb.POSCustomerGroups to 
+2025-11-19T11:23:33.587+0200	writing POSdb.POSBranches to 
+2025-11-19T11:23:33.592+0200	done dumping POSdb.POSUsersGroups (2 documents)
+2025-11-19T11:23:33.594+0200	writing newPOSdb.POSHalls to 
+2025-11-19T11:23:33.597+0200	done dumping POSdb.POSCustomerGroups (2 documents)
+2025-11-19T11:23:33.598+0200	writing newPOSdb.POSEmployeeGroups to 
+2025-11-19T11:23:33.600+0200	done dumping newPOSdb.POSHalls (2 documents)
+2025-11-19T11:23:33.600+0200	done dumping POSdb.POSBranches (2 documents)
+2025-11-19T11:23:33.603+0200	writing POSdbhamdy.POSPermissions to 
+2025-11-19T11:23:33.604+0200	writing Quiz.POSGovernments to 
+2025-11-19T11:23:33.611+0200	done dumping newPOSdb.POSEmployeeGroups (2 documents)
+2025-11-19T11:23:33.613+0200	writing POSdb.POSOrderInsurances to 
+2025-11-19T11:23:33.613+0200	done dumping Quiz.POSGovernments (2 documents)
+2025-11-19T11:23:33.614+0200	writing Quiz.POSBackups to 
+2025-11-19T11:23:33.615+0200	done dumping POSdbhamdy.POSPermissions (2 documents)
+2025-11-19T11:23:33.617+0200	writing Quiz.POSInsurances to 
+2025-11-19T11:23:33.619+0200	done dumping POSdb.POSOrderInsurances (1 document)
+2025-11-19T11:23:33.619+0200	done dumping Quiz.POSBackups (1 document)
+2025-11-19T11:23:33.620+0200	writing Quiz.POSNotes to 
+2025-11-19T11:23:33.621+0200	writing Quiz.applicationRoles to 
+2025-11-19T11:23:33.621+0200	done dumping Quiz.POSInsurances (1 document)
+2025-11-19T11:23:33.623+0200	writing Quiz.applicationUsers to 
+2025-11-19T11:23:33.624+0200	done dumping Quiz.POSNotes (1 document)
+2025-11-19T11:23:33.626+0200	done dumping Quiz.applicationRoles (1 document)
+2025-11-19T11:23:33.626+0200	writing Quiz.POSFoodPlans to 
+2025-11-19T11:23:33.629+0200	[###.....................]  POSdbhamdy.POSOrders  1563/11550  (13.5%)
+2025-11-19T11:23:33.634+0200	writing POSdbnew.POSComboProducts to 
+2025-11-19T11:23:33.645+0200	done dumping Quiz.POSFoodPlans (1 document)
+2025-11-19T11:23:33.647+0200	done dumping Quiz.applicationUsers (1 document)
+2025-11-19T11:23:33.648+0200	writing Quiz.POSEmployeeGroups to 
+2025-11-19T11:23:33.648+0200	writing Quiz.POSMyPoints to 
+2025-11-19T11:23:33.651+0200	done dumping POSdbnew.POSComboProducts (1 document)
+2025-11-19T11:23:33.651+0200	writing POSdbnew.POSMinimumCharges to 
+2025-11-19T11:23:33.651+0200	done dumping Quiz.POSMyPoints (1 document)
+2025-11-19T11:23:33.652+0200	writing POSdbnew.POSSettings to 
+2025-11-19T11:23:33.656+0200	done dumping POSdbnew.POSMinimumCharges (1 document)
+2025-11-19T11:23:33.661+0200	done dumping Quiz.POSEmployeeGroups (1 document)
+2025-11-19T11:23:33.663+0200	writing Ofline.POSIncomingUsers to 
+2025-11-19T11:23:33.668+0200	writing POSdbnew.POSFoodPlans to 
+2025-11-19T11:23:33.670+0200	done dumping POSdbnew.POSSettings (1 document)
+2025-11-19T11:23:33.671+0200	done dumping Ofline.POSIncomingUsers (1 document)
+2025-11-19T11:23:33.671+0200	writing Quiz.POSPermissions to 
+2025-11-19T11:23:33.671+0200	writing Ofline.POSOpenDays to 
+2025-11-19T11:23:33.673+0200	done dumping Ofline.POSOpenDays (1 document)
+2025-11-19T11:23:33.674+0200	writing POSdbnew.POSCountries to 
+2025-11-19T11:23:33.677+0200	done dumping POSdbnew.POSCountries (1 document)
+2025-11-19T11:23:33.677+0200	writing POSdbnew.applicationRoles to 
+2025-11-19T11:23:33.678+0200	done dumping Quiz.POSPermissions (1 document)
+2025-11-19T11:23:33.680+0200	done dumping POSdbnew.POSFoodPlans (1 document)
+2025-11-19T11:23:33.680+0200	writing Quiz.POSUpdateData to 
+2025-11-19T11:23:33.681+0200	writing POSdbnew.POSReturnOrders to 
+2025-11-19T11:23:33.683+0200	done dumping Quiz.POSUpdateData (1 document)
+2025-11-19T11:23:33.685+0200	done dumping POSdbnew.POSReturnOrders (1 document)
+2025-11-19T11:23:33.685+0200	writing Quiz.POSMinimumCharges to 
+2025-11-19T11:23:33.686+0200	done dumping POSdbnew.applicationRoles (1 document)
+2025-11-19T11:23:33.689+0200	writing Ofline.POSRMSConnSettings to 
+2025-11-19T11:23:33.691+0200	writing Quiz.POSWorkTime to 
+2025-11-19T11:23:33.694+0200	done dumping Quiz.POSWorkTime (1 document)
+2025-11-19T11:23:33.695+0200	done dumping Ofline.POSRMSConnSettings (1 document)
+2025-11-19T11:23:33.696+0200	writing Quiz.POSRMSConnSettings to 
+2025-11-19T11:23:33.697+0200	writing POSdbnew.POSDrivers to 
+2025-11-19T11:23:33.702+0200	done dumping Quiz.POSRMSConnSettings (1 document)
+2025-11-19T11:23:33.703+0200	done dumping POSdbnew.POSDrivers (1 document)
+2025-11-19T11:23:33.706+0200	writing POSdbnew.POSUpdateData to 
+2025-11-19T11:23:33.713+0200	done dumping Quiz.POSMinimumCharges (1 document)
+2025-11-19T11:23:33.714+0200	writing POSdbnew.POSCities to 
+2025-11-19T11:23:33.714+0200	writing Quiz.POSSettings to 
+2025-11-19T11:23:33.718+0200	done dumping POSdbnew.POSUpdateData (1 document)
+2025-11-19T11:23:33.720+0200	writing POSdbnew.POSBackups to 
+2025-11-19T11:23:33.722+0200	done dumping POSdbnew.POSCities (1 document)
+2025-11-19T11:23:33.725+0200	done dumping Quiz.POSSettings (1 document)
+2025-11-19T11:23:33.727+0200	writing POSdbnew.POSProductClasses to 
+2025-11-19T11:23:33.728+0200	done dumping POSdbnew.POSBackups (1 document)
+2025-11-19T11:23:33.728+0200	writing Ofline.POSPointOfSales to 
+2025-11-19T11:23:33.729+0200	writing POSdbnew.POSMyPoints to 
+2025-11-19T11:23:33.732+0200	done dumping POSdbnew.POSProductClasses (1 document)
+2025-11-19T11:23:33.733+0200	done dumping POSdbnew.POSMyPoints (1 document)
+2025-11-19T11:23:33.735+0200	writing Ofline.POSMinimumCharges to 
+2025-11-19T11:23:33.735+0200	writing Quiz.POSCancellationReasons to 
+2025-11-19T11:23:33.738+0200	done dumping Ofline.POSMinimumCharges (1 document)
+2025-11-19T11:23:33.739+0200	done dumping Ofline.POSPointOfSales (1 document)
+2025-11-19T11:23:33.739+0200	done dumping Quiz.POSCancellationReasons (1 document)
+2025-11-19T11:23:33.739+0200	writing Quiz.POSVendors to 
+2025-11-19T11:23:33.739+0200	writing Ofline.POSMyPoints to 
+2025-11-19T11:23:33.741+0200	writing POSdbnew.POSFavoritescreens to 
+2025-11-19T11:23:33.744+0200	done dumping Ofline.POSMyPoints (1 document)
+2025-11-19T11:23:33.746+0200	writing POSdbnew.POSCompanies to 
+2025-11-19T11:23:33.751+0200	done dumping Quiz.POSVendors (1 document)
+2025-11-19T11:23:33.752+0200	done dumping POSdbnew.POSFavoritescreens (1 document)
+2025-11-19T11:23:33.752+0200	writing Quiz.POSRegions to 
+2025-11-19T11:23:33.753+0200	done dumping POSdbnew.POSCompanies (1 document)
+2025-11-19T11:23:33.754+0200	writing POSdbnew.POSGovernments to 
+2025-11-19T11:23:33.755+0200	done dumping Quiz.POSRegions (1 document)
+2025-11-19T11:23:33.761+0200	writing Quiz.POSPointOfSales to 
+2025-11-19T11:23:33.763+0200	done dumping POSdbnew.POSGovernments (1 document)
+2025-11-19T11:23:33.763+0200	writing POSdbnew.POSRMSConnSettings to 
+2025-11-19T11:23:33.764+0200	writing POSdbnew.POSPrinters to 
+2025-11-19T11:23:33.767+0200	done dumping Quiz.POSPointOfSales (1 document)
+2025-11-19T11:23:33.768+0200	writing Ofline.POSPricingClasses to 
+2025-11-19T11:23:33.772+0200	done dumping Ofline.POSPricingClasses (1 document)
+2025-11-19T11:23:33.773+0200	writing POSdbhamdy.POSStocks to 
+2025-11-19T11:23:33.780+0200	done dumping POSdbhamdy.POSStocks (1 document)
+2025-11-19T11:23:33.781+0200	writing Quiz.POSCompanies to 
+2025-11-19T11:23:33.782+0200	done dumping POSdbnew.POSRMSConnSettings (1 document)
+2025-11-19T11:23:33.783+0200	writing Quiz.POSPrinters to 
+2025-11-19T11:23:33.789+0200	done dumping POSdbnew.POSPrinters (1 document)
+2025-11-19T11:23:33.790+0200	done dumping Quiz.POSCompanies (1 document)
+2025-11-19T11:23:33.791+0200	writing Quiz.POSDrivers to 
+2025-11-19T11:23:33.794+0200	writing Quiz.POSUsersGroups to 
+2025-11-19T11:23:33.795+0200	done dumping Quiz.POSPrinters (1 document)
+2025-11-19T11:23:33.795+0200	done dumping Quiz.POSDrivers (1 document)
+2025-11-19T11:23:33.796+0200	writing POSdbhamdy.POSBranches to 
+2025-11-19T11:23:33.796+0200	writing Ofline.POSBranches to 
+2025-11-19T11:23:33.801+0200	done dumping Quiz.POSUsersGroups (1 document)
+2025-11-19T11:23:33.802+0200	done dumping Ofline.POSBranches (1 document)
+2025-11-19T11:23:33.803+0200	writing Ofline.POSSettings to 
+2025-11-19T11:23:33.805+0200	writing new.POSCustomers to 
+2025-11-19T11:23:33.812+0200	done dumping Ofline.POSSettings (1 document)
+2025-11-19T11:23:33.812+0200	done dumping new.POSCustomers (1 document)
+2025-11-19T11:23:33.813+0200	writing new.POSMyPoints to 
+2025-11-19T11:23:33.815+0200	writing Ofline.POSCustomerGroups to 
+2025-11-19T11:23:33.822+0200	done dumping Ofline.POSCustomerGroups (1 document)
+2025-11-19T11:23:33.822+0200	done dumping new.POSMyPoints (1 document)
+2025-11-19T11:23:33.823+0200	done dumping POSdbhamdy.POSBranches (1 document)
+2025-11-19T11:23:33.825+0200	writing POSdbhamdy.POSPricingClasses to 
+2025-11-19T11:23:33.827+0200	writing Ofline.POSBackups to 
+2025-11-19T11:23:33.828+0200	writing new.POSMinimumCharges to 
+2025-11-19T11:23:33.834+0200	done dumping Ofline.POSBackups (1 document)
+2025-11-19T11:23:33.834+0200	done dumping POSdbhamdy.POSPricingClasses (1 document)
+2025-11-19T11:23:33.836+0200	writing POSdbhamdy.POSUpdateData to 
+2025-11-19T11:23:33.838+0200	done dumping new.POSMinimumCharges (1 document)
+2025-11-19T11:23:33.838+0200	writing POSdbhamdy.POSProductClasses to 
+2025-11-19T11:23:33.839+0200	writing POSdb.POSCashReceipts to 
+2025-11-19T11:23:33.840+0200	done dumping POSdbhamdy.POSUpdateData (1 document)
+2025-11-19T11:23:33.843+0200	done dumping POSdbhamdy.POSProductClasses (1 document)
+2025-11-19T11:23:33.844+0200	writing new.applicationUsers to 
+2025-11-19T11:23:33.852+0200	writing POSdbhamdy.POSRMSConnSettings to 
+2025-11-19T11:23:33.853+0200	done dumping new.applicationUsers (1 document)
+2025-11-19T11:23:33.855+0200	writing new.POSCustomerGroups to 
+2025-11-19T11:23:33.855+0200	done dumping POSdb.POSCashReceipts (1 document)
+2025-11-19T11:23:33.856+0200	done dumping POSdbhamdy.POSRMSConnSettings (1 document)
+2025-11-19T11:23:33.856+0200	writing new.POSBackups to 
+2025-11-19T11:23:33.856+0200	writing new.POSPricingClasses to 
+2025-11-19T11:23:33.859+0200	done dumping new.POSBackups (1 document)
+2025-11-19T11:23:33.859+0200	done dumping new.POSPricingClasses (1 document)
+2025-11-19T11:23:33.860+0200	writing POSdb.POSFollowOrderSettings to 
+2025-11-19T11:23:33.862+0200	writing POSdbhamdy.POSCountries to 
+2025-11-19T11:23:33.864+0200	done dumping POSdb.POSFollowOrderSettings (1 document)
+2025-11-19T11:23:33.864+0200	done dumping POSdbhamdy.POSCountries (1 document)
+2025-11-19T11:23:33.864+0200	writing new.POSRegions to 
+2025-11-19T11:23:33.864+0200	done dumping new.POSCustomerGroups (1 document)
+2025-11-19T11:23:33.872+0200	writing new.POSUpdateData to 
+2025-11-19T11:23:33.872+0200	writing POSdbhamdy.POSMinimumCharges to 
+2025-11-19T11:23:33.880+0200	done dumping new.POSRegions (1 document)
+2025-11-19T11:23:33.881+0200	writing POSdbhamdy.POSBarcodeSettings to 
+2025-11-19T11:23:33.882+0200	done dumping POSdbhamdy.POSMinimumCharges (1 document)
+2025-11-19T11:23:33.882+0200	done dumping new.POSUpdateData (1 document)
+2025-11-19T11:23:33.882+0200	writing new.POSSettings to 
+2025-11-19T11:23:33.883+0200	writing POSdbhamdy.POSProductTypes to 
+2025-11-19T11:23:33.889+0200	done dumping POSdbhamdy.POSProductTypes (1 document)
+2025-11-19T11:23:33.892+0200	writing new.POSHalls to 
+2025-11-19T11:23:33.892+0200	done dumping POSdbhamdy.POSBarcodeSettings (1 document)
+2025-11-19T11:23:33.894+0200	writing new.POSRMSConnSettings to 
+2025-11-19T11:23:33.896+0200	done dumping new.POSHalls (1 document)
+2025-11-19T11:23:33.897+0200	writing POSdbhamdy.POSBackups to 
+2025-11-19T11:23:33.902+0200	done dumping POSdbhamdy.POSBackups (1 document)
+2025-11-19T11:23:33.902+0200	done dumping new.POSSettings (1 document)
+2025-11-19T11:23:33.903+0200	done dumping new.POSRMSConnSettings (1 document)
+2025-11-19T11:23:33.903+0200	writing new.POSWorkTime to 
+2025-11-19T11:23:33.904+0200	writing POSdbhamdy.POSCities to 
+2025-11-19T11:23:33.906+0200	writing new.applicationRoles to 
+2025-11-19T11:23:33.909+0200	done dumping new.POSWorkTime (1 document)
+2025-11-19T11:23:33.910+0200	writing POSdbhamdy.POSSettings to 
+2025-11-19T11:23:33.911+0200	done dumping POSdbhamdy.POSCities (1 document)
+2025-11-19T11:23:33.912+0200	done dumping new.applicationRoles (1 document)
+2025-11-19T11:23:33.913+0200	writing POSdb.POSBackups to 
+2025-11-19T11:23:33.913+0200	writing POSdbhamdy.POSMyPoints to 
+2025-11-19T11:23:33.916+0200	done dumping POSdbhamdy.POSMyPoints (1 document)
+2025-11-19T11:23:33.917+0200	writing POSdbhamdy.applicationRoles to 
+2025-11-19T11:23:33.920+0200	done dumping POSdbhamdy.applicationRoles (1 document)
+2025-11-19T11:23:33.920+0200	done dumping POSdb.POSBackups (1 document)
+2025-11-19T11:23:33.920+0200	done dumping POSdbhamdy.POSSettings (1 document)
+2025-11-19T11:23:33.921+0200	writing POSdbhamdy.POSCompanies to 
+2025-11-19T11:23:33.922+0200	writing newPOSdb.POSUsersGroups to 
+2025-11-19T11:23:33.931+0200	done dumping POSdbhamdy.POSCompanies (1 document)
+2025-11-19T11:23:33.931+0200	writing newPOSdb.POSCancellationReasons to 
+2025-11-19T11:23:33.934+0200	writing Ofline.POSUpdateData to 
+2025-11-19T11:23:33.943+0200	done dumping Ofline.POSUpdateData (1 document)
+2025-11-19T11:23:33.947+0200	writing newPOSdb.POSPointOfSales to 
+2025-11-19T11:23:33.947+0200	done dumping newPOSdb.POSUsersGroups (1 document)
+2025-11-19T11:23:33.949+0200	writing newPOSdb.POSOpenDays to 
+2025-11-19T11:23:33.950+0200	done dumping newPOSdb.POSCancellationReasons (1 document)
+2025-11-19T11:23:33.951+0200	writing newPOSdb.POSBackups to 
+2025-11-19T11:23:33.955+0200	done dumping newPOSdb.POSOpenDays (1 document)
+2025-11-19T11:23:33.956+0200	done dumping newPOSdb.POSPointOfSales (1 document)
+2025-11-19T11:23:33.957+0200	writing newPOSdb.POSMyPoints to 
+2025-11-19T11:23:33.958+0200	done dumping newPOSdb.POSBackups (1 document)
+2025-11-19T11:23:33.959+0200	writing Ofline.applicationUsers to 
+2025-11-19T11:23:33.960+0200	writing newPOSdb.applicationRoles to 
+2025-11-19T11:23:33.961+0200	done dumping newPOSdb.POSMyPoints (1 document)
+2025-11-19T11:23:33.965+0200	writing newPOSdb.POSCountries to 
+2025-11-19T11:23:33.968+0200	done dumping newPOSdb.POSCountries (1 document)
+2025-11-19T11:23:33.970+0200	done dumping newPOSdb.applicationRoles (1 document)
+2025-11-19T11:23:33.971+0200	done dumping Ofline.applicationUsers (1 document)
+2025-11-19T11:23:33.972+0200	writing POSdbhamdy.POSGovernments to 
+2025-11-19T11:23:33.972+0200	writing newPOSdb.POSWorkTime to 
+2025-11-19T11:23:33.972+0200	writing newPOSdb.POSSettings to 
+2025-11-19T11:23:33.980+0200	done dumping POSdbhamdy.POSGovernments (1 document)
+2025-11-19T11:23:33.984+0200	writing POSdb.POSHalls to 
+2025-11-19T11:23:33.989+0200	done dumping POSdb.POSHalls (1 document)
+2025-11-19T11:23:33.992+0200	done dumping newPOSdb.POSWorkTime (1 document)
+2025-11-19T11:23:33.993+0200	writing POSdb.POSGovernments to 
+2025-11-19T11:23:33.994+0200	writing newPOSdb.POSPermissions to 
+2025-11-19T11:23:33.995+0200	done dumping newPOSdb.POSSettings (1 document)
+2025-11-19T11:23:33.996+0200	done dumping POSdb.POSGovernments (1 document)
+2025-11-19T11:23:33.996+0200	writing POSdb.POSReturnOrderInsurances to 
+2025-11-19T11:23:33.996+0200	writing Ofline.applicationRoles to 
+2025-11-19T11:23:33.998+0200	done dumping POSdb.POSReturnOrderInsurances (1 document)
+2025-11-19T11:23:33.999+0200	done dumping Ofline.applicationRoles (1 document)
+2025-11-19T11:23:33.999+0200	writing newPOSdb.POSGovernments to 
+2025-11-19T11:23:34.000+0200	writing POSdb.POSCountries to 
+2025-11-19T11:23:34.002+0200	done dumping POSdb.POSCountries (1 document)
+2025-11-19T11:23:34.002+0200	done dumping newPOSdb.POSGovernments (1 document)
+2025-11-19T11:23:34.003+0200	writing newPOSdb.POSCompanies to 
+2025-11-19T11:23:34.008+0200	writing POSdb.POSWorkTime to 
+2025-11-19T11:23:34.010+0200	done dumping newPOSdb.POSCompanies (1 document)
+2025-11-19T11:23:34.012+0200	done dumping POSdb.POSWorkTime (1 document)
+2025-11-19T11:23:34.013+0200	done dumping newPOSdb.POSPermissions (1 document)
+2025-11-19T11:23:34.016+0200	writing Ofline.POSWorkTime to 
+2025-11-19T11:23:34.017+0200	writing POSdb.POSUpdateData to 
+2025-11-19T11:23:34.018+0200	writing newPOSdb.POSItemGroups to 
+2025-11-19T11:23:34.021+0200	done dumping Ofline.POSWorkTime (1 document)
+2025-11-19T11:23:34.022+0200	writing POSdb.POSRMSConnSettings to 
+2025-11-19T11:23:34.034+0200	done dumping POSdb.POSUpdateData (1 document)
+2025-11-19T11:23:34.035+0200	done dumping POSdb.POSRMSConnSettings (1 document)
+2025-11-19T11:23:34.035+0200	writing POSdb.POSMinimumCharges to 
+2025-11-19T11:23:34.036+0200	writing POSdb.POSCompanies to 
+2025-11-19T11:23:34.038+0200	done dumping POSdb.POSCompanies (1 document)
+2025-11-19T11:23:34.038+0200	done dumping POSdb.POSMinimumCharges (1 document)
+2025-11-19T11:23:34.039+0200	writing POSdb.POSMyPoints to 
+2025-11-19T11:23:34.039+0200	writing POSdb.POSCities to 
+2025-11-19T11:23:34.041+0200	done dumping POSdb.POSMyPoints (1 document)
+2025-11-19T11:23:34.043+0200	writing newPOSdb.POSTaxes to 
+2025-11-19T11:23:34.057+0200	done dumping newPOSdb.POSTaxes (1 document)
+2025-11-19T11:23:34.060+0200	done dumping newPOSdb.POSItemGroups (1 document)
+2025-11-19T11:23:34.062+0200	writing newPOSdb.POSMinimumCharges to 
+2025-11-19T11:23:34.063+0200	done dumping POSdb.POSCities (1 document)
+2025-11-19T11:23:34.063+0200	writing POSdb.POSPrinters to 
+2025-11-19T11:23:34.063+0200	writing newPOSdb.POSVolumes to 
+2025-11-19T11:23:34.067+0200	done dumping newPOSdb.POSMinimumCharges (1 document)
+2025-11-19T11:23:34.068+0200	writing POSdb.POSCancellationReasons to 
+2025-11-19T11:23:34.070+0200	done dumping newPOSdb.POSVolumes (1 document)
+2025-11-19T11:23:34.072+0200	writing POSdb.POSSettings to 
+2025-11-19T11:23:34.072+0200	done dumping POSdb.POSPrinters (1 document)
+2025-11-19T11:23:34.077+0200	writing newPOSdb.POSRMSConnSettings to 
+2025-11-19T11:23:34.079+0200	done dumping POSdb.POSCancellationReasons (1 document)
+2025-11-19T11:23:34.081+0200	done dumping newPOSdb.POSRMSConnSettings (1 document)
+2025-11-19T11:23:34.081+0200	writing POSdb.applicationRoles to 
+2025-11-19T11:23:34.082+0200	writing newPOSdb.POSUpdateData to 
+2025-11-19T11:23:34.085+0200	done dumping POSdb.applicationRoles (1 document)
+2025-11-19T11:23:34.087+0200	done dumping POSdb.POSSettings (1 document)
+2025-11-19T11:23:34.092+0200	writing POSdbnew.POSOrderETaxs to 
+2025-11-19T11:23:34.092+0200	writing Quiz.POSOrderETaxs to 
+2025-11-19T11:23:34.092+0200	done dumping newPOSdb.POSUpdateData (1 document)
+2025-11-19T11:23:34.096+0200	done dumping Quiz.POSOrderETaxs (0 documents)
+2025-11-19T11:23:34.097+0200	done dumping POSdbnew.POSOrderETaxs (0 documents)
+2025-11-19T11:23:35.694+0200	[########################]  POSdbhamdy.POSOrders  11550/11550  (100.0%)
+2025-11-19T11:23:35.695+0200	done dumping POSdbhamdy.POSOrders (11550 documents)
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...

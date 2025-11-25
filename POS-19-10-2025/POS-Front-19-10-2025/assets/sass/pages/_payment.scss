@@ -1,0 +1,190 @@
+/***Payment component **/
+.custom-control-inline {
+    margin-right: 0;
+  }
+  
+  .custom-control-label::after,
+  .custom-control-label::before {
+    display: none;
+  }
+  
+  .custom-control {
+    padding-left: 0;
+  }
+  
+  :checked+label.discountBtn,
+  .custom-control-inline .btn-light:hover {
+    border-color: #ff0018;
+    background-color: #ff0018;
+    color: #fff !important;
+  }
+  
+  .btnW {
+    min-width: 5rem !important;
+    width: auto !important;
+  }
+  
+  .btnWAA {
+    width: 100% !important;
+  
+  }
+  
+  .hg-standardBtn span {
+    color: var(--Digram) !important;
+    font-weight: bold;
+    font-size: larger;
+  }
+  
+  .Amountendered {
+    font-size: 17px;
+    font-weight: bold;
+  }
+  
+  .table.tableOrder td,
+  .table.tableOrder th {
+    padding: .2rem !important;
+  }
+  
+.fFamily {
+  font-family: "Baloo Bhaina 2", cursive !important;
+}
+
+.ulPayment li {
+  cursor: pointer;
+}
+
+.ulPayment li button {
+  transition: all .2s;
+}
+
+.ulPayment li button:hover,
+.ulPayment li button:focus {
+  box-shadow: 0 0 .5rem rgba(91, 75, 146, 0.7);
+  opacity: 1.1;
+}
+
+.ulPayment {
+  border-bottom: none !important;
+
+}
+.ulPayment.nav-tabs {
+  border-bottom: none !important;
+}
+@media(max-width:768px) {
+  .ulPayment {
+
+    flex-direction: row !important;
+  }
+
+  .ulPayment.categorys li {
+
+    margin-right: .5rem;
+  }
+}
+
+.ulPayment li {
+  flex: 0 auto !important;
+}
+
+.ulPayment li a.active {
+  color: #fff !important;
+}
+
+.ulPayment li a {
+  background: rgba(0, 0, 0, 0.08);
+  border: 1px solid transparent;
+  color: dimgray !important;
+}
+
+.restaurantName2small {
+  padding-right: 0rem;
+  color: #ff0018 !important;
+  font-weight: 600;
+  font-family: "Baloo Bhaina 2";
+  text-shadow: 0.1rem 0.1rem 0.1rem #cccccc;
+  font-size: 1.3rem !important;
+}
+
+.restaurantName2small svg {
+  fill: #ff0018 !important;
+}
+
+.discountBtn {
+  min-width: auto !important;
+  margin-right: 0.3rem;
+}
+
+.discountBtn:not(:disabled):not(.disabled).active,
+.discountBtn:not(:disabled):not(.disabled):active,
+.show>.discountBtn.dropdown-toggle {
+  background-color: #ff0018 !important;
+  color: #fff !important;
+}
+
+a.text-decloration:hover {
+  text-decoration: solid 1px #ff0018 !important;
+}
+
+.CustomerSvg svg {
+  fill: #ff0018;
+}
+/**select customer model -> payment***/
+
+.modal.show .modal-dialog.customSelected {
+    transform: translate(0, 0);
+  }
+  
+  .styleTr tr td {
+    padding: 0.5rem !important;
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  .styleTr tr th {
+    text-align: center !important;
+    vertical-align: middle;
+  }
+  
+  .btnPLus {
+    min-width: 3rem !important;
+  }
+  
+  .borderLeftEdit {
+    border-left: 1px solid #ccc;
+  }
+  
+  label.importantInsert::after {
+    content: "*";
+    color: red !important;
+    font-size: 1.3rem;
+  }
+  
+  #modal-40404 {
+    line-height: 0.7 !important;
+  }
+  #tab10106 .row.bordRight > div:first-of-type{
+    border-right: 1px solid #ddd;
+  }
+  /*******************/
+  .dropdown-menu.EditDropDown {
+    display: inline-block !important;
+    width: 23rem !important;
+    line-height: 1.5 !important;
+    position: absolute;
+    top: 24px;
+    left: 2px !important;
+    will-change: top, left;
+  }
+  
+  .fa-gift {
+    font-size: 1.2rem !important;
+  }
+  
+  .fa-money-bill-alt {
+    font-size: 1.2rem !important;
+  }
+  
+  .borderRight {
+    border-right: 1px solid #ccc;
+  }
+  

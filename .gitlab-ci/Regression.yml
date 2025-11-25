@@ -1,15 +1,13 @@
 stages:
   - test
 
-variables:
-  MAVEN_CLI_OPTS: "-B"
-
-linux_chrome_test:
+windows_edge_test:
   stage: test
-  image: maven:3.9.0-eclipse-temurin-17
+  tags:
+    - windows       # تأكد من أن الـ runner عنده هذا الـ tag
   script:
-    - echo "تشغيل اختبارات Maven على Linux باستخدام Chrome"
-    - mvn clean test -DbrowserType="Edge" -Dmaven.test.failure.ignore=true
+    - echo "تشغيل اختبارات Maven على Windows باستخدام Edge"
+    - mvn clean test -DbrowserType="Edge"
   artifacts:
     when: always
     paths:

@@ -7,7 +7,7 @@ variables:
 # Job لتشغيل الاختبارات على Chrome
 test_chrome:
   stage: test
-  image: maven:3.9.3-openjdk-21
+  image: maven:3.9.2-eclipse-temurin-21
   variables:
     BROWSER: "Chrome"
   script:
@@ -23,7 +23,7 @@ test_chrome:
 # Job لتشغيل الاختبارات على Edge
 test_edge:
   stage: test
-  image: maven:3.9.3-openjdk-21
+  image: maven:3.9.2-eclipse-temurin-21
   variables:
     BROWSER: "Edge"
   script:

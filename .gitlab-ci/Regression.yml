@@ -4,9 +4,21 @@ stages:
 variables:
   MAVEN_CLI_OPTS: "-B"
 
-linux_chrome_test:
+chrome_test:
   stage: test
   image: maven:3.9.0-eclipse-temurin-17
+  tags:
+    - linux
+  before_script:
+    # تثبيت أدوات مساعدة
+    - apt-get update && apt-get install -y wget unzip curl
+    # تثبيت Google Chrome
+    - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    - apt install -y ./google-chrome-stable_current_amd64.deb
+    # تنزيل ChromeDriver 114.0.5735.90 مباشرة
+    - wget https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip
+    - unzip chromedriver_linux64.zip -d /usr/local/bin/
+    - chmod +x /usr/local/bin/chromedriver
   script:
     - echo "تشغيل اختبارات Maven على Linux باستخدام Chrome"
     - mvn clean test -DbrowserType="Chrome" -Dmaven.test.failure.ignore=true

@@ -7,8 +7,6 @@ variables:
 chrome_test:
   stage: test
   image: maven:3.9.0-eclipse-temurin-17
-  tags:
-    - linux
   before_script:
     # تثبيت أدوات مساعدة
     - apt-get update && apt-get install -y wget unzip curl

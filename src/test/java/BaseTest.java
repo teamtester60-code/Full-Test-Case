@@ -20,17 +20,19 @@ public class BaseTest {
     }
 
     @AfterMethod
-    public void tearDown() {
-        if (webDriver != null) {
-            webDriver.quit();
-        }
-    }
-    @AfterMethod
-    public void takeScreenshotOnFailure(ITestResult result) {
+    public void tearDown(ITestResult result) {
+        // إذا فشل الاختبار، التقط Screenshot
         if (result.getStatus() == ITestResult.FAILURE && webDriver != null) {
-            ScreenShotsManager.takeFullPageScreenshot(webDriver, result.getMethod().getConstructorOrMethod().getName());
-         
+            ScreenShotsManager.takeFullPageScreenshot(webDriver,
+                    "failed-" + result.getMethod().getConstructorOrMethod().getName());
             LogsManager.info("Screenshot taken for failed test: " + result.getMethod().getConstructorOrMethod().getName());
         }
+
+        // إغلاق الـ WebDriver
+        if (webDriver != null) {
+            webDriver.quit();
+            LogsManager.info("WebDriver closed successfully.");
+        }
     }
+
 }

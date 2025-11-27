@@ -771,3 +771,604 @@
 [INFO] - [23-11-2025 10:52:45] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
 [INFO] - [23-11-2025 10:52:45] [main] [LoginTest] - تم تنفيذ اختبار تسجيل الدخول بنجاح
 [ERROR] - [23-11-2025 10:52:45] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Failed to Capture Screenshot Cannot invoke "org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)" because "driver" is null
+[INFO] - [23-11-2025 10:52:45] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Test: validLoginTC Finished Successfully ========
+[INFO] - [23-11-2025 10:52:49] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - 🛠️ Running Allure generate command: C:\Users\pc\.m2\repository\allure\allure-2.35.1\bin\allure.bat generate C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\allure-results -o C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\full-report --clean
+[INFO] - [23-11-2025 10:52:52] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - 🛠️ Running Allure generate command: C:\Users\pc\.m2\repository\allure\allure-2.35.1\bin\allure.bat generate C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\allure-results -o C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports --clean --single-file
+[INFO] - [23-11-2025 10:52:52] [main] [com.ferpfirstcode.FileUtils] - Target File Path: "C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports\index.html", file was renamed to "AllureReport_2025-11-23-10-52-52.html".
+[ERROR] - [23-11-2025 10:52:52] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - ❌ index.html not found. Report generation may have failed.
+[INFO] - [23-11-2025 10:52:52] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - REPORT PATH = C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports
+[INFO] - [23-11-2025 10:52:52] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - FULL FILE PATH = C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports\AllureReport_2025-11-23-10-52-52.html
+[INFO] - [23-11-2025 10:52:52] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - FILE EXISTS? true
+[INFO] - [23-11-2025 10:52:52] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - 🔥 Final Allure HTML report opened successfully
+[INFO] - [23-11-2025 10:52:52] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Allure Report Generated Successfully
+[INFO] - [23-11-2025 10:52:52] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Test Execution Finished ========
+[INFO] - [27-11-2025 10:49:27] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [27-11-2025 10:49:27] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [27-11-2025 10:49:27] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [27-11-2025 10:49:27] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [27-11-2025 10:49:27] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [27-11-2025 10:49:27] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [27-11-2025 10:49:27] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [27-11-2025 10:49:27] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [27-11-2025 10:49:27] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Starting Test Execution ========
+[INFO] - [27-11-2025 10:49:27] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Directories Cleaned Successfully
+[INFO] - [27-11-2025 10:49:27] [main] [com.ferpfirstcode.FileUtils] - Directory created: test-output/screenshots/
+[INFO] - [27-11-2025 10:49:27] [main] [com.ferpfirstcode.FileUtils] - Directory created: test-output/recordings/
+[INFO] - [27-11-2025 10:49:27] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Directories Created Successfully
+[INFO] - [27-11-2025 10:49:27] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [27-11-2025 10:49:27] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [27-11-2025 10:49:27] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [27-11-2025 10:49:27] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [27-11-2025 10:49:27] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [27-11-2025 10:49:27] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [27-11-2025 10:49:27] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [27-11-2025 10:49:27] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [27-11-2025 10:49:27] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Properties Loaded Successfully
+[INFO] - [27-11-2025 10:49:28] [main] [com.ferpfirstcode.utils.report.AllureEnviromentManger] - Allure environment variables set.
+[INFO] - [27-11-2025 10:49:30] [main] [com.ferpfirstcode.utils.report.AllureBinaryManger] - Allure binaries already exist.
+[INFO] - [27-11-2025 10:49:30] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Allure Environment Variables Set Successfully
+[INFO] - [27-11-2025 10:49:30] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [27-11-2025 10:49:30] [main] [com.ferpfirstcode.driver.GUIDriver] - قيمة المتصفح من الخصائص: EDGE
+[INFO] - [27-11-2025 10:49:30] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
+[INFO] - [27-11-2025 10:49:30] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [27-11-2025 10:49:30] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [27-11-2025 10:49:30] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [27-11-2025 10:49:30] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [27-11-2025 10:49:30] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [27-11-2025 10:49:30] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [27-11-2025 10:49:30] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [27-11-2025 10:49:30] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [27-11-2025 10:49:32] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Starting Test: verifyLoginPageTitle ========
+[INFO] - [27-11-2025 10:49:32] [main] [FirstTest] - Opening the page...
+[INFO] - [27-11-2025 10:49:34] [main] [FirstTest] - Page title: Google
+[ERROR] - [27-11-2025 10:49:34] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Failed to Capture Screenshot Cannot invoke "org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)" because "driver" is null
+[INFO] - [27-11-2025 10:49:34] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Test: verifyLoginPageTitle Finished Successfully ========
+[INFO] - [27-11-2025 10:49:34] [main] [LoginTest] - تم تحميل بيانات الاختبار من JSON
+[INFO] - [27-11-2025 10:49:34] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [27-11-2025 10:49:34] [main] [com.ferpfirstcode.driver.GUIDriver] - قيمة المتصفح من الخصائص: EDGE
+[INFO] - [27-11-2025 10:49:34] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
+[INFO] - [27-11-2025 10:49:35] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Starting Test: validLoginTC ========
+[INFO] - [27-11-2025 10:49:36] [main] [com.ferpfirstcode.utils.actions.BrowserActions] - Navigated to URL:  http://localhost:4200/login
+[DEBUG] - [27-11-2025 10:49:36] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['username']
+[INFO] - [27-11-2025 10:49:40] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text:  1  in element:  By.id: username
+[DEBUG] - [27-11-2025 10:49:40] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['password']
+[INFO] - [27-11-2025 10:49:40] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text:  123456  in element:  By.id: pass
+[INFO] - [27-11-2025 10:49:40] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked on element: By.cssSelector: button.submitBtn
+[INFO] - [27-11-2025 10:49:45] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
+[ERROR] - [27-11-2025 10:49:45] [main] [com.ferpfirstcode.validations.BaseAssertion] - Element not visible: By.cssSelector: img.ms-user-img
+[ERROR] - [27-11-2025 10:49:45] [main] [com.ferpfirstcode.validations.BaseAssertion] - Element not visible: By.cssSelector: img.ms-user-img
+[ERROR] - [27-11-2025 10:49:46] [main] [com.ferpfirstcode.validations.BaseAssertion] - Element not visible: By.cssSelector: img.ms-user-img
+[ERROR] - [27-11-2025 10:49:46] [main] [com.ferpfirstcode.validations.BaseAssertion] - Element not visible: By.cssSelector: img.ms-user-img
+[ERROR] - [27-11-2025 10:49:47] [main] [com.ferpfirstcode.validations.BaseAssertion] - Element not visible: By.cssSelector: img.ms-user-img
+[ERROR] - [27-11-2025 10:49:47] [main] [com.ferpfirstcode.validations.BaseAssertion] - Element not visible: By.cssSelector: img.ms-user-img
+[ERROR] - [27-11-2025 10:49:48] [main] [com.ferpfirstcode.validations.BaseAssertion] - Element not visible: By.cssSelector: img.ms-user-img
+[ERROR] - [27-11-2025 10:49:48] [main] [com.ferpfirstcode.validations.BaseAssertion] - Element not visible: By.cssSelector: img.ms-user-img
+[ERROR] - [27-11-2025 10:49:49] [main] [com.ferpfirstcode.validations.BaseAssertion] - Element not visible: By.cssSelector: img.ms-user-img
+[ERROR] - [27-11-2025 10:49:49] [main] [com.ferpfirstcode.validations.BaseAssertion] - Element not visible: By.cssSelector: img.ms-user-img
+[ERROR] - [27-11-2025 10:49:50] [main] [com.ferpfirstcode.validations.BaseAssertion] - Element not visible: By.cssSelector: img.ms-user-img
+[ERROR] - [27-11-2025 10:49:50] [main] [com.ferpfirstcode.validations.BaseAssertion] - Element not visible: By.cssSelector: img.ms-user-img
+[ERROR] - [27-11-2025 10:49:51] [main] [com.ferpfirstcode.validations.BaseAssertion] - Element not visible: By.cssSelector: img.ms-user-img
+[ERROR] - [27-11-2025 10:49:51] [main] [com.ferpfirstcode.validations.BaseAssertion] - Element not visible: By.cssSelector: img.ms-user-img
+[ERROR] - [27-11-2025 10:49:52] [main] [com.ferpfirstcode.validations.BaseAssertion] - Element not visible: By.cssSelector: img.ms-user-img
+[ERROR] - [27-11-2025 10:49:52] [main] [com.ferpfirstcode.validations.BaseAssertion] - Element not visible: By.cssSelector: img.ms-user-img
+[ERROR] - [27-11-2025 10:49:53] [main] [com.ferpfirstcode.validations.BaseAssertion] - Element not visible: By.cssSelector: img.ms-user-img
+[INFO] - [27-11-2025 10:49:54] [main] [LoginTest] - تم تنفيذ اختبار تسجيل الدخول بنجاح
+[ERROR] - [27-11-2025 10:49:54] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Failed to Capture Screenshot Cannot invoke "org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)" because "driver" is null
+[INFO] - [27-11-2025 10:49:54] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Test: validLoginTC Finished Successfully ========
+[INFO] - [27-11-2025 10:49:57] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - 🛠️ Running Allure generate command: C:\Users\pc\.m2\repository\allure\allure-2.35.1\bin\allure.bat generate C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\allure-results -o C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\full-report --clean
+[INFO] - [27-11-2025 10:50:02] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - 🛠️ Running Allure generate command: C:\Users\pc\.m2\repository\allure\allure-2.35.1\bin\allure.bat generate C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\allure-results -o C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports --clean --single-file
+[INFO] - [27-11-2025 10:50:02] [main] [com.ferpfirstcode.FileUtils] - Target File Path: "C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports\index.html", file was renamed to "AllureReport_2025-11-27-10-50-02.html".
+[ERROR] - [27-11-2025 10:50:02] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - ❌ index.html not found. Report generation may have failed.
+[INFO] - [27-11-2025 10:50:02] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - REPORT PATH = C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports
+[INFO] - [27-11-2025 10:50:02] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - FULL FILE PATH = C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports\AllureReport_2025-11-27-10-50-02.html
+[INFO] - [27-11-2025 10:50:02] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - FILE EXISTS? true
+[INFO] - [27-11-2025 10:50:03] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - 🔥 Final Allure HTML report opened successfully
+[INFO] - [27-11-2025 10:50:03] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Allure Report Generated Successfully
+[INFO] - [27-11-2025 10:50:03] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Test Execution Finished ========
+[INFO] - [27-11-2025 11:31:59] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [27-11-2025 11:31:59] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [27-11-2025 11:31:59] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [27-11-2025 11:31:59] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [27-11-2025 11:31:59] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [27-11-2025 11:31:59] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [27-11-2025 11:31:59] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [27-11-2025 11:31:59] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [27-11-2025 11:31:59] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Starting Test Execution ========
+[INFO] - [27-11-2025 11:31:59] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Directories Cleaned Successfully
+[INFO] - [27-11-2025 11:31:59] [main] [com.ferpfirstcode.FileUtils] - Directory created: test-output/screenshots/
+[INFO] - [27-11-2025 11:31:59] [main] [com.ferpfirstcode.FileUtils] - Directory created: test-output/recordings/
+[INFO] - [27-11-2025 11:31:59] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Directories Created Successfully
+[INFO] - [27-11-2025 11:31:59] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [27-11-2025 11:31:59] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [27-11-2025 11:31:59] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [27-11-2025 11:31:59] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [27-11-2025 11:31:59] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [27-11-2025 11:31:59] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [27-11-2025 11:31:59] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [27-11-2025 11:31:59] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [27-11-2025 11:31:59] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Properties Loaded Successfully
+[INFO] - [27-11-2025 11:31:59] [main] [com.ferpfirstcode.utils.report.AllureEnviromentManger] - Allure environment variables set.
+[INFO] - [27-11-2025 11:32:01] [main] [com.ferpfirstcode.utils.report.AllureBinaryManger] - Allure binaries already exist.
+[INFO] - [27-11-2025 11:32:01] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Allure Environment Variables Set Successfully
+[INFO] - [27-11-2025 11:32:01] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [27-11-2025 11:32:01] [main] [com.ferpfirstcode.driver.GUIDriver] - Browser from properties: EDGE
+[INFO] - [27-11-2025 11:32:01] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
+[INFO] - [27-11-2025 11:32:01] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [27-11-2025 11:32:01] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [27-11-2025 11:32:01] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [27-11-2025 11:32:01] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [27-11-2025 11:32:01] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [27-11-2025 11:32:01] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [27-11-2025 11:32:01] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [27-11-2025 11:32:01] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [27-11-2025 11:32:03] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Starting Test: verifyLoginPageTitle ========
+[INFO] - [27-11-2025 11:32:03] [main] [FirstTest] - Opening the page...
+[INFO] - [27-11-2025 11:32:04] [main] [FirstTest] - Page title: Google
+[ERROR] - [27-11-2025 11:32:04] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Failed to Capture Screenshot Cannot invoke "org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)" because "driver" is null
+[INFO] - [27-11-2025 11:32:04] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Test: verifyLoginPageTitle Finished Successfully ========
+[INFO] - [27-11-2025 11:32:05] [main] [BaseTest] - WebDriver closed successfully.
+[INFO] - [27-11-2025 11:32:05] [main] [LoginTest] - تم تحميل بيانات الاختبار من JSON
+[INFO] - [27-11-2025 11:32:05] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [27-11-2025 11:32:05] [main] [com.ferpfirstcode.driver.GUIDriver] - Browser from properties: EDGE
+[INFO] - [27-11-2025 11:32:05] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
+[INFO] - [27-11-2025 11:32:06] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Starting Test: validLoginTC ========
+[INFO] - [27-11-2025 11:32:09] [main] [com.ferpfirstcode.utils.actions.BrowserActions] - Navigated to URL:  http://localhost:4200/login
+[DEBUG] - [27-11-2025 11:32:09] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['username']
+[INFO] - [27-11-2025 11:32:09] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text in element: By.id: username
+[DEBUG] - [27-11-2025 11:32:09] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['password']
+[INFO] - [27-11-2025 11:32:09] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text in element: By.id: pass
+[INFO] - [27-11-2025 11:32:10] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.cssSelector: button.submitBtn
+[ERROR] - [27-11-2025 11:32:10] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Failed to Capture Screenshot Cannot invoke "org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)" because "driver" is null
+[ERROR] - [27-11-2025 11:32:10] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Test: validLoginTC Failed ========
+[INFO] - [27-11-2025 11:32:10] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
+[INFO] - [27-11-2025 11:32:10] [main] [BaseTest] - Screenshot taken for failed test: validLoginTC
+[INFO] - [27-11-2025 11:32:11] [main] [BaseTest] - WebDriver closed successfully.
+[INFO] - [27-11-2025 11:32:14] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - 🛠️ Running Allure generate command: C:\Users\pc\.m2\repository\allure\allure-2.35.1\bin\allure.bat generate C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\allure-results -o C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\full-report --clean
+[INFO] - [27-11-2025 11:32:17] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - 🛠️ Running Allure generate command: C:\Users\pc\.m2\repository\allure\allure-2.35.1\bin\allure.bat generate C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\allure-results -o C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports --clean --single-file
+[INFO] - [27-11-2025 11:32:17] [main] [com.ferpfirstcode.FileUtils] - Target File Path: "C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports\index.html", file was renamed to "AllureReport_2025-11-27-11-32-17.html".
+[ERROR] - [27-11-2025 11:32:17] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - ❌ index.html not found. Report generation may have failed.
+[INFO] - [27-11-2025 11:32:17] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - REPORT PATH = C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports
+[INFO] - [27-11-2025 11:32:17] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - FULL FILE PATH = C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports\AllureReport_2025-11-27-11-32-17.html
+[INFO] - [27-11-2025 11:32:17] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - FILE EXISTS? true
+[INFO] - [27-11-2025 11:32:17] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - 🔥 Final Allure HTML report opened successfully
+[INFO] - [27-11-2025 11:32:17] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Allure Report Generated Successfully
+[INFO] - [27-11-2025 11:32:17] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Test Execution Finished ========
+[DEBUG] - [27-11-2025 11:34:19] [main] [org.testng.TestNG] - suiteXmlPath: "C:\Users\pc\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml"
+[INFO] - [27-11-2025 11:34:21] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [27-11-2025 11:34:21] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [27-11-2025 11:34:21] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [27-11-2025 11:34:21] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [27-11-2025 11:34:21] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [27-11-2025 11:34:21] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [27-11-2025 11:34:21] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [27-11-2025 11:34:21] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [27-11-2025 11:34:21] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Starting Test Execution ========
+[INFO] - [27-11-2025 11:34:21] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Directories Cleaned Successfully
+[INFO] - [27-11-2025 11:34:21] [main] [com.ferpfirstcode.FileUtils] - Directory created: test-output/screenshots/
+[INFO] - [27-11-2025 11:34:21] [main] [com.ferpfirstcode.FileUtils] - Directory created: test-output/recordings/
+[INFO] - [27-11-2025 11:34:21] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Directories Created Successfully
+[INFO] - [27-11-2025 11:34:21] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [27-11-2025 11:34:21] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [27-11-2025 11:34:21] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [27-11-2025 11:34:21] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [27-11-2025 11:34:21] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [27-11-2025 11:34:21] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [27-11-2025 11:34:21] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [27-11-2025 11:34:21] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [27-11-2025 11:34:21] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Properties Loaded Successfully
+[INFO] - [27-11-2025 11:34:21] [main] [com.ferpfirstcode.utils.report.AllureEnviromentManger] - Allure environment variables set.
+[INFO] - [27-11-2025 11:34:23] [main] [com.ferpfirstcode.utils.report.AllureBinaryManger] - Allure binaries already exist.
+[INFO] - [27-11-2025 11:34:23] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Allure Environment Variables Set Successfully
+[INFO] - [27-11-2025 11:34:23] [main] [LoginTest] - تم تحميل بيانات الاختبار من JSON
+[INFO] - [27-11-2025 11:34:23] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [27-11-2025 11:34:23] [main] [com.ferpfirstcode.driver.GUIDriver] - Browser from properties: EDGE
+[INFO] - [27-11-2025 11:34:23] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
+[INFO] - [27-11-2025 11:34:23] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [27-11-2025 11:34:23] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [27-11-2025 11:34:23] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [27-11-2025 11:34:23] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [27-11-2025 11:34:23] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [27-11-2025 11:34:23] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [27-11-2025 11:34:23] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [27-11-2025 11:34:23] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [27-11-2025 11:34:24] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Starting Test: validLoginTC ========
+[INFO] - [27-11-2025 11:34:43] [main] [com.ferpfirstcode.utils.actions.BrowserActions] - Navigated to URL:  http://localhost:4200/login
+[DEBUG] - [27-11-2025 11:34:43] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['username']
+[INFO] - [27-11-2025 11:34:43] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text in element: By.id: username
+[DEBUG] - [27-11-2025 11:34:43] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['password']
+[INFO] - [27-11-2025 11:34:43] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text in element: By.id: pass
+[INFO] - [27-11-2025 11:34:44] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.cssSelector: button.submitBtn
+[ERROR] - [27-11-2025 11:34:44] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Failed to Capture Screenshot Cannot invoke "org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)" because "driver" is null
+[ERROR] - [27-11-2025 11:34:44] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Test: validLoginTC Failed ========
+[INFO] - [27-11-2025 11:34:44] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
+[INFO] - [27-11-2025 11:34:44] [main] [BaseTest] - Screenshot taken for failed test: validLoginTC
+[INFO] - [27-11-2025 11:34:45] [main] [BaseTest] - WebDriver closed successfully.
+[INFO] - [27-11-2025 11:34:47] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - 🛠️ Running Allure generate command: C:\Users\pc\.m2\repository\allure\allure-2.35.1\bin\allure.bat generate C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\allure-results -o C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\full-report --clean
+[INFO] - [27-11-2025 11:34:50] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - 🛠️ Running Allure generate command: C:\Users\pc\.m2\repository\allure\allure-2.35.1\bin\allure.bat generate C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\allure-results -o C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports --clean --single-file
+[INFO] - [27-11-2025 11:34:50] [main] [com.ferpfirstcode.FileUtils] - Target File Path: "C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports\index.html", file was renamed to "AllureReport_2025-11-27-11-34-50.html".
+[ERROR] - [27-11-2025 11:34:50] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - ❌ index.html not found. Report generation may have failed.
+[INFO] - [27-11-2025 11:34:50] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - REPORT PATH = C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports
+[INFO] - [27-11-2025 11:34:50] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - FULL FILE PATH = C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports\AllureReport_2025-11-27-11-34-50.html
+[INFO] - [27-11-2025 11:34:50] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - FILE EXISTS? true
+[INFO] - [27-11-2025 11:34:50] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - 🔥 Final Allure HTML report opened successfully
+[INFO] - [27-11-2025 11:34:50] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Allure Report Generated Successfully
+[INFO] - [27-11-2025 11:34:50] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Test Execution Finished ========
+[DEBUG] - [27-11-2025 11:35:21] [main] [org.testng.TestNG] - suiteXmlPath: "C:\Users\pc\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml"
+[INFO] - [27-11-2025 11:35:22] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [27-11-2025 11:35:22] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [27-11-2025 11:35:22] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [27-11-2025 11:35:22] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [27-11-2025 11:35:22] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [27-11-2025 11:35:22] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [27-11-2025 11:35:22] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [27-11-2025 11:35:22] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [27-11-2025 11:35:22] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Starting Test Execution ========
+[INFO] - [27-11-2025 11:35:22] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Directories Cleaned Successfully
+[INFO] - [27-11-2025 11:35:22] [main] [com.ferpfirstcode.FileUtils] - Directory created: test-output/screenshots/
+[INFO] - [27-11-2025 11:35:22] [main] [com.ferpfirstcode.FileUtils] - Directory created: test-output/recordings/
+[INFO] - [27-11-2025 11:35:22] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Directories Created Successfully
+[INFO] - [27-11-2025 11:35:22] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [27-11-2025 11:35:22] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [27-11-2025 11:35:22] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [27-11-2025 11:35:22] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [27-11-2025 11:35:22] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [27-11-2025 11:35:22] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [27-11-2025 11:35:22] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [27-11-2025 11:35:22] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [27-11-2025 11:35:22] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Properties Loaded Successfully
+[INFO] - [27-11-2025 11:35:22] [main] [com.ferpfirstcode.utils.report.AllureEnviromentManger] - Allure environment variables set.
+[INFO] - [27-11-2025 11:35:24] [main] [com.ferpfirstcode.utils.report.AllureBinaryManger] - Allure binaries already exist.
+[INFO] - [27-11-2025 11:35:24] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Allure Environment Variables Set Successfully
+[INFO] - [27-11-2025 11:35:24] [main] [LoginTest] - تم تحميل بيانات الاختبار من JSON
+[INFO] - [27-11-2025 11:35:24] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [27-11-2025 11:35:24] [main] [com.ferpfirstcode.driver.GUIDriver] - Browser from properties: EDGE
+[INFO] - [27-11-2025 11:35:24] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
+[INFO] - [27-11-2025 11:35:24] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [27-11-2025 11:35:24] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [27-11-2025 11:35:24] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [27-11-2025 11:35:24] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [27-11-2025 11:35:24] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [27-11-2025 11:35:24] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [27-11-2025 11:35:24] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [27-11-2025 11:35:24] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [27-11-2025 11:35:26] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Starting Test: validLoginTC ========
+[INFO] - [27-11-2025 11:35:29] [main] [com.ferpfirstcode.utils.actions.BrowserActions] - Navigated to URL:  http://localhost:4200/login
+[DEBUG] - [27-11-2025 11:35:30] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['username']
+[INFO] - [27-11-2025 11:35:30] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text in element: By.id: username
+[DEBUG] - [27-11-2025 11:35:30] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['password']
+[INFO] - [27-11-2025 11:35:30] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text in element: By.id: pass
+[INFO] - [27-11-2025 11:35:30] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.cssSelector: button.submitBtn
+[ERROR] - [27-11-2025 11:35:30] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Failed to Capture Screenshot Cannot invoke "org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)" because "driver" is null
+[ERROR] - [27-11-2025 11:35:30] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Test: validLoginTC Failed ========
+[INFO] - [27-11-2025 11:35:31] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
+[INFO] - [27-11-2025 11:35:31] [main] [BaseTest] - Screenshot taken for failed test: validLoginTC
+[INFO] - [27-11-2025 11:35:32] [main] [BaseTest] - WebDriver closed successfully.
+[INFO] - [27-11-2025 11:35:35] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - 🛠️ Running Allure generate command: C:\Users\pc\.m2\repository\allure\allure-2.35.1\bin\allure.bat generate C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\allure-results -o C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\full-report --clean
+[INFO] - [27-11-2025 11:35:37] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - 🛠️ Running Allure generate command: C:\Users\pc\.m2\repository\allure\allure-2.35.1\bin\allure.bat generate C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\allure-results -o C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports --clean --single-file
+[INFO] - [27-11-2025 11:35:37] [main] [com.ferpfirstcode.FileUtils] - Target File Path: "C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports\index.html", file was renamed to "AllureReport_2025-11-27-11-35-37.html".
+[ERROR] - [27-11-2025 11:35:37] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - ❌ index.html not found. Report generation may have failed.
+[INFO] - [27-11-2025 11:35:37] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - REPORT PATH = C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports
+[INFO] - [27-11-2025 11:35:37] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - FULL FILE PATH = C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports\AllureReport_2025-11-27-11-35-37.html
+[INFO] - [27-11-2025 11:35:37] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - FILE EXISTS? true
+[INFO] - [27-11-2025 11:35:38] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - 🔥 Final Allure HTML report opened successfully
+[INFO] - [27-11-2025 11:35:38] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Allure Report Generated Successfully
+[INFO] - [27-11-2025 11:35:38] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Test Execution Finished ========
+[DEBUG] - [27-11-2025 11:35:56] [main] [org.testng.TestNG] - suiteXmlPath: "C:\Users\pc\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml"
+[INFO] - [27-11-2025 11:35:57] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [27-11-2025 11:35:57] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [27-11-2025 11:35:57] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [27-11-2025 11:35:57] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [27-11-2025 11:35:57] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [27-11-2025 11:35:57] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [27-11-2025 11:35:57] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [27-11-2025 11:35:57] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [27-11-2025 11:35:57] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Starting Test Execution ========
+[INFO] - [27-11-2025 11:35:57] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Directories Cleaned Successfully
+[INFO] - [27-11-2025 11:35:57] [main] [com.ferpfirstcode.FileUtils] - Directory created: test-output/screenshots/
+[INFO] - [27-11-2025 11:35:57] [main] [com.ferpfirstcode.FileUtils] - Directory created: test-output/recordings/
+[INFO] - [27-11-2025 11:35:57] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Directories Created Successfully
+[INFO] - [27-11-2025 11:35:57] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [27-11-2025 11:35:57] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [27-11-2025 11:35:57] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [27-11-2025 11:35:57] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [27-11-2025 11:35:57] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [27-11-2025 11:35:57] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [27-11-2025 11:35:57] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [27-11-2025 11:35:57] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [27-11-2025 11:35:57] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Properties Loaded Successfully
+[INFO] - [27-11-2025 11:35:57] [main] [com.ferpfirstcode.utils.report.AllureEnviromentManger] - Allure environment variables set.
+[INFO] - [27-11-2025 11:35:58] [main] [com.ferpfirstcode.utils.report.AllureBinaryManger] - Allure binaries already exist.
+[INFO] - [27-11-2025 11:35:58] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Allure Environment Variables Set Successfully
+[INFO] - [27-11-2025 11:35:58] [main] [LoginTest] - تم تحميل بيانات الاختبار من JSON
+[INFO] - [27-11-2025 11:35:58] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [27-11-2025 11:35:58] [main] [com.ferpfirstcode.driver.GUIDriver] - Browser from properties: EDGE
+[INFO] - [27-11-2025 11:35:58] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
+[INFO] - [27-11-2025 11:35:58] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [27-11-2025 11:35:58] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [27-11-2025 11:35:58] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [27-11-2025 11:35:58] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [27-11-2025 11:35:58] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [27-11-2025 11:35:58] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [27-11-2025 11:35:58] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [27-11-2025 11:35:58] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [27-11-2025 11:36:00] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Starting Test: validLoginTC ========
+[INFO] - [27-11-2025 11:36:02] [main] [com.ferpfirstcode.utils.actions.BrowserActions] - Navigated to URL:  http://localhost:4200/login
+[DEBUG] - [27-11-2025 11:36:08] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['username']
+[INFO] - [27-11-2025 11:36:08] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text in element: By.id: username
+[DEBUG] - [27-11-2025 11:36:09] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['password']
+[INFO] - [27-11-2025 11:36:09] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text in element: By.id: pass
+[INFO] - [27-11-2025 11:36:11] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.cssSelector: button.submitBtn
+[INFO] - [27-11-2025 11:36:18] [main] [LoginTest] - تم تنفيذ اختبار تسجيل الدخول بنجاح
+[ERROR] - [27-11-2025 11:36:21] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Failed to Capture Screenshot Cannot invoke "org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)" because "driver" is null
+[INFO] - [27-11-2025 11:36:21] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Test: validLoginTC Finished Successfully ========
+[INFO] - [27-11-2025 11:36:22] [main] [BaseTest] - WebDriver closed successfully.
+[INFO] - [27-11-2025 11:36:24] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - 🛠️ Running Allure generate command: C:\Users\pc\.m2\repository\allure\allure-2.35.1\bin\allure.bat generate C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\allure-results -o C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\full-report --clean
+[INFO] - [27-11-2025 11:36:27] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - 🛠️ Running Allure generate command: C:\Users\pc\.m2\repository\allure\allure-2.35.1\bin\allure.bat generate C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\allure-results -o C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports --clean --single-file
+[INFO] - [27-11-2025 11:36:27] [main] [com.ferpfirstcode.FileUtils] - Target File Path: "C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports\index.html", file was renamed to "AllureReport_2025-11-27-11-36-27.html".
+[ERROR] - [27-11-2025 11:36:27] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - ❌ index.html not found. Report generation may have failed.
+[INFO] - [27-11-2025 11:36:27] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - REPORT PATH = C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports
+[INFO] - [27-11-2025 11:36:27] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - FULL FILE PATH = C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports\AllureReport_2025-11-27-11-36-27.html
+[INFO] - [27-11-2025 11:36:27] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - FILE EXISTS? true
+[INFO] - [27-11-2025 11:36:27] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - 🔥 Final Allure HTML report opened successfully
+[INFO] - [27-11-2025 11:36:27] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Allure Report Generated Successfully
+[INFO] - [27-11-2025 11:36:27] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Test Execution Finished ========
+[DEBUG] - [27-11-2025 11:36:36] [main] [org.testng.TestNG] - suiteXmlPath: "C:\Users\pc\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml"
+[INFO] - [27-11-2025 11:36:37] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [27-11-2025 11:36:37] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [27-11-2025 11:36:37] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [27-11-2025 11:36:37] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [27-11-2025 11:36:37] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [27-11-2025 11:36:37] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [27-11-2025 11:36:37] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [27-11-2025 11:36:37] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [27-11-2025 11:36:37] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Starting Test Execution ========
+[INFO] - [27-11-2025 11:36:37] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Directories Cleaned Successfully
+[INFO] - [27-11-2025 11:36:37] [main] [com.ferpfirstcode.FileUtils] - Directory created: test-output/screenshots/
+[INFO] - [27-11-2025 11:36:37] [main] [com.ferpfirstcode.FileUtils] - Directory created: test-output/recordings/
+[INFO] - [27-11-2025 11:36:37] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Directories Created Successfully
+[INFO] - [27-11-2025 11:36:37] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [27-11-2025 11:36:37] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [27-11-2025 11:36:37] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [27-11-2025 11:36:37] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [27-11-2025 11:36:37] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [27-11-2025 11:36:37] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [27-11-2025 11:36:37] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [27-11-2025 11:36:37] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [27-11-2025 11:36:37] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Properties Loaded Successfully
+[INFO] - [27-11-2025 11:36:37] [main] [com.ferpfirstcode.utils.report.AllureEnviromentManger] - Allure environment variables set.
+[INFO] - [27-11-2025 11:36:39] [main] [com.ferpfirstcode.utils.report.AllureBinaryManger] - Allure binaries already exist.
+[INFO] - [27-11-2025 11:36:39] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Allure Environment Variables Set Successfully
+[INFO] - [27-11-2025 11:36:39] [main] [LoginTest] - تم تحميل بيانات الاختبار من JSON
+[INFO] - [27-11-2025 11:36:39] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [27-11-2025 11:36:39] [main] [com.ferpfirstcode.driver.GUIDriver] - Browser from properties: EDGE
+[INFO] - [27-11-2025 11:36:39] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
+[INFO] - [27-11-2025 11:36:39] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [27-11-2025 11:36:39] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [27-11-2025 11:36:39] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [27-11-2025 11:36:39] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [27-11-2025 11:36:39] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [27-11-2025 11:36:39] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [27-11-2025 11:36:39] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [27-11-2025 11:36:39] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [27-11-2025 11:36:40] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Starting Test: validLoginTC ========
+[INFO] - [27-11-2025 11:36:42] [main] [com.ferpfirstcode.utils.actions.BrowserActions] - Navigated to URL:  http://localhost:4200/login
+[DEBUG] - [27-11-2025 11:36:42] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['username']
+[INFO] - [27-11-2025 11:36:42] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text in element: By.id: username
+[DEBUG] - [27-11-2025 11:36:42] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['password']
+[INFO] - [27-11-2025 11:36:43] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text in element: By.id: pass
+[INFO] - [27-11-2025 11:36:43] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.cssSelector: button.submitBtn
+[ERROR] - [27-11-2025 11:36:43] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Failed to Capture Screenshot Cannot invoke "org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)" because "driver" is null
+[ERROR] - [27-11-2025 11:36:43] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Test: validLoginTC Failed ========
+[INFO] - [27-11-2025 11:36:43] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
+[INFO] - [27-11-2025 11:36:43] [main] [BaseTest] - Screenshot taken for failed test: validLoginTC
+[INFO] - [27-11-2025 11:36:44] [main] [BaseTest] - WebDriver closed successfully.
+[INFO] - [27-11-2025 11:36:49] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - 🛠️ Running Allure generate command: C:\Users\pc\.m2\repository\allure\allure-2.35.1\bin\allure.bat generate C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\allure-results -o C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\full-report --clean
+[INFO] - [27-11-2025 11:36:51] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - 🛠️ Running Allure generate command: C:\Users\pc\.m2\repository\allure\allure-2.35.1\bin\allure.bat generate C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\allure-results -o C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports --clean --single-file
+[INFO] - [27-11-2025 11:36:51] [main] [com.ferpfirstcode.FileUtils] - Target File Path: "C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports\index.html", file was renamed to "AllureReport_2025-11-27-11-36-51.html".
+[ERROR] - [27-11-2025 11:36:51] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - ❌ index.html not found. Report generation may have failed.
+[INFO] - [27-11-2025 11:36:51] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - REPORT PATH = C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports
+[INFO] - [27-11-2025 11:36:51] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - FULL FILE PATH = C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports\AllureReport_2025-11-27-11-36-51.html
+[INFO] - [27-11-2025 11:36:51] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - FILE EXISTS? true
+[INFO] - [27-11-2025 11:36:51] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - 🔥 Final Allure HTML report opened successfully
+[INFO] - [27-11-2025 11:36:51] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Allure Report Generated Successfully
+[INFO] - [27-11-2025 11:36:51] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Test Execution Finished ========
+[DEBUG] - [27-11-2025 11:39:55] [main] [org.testng.TestNG] - suiteXmlPath: "C:\Users\pc\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml"
+[INFO] - [27-11-2025 11:39:56] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [27-11-2025 11:39:56] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [27-11-2025 11:39:56] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [27-11-2025 11:39:56] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [27-11-2025 11:39:56] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [27-11-2025 11:39:56] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [27-11-2025 11:39:56] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [27-11-2025 11:39:56] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [27-11-2025 11:39:56] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Starting Test Execution ========
+[INFO] - [27-11-2025 11:39:57] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Directories Cleaned Successfully
+[INFO] - [27-11-2025 11:39:57] [main] [com.ferpfirstcode.FileUtils] - Directory created: test-output/screenshots/
+[INFO] - [27-11-2025 11:39:57] [main] [com.ferpfirstcode.FileUtils] - Directory created: test-output/recordings/
+[INFO] - [27-11-2025 11:39:57] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Directories Created Successfully
+[INFO] - [27-11-2025 11:39:57] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [27-11-2025 11:39:57] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [27-11-2025 11:39:57] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [27-11-2025 11:39:57] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [27-11-2025 11:39:57] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [27-11-2025 11:39:57] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [27-11-2025 11:39:57] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [27-11-2025 11:39:57] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [27-11-2025 11:39:57] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Properties Loaded Successfully
+[INFO] - [27-11-2025 11:39:57] [main] [com.ferpfirstcode.utils.report.AllureEnviromentManger] - Allure environment variables set.
+[DEBUG] - [27-11-2025 11:40:35] [main] [org.testng.TestNG] - suiteXmlPath: "C:\Users\pc\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml"
+[INFO] - [27-11-2025 11:40:36] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [27-11-2025 11:40:36] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [27-11-2025 11:40:36] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [27-11-2025 11:40:36] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [27-11-2025 11:40:36] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [27-11-2025 11:40:36] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [27-11-2025 11:40:36] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [27-11-2025 11:40:36] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [27-11-2025 11:40:36] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Starting Test Execution ========
+[INFO] - [27-11-2025 11:40:36] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Directories Cleaned Successfully
+[INFO] - [27-11-2025 11:40:36] [main] [com.ferpfirstcode.FileUtils] - Directory created: test-output/screenshots/
+[INFO] - [27-11-2025 11:40:36] [main] [com.ferpfirstcode.FileUtils] - Directory created: test-output/recordings/
+[INFO] - [27-11-2025 11:40:36] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Directories Created Successfully
+[INFO] - [27-11-2025 11:40:36] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [27-11-2025 11:40:36] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [27-11-2025 11:40:36] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [27-11-2025 11:40:36] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [27-11-2025 11:40:36] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [27-11-2025 11:40:36] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [27-11-2025 11:40:36] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [27-11-2025 11:40:36] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [27-11-2025 11:40:36] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Properties Loaded Successfully
+[INFO] - [27-11-2025 11:40:36] [main] [com.ferpfirstcode.utils.report.AllureEnviromentManger] - Allure environment variables set.
+[INFO] - [27-11-2025 11:40:37] [main] [com.ferpfirstcode.utils.report.AllureBinaryManger] - Allure binaries already exist.
+[INFO] - [27-11-2025 11:40:37] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Allure Environment Variables Set Successfully
+[INFO] - [27-11-2025 11:40:37] [main] [LoginTest] - تم تحميل بيانات الاختبار من JSON
+[INFO] - [27-11-2025 11:40:37] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [27-11-2025 11:40:37] [main] [com.ferpfirstcode.driver.GUIDriver] - Browser from properties: EDGE
+[INFO] - [27-11-2025 11:40:37] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
+[INFO] - [27-11-2025 11:40:37] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [27-11-2025 11:40:37] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [27-11-2025 11:40:37] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [27-11-2025 11:40:37] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [27-11-2025 11:40:37] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [27-11-2025 11:40:37] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [27-11-2025 11:40:37] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [27-11-2025 11:40:37] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [27-11-2025 11:40:39] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Starting Test: validLoginTC ========
+[INFO] - [27-11-2025 11:40:41] [main] [com.ferpfirstcode.utils.actions.BrowserActions] - Navigated to URL:  http://localhost:4200/login
+[DEBUG] - [27-11-2025 11:40:45] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['username']
+[INFO] - [27-11-2025 11:40:45] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text in element: By.id: username
+[DEBUG] - [27-11-2025 11:40:49] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['password']
+[INFO] - [27-11-2025 11:40:49] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text in element: By.id: pass
+[INFO] - [27-11-2025 11:40:51] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.cssSelector: button.submitBtn
+[INFO] - [27-11-2025 11:40:57] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
+[INFO] - [27-11-2025 11:41:00] [main] [LoginTest] - تم تنفيذ اختبار تسجيل الدخول بنجاح
+[ERROR] - [27-11-2025 11:41:00] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Failed to Capture Screenshot Cannot invoke "org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)" because "driver" is null
+[INFO] - [27-11-2025 11:41:00] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Test: validLoginTC Finished Successfully ========
+[INFO] - [27-11-2025 11:41:01] [main] [BaseTest] - WebDriver closed successfully.
+[INFO] - [27-11-2025 11:41:03] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - 🛠️ Running Allure generate command: C:\Users\pc\.m2\repository\allure\allure-2.35.1\bin\allure.bat generate C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\allure-results -o C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\full-report --clean
+[INFO] - [27-11-2025 11:41:06] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - 🛠️ Running Allure generate command: C:\Users\pc\.m2\repository\allure\allure-2.35.1\bin\allure.bat generate C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\allure-results -o C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports --clean --single-file
+[INFO] - [27-11-2025 11:41:06] [main] [com.ferpfirstcode.FileUtils] - Target File Path: "C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports\index.html", file was renamed to "AllureReport_2025-11-27-11-41-06.html".
+[ERROR] - [27-11-2025 11:41:06] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - ❌ index.html not found. Report generation may have failed.
+[INFO] - [27-11-2025 11:41:06] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - REPORT PATH = C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports
+[INFO] - [27-11-2025 11:41:06] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - FULL FILE PATH = C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports\AllureReport_2025-11-27-11-41-06.html
+[INFO] - [27-11-2025 11:41:06] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - FILE EXISTS? true
+[INFO] - [27-11-2025 11:41:06] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - 🔥 Final Allure HTML report opened successfully
+[INFO] - [27-11-2025 11:41:06] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Allure Report Generated Successfully
+[INFO] - [27-11-2025 11:41:06] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Test Execution Finished ========
+[DEBUG] - [27-11-2025 11:41:17] [main] [org.testng.TestNG] - suiteXmlPath: "C:\Users\pc\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml"
+[INFO] - [27-11-2025 11:41:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [27-11-2025 11:41:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [27-11-2025 11:41:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [27-11-2025 11:41:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [27-11-2025 11:41:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [27-11-2025 11:41:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [27-11-2025 11:41:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [27-11-2025 11:41:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [27-11-2025 11:41:18] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Starting Test Execution ========
+[INFO] - [27-11-2025 11:41:18] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Directories Cleaned Successfully
+[INFO] - [27-11-2025 11:41:18] [main] [com.ferpfirstcode.FileUtils] - Directory created: test-output/screenshots/
+[INFO] - [27-11-2025 11:41:18] [main] [com.ferpfirstcode.FileUtils] - Directory created: test-output/recordings/
+[INFO] - [27-11-2025 11:41:18] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Directories Created Successfully
+[INFO] - [27-11-2025 11:41:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [27-11-2025 11:41:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [27-11-2025 11:41:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [27-11-2025 11:41:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [27-11-2025 11:41:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [27-11-2025 11:41:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [27-11-2025 11:41:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [27-11-2025 11:41:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [27-11-2025 11:41:18] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Properties Loaded Successfully
+[INFO] - [27-11-2025 11:41:18] [main] [com.ferpfirstcode.utils.report.AllureEnviromentManger] - Allure environment variables set.
+[INFO] - [27-11-2025 11:41:20] [main] [com.ferpfirstcode.utils.report.AllureBinaryManger] - Allure binaries already exist.
+[INFO] - [27-11-2025 11:41:20] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Allure Environment Variables Set Successfully
+[INFO] - [27-11-2025 11:41:20] [main] [LoginTest] - تم تحميل بيانات الاختبار من JSON
+[INFO] - [27-11-2025 11:41:20] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [27-11-2025 11:41:20] [main] [com.ferpfirstcode.driver.GUIDriver] - Browser from properties: EDGE
+[INFO] - [27-11-2025 11:41:20] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
+[INFO] - [27-11-2025 11:41:20] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [27-11-2025 11:41:20] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [27-11-2025 11:41:20] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [27-11-2025 11:41:20] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [27-11-2025 11:41:20] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [27-11-2025 11:41:20] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [27-11-2025 11:41:20] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [27-11-2025 11:41:20] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [27-11-2025 11:41:22] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Starting Test: validLoginTC ========
+[INFO] - [27-11-2025 11:41:22] [main] [com.ferpfirstcode.utils.actions.BrowserActions] - Navigated to URL:  http://localhost:4200/login
+[DEBUG] - [27-11-2025 11:41:22] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['username']
+[INFO] - [27-11-2025 11:41:24] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text in element: By.id: username
+[DEBUG] - [27-11-2025 11:41:24] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['password']
+[INFO] - [27-11-2025 11:41:24] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text in element: By.id: pass
+[INFO] - [27-11-2025 11:41:24] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.cssSelector: button.submitBtn
+[INFO] - [27-11-2025 11:41:29] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
+[INFO] - [27-11-2025 11:41:29] [main] [LoginTest] - تم تنفيذ اختبار تسجيل الدخول بنجاح
+[ERROR] - [27-11-2025 11:41:29] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Failed to Capture Screenshot Cannot invoke "org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)" because "driver" is null
+[INFO] - [27-11-2025 11:41:29] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Test: validLoginTC Finished Successfully ========
+[INFO] - [27-11-2025 11:41:29] [main] [BaseTest] - WebDriver closed successfully.
+[INFO] - [27-11-2025 11:41:34] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - 🛠️ Running Allure generate command: C:\Users\pc\.m2\repository\allure\allure-2.35.1\bin\allure.bat generate C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\allure-results -o C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\full-report --clean
+[INFO] - [27-11-2025 11:41:36] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - 🛠️ Running Allure generate command: C:\Users\pc\.m2\repository\allure\allure-2.35.1\bin\allure.bat generate C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\allure-results -o C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports --clean --single-file
+[INFO] - [27-11-2025 11:41:36] [main] [com.ferpfirstcode.FileUtils] - Target File Path: "C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports\index.html", file was renamed to "AllureReport_2025-11-27-11-41-36.html".
+[ERROR] - [27-11-2025 11:41:36] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - ❌ index.html not found. Report generation may have failed.
+[INFO] - [27-11-2025 11:41:36] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - REPORT PATH = C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports
+[INFO] - [27-11-2025 11:41:36] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - FULL FILE PATH = C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports\AllureReport_2025-11-27-11-41-36.html
+[INFO] - [27-11-2025 11:41:36] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - FILE EXISTS? true
+[INFO] - [27-11-2025 11:41:36] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - 🔥 Final Allure HTML report opened successfully
+[INFO] - [27-11-2025 11:41:36] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Allure Report Generated Successfully
+[INFO] - [27-11-2025 11:41:36] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Test Execution Finished ========
+[INFO] - [27-11-2025 11:42:17] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [27-11-2025 11:42:17] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [27-11-2025 11:42:17] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [27-11-2025 11:42:17] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [27-11-2025 11:42:17] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [27-11-2025 11:42:17] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [27-11-2025 11:42:17] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [27-11-2025 11:42:17] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [27-11-2025 11:42:17] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Starting Test Execution ========
+[INFO] - [27-11-2025 11:42:17] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Directories Cleaned Successfully
+[INFO] - [27-11-2025 11:42:17] [main] [com.ferpfirstcode.FileUtils] - Directory created: test-output/screenshots/
+[INFO] - [27-11-2025 11:42:17] [main] [com.ferpfirstcode.FileUtils] - Directory created: test-output/recordings/
+[INFO] - [27-11-2025 11:42:17] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Directories Created Successfully
+[INFO] - [27-11-2025 11:42:17] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [27-11-2025 11:42:17] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [27-11-2025 11:42:17] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [27-11-2025 11:42:17] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [27-11-2025 11:42:17] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [27-11-2025 11:42:17] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [27-11-2025 11:42:17] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [27-11-2025 11:42:17] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [27-11-2025 11:42:17] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Properties Loaded Successfully
+[INFO] - [27-11-2025 11:42:17] [main] [com.ferpfirstcode.utils.report.AllureEnviromentManger] - Allure environment variables set.
+[INFO] - [27-11-2025 11:42:19] [main] [com.ferpfirstcode.utils.report.AllureBinaryManger] - Allure binaries already exist.
+[INFO] - [27-11-2025 11:42:19] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Allure Environment Variables Set Successfully
+[INFO] - [27-11-2025 11:42:19] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [27-11-2025 11:42:19] [main] [com.ferpfirstcode.driver.GUIDriver] - Browser from properties: EDGE
+[INFO] - [27-11-2025 11:42:19] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
+[INFO] - [27-11-2025 11:42:19] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [27-11-2025 11:42:19] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [27-11-2025 11:42:19] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [27-11-2025 11:42:19] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [27-11-2025 11:42:19] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [27-11-2025 11:42:19] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [27-11-2025 11:42:19] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [27-11-2025 11:42:19] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [27-11-2025 11:42:21] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Starting Test: verifyLoginPageTitle ========
+[INFO] - [27-11-2025 11:42:21] [main] [FirstTest] - Opening the page...
+[INFO] - [27-11-2025 11:42:22] [main] [FirstTest] - Page title: Google
+[ERROR] - [27-11-2025 11:42:22] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Failed to Capture Screenshot Cannot invoke "org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)" because "driver" is null
+[INFO] - [27-11-2025 11:42:22] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Test: verifyLoginPageTitle Finished Successfully ========
+[INFO] - [27-11-2025 11:42:22] [main] [BaseTest] - WebDriver closed successfully.
+[INFO] - [27-11-2025 11:42:22] [main] [LoginTest] - تم تحميل بيانات الاختبار من JSON
+[INFO] - [27-11-2025 11:42:22] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [27-11-2025 11:42:22] [main] [com.ferpfirstcode.driver.GUIDriver] - Browser from properties: EDGE
+[INFO] - [27-11-2025 11:42:22] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
+[INFO] - [27-11-2025 11:42:23] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Starting Test: validLoginTC ========
+[INFO] - [27-11-2025 11:42:26] [main] [com.ferpfirstcode.utils.actions.BrowserActions] - Navigated to URL:  http://localhost:4200/login
+[DEBUG] - [27-11-2025 11:42:27] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['username']
+[INFO] - [27-11-2025 11:42:27] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text in element: By.id: username
+[DEBUG] - [27-11-2025 11:42:27] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['password']
+[INFO] - [27-11-2025 11:42:27] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text in element: By.id: pass
+[INFO] - [27-11-2025 11:42:27] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.cssSelector: button.submitBtn
+[INFO] - [27-11-2025 11:42:31] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
+[INFO] - [27-11-2025 11:42:32] [main] [LoginTest] - تم تنفيذ اختبار تسجيل الدخول بنجاح
+[ERROR] - [27-11-2025 11:42:32] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Failed to Capture Screenshot Cannot invoke "org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)" because "driver" is null

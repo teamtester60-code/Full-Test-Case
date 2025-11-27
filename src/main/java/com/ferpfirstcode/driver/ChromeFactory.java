@@ -33,7 +33,10 @@ public class ChromeFactory extends AbstractDriver {
             case "localHeadless" -> {
                 options.addArguments("--headless=new");
                 options.addArguments("--no-sandbox");          // مهم في CI/Docker
-                options.addArguments("--disable-dev-shm-usage"); // لتجنب مشاكل shared memory
+                options.addArguments("--disable-dev-shm-usage");
+                options.addArguments("--disable-gpu");
+                options.addArguments("--remote-debugging-port=9222"); // أحيانًا يساعد في CI
+// لتجنب مشاكل shared memory
             }
             case "Remote" -> {
                 options.addArguments(

@@ -1,21 +1,18 @@
 name: E2E Regression
 
 on:
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
-  schedule:
-    - cron: '0 0 * * 0'
-  workflow_dispatch:
+  workflow_run:
+    workflows: ["CI Pipeline"]
+    types: [completed]
+    branches: [master, main]
 
 env:
   TARGET: "%regex[.*Tests.*],com.automationexercices.tests.**.**,com.automationexercices.tests.**"
 
 jobs:
   Chrome_Linux_Test:
+    # تشغيل هذا ال job فقط إذا نجح workflow المشروع A
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     permissions:
       checks: write
@@ -26,7 +23,7 @@ jobs:
       - name: setup java
         uses: actions/setup-java@v5
         with:
-          distribution: 'temurin' # See 'Supported distributions' for available options
+          distribution: 'temurin'
           java-version: '17'
 
       - name: setup maven
@@ -45,6 +42,8 @@ jobs:
           path: "test-output/reports/*.html"
 
   Edge_Windows_Test:
+    # تشغيل هذا ال job فقط إذا نجح workflow المشروع A
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: windows-latest
     permissions:
       checks: write
@@ -55,7 +54,7 @@ jobs:
       - name: setup java
         uses: actions/setup-java@v5
         with:
-          distribution: 'temurin' # See 'Supported distributions' for available options
+          distribution: 'temurin'
           java-version: '17'
 
       - name: setup maven

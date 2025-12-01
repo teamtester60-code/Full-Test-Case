@@ -2,7 +2,7 @@ name: E2E Regression
 
 on:
   repository_dispatch:
-    types: [project-a-trigger]
+    types: [project-b-trigger]
   push:
     branches: [master]
 

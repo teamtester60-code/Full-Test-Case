@@ -1,0 +1,851 @@
+[WARN] - [20-11-2025 10:42:48] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Missing or empty property for key: browserType
+[INFO] - [20-11-2025 10:42:48] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [20-11-2025 10:42:48] [main] [com.ferpfirstcode.driver.GUIDriver] - قيمة المتصفح من الخصائص: 
+[ERROR] - [20-11-2025 10:42:48] [main] [com.ferpfirstcode.driver.GUIDriver] - نوع المتصفح غير معروف: . سيتم استخدام CHROME كافتراضي.
+[INFO] - [20-11-2025 10:42:48] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: CHROME
+[WARN] - [20-11-2025 10:42:48] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Missing or empty property for key: remoteHost
+[WARN] - [20-11-2025 10:42:48] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Missing or empty property for key: remotePort
+[WARN] - [20-11-2025 10:42:48] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Missing or empty property for key: executionType
+[WARN] - [20-11-2025 10:42:48] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Missing or empty property for key: executionType
+[WARN] - [20-11-2025 10:42:48] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Missing or empty property for key: executionType
+[WARN] - [20-11-2025 10:42:48] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Missing or empty property for key: executionType
+[ERROR] - [20-11-2025 10:42:48] [main] [com.ferpfirstcode.driver.ChromeFactory] - invalid execution type:
+[WARN] - [20-11-2025 10:46:16] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Missing or empty property for key: browserType
+[INFO] - [20-11-2025 10:46:16] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [20-11-2025 10:46:16] [main] [com.ferpfirstcode.driver.GUIDriver] - قيمة المتصفح من الخصائص: 
+[ERROR] - [20-11-2025 10:46:16] [main] [com.ferpfirstcode.driver.GUIDriver] - نوع المتصفح غير معروف: . سيتم استخدام CHROME كافتراضي.
+[INFO] - [20-11-2025 10:46:16] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: CHROME
+[WARN] - [20-11-2025 10:46:16] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Missing or empty property for key: remoteHost
+[WARN] - [20-11-2025 10:46:16] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Missing or empty property for key: remotePort
+[WARN] - [20-11-2025 10:46:16] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Missing or empty property for key: executionType
+[WARN] - [20-11-2025 10:46:16] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Missing or empty property for key: executionType
+[WARN] - [20-11-2025 10:46:16] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Missing or empty property for key: executionType
+[WARN] - [20-11-2025 10:46:16] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Missing or empty property for key: executionType
+[ERROR] - [20-11-2025 10:46:16] [main] [com.ferpfirstcode.driver.ChromeFactory] - invalid execution type:
+[WARN] - [20-11-2025 10:54:52] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Property not found or empty: user.dir
+[WARN] - [20-11-2025 10:54:52] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Property not found or empty: user.home
+[INFO] - [20-11-2025 10:54:52] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [20-11-2025 10:54:52] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [20-11-2025 10:54:52] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [20-11-2025 10:54:52] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [20-11-2025 10:54:52] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [20-11-2025 10:54:52] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [20-11-2025 10:54:52] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [20-11-2025 10:54:52] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [20-11-2025 10:54:52] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [20-11-2025 10:54:52] [main] [com.ferpfirstcode.driver.GUIDriver] - قيمة المتصفح من الخصائص: EDGE
+[INFO] - [20-11-2025 10:54:52] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
+[INFO] - [20-11-2025 10:54:52] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [20-11-2025 10:54:52] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [20-11-2025 10:54:52] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [20-11-2025 10:54:52] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [20-11-2025 10:54:52] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [20-11-2025 10:54:52] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [20-11-2025 10:54:52] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [20-11-2025 10:54:52] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[DEBUG] - [20-11-2025 10:57:00] [main] [org.testng.TestNG] - suiteXmlPath: "C:\Users\pc\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml"
+[INFO] - [20-11-2025 10:57:01] [main] [org.testng.internal.Utils] - [TestNG] Running:
+  C:\Users\pc\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+[WARN] - [20-11-2025 10:57:01] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Property not found or empty: user.dir
+[WARN] - [20-11-2025 10:57:01] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Property not found or empty: user.home
+[INFO] - [20-11-2025 10:57:01] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [20-11-2025 10:57:01] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [20-11-2025 10:57:01] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [20-11-2025 10:57:01] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [20-11-2025 10:57:01] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [20-11-2025 10:57:01] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [20-11-2025 10:57:01] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [20-11-2025 10:57:01] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [20-11-2025 10:57:01] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [20-11-2025 10:57:01] [main] [com.ferpfirstcode.driver.GUIDriver] - قيمة المتصفح من الخصائص: EDGE
+[INFO] - [20-11-2025 10:57:01] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
+[INFO] - [20-11-2025 10:57:01] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [20-11-2025 10:57:01] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [20-11-2025 10:57:01] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [20-11-2025 10:57:01] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [20-11-2025 10:57:01] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [20-11-2025 10:57:01] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [20-11-2025 10:57:01] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [20-11-2025 10:57:01] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[WARN] - [20-11-2025 15:13:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Property not found or empty: user.dir
+[WARN] - [20-11-2025 15:13:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Property not found or empty: user.home
+[INFO] - [20-11-2025 15:13:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [20-11-2025 15:13:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [20-11-2025 15:13:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [20-11-2025 15:13:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [20-11-2025 15:13:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [20-11-2025 15:13:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [20-11-2025 15:13:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [20-11-2025 15:13:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [20-11-2025 15:13:18] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [20-11-2025 15:13:18] [main] [com.ferpfirstcode.driver.GUIDriver] - قيمة المتصفح من الخصائص: EDGE
+[INFO] - [20-11-2025 15:13:18] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
+[INFO] - [20-11-2025 15:13:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [20-11-2025 15:13:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [20-11-2025 15:13:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [20-11-2025 15:13:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [20-11-2025 15:13:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [20-11-2025 15:13:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [20-11-2025 15:13:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [20-11-2025 15:13:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [20-11-2025 15:13:21] [main] [LoginTest] - جاري فتح الموقع...
+[INFO] - [20-11-2025 15:13:28] [main] [LoginTest] - عنوان الصفحة: Google
+[WARN] - [20-11-2025 15:14:08] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Property not found or empty: user.dir
+[WARN] - [20-11-2025 15:14:08] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Property not found or empty: user.home
+[INFO] - [20-11-2025 15:14:08] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [20-11-2025 15:14:08] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [20-11-2025 15:14:08] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [20-11-2025 15:14:08] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [20-11-2025 15:14:08] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [20-11-2025 15:14:08] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [20-11-2025 15:14:08] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [20-11-2025 15:14:08] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [20-11-2025 15:14:08] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [20-11-2025 15:14:08] [main] [com.ferpfirstcode.driver.GUIDriver] - قيمة المتصفح من الخصائص: EDGE
+[INFO] - [20-11-2025 15:14:08] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
+[INFO] - [20-11-2025 15:14:08] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [20-11-2025 15:14:08] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [20-11-2025 15:14:08] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [20-11-2025 15:14:08] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [20-11-2025 15:14:08] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [20-11-2025 15:14:08] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [20-11-2025 15:14:08] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [20-11-2025 15:14:08] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [20-11-2025 15:14:10] [main] [LoginTest] - Opening the page...
+[INFO] - [20-11-2025 15:14:12] [main] [LoginTest] - Page title: Google
+[DEBUG] - [20-11-2025 16:43:51] [main] [org.testng.TestNG] - suiteXmlPath: "C:\Users\pc\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml"
+[INFO] - [20-11-2025 16:43:52] [main] [org.testng.internal.Utils] - [TestNG] Running:
+  C:\Users\pc\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+[WARN] - [20-11-2025 16:43:53] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Property not found or empty: user.dir
+[WARN] - [20-11-2025 16:43:53] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Property not found or empty: user.home
+[INFO] - [20-11-2025 16:43:53] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [20-11-2025 16:43:53] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [20-11-2025 16:43:53] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [20-11-2025 16:43:53] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [20-11-2025 16:43:53] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [20-11-2025 16:43:53] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [20-11-2025 16:43:53] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [20-11-2025 16:43:53] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [20-11-2025 16:43:53] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [20-11-2025 16:43:53] [main] [com.ferpfirstcode.driver.GUIDriver] - قيمة المتصفح من الخصائص: EDGE
+[INFO] - [20-11-2025 16:43:53] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
+[INFO] - [20-11-2025 16:43:53] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [20-11-2025 16:43:53] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [20-11-2025 16:43:53] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [20-11-2025 16:43:53] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [20-11-2025 16:43:53] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [20-11-2025 16:43:53] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [20-11-2025 16:43:53] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [20-11-2025 16:43:53] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [20-11-2025 16:43:57] [main] [com.ferpfirstcode.utils.actions.BrowserActions] - Navigated to URL:  http://localhost:4200/login
+[DEBUG] - [20-11-2025 16:43:57] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['username']
+[INFO] - [20-11-2025 16:43:57] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text:  1  in element:  By.id: username
+[DEBUG] - [20-11-2025 16:43:57] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['password']
+[INFO] - [20-11-2025 16:43:57] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text:  123456  in element:  By.id: pass
+[INFO] - [20-11-2025 16:43:58] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked on element: By.cssSelector: button.submitBtn
+[ERROR] - [20-11-2025 16:43:58] [main] [com.ferpfirstcode.validations.BaseAssertion] - Element not visible: By.cssSelector: span.ng-star-inserted h6
+[ERROR] - [20-11-2025 16:43:58] [main] [com.ferpfirstcode.validations.BaseAssertion] - Element not visible: By.cssSelector: span.ng-star-inserted h6
+[ERROR] - [20-11-2025 16:43:59] [main] [com.ferpfirstcode.validations.BaseAssertion] - Element not visible: By.cssSelector: span.ng-star-inserted h6
+[ERROR] - [20-11-2025 16:43:59] [main] [com.ferpfirstcode.validations.BaseAssertion] - Element not visible: By.cssSelector: span.ng-star-inserted h6
+[ERROR] - [20-11-2025 16:44:00] [main] [com.ferpfirstcode.validations.BaseAssertion] - Element not visible: By.cssSelector: span.ng-star-inserted h6
+[ERROR] - [20-11-2025 16:44:00] [main] [com.ferpfirstcode.validations.BaseAssertion] - Element not visible: By.cssSelector: span.ng-star-inserted h6
+[ERROR] - [20-11-2025 16:44:01] [main] [com.ferpfirstcode.validations.BaseAssertion] - Element not visible: By.cssSelector: span.ng-star-inserted h6
+[ERROR] - [20-11-2025 16:44:02] [main] [com.ferpfirstcode.validations.BaseAssertion] - Element not visible: By.cssSelector: span.ng-star-inserted h6
+[ERROR] - [20-11-2025 16:44:02] [main] [com.ferpfirstcode.validations.BaseAssertion] - Element not visible: By.cssSelector: span.ng-star-inserted h6
+[ERROR] - [20-11-2025 16:44:03] [main] [com.ferpfirstcode.validations.BaseAssertion] - Element not visible: By.cssSelector: span.ng-star-inserted h6
+[ERROR] - [20-11-2025 16:44:03] [main] [com.ferpfirstcode.validations.BaseAssertion] - Element not visible: By.cssSelector: span.ng-star-inserted h6
+[ERROR] - [20-11-2025 16:44:04] [main] [com.ferpfirstcode.validations.BaseAssertion] - Element not visible: By.cssSelector: span.ng-star-inserted h6
+[ERROR] - [20-11-2025 16:44:04] [main] [com.ferpfirstcode.validations.BaseAssertion] - Element not visible: By.cssSelector: span.ng-star-inserted h6
+[ERROR] - [20-11-2025 16:44:05] [main] [com.ferpfirstcode.validations.BaseAssertion] - Element not visible: By.cssSelector: span.ng-star-inserted h6
+[ERROR] - [20-11-2025 16:44:05] [main] [com.ferpfirstcode.validations.BaseAssertion] - Element not visible: By.cssSelector: span.ng-star-inserted h6
+[ERROR] - [20-11-2025 16:44:06] [main] [com.ferpfirstcode.validations.BaseAssertion] - Element not visible: By.cssSelector: span.ng-star-inserted h6
+[ERROR] - [20-11-2025 16:44:06] [main] [com.ferpfirstcode.validations.BaseAssertion] - Element not visible: By.cssSelector: span.ng-star-inserted h6
+[ERROR] - [20-11-2025 16:44:07] [main] [com.ferpfirstcode.validations.BaseAssertion] - Element not visible: By.cssSelector: span.ng-star-inserted h6
+[ERROR] - [20-11-2025 16:44:07] [main] [com.ferpfirstcode.validations.BaseAssertion] - Element not visible: By.cssSelector: span.ng-star-inserted h6
+[ERROR] - [20-11-2025 16:44:08] [main] [com.ferpfirstcode.validations.BaseAssertion] - Element not visible: By.cssSelector: span.ng-star-inserted h6
+[DEBUG] - [20-11-2025 16:46:30] [main] [org.testng.TestNG] - suiteXmlPath: "C:\Users\pc\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml"
+[INFO] - [20-11-2025 16:46:31] [main] [org.testng.internal.Utils] - [TestNG] Running:
+  C:\Users\pc\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+[WARN] - [20-11-2025 16:46:31] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Property not found or empty: user.dir
+[WARN] - [20-11-2025 16:46:31] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Property not found or empty: user.home
+[INFO] - [20-11-2025 16:46:31] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [20-11-2025 16:46:31] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [20-11-2025 16:46:31] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [20-11-2025 16:46:31] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [20-11-2025 16:46:31] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [20-11-2025 16:46:31] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [20-11-2025 16:46:31] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [20-11-2025 16:46:31] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [20-11-2025 16:46:31] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [20-11-2025 16:46:31] [main] [com.ferpfirstcode.driver.GUIDriver] - قيمة المتصفح من الخصائص: EDGE
+[INFO] - [20-11-2025 16:46:31] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
+[INFO] - [20-11-2025 16:46:31] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [20-11-2025 16:46:31] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [20-11-2025 16:46:31] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [20-11-2025 16:46:31] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [20-11-2025 16:46:31] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [20-11-2025 16:46:31] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [20-11-2025 16:46:31] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [20-11-2025 16:46:31] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [20-11-2025 16:46:35] [main] [com.ferpfirstcode.utils.actions.BrowserActions] - Navigated to URL:  http://localhost:4200/login
+[DEBUG] - [20-11-2025 16:46:35] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['username']
+[INFO] - [20-11-2025 16:46:35] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text:  1  in element:  By.id: username
+[DEBUG] - [20-11-2025 16:46:35] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['password']
+[INFO] - [20-11-2025 16:46:35] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text:  123456  in element:  By.id: pass
+[INFO] - [20-11-2025 16:46:36] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked on element: By.cssSelector: button.submitBtn
+[ERROR] - [20-11-2025 16:46:36] [main] [com.ferpfirstcode.validations.BaseAssertion] - Element not visible: By.cssSelector: img.ms-user-img
+[INFO] - [20-11-2025 16:46:36] [main] [LoginTest] - Valid Login Test Case Executed Successfully
+[DEBUG] - [20-11-2025 16:50:01] [main] [org.testng.TestNG] - suiteXmlPath: "C:\Users\pc\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml"
+[INFO] - [20-11-2025 16:50:02] [main] [org.testng.internal.Utils] - [TestNG] Running:
+  C:\Users\pc\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+[WARN] - [20-11-2025 16:50:02] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Property not found or empty: user.dir
+[WARN] - [20-11-2025 16:50:02] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Property not found or empty: user.home
+[INFO] - [20-11-2025 16:50:02] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [20-11-2025 16:50:02] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [20-11-2025 16:50:02] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [20-11-2025 16:50:02] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [20-11-2025 16:50:02] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [20-11-2025 16:50:02] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [20-11-2025 16:50:02] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [20-11-2025 16:50:02] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [20-11-2025 16:50:02] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [20-11-2025 16:50:02] [main] [com.ferpfirstcode.driver.GUIDriver] - قيمة المتصفح من الخصائص: EDGE
+[INFO] - [20-11-2025 16:50:02] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
+[INFO] - [20-11-2025 16:50:02] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [20-11-2025 16:50:02] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [20-11-2025 16:50:02] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [20-11-2025 16:50:02] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [20-11-2025 16:50:02] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [20-11-2025 16:50:02] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [20-11-2025 16:50:02] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [20-11-2025 16:50:02] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [20-11-2025 16:50:06] [main] [com.ferpfirstcode.utils.actions.BrowserActions] - Navigated to URL:  http://localhost:4200/login
+[DEBUG] - [20-11-2025 16:50:06] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['username']
+[INFO] - [20-11-2025 16:50:06] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text:  1  in element:  By.id: username
+[DEBUG] - [20-11-2025 16:50:06] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['password']
+[INFO] - [20-11-2025 16:50:06] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text:  123456  in element:  By.id: pass
+[INFO] - [20-11-2025 16:50:07] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked on element: By.cssSelector: button.submitBtn
+[ERROR] - [20-11-2025 16:50:07] [main] [com.ferpfirstcode.validations.BaseAssertion] - Element not visible: By.cssSelector: img.ms-user-img
+[INFO] - [20-11-2025 16:50:07] [main] [LoginTest] - Valid Login Test Case Executed Successfully
+[WARN] - [20-11-2025 16:51:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Property not found or empty: user.dir
+[WARN] - [20-11-2025 16:51:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Property not found or empty: user.home
+[INFO] - [20-11-2025 16:51:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [20-11-2025 16:51:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [20-11-2025 16:51:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [20-11-2025 16:51:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [20-11-2025 16:51:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [20-11-2025 16:51:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [20-11-2025 16:51:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [20-11-2025 16:51:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [20-11-2025 16:51:18] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [20-11-2025 16:51:18] [main] [com.ferpfirstcode.driver.GUIDriver] - قيمة المتصفح من الخصائص: EDGE
+[INFO] - [20-11-2025 16:51:18] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
+[INFO] - [20-11-2025 16:51:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [20-11-2025 16:51:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [20-11-2025 16:51:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [20-11-2025 16:51:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [20-11-2025 16:51:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [20-11-2025 16:51:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [20-11-2025 16:51:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [20-11-2025 16:51:18] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [20-11-2025 16:51:20] [main] [FirstTest] - Opening the page...
+[INFO] - [20-11-2025 16:51:21] [main] [FirstTest] - Page title: Google
+[INFO] - [20-11-2025 16:51:21] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [20-11-2025 16:51:21] [main] [com.ferpfirstcode.driver.GUIDriver] - قيمة المتصفح من الخصائص: EDGE
+[INFO] - [20-11-2025 16:51:21] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
+[INFO] - [20-11-2025 16:51:25] [main] [com.ferpfirstcode.utils.actions.BrowserActions] - Navigated to URL:  http://localhost:4200/login
+[DEBUG] - [20-11-2025 16:51:25] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['username']
+[INFO] - [20-11-2025 16:51:26] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text:  1  in element:  By.id: username
+[DEBUG] - [20-11-2025 16:51:26] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['password']
+[INFO] - [20-11-2025 16:51:27] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text:  123456  in element:  By.id: pass
+[INFO] - [20-11-2025 16:51:27] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked on element: By.cssSelector: button.submitBtn
+[ERROR] - [20-11-2025 16:51:27] [main] [com.ferpfirstcode.validations.BaseAssertion] - Element not visible: By.cssSelector: img.ms-user-img
+[INFO] - [20-11-2025 16:51:28] [main] [LoginTest] - Valid Login Test Case Executed Successfully
+[WARN] - [20-11-2025 16:53:17] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Property not found or empty: user.dir
+[WARN] - [20-11-2025 16:53:17] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Property not found or empty: user.home
+[INFO] - [20-11-2025 16:53:17] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [20-11-2025 16:53:17] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [20-11-2025 16:53:17] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [20-11-2025 16:53:17] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [20-11-2025 16:53:17] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [20-11-2025 16:53:17] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [20-11-2025 16:53:17] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [20-11-2025 16:53:17] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [20-11-2025 16:53:17] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [20-11-2025 16:53:17] [main] [com.ferpfirstcode.driver.GUIDriver] - قيمة المتصفح من الخصائص: EDGE
+[INFO] - [20-11-2025 16:53:17] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
+[INFO] - [20-11-2025 16:53:17] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [20-11-2025 16:53:17] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [20-11-2025 16:53:17] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [20-11-2025 16:53:17] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [20-11-2025 16:53:17] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [20-11-2025 16:53:17] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [20-11-2025 16:53:17] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [20-11-2025 16:53:17] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [20-11-2025 16:53:19] [main] [FirstTest] - Opening the page...
+[INFO] - [20-11-2025 16:53:21] [main] [FirstTest] - Page title: Google
+[INFO] - [20-11-2025 16:53:21] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [20-11-2025 16:53:21] [main] [com.ferpfirstcode.driver.GUIDriver] - قيمة المتصفح من الخصائص: EDGE
+[INFO] - [20-11-2025 16:53:21] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
+[INFO] - [20-11-2025 16:53:24] [main] [com.ferpfirstcode.utils.actions.BrowserActions] - Navigated to URL:  http://localhost:4200/login
+[DEBUG] - [20-11-2025 16:53:25] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['username']
+[INFO] - [20-11-2025 16:53:25] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text:  1  in element:  By.id: username
+[DEBUG] - [20-11-2025 16:53:25] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['password']
+[INFO] - [20-11-2025 16:53:25] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text:  123456  in element:  By.id: pass
+[INFO] - [20-11-2025 16:53:26] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked on element: By.cssSelector: button.submitBtn
+[ERROR] - [20-11-2025 16:53:26] [main] [com.ferpfirstcode.validations.BaseAssertion] - Element not visible: By.cssSelector: img.ms-user-img
+[ERROR] - [20-11-2025 16:53:27] [main] [com.ferpfirstcode.validations.BaseAssertion] - Element not visible: By.cssSelector: img.ms-user-img
+[INFO] - [20-11-2025 16:53:28] [main] [LoginTest] - Valid Login Test Case Executed Successfully
+[DEBUG] - [20-11-2025 16:59:24] [main] [org.testng.TestNG] - suiteXmlPath: "C:\Users\pc\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml"
+[INFO] - [20-11-2025 16:59:25] [main] [org.testng.internal.Utils] - [TestNG] Running:
+  C:\Users\pc\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+[WARN] - [20-11-2025 16:59:26] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Property not found or empty: user.dir
+[WARN] - [20-11-2025 16:59:26] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Property not found or empty: user.home
+[INFO] - [20-11-2025 16:59:26] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [20-11-2025 16:59:26] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [20-11-2025 16:59:26] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [20-11-2025 16:59:26] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [20-11-2025 16:59:26] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [20-11-2025 16:59:26] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [20-11-2025 16:59:26] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [20-11-2025 16:59:26] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [20-11-2025 16:59:26] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [20-11-2025 16:59:26] [main] [com.ferpfirstcode.driver.GUIDriver] - قيمة المتصفح من الخصائص: EDGE
+[INFO] - [20-11-2025 16:59:26] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
+[INFO] - [20-11-2025 16:59:26] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [20-11-2025 16:59:26] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [20-11-2025 16:59:26] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [20-11-2025 16:59:26] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [20-11-2025 16:59:26] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [20-11-2025 16:59:26] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [20-11-2025 16:59:26] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [20-11-2025 16:59:26] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [20-11-2025 16:59:30] [main] [com.ferpfirstcode.utils.actions.BrowserActions] - Navigated to URL:  http://localhost:4200/login
+[DEBUG] - [20-11-2025 16:59:30] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['username']
+[INFO] - [20-11-2025 16:59:30] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text:  1  in element:  By.id: username
+[DEBUG] - [20-11-2025 16:59:30] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['password']
+[INFO] - [20-11-2025 16:59:30] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text:  123456  in element:  By.id: pass
+[INFO] - [20-11-2025 16:59:30] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked on element: By.cssSelector: button.submitBtn
+[INFO] - [20-11-2025 16:59:31] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
+[INFO] - [20-11-2025 16:59:31] [main] [LoginTest] - Valid Login Test Case Executed Successfully
+[WARN] - [20-11-2025 16:59:50] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Property not found or empty: user.dir
+[WARN] - [20-11-2025 16:59:50] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Property not found or empty: user.home
+[INFO] - [20-11-2025 16:59:50] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [20-11-2025 16:59:50] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [20-11-2025 16:59:50] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [20-11-2025 16:59:50] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [20-11-2025 16:59:50] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [20-11-2025 16:59:50] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [20-11-2025 16:59:50] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [20-11-2025 16:59:50] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [20-11-2025 16:59:50] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [20-11-2025 16:59:50] [main] [com.ferpfirstcode.driver.GUIDriver] - قيمة المتصفح من الخصائص: EDGE
+[INFO] - [20-11-2025 16:59:51] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
+[INFO] - [20-11-2025 16:59:51] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [20-11-2025 16:59:51] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [20-11-2025 16:59:51] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [20-11-2025 16:59:51] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [20-11-2025 16:59:51] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [20-11-2025 16:59:51] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [20-11-2025 16:59:51] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [20-11-2025 16:59:51] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [20-11-2025 16:59:52] [main] [FirstTest] - Opening the page...
+[INFO] - [20-11-2025 16:59:53] [main] [FirstTest] - Page title: Google
+[INFO] - [20-11-2025 16:59:54] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [20-11-2025 16:59:54] [main] [com.ferpfirstcode.driver.GUIDriver] - قيمة المتصفح من الخصائص: EDGE
+[INFO] - [20-11-2025 16:59:54] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
+[INFO] - [20-11-2025 16:59:57] [main] [com.ferpfirstcode.utils.actions.BrowserActions] - Navigated to URL:  http://localhost:4200/login
+[DEBUG] - [20-11-2025 16:59:57] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['username']
+[INFO] - [20-11-2025 16:59:58] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text:  1  in element:  By.id: username
+[DEBUG] - [20-11-2025 16:59:58] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['password']
+[INFO] - [20-11-2025 16:59:58] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text:  123456  in element:  By.id: pass
+[INFO] - [20-11-2025 16:59:58] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked on element: By.cssSelector: button.submitBtn
+[INFO] - [20-11-2025 16:59:59] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
+[INFO] - [20-11-2025 16:59:59] [main] [LoginTest] - Valid Login Test Case Executed Successfully
+[DEBUG] - [20-11-2025 17:07:45] [main] [org.testng.TestNG] - suiteXmlPath: "C:\Users\pc\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml"
+[INFO] - [20-11-2025 17:07:46] [main] [org.testng.internal.Utils] - [TestNG] Running:
+  C:\Users\pc\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+[WARN] - [20-11-2025 17:07:47] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Property not found or empty: user.dir
+[WARN] - [20-11-2025 17:07:47] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Property not found or empty: user.home
+[INFO] - [20-11-2025 17:07:47] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [20-11-2025 17:07:47] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [20-11-2025 17:07:47] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [20-11-2025 17:07:47] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [20-11-2025 17:07:47] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [20-11-2025 17:07:47] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [20-11-2025 17:07:47] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [20-11-2025 17:07:47] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [20-11-2025 17:07:47] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [20-11-2025 17:07:47] [main] [com.ferpfirstcode.driver.GUIDriver] - قيمة المتصفح من الخصائص: EDGE
+[INFO] - [20-11-2025 17:07:47] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
+[INFO] - [20-11-2025 17:07:47] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [20-11-2025 17:07:47] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [20-11-2025 17:07:47] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [20-11-2025 17:07:47] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [20-11-2025 17:07:47] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [20-11-2025 17:07:47] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [20-11-2025 17:07:47] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [20-11-2025 17:07:47] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [20-11-2025 17:07:51] [main] [com.ferpfirstcode.utils.actions.BrowserActions] - Navigated to URL:  http://localhost:4200/login
+[DEBUG] - [20-11-2025 17:07:51] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['username']
+[INFO] - [20-11-2025 17:07:51] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text:  1  in element:  By.id: username
+[DEBUG] - [20-11-2025 17:07:51] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['password']
+[INFO] - [20-11-2025 17:07:51] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text:  123456  in element:  By.id: pass
+[INFO] - [20-11-2025 17:07:51] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked on element: By.cssSelector: button.submitBtn
+[INFO] - [20-11-2025 17:07:56] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
+[INFO] - [20-11-2025 17:07:56] [main] [LoginTest] - Valid Login Test Case Executed Successfully
+[WARN] - [20-11-2025 17:09:43] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Property not found or empty: user.dir
+[WARN] - [20-11-2025 17:09:43] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Property not found or empty: user.home
+[INFO] - [20-11-2025 17:09:43] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [20-11-2025 17:09:43] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [20-11-2025 17:09:43] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [20-11-2025 17:09:43] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [20-11-2025 17:09:43] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [20-11-2025 17:09:43] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [20-11-2025 17:09:43] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [20-11-2025 17:09:43] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [20-11-2025 17:09:43] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [20-11-2025 17:09:43] [main] [com.ferpfirstcode.driver.GUIDriver] - قيمة المتصفح من الخصائص: EDGE
+[INFO] - [20-11-2025 17:09:43] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
+[INFO] - [20-11-2025 17:09:43] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [20-11-2025 17:09:43] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [20-11-2025 17:09:43] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [20-11-2025 17:09:43] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [20-11-2025 17:09:43] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [20-11-2025 17:09:43] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [20-11-2025 17:09:43] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [20-11-2025 17:09:43] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [20-11-2025 17:09:46] [main] [FirstTest] - Opening the page...
+[INFO] - [20-11-2025 17:09:47] [main] [FirstTest] - Page title: Google
+[INFO] - [20-11-2025 17:09:47] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [20-11-2025 17:09:47] [main] [com.ferpfirstcode.driver.GUIDriver] - قيمة المتصفح من الخصائص: EDGE
+[INFO] - [20-11-2025 17:09:47] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
+[INFO] - [20-11-2025 17:09:51] [main] [com.ferpfirstcode.utils.actions.BrowserActions] - Navigated to URL:  http://localhost:4200/login
+[DEBUG] - [20-11-2025 17:09:51] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['username']
+[INFO] - [20-11-2025 17:09:51] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text:  1  in element:  By.id: username
+[DEBUG] - [20-11-2025 17:09:51] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['password']
+[INFO] - [20-11-2025 17:09:51] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text:  123456  in element:  By.id: pass
+[INFO] - [20-11-2025 17:09:51] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked on element: By.cssSelector: button.submitBtn
+[INFO] - [20-11-2025 17:09:56] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
+[INFO] - [20-11-2025 17:09:56] [main] [LoginTest] - Valid Login Test Case Executed Successfully
+[DEBUG] - [23-11-2025 09:26:04] [main] [org.testng.TestNG] - suiteXmlPath: "C:\Users\pc\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml"
+[INFO] - [23-11-2025 09:26:05] [main] [org.testng.internal.Utils] - [TestNG] Running:
+  C:\Users\pc\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+[WARN] - [23-11-2025 09:26:05] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Property not found or empty: user.dir
+[WARN] - [23-11-2025 09:26:05] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Property not found or empty: user.home
+[INFO] - [23-11-2025 09:26:05] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [23-11-2025 09:26:05] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [23-11-2025 09:26:05] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [23-11-2025 09:26:05] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [23-11-2025 09:26:05] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [23-11-2025 09:26:05] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [23-11-2025 09:26:05] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [23-11-2025 09:26:05] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [23-11-2025 09:26:05] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [23-11-2025 09:26:05] [main] [com.ferpfirstcode.driver.GUIDriver] - قيمة المتصفح من الخصائص: EDGE
+[INFO] - [23-11-2025 09:26:06] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
+[INFO] - [23-11-2025 09:26:06] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [23-11-2025 09:26:06] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [23-11-2025 09:26:06] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [23-11-2025 09:26:06] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [23-11-2025 09:26:06] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [23-11-2025 09:26:06] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [23-11-2025 09:26:06] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [23-11-2025 09:26:06] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [23-11-2025 09:26:25] [main] [com.ferpfirstcode.utils.actions.BrowserActions] - Navigated to URL:  http://localhost:4200/login
+[DEBUG] - [23-11-2025 09:26:26] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['username']
+[INFO] - [23-11-2025 09:26:26] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text:  1  in element:  By.id: username
+[DEBUG] - [23-11-2025 09:26:26] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['password']
+[INFO] - [23-11-2025 09:26:26] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text:  123456  in element:  By.id: pass
+[INFO] - [23-11-2025 09:26:26] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked on element: By.cssSelector: button.submitBtn
+[INFO] - [23-11-2025 09:26:30] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
+[INFO] - [23-11-2025 09:26:30] [main] [LoginTest] - Valid Login Test Case Executed Successfully
+[DEBUG] - [23-11-2025 09:51:10] [main] [org.testng.TestNG] - suiteXmlPath: "C:\Users\pc\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml"
+[INFO] - [23-11-2025 09:51:11] [main] [org.testng.internal.Utils] - [TestNG] Running:
+  C:\Users\pc\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+[WARN] - [23-11-2025 09:51:11] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Property not found or empty: user.dir
+[WARN] - [23-11-2025 09:51:11] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Property not found or empty: user.home
+[INFO] - [23-11-2025 09:51:11] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [23-11-2025 09:51:11] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [23-11-2025 09:51:11] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [23-11-2025 09:51:11] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [23-11-2025 09:51:11] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [23-11-2025 09:51:11] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [23-11-2025 09:51:11] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [23-11-2025 09:51:11] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [23-11-2025 09:51:11] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [23-11-2025 09:51:11] [main] [com.ferpfirstcode.driver.GUIDriver] - قيمة المتصفح من الخصائص: EDGE
+[INFO] - [23-11-2025 09:51:11] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
+[INFO] - [23-11-2025 09:51:11] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [23-11-2025 09:51:11] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [23-11-2025 09:51:11] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [23-11-2025 09:51:11] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [23-11-2025 09:51:11] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [23-11-2025 09:51:11] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [23-11-2025 09:51:11] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [23-11-2025 09:51:11] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [23-11-2025 09:51:15] [main] [com.ferpfirstcode.utils.actions.BrowserActions] - Navigated to URL:  http://localhost:4200/login
+[DEBUG] - [23-11-2025 09:51:15] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['username']
+[INFO] - [23-11-2025 09:51:15] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text:  1  in element:  By.id: username
+[DEBUG] - [23-11-2025 09:51:15] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['password']
+[INFO] - [23-11-2025 09:51:16] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text:  123456  in element:  By.id: pass
+[INFO] - [23-11-2025 09:51:16] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked on element: By.cssSelector: button.submitBtn
+[INFO] - [23-11-2025 09:51:20] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
+[INFO] - [23-11-2025 09:51:20] [main] [LoginTest] - Valid Login Test Case Executed Successfully
+[DEBUG] - [23-11-2025 09:53:30] [main] [org.testng.TestNG] - suiteXmlPath: "C:\Users\pc\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml"
+[INFO] - [23-11-2025 09:53:31] [main] [org.testng.internal.Utils] - [TestNG] Running:
+  C:\Users\pc\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+[WARN] - [23-11-2025 09:53:31] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Property not found or empty: user.dir
+[WARN] - [23-11-2025 09:53:31] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Property not found or empty: user.home
+[INFO] - [23-11-2025 09:53:31] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [23-11-2025 09:53:31] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [23-11-2025 09:53:31] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [23-11-2025 09:53:31] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [23-11-2025 09:53:31] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [23-11-2025 09:53:31] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [23-11-2025 09:53:31] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [23-11-2025 09:53:31] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [23-11-2025 09:53:31] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [23-11-2025 09:53:31] [main] [com.ferpfirstcode.driver.GUIDriver] - قيمة المتصفح من الخصائص: EDGE
+[INFO] - [23-11-2025 09:53:31] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
+[INFO] - [23-11-2025 09:53:31] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [23-11-2025 09:53:31] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [23-11-2025 09:53:31] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [23-11-2025 09:53:31] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [23-11-2025 09:53:31] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [23-11-2025 09:53:31] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [23-11-2025 09:53:31] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [23-11-2025 09:53:31] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [23-11-2025 09:53:35] [main] [com.ferpfirstcode.utils.actions.BrowserActions] - Navigated to URL:  http://localhost:4200/login
+[DEBUG] - [23-11-2025 09:53:35] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['username']
+[INFO] - [23-11-2025 09:53:36] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text:  1  in element:  By.id: username
+[DEBUG] - [23-11-2025 09:53:36] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['password']
+[INFO] - [23-11-2025 09:53:36] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text:  123456  in element:  By.id: pass
+[INFO] - [23-11-2025 09:53:36] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked on element: By.cssSelector: button.submitBtn
+[INFO] - [23-11-2025 09:53:40] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
+[INFO] - [23-11-2025 09:53:40] [main] [LoginTest] - Valid Login Test Case Executed Successfully
+[DEBUG] - [23-11-2025 09:54:54] [main] [org.testng.TestNG] - suiteXmlPath: "C:\Users\pc\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml"
+[INFO] - [23-11-2025 09:54:55] [main] [org.testng.internal.Utils] - [TestNG] Running:
+  C:\Users\pc\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+[WARN] - [23-11-2025 09:54:56] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Property not found or empty: user.dir
+[WARN] - [23-11-2025 09:54:56] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Property not found or empty: user.home
+[INFO] - [23-11-2025 09:54:56] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [23-11-2025 09:54:56] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [23-11-2025 09:54:56] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [23-11-2025 09:54:56] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [23-11-2025 09:54:56] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [23-11-2025 09:54:56] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [23-11-2025 09:54:56] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [23-11-2025 09:54:56] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [23-11-2025 09:54:56] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [23-11-2025 09:54:56] [main] [com.ferpfirstcode.driver.GUIDriver] - قيمة المتصفح من الخصائص: EDGE
+[INFO] - [23-11-2025 09:54:56] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
+[INFO] - [23-11-2025 09:54:56] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [23-11-2025 09:54:56] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [23-11-2025 09:54:56] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [23-11-2025 09:54:56] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [23-11-2025 09:54:56] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [23-11-2025 09:54:56] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [23-11-2025 09:54:56] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [23-11-2025 09:54:56] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [23-11-2025 09:54:59] [main] [com.ferpfirstcode.utils.actions.BrowserActions] - Navigated to URL:  http://localhost:4200/login
+[DEBUG] - [23-11-2025 09:54:59] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['username']
+[INFO] - [23-11-2025 09:55:00] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text:  1  in element:  By.id: username
+[DEBUG] - [23-11-2025 09:55:00] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['password']
+[INFO] - [23-11-2025 09:55:00] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text:  123456  in element:  By.id: pass
+[INFO] - [23-11-2025 09:55:00] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked on element: By.cssSelector: button.submitBtn
+[INFO] - [23-11-2025 09:55:04] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
+[INFO] - [23-11-2025 09:55:04] [main] [LoginTest] - Valid Login Test Case Executed Successfully
+[DEBUG] - [23-11-2025 09:57:41] [main] [org.testng.TestNG] - suiteXmlPath: "C:\Users\pc\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml"
+[INFO] - [23-11-2025 09:57:42] [main] [org.testng.internal.Utils] - [TestNG] Running:
+  C:\Users\pc\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+[WARN] - [23-11-2025 09:57:42] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Property not found or empty: user.dir
+[WARN] - [23-11-2025 09:57:42] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Property not found or empty: user.home
+[INFO] - [23-11-2025 09:57:42] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [23-11-2025 09:57:42] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [23-11-2025 09:57:42] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [23-11-2025 09:57:42] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [23-11-2025 09:57:42] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [23-11-2025 09:57:42] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [23-11-2025 09:57:42] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [23-11-2025 09:57:42] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [23-11-2025 09:57:42] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [23-11-2025 09:57:42] [main] [com.ferpfirstcode.driver.GUIDriver] - قيمة المتصفح من الخصائص: EDGE
+[INFO] - [23-11-2025 09:57:42] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
+[INFO] - [23-11-2025 09:57:42] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [23-11-2025 09:57:42] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [23-11-2025 09:57:42] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [23-11-2025 09:57:42] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [23-11-2025 09:57:42] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [23-11-2025 09:57:42] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [23-11-2025 09:57:42] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [23-11-2025 09:57:42] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [23-11-2025 09:57:46] [main] [com.ferpfirstcode.utils.actions.BrowserActions] - Navigated to URL:  http://localhost:4200/login
+[DEBUG] - [23-11-2025 09:57:46] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['username']
+[INFO] - [23-11-2025 09:57:46] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text:  1  in element:  By.id: username
+[DEBUG] - [23-11-2025 09:57:46] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['password']
+[INFO] - [23-11-2025 09:57:46] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text:  123456  in element:  By.id: pass
+[INFO] - [23-11-2025 09:57:46] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked on element: By.cssSelector: button.submitBtn
+[INFO] - [23-11-2025 09:57:51] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
+[INFO] - [23-11-2025 09:57:51] [main] [LoginTest] - Valid Login Test Case Executed Successfully
+[DEBUG] - [23-11-2025 10:32:42] [main] [org.testng.TestNG] - suiteXmlPath: "C:\Users\pc\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml"
+[INFO] - [23-11-2025 10:32:43] [main] [org.testng.internal.Utils] - [TestNG] Running:
+  C:\Users\pc\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+[WARN] - [23-11-2025 10:32:43] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Property not found or empty: user.dir
+[WARN] - [23-11-2025 10:32:43] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Property not found or empty: user.home
+[INFO] - [23-11-2025 10:32:43] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [23-11-2025 10:32:43] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [23-11-2025 10:32:43] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [23-11-2025 10:32:43] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [23-11-2025 10:32:43] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [23-11-2025 10:32:43] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [23-11-2025 10:32:43] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [23-11-2025 10:32:43] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [23-11-2025 10:32:43] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [23-11-2025 10:32:43] [main] [com.ferpfirstcode.driver.GUIDriver] - قيمة المتصفح من الخصائص: EDGE
+[INFO] - [23-11-2025 10:32:43] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
+[INFO] - [23-11-2025 10:32:43] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [23-11-2025 10:32:43] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [23-11-2025 10:32:43] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [23-11-2025 10:32:43] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [23-11-2025 10:32:43] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [23-11-2025 10:32:43] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [23-11-2025 10:32:43] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [23-11-2025 10:32:43] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [23-11-2025 10:32:48] [main] [com.ferpfirstcode.utils.actions.BrowserActions] - Navigated to URL:  http://localhost:4200/login
+[DEBUG] - [23-11-2025 10:32:48] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['username']
+[INFO] - [23-11-2025 10:32:48] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text:  1  in element:  By.id: username
+[DEBUG] - [23-11-2025 10:32:48] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['password']
+[INFO] - [23-11-2025 10:32:49] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text:  123456  in element:  By.id: pass
+[INFO] - [23-11-2025 10:32:49] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked on element: By.cssSelector: button.submitBtn
+[INFO] - [23-11-2025 10:32:53] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
+[INFO] - [23-11-2025 10:32:53] [main] [LoginTest] - Valid Login Test Case Executed Successfully
+[DEBUG] - [23-11-2025 10:41:48] [main] [org.testng.TestNG] - suiteXmlPath: "C:\Users\pc\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml"
+[INFO] - [23-11-2025 10:41:49] [main] [org.testng.internal.Utils] - [TestNG] Running:
+  C:\Users\pc\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+[WARN] - [23-11-2025 10:41:49] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Property not found or empty: user.dir
+[WARN] - [23-11-2025 10:41:49] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Property not found or empty: user.home
+[INFO] - [23-11-2025 10:41:49] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [23-11-2025 10:41:49] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [23-11-2025 10:41:49] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [23-11-2025 10:41:49] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [23-11-2025 10:41:49] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [23-11-2025 10:41:49] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [23-11-2025 10:41:49] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [23-11-2025 10:41:49] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [23-11-2025 10:41:49] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [23-11-2025 10:41:49] [main] [com.ferpfirstcode.driver.GUIDriver] - قيمة المتصفح من الخصائص: EDGE
+[INFO] - [23-11-2025 10:41:49] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
+[INFO] - [23-11-2025 10:41:49] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [23-11-2025 10:41:49] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [23-11-2025 10:41:49] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [23-11-2025 10:41:49] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [23-11-2025 10:41:49] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [23-11-2025 10:41:49] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [23-11-2025 10:41:49] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [23-11-2025 10:41:49] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [23-11-2025 10:41:53] [main] [com.ferpfirstcode.utils.actions.BrowserActions] - Navigated to URL:  http://localhost:4200/login
+[DEBUG] - [23-11-2025 10:41:53] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['username']
+[INFO] - [23-11-2025 10:41:53] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text:  1  in element:  By.id: username
+[DEBUG] - [23-11-2025 10:41:53] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['password']
+[INFO] - [23-11-2025 10:41:53] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text:  123456  in element:  By.id: pass
+[INFO] - [23-11-2025 10:41:54] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked on element: By.cssSelector: button.submitBtn
+[INFO] - [23-11-2025 10:41:58] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
+[INFO] - [23-11-2025 10:41:58] [main] [LoginTest] - Valid Login Test Case Executed Successfully
+[DEBUG] - [23-11-2025 10:48:07] [main] [org.testng.TestNG] - suiteXmlPath: "C:\Users\pc\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml"
+[INFO] - [23-11-2025 10:48:08] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [23-11-2025 10:48:08] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [23-11-2025 10:48:08] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [23-11-2025 10:48:08] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [23-11-2025 10:48:08] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [23-11-2025 10:48:08] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [23-11-2025 10:48:08] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [23-11-2025 10:48:08] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [23-11-2025 10:48:08] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Starting Test Execution ========
+[INFO] - [23-11-2025 10:48:08] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Directories Cleaned Successfully
+[INFO] - [23-11-2025 10:48:08] [main] [com.ferpfirstcode.FileUtils] - Directory created: test-output/screenshots/
+[INFO] - [23-11-2025 10:48:08] [main] [com.ferpfirstcode.FileUtils] - Directory created: test-output/recordings/
+[INFO] - [23-11-2025 10:48:08] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Directories Created Successfully
+[INFO] - [23-11-2025 10:48:08] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [23-11-2025 10:48:08] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [23-11-2025 10:48:08] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [23-11-2025 10:48:08] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [23-11-2025 10:48:08] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [23-11-2025 10:48:08] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [23-11-2025 10:48:08] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [23-11-2025 10:48:08] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [23-11-2025 10:48:08] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Properties Loaded Successfully
+[INFO] - [23-11-2025 10:48:08] [main] [com.ferpfirstcode.utils.report.AllureEnviromentManger] - Allure environment variables set.
+[INFO] - [23-11-2025 10:48:10] [main] [com.ferpfirstcode.utils.report.AllureBinaryManger] - Allure binaries already exist.
+[INFO] - [23-11-2025 10:48:10] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Allure Environment Variables Set Successfully
+[INFO] - [23-11-2025 10:48:10] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [23-11-2025 10:48:10] [main] [com.ferpfirstcode.driver.GUIDriver] - قيمة المتصفح من الخصائص: EDGE
+[INFO] - [23-11-2025 10:48:10] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
+[INFO] - [23-11-2025 10:48:10] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [23-11-2025 10:48:10] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [23-11-2025 10:48:10] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [23-11-2025 10:48:10] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [23-11-2025 10:48:10] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [23-11-2025 10:48:10] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [23-11-2025 10:48:10] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [23-11-2025 10:48:10] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [23-11-2025 10:48:12] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Starting Test: validloginTC ========
+[INFO] - [23-11-2025 10:48:14] [main] [com.ferpfirstcode.utils.actions.BrowserActions] - Navigated to URL:  http://localhost:4200/login
+[DEBUG] - [23-11-2025 10:48:14] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['username']
+[INFO] - [23-11-2025 10:48:14] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text:  1  in element:  By.id: username
+[DEBUG] - [23-11-2025 10:48:14] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['password']
+[INFO] - [23-11-2025 10:48:14] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text:  123456  in element:  By.id: pass
+[INFO] - [23-11-2025 10:48:14] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked on element: By.cssSelector: button.submitBtn
+[INFO] - [23-11-2025 10:48:18] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
+[INFO] - [23-11-2025 10:48:18] [main] [LoginTest] - Valid Login Test Case Executed Successfully
+[ERROR] - [23-11-2025 10:48:18] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Failed to Capture Screenshot Cannot invoke "org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)" because "driver" is null
+[INFO] - [23-11-2025 10:48:18] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Test: validloginTC Finished Successfully ========
+[INFO] - [23-11-2025 10:48:24] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - 🛠️ Running Allure generate command: C:\Users\pc\.m2\repository\allure\allure-2.35.1\bin\allure.bat generate C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\allure-results -o C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\full-report --clean
+[INFO] - [23-11-2025 10:48:26] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - 🛠️ Running Allure generate command: C:\Users\pc\.m2\repository\allure\allure-2.35.1\bin\allure.bat generate C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\allure-results -o C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports --clean --single-file
+[INFO] - [23-11-2025 10:48:26] [main] [com.ferpfirstcode.FileUtils] - Target File Path: "C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports\index.html", file was renamed to "AllureReport_2025-11-23-10-48-26.html".
+[ERROR] - [23-11-2025 10:48:26] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - ❌ index.html not found. Report generation may have failed.
+[INFO] - [23-11-2025 10:48:26] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - REPORT PATH = C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports
+[INFO] - [23-11-2025 10:48:26] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - FULL FILE PATH = C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports\AllureReport_2025-11-23-10-48-26.html
+[INFO] - [23-11-2025 10:48:26] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - FILE EXISTS? true
+[INFO] - [23-11-2025 10:48:27] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - 🔥 Final Allure HTML report opened successfully
+[INFO] - [23-11-2025 10:48:27] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Allure Report Generated Successfully
+[INFO] - [23-11-2025 10:48:27] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Test Execution Finished ========
+[DEBUG] - [23-11-2025 10:52:34] [main] [org.testng.TestNG] - suiteXmlPath: "C:\Users\pc\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml"
+[INFO] - [23-11-2025 10:52:35] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [23-11-2025 10:52:35] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [23-11-2025 10:52:35] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [23-11-2025 10:52:35] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [23-11-2025 10:52:35] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [23-11-2025 10:52:35] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [23-11-2025 10:52:35] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [23-11-2025 10:52:35] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [23-11-2025 10:52:35] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Starting Test Execution ========
+[INFO] - [23-11-2025 10:52:35] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Directories Cleaned Successfully
+[INFO] - [23-11-2025 10:52:35] [main] [com.ferpfirstcode.FileUtils] - Directory created: test-output/screenshots/
+[INFO] - [23-11-2025 10:52:35] [main] [com.ferpfirstcode.FileUtils] - Directory created: test-output/recordings/
+[INFO] - [23-11-2025 10:52:35] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Directories Created Successfully
+[INFO] - [23-11-2025 10:52:35] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [23-11-2025 10:52:35] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [23-11-2025 10:52:35] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [23-11-2025 10:52:35] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [23-11-2025 10:52:35] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [23-11-2025 10:52:35] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [23-11-2025 10:52:35] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [23-11-2025 10:52:35] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [23-11-2025 10:52:35] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Properties Loaded Successfully
+[INFO] - [23-11-2025 10:52:35] [main] [com.ferpfirstcode.utils.report.AllureEnviromentManger] - Allure environment variables set.
+[INFO] - [23-11-2025 10:52:36] [main] [com.ferpfirstcode.utils.report.AllureBinaryManger] - Allure binaries already exist.
+[INFO] - [23-11-2025 10:52:36] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Allure Environment Variables Set Successfully
+[INFO] - [23-11-2025 10:52:36] [main] [LoginTest] - تم تحميل بيانات الاختبار من JSON
+[INFO] - [23-11-2025 10:52:36] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [23-11-2025 10:52:36] [main] [com.ferpfirstcode.driver.GUIDriver] - قيمة المتصفح من الخصائص: EDGE
+[INFO] - [23-11-2025 10:52:36] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
+[INFO] - [23-11-2025 10:52:36] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [23-11-2025 10:52:36] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [23-11-2025 10:52:36] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [23-11-2025 10:52:36] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [23-11-2025 10:52:36] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [23-11-2025 10:52:36] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [23-11-2025 10:52:36] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [23-11-2025 10:52:36] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [23-11-2025 10:52:38] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Starting Test: validLoginTC ========
+[INFO] - [23-11-2025 10:52:40] [main] [com.ferpfirstcode.utils.actions.BrowserActions] - Navigated to URL:  http://localhost:4200/login
+[DEBUG] - [23-11-2025 10:52:40] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['username']
+[INFO] - [23-11-2025 10:52:40] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text:  1  in element:  By.id: username
+[DEBUG] - [23-11-2025 10:52:40] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['password']
+[INFO] - [23-11-2025 10:52:40] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text:  123456  in element:  By.id: pass
+[INFO] - [23-11-2025 10:52:41] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked on element: By.cssSelector: button.submitBtn
+[INFO] - [23-11-2025 10:52:45] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
+[INFO] - [23-11-2025 10:52:45] [main] [LoginTest] - تم تنفيذ اختبار تسجيل الدخول بنجاح
+[ERROR] - [23-11-2025 10:52:45] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Failed to Capture Screenshot Cannot invoke "org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)" because "driver" is null
+[INFO] - [23-11-2025 10:52:45] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Test: validLoginTC Finished Successfully ========
+[INFO] - [23-11-2025 10:52:49] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - 🛠️ Running Allure generate command: C:\Users\pc\.m2\repository\allure\allure-2.35.1\bin\allure.bat generate C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\allure-results -o C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\full-report --clean
+[INFO] - [23-11-2025 10:52:52] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - 🛠️ Running Allure generate command: C:\Users\pc\.m2\repository\allure\allure-2.35.1\bin\allure.bat generate C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\allure-results -o C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports --clean --single-file
+[INFO] - [23-11-2025 10:52:52] [main] [com.ferpfirstcode.FileUtils] - Target File Path: "C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports\index.html", file was renamed to "AllureReport_2025-11-23-10-52-52.html".
+[ERROR] - [23-11-2025 10:52:52] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - ❌ index.html not found. Report generation may have failed.
+[INFO] - [23-11-2025 10:52:52] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - REPORT PATH = C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports
+[INFO] - [23-11-2025 10:52:52] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - FULL FILE PATH = C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports\AllureReport_2025-11-23-10-52-52.html
+[INFO] - [23-11-2025 10:52:52] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - FILE EXISTS? true
+[INFO] - [23-11-2025 10:52:52] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - 🔥 Final Allure HTML report opened successfully
+[INFO] - [23-11-2025 10:52:52] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Allure Report Generated Successfully
+[INFO] - [23-11-2025 10:52:52] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Test Execution Finished ========
+[DEBUG] - [23-11-2025 14:33:54] [main] [org.testng.TestNG] - suiteXmlPath: "C:\Users\pc\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml"
+[INFO] - [23-11-2025 14:33:55] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [23-11-2025 14:33:55] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [23-11-2025 14:33:55] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [23-11-2025 14:33:55] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [23-11-2025 14:33:55] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [23-11-2025 14:33:55] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [23-11-2025 14:33:55] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [23-11-2025 14:33:55] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [23-11-2025 14:33:55] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Starting Test Execution ========
+[INFO] - [23-11-2025 14:33:55] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Directories Cleaned Successfully
+[INFO] - [23-11-2025 14:33:55] [main] [com.ferpfirstcode.FileUtils] - Directory created: test-output/screenshots/
+[INFO] - [23-11-2025 14:33:55] [main] [com.ferpfirstcode.FileUtils] - Directory created: test-output/recordings/
+[INFO] - [23-11-2025 14:33:55] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Directories Created Successfully
+[INFO] - [23-11-2025 14:33:55] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [23-11-2025 14:33:55] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [23-11-2025 14:33:55] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [23-11-2025 14:33:55] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [23-11-2025 14:33:55] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [23-11-2025 14:33:55] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [23-11-2025 14:33:55] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [23-11-2025 14:33:55] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [23-11-2025 14:33:55] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Properties Loaded Successfully
+[INFO] - [23-11-2025 14:33:55] [main] [com.ferpfirstcode.utils.report.AllureEnviromentManger] - Allure environment variables set.
+[INFO] - [23-11-2025 14:33:57] [main] [com.ferpfirstcode.utils.report.AllureBinaryManger] - Allure binaries already exist.
+[INFO] - [23-11-2025 14:33:57] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Allure Environment Variables Set Successfully
+[INFO] - [23-11-2025 14:33:57] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [23-11-2025 14:33:57] [main] [com.ferpfirstcode.driver.GUIDriver] - قيمة المتصفح من الخصائص: EDGE
+[INFO] - [23-11-2025 14:33:57] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
+[INFO] - [23-11-2025 14:33:57] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [23-11-2025 14:33:57] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [23-11-2025 14:33:57] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [23-11-2025 14:33:57] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [23-11-2025 14:33:57] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [23-11-2025 14:33:57] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [23-11-2025 14:33:57] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [23-11-2025 14:33:57] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [23-11-2025 14:34:00] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Starting Test: verifyLoginPageTitle ========
+[INFO] - [23-11-2025 14:34:00] [main] [FirstTest] - Opening the page...
+[INFO] - [23-11-2025 14:34:13] [main] [FirstTest] - Page title: Google
+[ERROR] - [23-11-2025 14:34:13] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Failed to Capture Screenshot Cannot invoke "org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)" because "driver" is null
+[INFO] - [23-11-2025 14:34:13] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Test: verifyLoginPageTitle Finished Successfully ========
+[INFO] - [23-11-2025 14:34:13] [main] [LoginTest] - تم تحميل بيانات الاختبار من JSON
+[INFO] - [23-11-2025 14:34:13] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [23-11-2025 14:34:13] [main] [com.ferpfirstcode.driver.GUIDriver] - قيمة المتصفح من الخصائص: EDGE
+[INFO] - [23-11-2025 14:34:13] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
+[INFO] - [23-11-2025 14:34:14] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Starting Test: validLoginTC ========
+[INFO] - [23-11-2025 14:34:18] [main] [com.ferpfirstcode.utils.actions.BrowserActions] - Navigated to URL:  http://localhost:4200/login
+[DEBUG] - [23-11-2025 14:34:18] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['username']
+[INFO] - [23-11-2025 14:34:19] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text:  1  in element:  By.id: username
+[DEBUG] - [23-11-2025 14:34:19] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['password']
+[INFO] - [23-11-2025 14:34:19] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text:  123456  in element:  By.id: pass
+[INFO] - [23-11-2025 14:34:19] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked on element: By.cssSelector: button.submitBtn
+[INFO] - [23-11-2025 14:34:23] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
+[INFO] - [23-11-2025 14:34:23] [main] [LoginTest] - تم تنفيذ اختبار تسجيل الدخول بنجاح
+[ERROR] - [23-11-2025 14:34:23] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Failed to Capture Screenshot Cannot invoke "org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)" because "driver" is null
+[INFO] - [23-11-2025 14:34:23] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Test: validLoginTC Finished Successfully ========
+[INFO] - [23-11-2025 14:34:28] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - 🛠️ Running Allure generate command: C:\Users\pc\.m2\repository\allure\allure-2.35.1\bin\allure.bat generate C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\allure-results -o C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\full-report --clean
+[INFO] - [23-11-2025 14:34:33] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - 🛠️ Running Allure generate command: C:\Users\pc\.m2\repository\allure\allure-2.35.1\bin\allure.bat generate C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\allure-results -o C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports --clean --single-file
+[INFO] - [23-11-2025 14:34:33] [main] [com.ferpfirstcode.FileUtils] - Target File Path: "C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports\index.html", file was renamed to "AllureReport_2025-11-23-14-34-33.html".
+[ERROR] - [23-11-2025 14:34:33] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - ❌ index.html not found. Report generation may have failed.
+[INFO] - [23-11-2025 14:34:33] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - REPORT PATH = C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports
+[INFO] - [23-11-2025 14:34:33] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - FULL FILE PATH = C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports\AllureReport_2025-11-23-14-34-33.html
+[INFO] - [23-11-2025 14:34:33] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - FILE EXISTS? true
+[INFO] - [23-11-2025 14:34:33] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - 🔥 Final Allure HTML report opened successfully
+[INFO] - [23-11-2025 14:34:33] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Allure Report Generated Successfully
+[INFO] - [23-11-2025 14:34:33] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Test Execution Finished ========

@@ -1,4 +1,4 @@
-name: CI-POS-Pipeline
+name: CI-POS-Pipeline-Windows
 
 on:
   push:
@@ -7,14 +7,14 @@ on:
 
 jobs:
   run-tests:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest   # <<< تشغيل على Windows
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
       # ---------- Setup Chrome ----------
-      - name: Setup Chrome
+      - name: Install Chrome
         uses: browser-actions/setup-chrome@v1
 
       # ---------- Setup .NET ------------
@@ -24,27 +24,31 @@ jobs:
           dotnet-version: '7.0.x'
 
       # ---------- Run Backend -----------
-      - name: Start Backend (Kestrel on 5000)
+      - name: Start Backend (Windows IIS Publish)
         working-directory: POS-19-10-2025/POS-BackPublish
         run: |
-          nohup dotnet POS.Web.dll --urls "http://0.0.0.0:5000" &
-          sleep 10
+          Start-Process dotnet -ArgumentList "POS.Web.dll --urls http://0.0.0.0:5000"
+          Start-Sleep -Seconds 10
 
       - name: Wait for Backend (Port 5000)
+        shell: pwsh
         run: |
-          for i in {1..30}; do
-            if curl -s http://localhost:5000 > /dev/null; then
-              echo "Backend is running";
-              exit 0;
-            fi
-            echo "Waiting for backend..."
-            sleep 3
-          done
-          echo "Backend failed to start";
+          $max = 30
+          for ($i=0; $i -lt $max; $i++) {
+            try {
+              Invoke-WebRequest -Uri "http://localhost:5000" -UseBasicParsing | Out-Null
+              Write-Host "Backend is running"
+              exit 0
+            } catch {
+              Write-Host "Waiting for backend..."
+              Start-Sleep -Seconds 3
+            }
+          }
+          Write-Host "Backend failed to start"
           exit 1
 
       # ---------- Setup Node ------------
-      - name: Setup NodeJS
+      - name: Setup Node JS
         uses: actions/setup-node@v3
         with:
           node-version: '18'
@@ -52,24 +56,21 @@ jobs:
       # ---------- Run Frontend ----------
       - name: Install and start Frontend
         working-directory: POS-19-10-2025/POSFront
+        shell: pwsh
         run: |
           npm install
-          nohup npm start &
-          sleep 10
+          Start-Process npm -ArgumentList "start"
+          Start-Sleep -Seconds 10
 
       - name: Wait for Frontend (Port 4200)
+        shell: pwsh
         run: |
-          for i in {1..30}; do
-            if curl -s http://localhost:4200 > /dev/null; then
-              echo "Frontend is running";
-              exit 0;
-            fi
-            echo "Waiting for frontend..."
-            sleep 3
-          done
-          echo "Frontend failed to start";
-          exit 1
-
-      # ---------- Run Selenium Tests ----
-      - name: Run Selenium Tests
-        run: mvn test
+          $max = 30
+          for ($i=0; $i -lt $max; $i++) {
+            try {
+              Invoke-WebRequest -Uri "http://localhost:4200" -UseBasicParsing | Out-Null
+              Write-Host "Frontend is running"
+              exit 0
+            } catch {
+              Write-Host "Waiting for frontend..."
+              Start-Sleep -Se

@@ -25,6 +25,8 @@ jobs:
     steps:
       - name: checkout Code
         uses: actions/checkout@v4
+      - name: List repo files
+        run: ls -R
 
       - name: setup java
         uses: actions/setup-java@v4
@@ -111,7 +113,6 @@ jobs:
           name: Edge_Windows_Report
           path: "test-output/reports/*.html"
 
-      - name: List repo files
-        run: ls -R
+
 
 

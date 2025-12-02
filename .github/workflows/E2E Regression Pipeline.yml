@@ -1,69 +1,75 @@
-name: E2E Regression
+name: CI-POS-Pipeline
 
 on:
-  repository_dispatch:
-    types: [project-b-trigger]
   push:
-    branches: [master]
-
-env:
-  TARGET: "%regex[.*Tests.*],com.automationexercices.tests.**.**,com.automationexercices.tests.**"
+    branches: [ "main" ]
+  pull_request:
 
 jobs:
-  Chrome_Linux_Test:
+  run-tests:
     runs-on: ubuntu-latest
-    permissions:
-      checks: write
+
     steps:
-      - name: checkout Code
-        uses: actions/checkout@v5
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-      - name: setup java
-        uses: actions/setup-java@v5
+      # ---------- Setup Chrome ----------
+      - name: Setup Chrome
+        uses: browser-actions/setup-chrome@v1
+
+      # ---------- Setup .NET ------------
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
         with:
-          distribution: 'temurin'
-          java-version: '17'
+          dotnet-version: '7.0.x'
 
-      - name: setup maven
-        uses: stCarolas/setup-maven@v5
+      # ---------- Run Backend -----------
+      - name: Start Backend (Kestrel)
+        working-directory: POS-19-10-2025/POS-BackPublish
+        run: |
+          nohup dotnet POS.Web.dll &
+          sleep 10
+
+      - name: Wait for Backend (Port 1208)
+        run: |
+          for i in {1..30}; do
+            if curl -s http://localhost:1208 > /dev/null; then
+              echo "Backend is running";
+              exit 0;
+            fi
+            echo "Waiting for backend..."
+            sleep 3
+          done
+          echo "Backend failed to start";
+          exit 1
+
+      # ---------- Setup Node ------------
+      - name: Setup NodeJS
+        uses: actions/setup-node@v3
         with:
-          maven-version: 3.9.9
+          node-version: '18'
 
-      - name: Running Tests
-        continue-on-error: true
-        run: mvn -Dtest="${TARGET}" -DexecutionType="LocalHeadless" -DbrowserType="Chrome" clean test
+      # ---------- Run Frontend ----------
+      - name: Install and start Frontend
+        working-directory: POS-19-10-2025/POSFront
+        run: |
+          npm install
+          nohup npm start &
+          sleep 10
 
-      - name: Upload Test Results
-        uses: actions/upload-artifact@v5
-        with:
-          name: Chrome_Linux_Report
-          path: "test-output/reports/*.html"
+      - name: Wait for Frontend (Port 4200)
+        run: |
+          for i in {1..30}; do
+            if curl -s http://localhost:4200 > /dev/null; then
+              echo "Frontend is running";
+              exit 0;
+            fi
+            echo "Waiting for frontend..."
+            sleep 3
+          done
+          echo "Frontend failed to start";
+          exit 1
 
-  Edge_Windows_Test:
-    runs-on: windows-latest
-    permissions:
-      checks: write
-    steps:
-      - name: checkout Code
-        uses: actions/checkout@v5
-
-      - name: setup java
-        uses: actions/setup-java@v5
-        with:
-          distribution: 'temurin'
-          java-version: '17'
-
-      - name: setup maven
-        uses: stCarolas/setup-maven@v5
-        with:
-          maven-version: 3.9.9
-
-      - name: Running Tests
-        continue-on-error: true
-        run: mvn -Dtest="${TARGET}" -DexecutionType="LocalHeadless" -DbrowserType="Edge" clean test
-
-      - name: Upload Test Results
-        uses: actions/upload-artifact@v5
-        with:
-          name: Edge_Windows_Report
-          path: "test-output/reports/*.html"
+      # ---------- Run Selenium Tests ----
+      - name: Run Selenium Tests
+        run: mvn test

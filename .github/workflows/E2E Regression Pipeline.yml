@@ -24,16 +24,16 @@ jobs:
           dotnet-version: '7.0.x'
 
       # ---------- Run Backend -----------
-      - name: Start Backend (Kestrel)
+      - name: Start Backend (Kestrel on 5000)
         working-directory: POS-19-10-2025/POS-BackPublish
         run: |
-          nohup dotnet POS.Web.dll &
+          nohup dotnet POS.Web.dll --urls "http://0.0.0.0:5000" &
           sleep 10
 
-      - name: Wait for Backend (Port 1208)
+      - name: Wait for Backend (Port 5000)
         run: |
           for i in {1..30}; do
-            if curl -s http://localhost:1208 > /dev/null; then
+            if curl -s http://localhost:5000 > /dev/null; then
               echo "Backend is running";
               exit 0;
             fi

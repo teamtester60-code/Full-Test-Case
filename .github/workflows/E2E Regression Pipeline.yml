@@ -110,3 +110,8 @@ jobs:
         with:
           name: Edge_Windows_Report
           path: "test-output/reports/*.html"
+
+      - name: List repo files
+        run: ls -R
+
+

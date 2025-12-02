@@ -2,13 +2,9 @@ name: E2E Regression
 
 on:
   push:
-    branches:
-      - master
-      - main
+    branches: [ master, main ]
   pull_request:
-    branches:
-      - master
-      - main
+    branches: [ master, main ]
   schedule:
     - cron: '00 21 * * *'
   workflow_dispatch:
@@ -17,60 +13,72 @@ env:
   TARGET: "%regex[.*Tests.*],com.automationexercices.tests.**.**,com.automationexercices.tests.**"
 
 jobs:
+
+  # -------------------- Chrome on Linux --------------------
   Chrome_Linux_Test:
     runs-on: ubuntu-latest
     permissions:
       checks: write
+
     steps:
-      - name: checkout Code
+      - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: setup java
+      - name: Setup Java
         uses: actions/setup-java@v4
         with:
-          distribution: 'zulu' # See 'Supported distributions' for available options
+          distribution: 'zulu'
           java-version: '21'
 
-      - name: setup maven
+      - name: Setup Maven
         uses: stCarolas/setup-maven@v5
         with:
           maven-version: 3.9.9
 
-      - name: Running Tests
+      - name: Running Chrome Tests (Linux Headless)
         continue-on-error: true
-        run: mvn -Dtest="${TARGET}" -DexecutionType="LocalHeadless"  -DbrowserType="Chrome" clean test
+        run: |
+          mvn -Dtest="${TARGET}" \
+              -DexecutionType="LocalHeadless" \
+              -DbrowserType="Chrome" clean test
 
       - name: Upload Test Results
         uses: actions/upload-artifact@v4
         with:
           name: Chrome_Linux_Report
-          path: "test-output/reports/*.html"
+          path: test-output/reports/*.html
 
+
+  # -------------------- Edge on Windows --------------------
   Edge_Windows_Test:
     runs-on: windows-latest
     permissions:
       checks: write
+
     steps:
-      - name: checkout Code
+      - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: setup java
+      - name: Setup Java
         uses: actions/setup-java@v4
         with:
-          distribution: 'zulu' # See 'Supported distributions' for available options
+          distribution: 'zulu'
           java-version: '21'
 
-      - name: setup maven
+      - name: Setup Maven
         uses: stCarolas/setup-maven@v5
         with:
           maven-version: 3.9.9
 
-      - name: Running Tests
+      - name: Running Edge Tests (Windows Headless)
         continue-on-error: true
-        run: mvn -Dtest="${TARGET}" -DexecutionType="LocalHeadless"  -DbrowserType="Edge" clean test
+        run: |
+          mvn -Dtest="${TARGET}" \
+              -DexecutionType="LocalHeadless" \
+              -DbrowserType="Edge" clean test
 
       - name: Upload Test Results
         uses: actions/upload-artifact@v4
         with:
           name: Edge_Windows_Report
-          path: "test-output/reports/*.html"
+          path: test-output/reports/*.html

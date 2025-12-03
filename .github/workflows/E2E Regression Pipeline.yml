@@ -2,13 +2,9 @@ name: E2E Regression
 
 on:
   push:
-    branches:
-      - master
-      - main
+    branches: [ master, main ]
   pull_request:
-    branches:
-      - master
-      - main
+    branches: [ master, main ]
   schedule:
     - cron: '00 21 * * *'
   workflow_dispatch:
@@ -18,93 +14,66 @@ env:
 
 jobs:
 
-  Chrome_Linux_Test:
-    runs-on: ubuntu-latest
-    permissions:
-      checks: write
-    steps:
-      - name: checkout Code
-        uses: actions/checkout@v4
-      - name: List repo files
-        run: ls -R
-
-      - name: setup java
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'zulu'
-          java-version: '21'
-
-      - name: setup maven
-        uses: stCarolas/setup-maven@v5
-        with:
-          maven-version: 3.9.9
-
-      - name: Running Tests
-        continue-on-error: true
-        run: mvn -Dtest="${TARGET}" -DexecutionType="LocalHeadless"  -DbrowserType="Chrome" clean test
-
-      - name: Upload Test Results
-        uses: actions/upload-artifact@v4
-        with:
-          name: Chrome_Linux_Report
-          path: "test-output/reports/*.html"
-
-
+  # -----------------------------------------------------
+  # 🟢 FRONTEND + SELENIUM (WINDOWS)
+  # -----------------------------------------------------
   Edge_Windows_Test:
     runs-on: windows-latest
     permissions:
       checks: write
+
     steps:
-      - name: checkout Code
+
+      - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: setup java
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'zulu'
-          java-version: '17'
-
-      - name: setup maven
-        uses: stCarolas/setup-maven@v5
-        with:
-          maven-version: 3.9.9
-
-      # -------------------- Start Angular --------------------
-      - name: Install Node
+      - name: Install Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
       - name: Install Angular Dependencies
-        run: npm install
         working-directory: POS-19-10-2025/POSFront
+        run: npm install
 
-      - name: Start Angular Server
+      - name: Start Angular Server (background)
+        working-directory: POS-19-10-2025/POSFront
         shell: pwsh
         run: |
-          Start-Process cmd "/c npm start" -WorkingDirectory "POS-19-10-2025/POSFront"
-          Start-Sleep -Seconds 12
+          Start-Job -ScriptBlock { npm start }
+          Start-Sleep -Seconds 15
 
-      - name: Wait for Angular to start
+      - name: Wait until Angular is running
         shell: pwsh
         run: |
-          $max = 20
+          $max = 30
           for ($i=0; $i -lt $max; $i++) {
             try {
               Invoke-WebRequest -Uri "http://localhost:4200" -UseBasicParsing | Out-Null
-              Write-Host "Frontend is running"
+              Write-Host "Angular Frontend is UP!"
               exit 0
             } catch {
               Write-Host "Waiting for Angular..."
               Start-Sleep -Seconds 3
             }
           }
-          Write-Host "Angular failed to start"
+          Write-Host "Angular FAILED to start!"
           exit 1
 
-      # -------------------- Run Selenium Tests --------------------
-      - name: Running Tests
-        continue-on-error: true
+      # ---------------- Maven + Selenium -----------------
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '21'
+
+      - name: Setup Maven
+        uses: stCarolas/setup-maven@v5
+        with:
+          maven-version: 3.9.9
+
+      - name: Run Selenium Tests (Edge)
         run: mvn -Dtest="${TARGET}" -DexecutionType="LocalHeadless" -DbrowserType="Edge" clean test
 
       - name: Upload Test Results
@@ -112,7 +81,3 @@ jobs:
         with:
           name: Edge_Windows_Report
           path: "test-output/reports/*.html"
-
-
-
-

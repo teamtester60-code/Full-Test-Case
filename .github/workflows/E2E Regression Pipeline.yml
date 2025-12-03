@@ -14,9 +14,6 @@ env:
 
 jobs:
 
-  # -----------------------------------------------------
-  # 🟢 FRONTEND + SELENIUM (WINDOWS)
-  # -----------------------------------------------------
   Edge_Windows_Test:
     runs-on: windows-latest
     permissions:
@@ -24,10 +21,17 @@ jobs:
 
     steps:
 
+      # -----------------------------------------------------
+      # Checkout the repository
+      # -----------------------------------------------------
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Install Node.js
+
+      # -----------------------------------------------------
+      # Node + Angular
+      # -----------------------------------------------------
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
@@ -60,8 +64,10 @@ jobs:
           Write-Host "Angular FAILED to start!"
           exit 1
 
-      # ---------------- Maven + Selenium -----------------
 
+      # -----------------------------------------------------
+      # Java + Maven + Selenium
+      # -----------------------------------------------------
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
@@ -76,8 +82,12 @@ jobs:
       - name: Run Selenium Tests (Edge)
         run: mvn -Dtest="${TARGET}" -DexecutionType="LocalHeadless" -DbrowserType="Edge" clean test
 
+
+      # -----------------------------------------------------
+      # Upload Reports
+      # -----------------------------------------------------
       - name: Upload Test Results
         uses: actions/upload-artifact@v4
         with:
           name: Edge_Windows_Report
-          path: "test-output/reports/*.html"
+          path: test-output/reports/*.html

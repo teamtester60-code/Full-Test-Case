@@ -1,20 +1,10 @@
 {
   "product1": {
-    "name": "Men Tshirt",
-    "price": "Rs. 400",
-    "quantity": "1",
-    "total": "Rs. 400"
+    "name": " طبق مشويات مشكل ",
+    "price": " 350.00 "
   },
-  "SearchProduct": {
-   "name": "Blue Top",
-    "price": "Rs. 500",
-    "quantity": "1",
-    "total": "Rs. 500"
-  },
-   "messages" :
-  {
-    "cartAdded": "Your product has been added to cart."
+  "product2": {
+   "name": " عرض 1 ",
+    "price": "120.00"
   }
-
-
 }

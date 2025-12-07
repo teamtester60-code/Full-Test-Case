@@ -1,0 +1,18 @@
+.tooltip {
+  padding: 5px;
+}
+
+.tooltip.show {
+  opacity: 1 !important;
+}
+
+.tooltip > .tooltip-inner {
+  -webkit-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.1);
+  border: 0 !important;
+  background-color: #5b4b92 !important;
+  opacity: 1;
+  font-size: 14px;
+  color: #fff;
+}

@@ -4,6 +4,14 @@
    "messages" :
    {
      "error": " Username or Password is incorrect."
+   },
+   "product1": {
+     "name": " طبق مشويات مشكل ",
+     "price": " 350.00 "
+   },
+   "product2": {
+     "name": " عرض 1 ",
+     "price": "120.00"
    }
 
 }

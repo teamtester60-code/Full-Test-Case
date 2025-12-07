@@ -1,0 +1,167 @@
+/* Badges */
+[class*="badge-"],
+a.badge[class*="badge-"]:hover {
+  color: #fff;
+}
+
+.badge.badge-primary {
+  background-color: #ff0018;
+}
+
+.badge.badge-secondary {
+  background-color: #445cc8;
+}
+
+.badge.badge-success {
+  background-color: #28a745;
+}
+
+.badge.badge-warning {
+  background-color: #fda600;
+}
+
+.badge.badge-danger {
+  background-color: #f9423c;
+}
+
+.badge.badge-info {
+  background-color: #ff0018;
+}
+
+.badge-pill.badge-light {
+  padding: .1em .4em !important;
+}
+
+.badge.badge-light {
+  background-color: #878793;
+}
+
+.badge.badge-dark {
+  background-color: #34334a;
+}
+
+a.badge.badge-primary:hover {
+  background-color: #bc2634;
+}
+
+a.badge.badge-secondary:hover {
+  background-color: #374eae;
+}
+
+a.badge.badge-success:hover {
+  background-color: #09a561;
+}
+
+a.badge.badge-warning:hover {
+  background-color: #e89800;
+}
+
+a.badge.badge-danger:hover {
+  background-color: #db3c36;
+}
+
+a.badge.badge-info:hover {
+  background-color: #437eb7;
+}
+
+a.badge.badge-light:hover {
+  background-color: #75757c;
+}
+
+a.badge.badge-dark:hover {
+  background-color: #262538;
+}
+
+.badge[class*="badge-outline-"] {
+  background-color: transparent;
+  border: 1px solid;
+}
+
+button .badge[class*="badge-outline-"],
+a .badge[class*="badge-outline-"] {
+  background-color: #fff;
+}
+
+.badge.badge-outline-primary {
+  border-color: #ff0018;
+  color: #ff0018;
+}
+
+.badge.badge-outline-secondary {
+  border-color: #374eae;
+  color: #374eae;
+}
+
+.badge.badge-outline-success {
+  border-color: #07be6e;
+  color: #07be6e;
+}
+
+.badge.badge-outline-warning {
+  border-color: #fda600;
+  color: #fda600;
+}
+
+.badge.badge-outline-danger {
+  border-color: #f9423c;
+  color: #f9423c;
+}
+
+.badge.badge-outline-info {
+  border-color: #4f8dca;
+  color: #4f8dca;
+}
+
+.badge.badge-outline-light {
+  border-color: #878793;
+  color: #878793;
+}
+
+.badge.badge-outline-dark {
+  border-color: #262538;
+  color: #262538;
+}
+
+.badge-gradient-primary {
+  background-color: #ff0018;
+  background-image: linear-gradient(to right, #ff0018, #bc2634);
+}
+
+.badge-gradient-secondary {
+  background-color: #926afe;
+  background-image: linear-gradient(to right, #926afe, #bd9aff);
+}
+
+.badge-gradient-success {
+  background-color: #12b252;
+  background-image: linear-gradient(to right, #12b252, #31e97a);
+}
+
+.badge-gradient-info {
+  background-color: #3e60ff;
+  background-image: linear-gradient(to right, #3e60ff, #5ba0fd);
+}
+
+.badge-gradient-warning {
+  background-color: #fea837;
+  background-image: linear-gradient(to right, #fea837, #fed257);
+}
+
+.badge-gradient-danger {
+  background-color: #eb025d;
+  background-image: linear-gradient(to right, #eb025d, #fe4749);
+}
+
+.badge-gradient-dark {
+  background-color: #252434;
+  background-image: linear-gradient(to right, #252434, #3a3850);
+}
+
+.badge-gradient-light {
+  background-color: #5f5f67;
+  background-image: linear-gradient(to right, #5f5f67, #858591);
+}
+
+.badge-square {
+  border-radius: 0;
+}

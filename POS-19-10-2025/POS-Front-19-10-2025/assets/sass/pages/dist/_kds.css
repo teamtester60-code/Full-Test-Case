@@ -1,0 +1,372 @@
+.media-body h4 {
+  font-weight: bold;
+}
+
+h4.progressHeader {
+  font-weight: bold;
+}
+
+.masonry-item {
+  width: 200px;
+}
+
+.kds {
+  height: 100%;
+  background: #f0f0fa;
+  overflow: auto;
+  box-sizing: border-box;
+}
+.kds .ms-card {
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+.kds .ms-card-header h6 {
+  font-weight: bold;
+}
+.kds span {
+  font-size: 1.1rem;
+  color: grey;
+  font-weight: 700;
+}
+.kds .btn-warning span {
+  color: #fff;
+}
+.kds .btn_Light {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: grey;
+}
+.kds .btn_Light:hover {
+  color: grey !important;
+}
+.kds .btn_danger {
+  background-color: #d9534f;
+  color: #fff;
+}
+.kds .btn_danger span {
+  color: #fff;
+}
+.kds .btn_yellow {
+  background-color: #F7630C;
+  color: #fff;
+}
+.kds .btn_yellow span {
+  color: #fff;
+}
+.kds table thead tr th {
+  color: #2c97b8;
+}
+.kds .badge {
+  border: #fff !important;
+  color: #000 !important;
+  background-color: #fff;
+}
+.kds .link_blue {
+  color: #fff !important;
+  background-color: #5bc0de;
+  font-weight: 700;
+}
+.kds .ms-checkbox-wrap input[type=checkbox]:checked + i.ms-checkbox-check::before {
+  background-color: green;
+  border: green;
+}
+.kds .ms-list-item p, .kds .ms-list-item span {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #000;
+}
+.kds .ms-card-header {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 57% 90%, 50% 100%, 43% 90%, 0 90%);
+}
+.kds .ms-card-header_green {
+  background-color: #07be6e;
+}
+.kds .ms-card-header_green span {
+  color: #fff;
+}
+.kds .ms-card-header_danger {
+  background-color: #d9534f;
+  color: #fff;
+}
+.kds .ms-card-header_danger span {
+  color: #fff;
+}
+.kds .ms-card-header_yellow {
+  background-color: #F7630C;
+  color: #fff;
+}
+.kds .ms-card-header_yellow span {
+  color: #fff;
+}
+.kds .ms-card-header_Light {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: grey;
+}
+.kds .ms-card-header_Light span {
+  color: grey;
+}
+.kds .ms-card-header-warning {
+  color: #fff;
+  background-color: #fda600;
+}
+.kds .ms-card-header-warning span {
+  color: #fff;
+}
+.kds ul.editulStyle span {
+  color: #000;
+  font-size: 1rem;
+}
+.kds ul.editulStyle .note {
+  color: #d9534f;
+  font-weight: bold;
+  font-size: 1rem;
+  font-family: "ultimatefont", sans-serif;
+}
+.kds ul.editulStyle .note i {
+  color: #d9534f;
+}
+.kds ul.editulStyle .note img {
+  width: 20px;
+  height: 20px;
+}
+.kds .popubtn {
+  position: absolute;
+  top: -15px;
+  right: -4px;
+  left: auto;
+  width: 27px;
+  height: 27px;
+  background: #e89800;
+  border-radius: 50%;
+  font-size: 10px;
+  text-align: center;
+  color: #fff;
+  padding: 0.5rem;
+  border: 1px solid #e89800;
+  z-index: 999;
+}
+.kds .popubtn:hover, .kds .popubtn:focus {
+  cursor: pointer;
+}
+.kds .modalll {
+  position: fixed !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  background: rgba(0, 0, 0, 0.65);
+  width: 100% !important;
+  height: 100vh;
+  z-index: 9999 !important;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  line-height: normal;
+}
+.kds .modalContin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 10px;
+  padding: 25px 25px 35px 25px;
+  width: 100%;
+  max-width: 400px;
+  font-family: sans-serif;
+}
+.kds .sideDishesLi span {
+  color: #07be6e !important;
+  font-weight: 700;
+}
+.kds .sideDishesLi img {
+  width: 20px;
+  height: 20px;
+}
+.kds .bar-warning {
+  background-color: yellow;
+}
+.kds .bar-success {
+  background-color: green;
+}
+.kds .bar-error {
+  background-color: red;
+}
+.kds .progress {
+  height: 20px;
+}
+.kds .progress-bar {
+  color: #000;
+  font-weight: bold;
+  height: 23px;
+}
+
+/***** ready order ********/
+ul.startOrders li {
+  display: flex;
+  padding: 0.7rem 0;
+}
+ul.startOrders li:not(:last-child) {
+  border-bottom: 1px solid #ddd;
+}
+ul.startOrders li:nth-child(even) {
+  background: #CAF0F8;
+}
+ul.startOrders li:nth-child(even) .progress {
+  background-color: #fff !important;
+}
+ul.startOrders li .progress {
+  margin: 0 !important;
+  width: 100%;
+}
+
+.kds.readyOrder .sideDishesLi span {
+  color: #EA3546 !important;
+  font-weight: 700;
+}
+
+.ms-checkbox-wrap input[type=checkbox] {
+  opacity: 1;
+  width: 25px;
+  height: 25px;
+}
+
+.readyOrder .editGrid2 {
+  column-count: 7;
+  -moz-column-count: 7;
+  -webkit-column-count: 7;
+  column-gap: 5px;
+  -moz-column-gap: 5px;
+  -webkit-column-gap: 5px;
+}
+.readyOrder .editGrid2 > div {
+  display: inline-block;
+  width: 100%;
+  position: relative;
+}
+
+@media only screen and (max-width: 1200px) {
+  .kds .editGrid2 {
+    column-count: 5;
+    -moz-column-count: 5;
+    -webkit-column-count: 5;
+  }
+
+  ul.startOrders li {
+    display: flex;
+    flex-direction: row;
+  }
+}
+@media only screen and (max-width: 992px) {
+  ul.startOrders li {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media only screen and (max-width: 768px) {
+  ul.startOrders li {
+    display: flex;
+    flex-direction: row;
+  }
+}
+/* customer KDS */
+.customersKds .progressHeader {
+  color: #023E8A;
+}
+.customersKds .kds {
+  overflow-x: hidden;
+}
+.customersKds .progress-label, .customersKds .progress-status {
+  margin-bottom: 0px !important;
+}
+.customersKds .progress-label {
+  color: #023E8A;
+  padding: 0 0.3rem;
+}
+
+.editGrid2.customersKds > div {
+  width: 10rem;
+}
+
+.editCircle {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  border: 2px #ddd solid;
+  border-radius: 5PX;
+}
+.editCircle span {
+  color: #000 !important;
+}
+
+/******* RESPONSIVE  *******/
+.readyOrder .editGrid3 {
+  column-count: 6;
+  -moz-column-count: 6;
+  -webkit-column-count: 6;
+  column-gap: 5px;
+  -moz-column-gap: 5px;
+  -webkit-column-gap: 5px;
+}
+
+.readyOrder .editGrid2.customersKds {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+  align-items: center;
+  column-count: 9;
+  -moz-column-count: 9;
+  -webkit-column-count: 9;
+  column-gap: 5px;
+  -moz-column-gap: 5px;
+  -webkit-column-gap: 5px;
+}
+
+@media only screen and (max-width: 992px) {
+  .kds .editGrid2 {
+    column-count: 4;
+    -moz-column-count: 4;
+    -webkit-column-count: 4;
+  }
+  .kds .editGrid3 {
+    column-count: 5;
+    -moz-column-count: 5;
+    -webkit-column-count: 5;
+  }
+  .kds .editGrid2.customersKds {
+    column-count: 4;
+    -moz-column-count: 4;
+    -webkit-column-count: 4;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .kds .editGrid2 {
+    column-count: 3;
+    -moz-column-count: 3;
+    -webkit-column-count: 3;
+  }
+  .kds .editGrid3 {
+    column-count: 3;
+    -moz-column-count: 3;
+    -webkit-column-count: 3;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .kds .editGrid2 {
+    column-count: 2;
+    -moz-column-count: 2;
+    -webkit-column-count: 2;
+  }
+  .kds .editGrid3 {
+    column-count: 2;
+    -moz-column-count: 2;
+    -webkit-column-count: 2;
+  }
+}

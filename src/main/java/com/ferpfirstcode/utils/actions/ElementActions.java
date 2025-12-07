@@ -402,5 +402,20 @@ public class ElementActions {
             LogsManager.error("Failed to capture screenshot: " + ex.getMessage());
         }
     }
+    public boolean isElementVisible(By locator) {
+        try {
+            return waitsManager.fluentWait().until(d -> {
+                WebElement element = d.findElement(locator);
+                scrollToElement(locator);
+                boolean isVisible = element.isDisplayed();
+                LogsManager.info("Element visibility for: " + locator + " - " + isVisible);
+                return isVisible;
+            });
+        } catch (Exception e) {
+            LogsManager.error("Failed to verify visibility of element: " + locator + " - " + e.getMessage());
+            takeScreenshot("isElementVisible-" + locator.toString());
+            return false; // instead of throwing, return false
+        }
+    }
 }
 

@@ -1,0 +1,84 @@
+.dropdown-menu {
+  display: block;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  visibility: hidden;
+  top: 0;
+  opacity: 0;
+  -webkit-box-shadow: 0 1px 24px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 1px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 24px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu.show {
+  visibility: visible;
+  opacity: 1;
+  top: 100%;
+}
+
+.dropdown-menu-right {
+  right: 0;
+  left: auto;
+}
+
+.editMenu {
+  left: 50px !important;
+}
+
+.dropdown-item {
+  padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+  text-align: left !important;
+}
+
+.ms-dropdown-list {
+  max-height: 18rem;
+}
+
+.dropdown-header {
+  padding: 0.5rem;
+}
+
+.media {
+  justify-content: space-between;
+  align-items: center;
+  -webkit-transition: 0s;
+  transition: 0s;
+}
+
+.dropdown-menu .media:hover {
+  background: #e9ecef;
+}
+
+.dropdown-toggle::after {
+  vertical-align: 0.155em;
+}
+
+.user-dropdown.dropdown-menu {
+  min-width: 200px;
+}
+
+.dropdown-menu .media img {
+  width: 40px;
+}
+
+.dropdown-menu.dropright .dropdown-menu,
+.dropdown-menu.dropleft .dropdown-menu {
+  top: 0;
+}
+
+.dropdown-menu.dropleft li a:not(.dropdown-toggle) {
+  justify-content: flex-end;
+}
+
+@media (max-width: 768px) {
+  .ms-nav-list .dropdown {
+    position: static;
+  }
+
+  .ms-navbar .dropdown-menu {
+    width: auto;
+    margin: 10px auto;
+    right: 15px;
+    left: 15px;
+  }
+}

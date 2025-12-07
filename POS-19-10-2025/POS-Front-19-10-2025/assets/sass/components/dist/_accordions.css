@@ -1,0 +1,69 @@
+@charset "UTF-8";
+/* Accordions */
+.card.editCard {
+  border: 1px solid #ccc !important;
+  border-radius: 5px !important;
+}
+
+.accordion .card-header[aria-expanded=true]::after {
+  content: "";
+}
+
+.accordion .card-header[aria-expanded=false]::after {
+  content: "";
+}
+
+.ms-accordion-chevron.accordion .card-header::after {
+  transition: 0.3s;
+  content: "";
+}
+
+.ms-accordion-chevron.accordion .card-header[aria-expanded=true]::after {
+  transform: rotate(180deg);
+}
+
+.ms-accordion-chevron.accordion .card-header[aria-expanded=false]::after {
+  transform: rotate(0deg);
+}
+
+.accordion .card-header span {
+  display: block;
+  vertical-align: inherit;
+  font-size: 14px;
+  max-width: 87%;
+  color: #3a3952;
+  font-weight: 600;
+}
+
+.accordion .card-header span.has-icon {
+  margin-left: 40px;
+}
+
+.accordion .card-header i::before {
+  font-size: 24px;
+}
+
+.accordion .card-header.he i::before {
+  font-size: 16px !important;
+}
+
+.accordion .card {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.accordion .card-body {
+  color: #878793;
+}
+
+.accordion.has-gap .card-header {
+  border-radius: 3px 3px;
+}
+
+.accordion.has-gap .card:first-of-type,
+.accordion.has-gap .card:not(:first-of-type):not(:last-of-type) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.accordion.has-gap .card {
+  margin-bottom: 1rem;
+}

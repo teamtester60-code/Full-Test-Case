@@ -174,18 +174,18 @@ public class LoginPage {
     }
 
     @Step("Click Login Button")
-    public LoginPage clickLoginButton() {
+    public PosPage clickLoginButton() {
         driver.element().clickElement(loginButton);
-        return this;
+        return new PosPage(driver);
     }
 
-    @Step("Verify Successful Login")
-    public LoginPage verifyloggedinsuccess() throws InterruptedException {
-        Thread.sleep(4000); // wait for login to complete
-        ScreenShotsManager.takeFullPageScreenshot(driver.get(),"AfterLogin");
-        driver.verify().isElementVisible(visibleIcon);
-        return this;
-    }
+//    @Step("Verify Successful Login")
+//    public HomePage verifyloggedinsuccess() throws InterruptedException {
+//        Thread.sleep(4000); // wait for login to complete
+//        ScreenShotsManager.takeFullPageScreenshot(driver.get(),"AfterLogin");
+//        driver.verify().isElementVisible(visibleIcon);
+//        return new HomePage(driver);
+//    }
 
     public LoginPage verifyErrorMessage(String expectedMessage) {
         String actual = driver.element().getElementText(errorMessage);

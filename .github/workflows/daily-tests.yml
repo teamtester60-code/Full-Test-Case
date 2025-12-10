@@ -31,21 +31,44 @@ jobs:
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ runner.os }}-m2-
 
-    - name: Set up Microsoft Edge
-      uses: browser-actions/setup-edge@v3
-      with:
-        channel: 'stable'
-        
-    - name: Verify Edge installation
+    - name: تثبيت Microsoft Edge
       run: |
+        # تحميل وتثبيت Microsoft Edge
+        $edgeUrl = "https://msedge.sf.dl.delivery.mp.microsoft.com/filestreamingservice/files/6b1e4f1c-9e1a-4e5d-bf7d-7c1e4a5f7e0f/MicrosoftEdgeEnterpriseX64.msi"
+        $installerPath = "$env:TEMP\MicrosoftEdgeSetup.msi"
+        
+        Write-Host "جاري تحميل Microsoft Edge..."
+        Invoke-WebRequest -Uri $edgeUrl -OutFile $installerPath
+        
+        Write-Host "جاري التثبيت..."
+        Start-Process -FilePath "msiexec.exe" -ArgumentList "/i", "`"$installerPath`"", "/qn", "ALLUSERS=1" -Wait
+        
+        Write-Host "التحقق من التثبيت..."
         $edgePath = "${env:ProgramFiles(x86)}\Microsoft\Edge\Application\msedge.exe"
         if (Test-Path $edgePath) {
-          Write-Host "Microsoft Edge is installed at: $edgePath"
-          & $edgePath --version
+          $version = & $edgePath --version
+          Write-Host "تم تثبيت Microsoft Edge بنجاح - الإصدار: $version"
         } else {
-          Write-Error "Microsoft Edge not found at expected location"
+          Write-Error "فشل تثبيت Microsoft Edge"
           exit 1
         }
+        
+        # تثبيت Microsoft Edge WebDriver
+        Write-Host "جاري تثبيت WebDriver..."
+        $driverUrl = "https://msedgedriver.azureedge.net/${version}/edgedriver_win64.zip"
+        $driverZip = "$env:TEMP\msedgedriver.zip"
+        $driverPath = "$env:ProgramFiles\Microsoft Web Driver"
+        
+        Invoke-WebRequest -Uri $driverUrl -OutFile $driverZip
+        Expand-Archive -Path $driverZip -DestinationPath $env:TEMP -Force
+        New-Item -ItemType Directory -Path $driverPath -Force | Out-Null
+        Copy-Item "$env:TEMP\msedgedriver.exe" -Destination $driverPath -Force
+        
+        # إضافة WebDriver إلى متغيرات النظام
+        $env:Path += ";$driverPath"
+        [System.Environment]::SetEnvironmentVariable("Path", $env:Path, [System.EnvironmentVariableTarget]::Machine)
+        
+        Write-Host "اكتمل التثبيت بنجاح"
 
     - name: Build and test with Maven
       run: mvn clean test

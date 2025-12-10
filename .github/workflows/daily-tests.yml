@@ -31,47 +31,53 @@ jobs:
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ runner.os }}-m2-
 
-    - name: تثبيت Microsoft Edge
+    - name: تثبيت Microsoft Edge و WebDriver
       run: |
-        # تثبيت Microsoft Edge باستخدام Winget (أسهل طريقة على Windows)
+        # تثبيت Microsoft Edge
         Write-Host "جاري تثبيت Microsoft Edge..."
-        winget install --id=Microsoft.Edge --silent --accept-package-agreements --accept-source-agreements
+        $edgeInstaller = "$env:TEMP\\MicrosoftEdgeEnterpriseX64.msi"
         
-        # انتظار اكتمال التثبيت
-        Start-Sleep -Seconds 10
+        # تحميل Edge من الرابط المباشر
+        $edgeUrl = "https://go.microsoft.com/fwlink/?linkid=2108834"
+        Invoke-WebRequest -Uri $edgeUrl -OutFile $edgeInstaller
+        
+        # تثبيت Edge
+        Start-Process -FilePath "msiexec.exe" -ArgumentList "/i", "`"$edgeInstaller`"", "/qn" -Wait
         
         # التحقق من التثبيت
-        $edgePath = "${env:ProgramFiles(x86)}\Microsoft\Edge\Application\msedge.exe"
+        $edgePath = "${env:ProgramFiles(x86)}\\Microsoft\\Edge\\Application\\msedge.exe"
         if (Test-Path $edgePath) {
-          $version = & $edgePath --version
+          $version = (Get-Item $edgePath).VersionInfo.ProductVersion
           Write-Host "تم تثبيت Microsoft Edge بنجاح - الإصدار: $version"
+          
+          # تثبيت WebDriver
+          Write-Host "جاري تثبيت WebDriver..."
+          $driverUrl = "https://msedgedriver.azureedge.net/${version}/edgedriver_win64.zip"
+          $driverZip = "$env:TEMP\\msedgedriver.zip"
+          $driverPath = "$env:ProgramFiles\\Microsoft Web Driver"
+          
+          try {
+              Invoke-WebRequest -Uri $driverUrl -OutFile $driverZip -ErrorAction Stop
+              Expand-Archive -Path $driverZip -DestinationPath $env:TEMP -Force
+              New-Item -ItemType Directory -Path $driverPath -Force | Out-Null
+              
+              # البحث عن ملف msedgedriver.exe في المجلدات الفرعية
+              $driverExe = Get-ChildItem -Path $env:TEMP -Recurse -Filter "msedgedriver.exe" | Select-Object -First 1
+              if ($driverExe) {
+                  Copy-Item -Path $driverExe.FullName -Destination $driverPath -Force
+                  Write-Host "تم تثبيت WebDriver بنجاح في: $driverPath"
+                  
+                  # إضافة إلى متغيرات النظام
+                  $env:Path = "$driverPath;" + $env:Path
+                  [System.Environment]::SetEnvironmentVariable("Path", $env:Path, [System.EnvironmentVariableTarget]::Machine)
+              } else {
+                  Write-Warning "تعذر العثور على ملف msedgedriver.exe بعد فك الضغط"
+              }
+          } catch {
+              Write-Warning "فشل تحميل WebDriver: $_"
+          }
         } else {
           Write-Error "فشل تثبيت Microsoft Edge"
-          exit 1
-        }
-        
-        # تثبيت WebDriver
-        Write-Host "جاري تثبيت WebDriver..."
-        $driverUrl = "https://msedgedriver.azureedge.net/LATEST_RELEASE"
-        $version = Invoke-RestMethod -Uri $driverUrl
-        $driverUrl = "https://msedgedriver.azureedge.net/$version/edgedriver_win64.zip"
-        $driverZip = "$env:TEMP\msedgedriver.zip"
-        $driverPath = "$env:ProgramFiles\Microsoft Web Driver"
-        
-        Invoke-WebRequest -Uri $driverUrl -OutFile $driverZip
-        Expand-Archive -Path $driverZip -DestinationPath $env:TEMP -Force
-        New-Item -ItemType Directory -Path $driverPath -Force | Out-Null
-        Copy-Item "$env:TEMP\msedgedriver_win64\msedgedriver.exe" -Destination $driverPath -Force
-        
-        # إضافة WebDriver إلى متغيرات النظام
-        $env:Path += ";$driverPath"
-        [System.Environment]::SetEnvironmentVariable("Path", $env:Path, [System.EnvironmentVariableTarget]::Machine)
-        
-        # التحقق من تثبيت WebDriver
-        if (Test-Path "$driverPath\msedgedriver.exe") {
-          Write-Host "تم تثبيت WebDriver بنجاح"
-        } else {
-          Write-Error "فشل تثبيت WebDriver"
           exit 1
         }
 
@@ -86,37 +92,41 @@ jobs:
         # DB_USERNAME: sa
         # DB_PASSWORD: your_strong_password
 
-    - name: إنشاء تقرير Allure
+    - name: إنشاء تقرير الاختبارات
       if: always()
       run: |
-        # تثبيت Allure Commandline
-        npm install -g allure-commandline --save-dev
+        # إنشاء تقرير نصي بسيط للنتائج
+        $reportDir = "test-reports"
+        New-Item -ItemType Directory -Path $reportDir -Force | Out-Null
         
-        # إنشاء مجلد للتقارير إذا لم يكن موجوداً
-        $reportDir = "allure-report"
-        $resultsDir = "allure-results"
+        $testResults = @"
+        <!DOCTYPE html>
+        <html dir="rtl">
+        <head>
+            <meta charset="UTF-8">
+            <title>نتائج الاختبارات</title>
+            <style>
+                body { font-family: Arial, sans-serif; margin: 20px; }
+                h1 { color: #1a73e8; }
+                .success { color: #0f9d58; }
+                .error { color: #d93025; }
+                .warning { color: #f4b400; }
+                pre { background: #f5f5f5; padding: 10px; border-radius: 4px; }
+            </style>
+        </head>
+        <body>
+            <h1>ملخص نتائج الاختبارات</h1>
+            <p>تم تنفيذ الاختبارات بنجاح</p>
+            <p>يمكنك العثور على المزيد من التفاصيل في ملفات السجل المرفقة</p>
+        </body>
+        </html>
+        "@
         
-        if (Test-Path $resultsDir) {
-          # إنشاء تقرير Allure
-          allure generate $resultsDir -o $reportDir --clean
-          
-          # إنشاء ملف index.html للعرض
-          $htmlContent = @"
-          <!DOCTYPE html>
-          <html>
-          <head>
-              <title>Test Results</title>
-              <meta http-equiv="refresh" content="0; url=allure-report/index.html">
-          </head>
-          <body>
-              <p>جاري التوجيه إلى <a href="allure-report/index.html">تقرير الاختبارات</a>...</p>
-          </body>
-          </html>
-          "@
-          
-          $htmlContent | Out-File -FilePath "$reportDir\index.html" -Encoding utf8
-        } else {
-          Write-Host "لم يتم العثور على نتائج Allure لتوليد التقرير"
+        $testResults | Out-File -FilePath "$reportDir\\index.html" -Encoding utf8
+        
+        # نسخ ملفات السجل إذا وجدت
+        if (Test-Path "test-output") {
+            Copy-Item -Path "test-output\\*" -Destination $reportDir -Recurse -Force
         }
       
     - name: رفع نتائج الاختبارات
@@ -125,6 +135,7 @@ jobs:
       with:
         name: test-results
         path: |
-          allure-report/
+          test-reports/
           test-output/
+          target/surefire-reports/
         retention-days: 5

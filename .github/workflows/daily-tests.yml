@@ -33,17 +33,14 @@ jobs:
 
     - name: تثبيت Microsoft Edge
       run: |
-        # تحميل وتثبيت Microsoft Edge
-        $edgeUrl = "https://msedge.sf.dl.delivery.mp.microsoft.com/filestreamingservice/files/6b1e4f1c-9e1a-4e5d-bf7d-7c1e4a5f7e0f/MicrosoftEdgeEnterpriseX64.msi"
-        $installerPath = "$env:TEMP\MicrosoftEdgeSetup.msi"
+        # تثبيت Microsoft Edge باستخدام Winget (أسهل طريقة على Windows)
+        Write-Host "جاري تثبيت Microsoft Edge..."
+        winget install --id=Microsoft.Edge --silent --accept-package-agreements --accept-source-agreements
         
-        Write-Host "جاري تحميل Microsoft Edge..."
-        Invoke-WebRequest -Uri $edgeUrl -OutFile $installerPath
+        # انتظار اكتمال التثبيت
+        Start-Sleep -Seconds 10
         
-        Write-Host "جاري التثبيت..."
-        Start-Process -FilePath "msiexec.exe" -ArgumentList "/i", "`"$installerPath`"", "/qn", "ALLUSERS=1" -Wait
-        
-        Write-Host "التحقق من التثبيت..."
+        # التحقق من التثبيت
         $edgePath = "${env:ProgramFiles(x86)}\Microsoft\Edge\Application\msedge.exe"
         if (Test-Path $edgePath) {
           $version = & $edgePath --version
@@ -53,22 +50,30 @@ jobs:
           exit 1
         }
         
-        # تثبيت Microsoft Edge WebDriver
+        # تثبيت WebDriver
         Write-Host "جاري تثبيت WebDriver..."
-        $driverUrl = "https://msedgedriver.azureedge.net/${version}/edgedriver_win64.zip"
+        $driverUrl = "https://msedgedriver.azureedge.net/LATEST_RELEASE"
+        $version = Invoke-RestMethod -Uri $driverUrl
+        $driverUrl = "https://msedgedriver.azureedge.net/$version/edgedriver_win64.zip"
         $driverZip = "$env:TEMP\msedgedriver.zip"
         $driverPath = "$env:ProgramFiles\Microsoft Web Driver"
         
         Invoke-WebRequest -Uri $driverUrl -OutFile $driverZip
         Expand-Archive -Path $driverZip -DestinationPath $env:TEMP -Force
         New-Item -ItemType Directory -Path $driverPath -Force | Out-Null
-        Copy-Item "$env:TEMP\msedgedriver.exe" -Destination $driverPath -Force
+        Copy-Item "$env:TEMP\msedgedriver_win64\msedgedriver.exe" -Destination $driverPath -Force
         
         # إضافة WebDriver إلى متغيرات النظام
         $env:Path += ";$driverPath"
         [System.Environment]::SetEnvironmentVariable("Path", $env:Path, [System.EnvironmentVariableTarget]::Machine)
         
-        Write-Host "اكتمل التثبيت بنجاح"
+        # التحقق من تثبيت WebDriver
+        if (Test-Path "$driverPath\msedgedriver.exe") {
+          Write-Host "تم تثبيت WebDriver بنجاح"
+        } else {
+          Write-Error "فشل تثبيت WebDriver"
+          exit 1
+        }
 
     - name: Build and test with Maven
       run: mvn clean test
@@ -81,18 +86,45 @@ jobs:
         # DB_USERNAME: sa
         # DB_PASSWORD: your_strong_password
 
-#       Uncomment and modify the following section if you have Allure reports
-    - name: Generate Allure Report
+    - name: إنشاء تقرير Allure
       if: always()
-      uses: simple-elf/allure-report-action@v1
-      with:
-         allure_results: target/allure-results
-         enable_charts: true
-
-    - name: Upload test results
+      run: |
+        # تثبيت Allure Commandline
+        npm install -g allure-commandline --save-dev
+        
+        # إنشاء مجلد للتقارير إذا لم يكن موجوداً
+        $reportDir = "allure-report"
+        $resultsDir = "allure-results"
+        
+        if (Test-Path $resultsDir) {
+          # إنشاء تقرير Allure
+          allure generate $resultsDir -o $reportDir --clean
+          
+          # إنشاء ملف index.html للعرض
+          $htmlContent = @"
+          <!DOCTYPE html>
+          <html>
+          <head>
+              <title>Test Results</title>
+              <meta http-equiv="refresh" content="0; url=allure-report/index.html">
+          </head>
+          <body>
+              <p>جاري التوجيه إلى <a href="allure-report/index.html">تقرير الاختبارات</a>...</p>
+          </body>
+          </html>
+          "@
+          
+          $htmlContent | Out-File -FilePath "$reportDir\index.html" -Encoding utf8
+        } else {
+          Write-Host "لم يتم العثور على نتائج Allure لتوليد التقرير"
+        }
+      
+    - name: رفع نتائج الاختبارات
       if: always()
       uses: actions/upload-artifact@v4
       with:
         name: test-results
-        path: test-output/reports/*.html
+        path: |
+          allure-report/
+          test-output/
         retention-days: 5

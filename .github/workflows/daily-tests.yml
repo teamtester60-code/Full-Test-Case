@@ -32,7 +32,7 @@ jobs:
         restore-keys: ${{ runner.os }}-m2-
 
     - name: Set up Microsoft Edge
-      uses: browser-actions/setup-edge@v2
+      uses: browser-actions/setup-edge@v3
       with:
         channel: 'stable'
         
@@ -68,7 +68,7 @@ jobs:
 
     - name: Upload test results
       if: always()
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: test-results
         path: test-output/reports/*.html

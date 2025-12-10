@@ -4,8 +4,10 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+
+
 @Listeners(com.ferpfirstcode.customlisteners.TestNGListeners.class)
-public class OrderTest extends BaseTest {
+public class PaymentTest extends BaseTest {
     protected String timestamp = com.ferpfirstcode.utils.TimeManager.gettimestamp();
     protected JsonReader testdata;
 
@@ -15,7 +17,7 @@ public class OrderTest extends BaseTest {
         LogsManager.info("تم تحميل بيانات الاختبار من JSON");
     }
     @Test
-    public void orderPageTC() throws InterruptedException {
+    public void paymentPageTC() throws InterruptedException {
         new com.ferpfirstcode.pages.components.LoginPage(guiDriver)
                 .navigateToLoginPage()
                 .enterPin(testdata.getJsonreader("password"))
@@ -30,6 +32,8 @@ public class OrderTest extends BaseTest {
                 .gotoorderpage()
                 .selectOrderTypebyindex()
                 .clickOnProduct()
-                .validateOrderIsSentSuccessfully();
+                .validateOrderIsSentSuccessfully()
+                .selectOrderToPay()
+                .validateDiscountCalculation(50);
     }
 }

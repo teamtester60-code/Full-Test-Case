@@ -2,11 +2,17 @@ package com.ferpfirstcode.pages.components;
 
 import com.ferpfirstcode.driver.GUIDriver;
 import com.ferpfirstcode.media.ScreenShotsManager;
+import io.qameta.allure.Allure;
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
+
+import java.util.List;
+
+
 
 public class OrderPage {
     private final GUIDriver driver;
@@ -17,7 +23,7 @@ public class OrderPage {
     private final By OrderListButton= By.xpath("//div[contains(@class,'ms-panel-body')]//i[contains(@class,'fa-clipboard-list')]");
     private final By orderpagebutton = By.xpath("//a[@href='/order']");
     private final By volumesPOPUP= By.cssSelector("div.modal-content.modal-contentWidth");
-    private final By okbuttonforsidedishmodal = By.xpath("button.btn.btn-primary.btn-footer.btnEdit");
+    private final By okbuttonforsidedishmodal = By.cssSelector("button.btn.btn-primary.btn-footer.btnEdit");
     private  final By volumeseditionbutton= By.xpath("(//button[contains(@class,'dropDownBtn')])[1]");
     private  final By sidedisheeditionbutton= By.xpath("(//button[contains(@class,'dropDownBtn')])[2]");
     private  final By noteseditionbutton= By.xpath("(//button[contains(@class,'dropDownBtn')])[3]");
@@ -29,45 +35,56 @@ public class OrderPage {
     private final By numberofpeopleontable= By.cssSelector("img.pull-right.img-thumbnail");
     private final By personscountbar= By.id("PersonsCount");
     private final By okbuttononpersonscountbar= By.id("#modal-Persons div.modal-footer button.btnEdit");
-    private final By sendorderbutton= By.xpath("//button[@id='ct-tab']//div[normalize-space(text())='Send']");
-    private final By payementbutton= By.xpath("//button[@id='coact-tab']//div[normalize-space(text())='Payment']");
+    private final By sendorderbutton= By.xpath("//*[@id=\"ct-tab\"]/div[1]");
+    private final By payementbutton= By.xpath("//*[@id=\"coact-tab\"]/div[1]");
     private final By sidedishPOPUP= By.id("modal-NewSideDishes");
     private final By searchbynamefield= By.xpath("(//input[@placeholder='Search By Name'])[1]");
     private final By selectcustomerbutton= By.cssSelector("button.btnPLus.btn-link");
-    private final By selectaddressbutton= By.xpath("(//tr[@id='collapseOne_@i']//button[normalize-space(text())='Select'])[1]");
+    private final By selectaddressbutton= By.xpath("(//*[@id=\"collapseOne_@i\"]/td[5]/button)[1]");
     private final By closecustomerselectionmodalbutton= By.xpath("//*[@id=\"nav-home\"]/div/div[2]/div[2]/div/button");
-    private final By opensentordersbutton= By.xpath("//*[@id=\"OverLayPin\"]/div/div[1]/div[3]/div[3]/div/nav/ul/li[4]/a/div");
+    private final By opensentordersbutton= By.xpath("//*[@id=\"OverLayPin\"]/div/div[1]/div[2]/div[3]/div/nav/ul/li[4]/a");
     private final By totalpricebeforesendorder=By.xpath("//li[contains(@class,'bg-maingreen')]//h5[last()]");
     private final By totalpriceaftersendorder=By.xpath("//table[contains(@class,'table')]//tbody//tr[1]/td[3]");
+    private final By selectedcostomerindilevery= By.xpath("//*[@id=\"accordion\"]/tr[1]/td[1]");
+    private final By tablenumber = By.xpath("(//li[starts-with(@id,'liDrag') and not(contains(@class,'TableBusy'))])[1]");
+    private final By selectorderbutton= By.xpath("//*[@id=\"modal-78\"]/div/div/div[2]/div[2]/table/tbody/tr[1]/td[8]/button[2]");
+    private final By employeebutton= By.xpath("//*[@id=\"modal-Waiter\"]/div/div/div[2]/div/div/div/div[3]/perfect-scrollbar/div/div[1]/table/tbody/tr[1]/td/button");
+    private final By cashieroperationbutton= By.id("#dropdownMenuLink");
+    private final By followorderbutton= By.xpath("//*[@id=\"OverLayPin\"]/div/div[1]/div[2]/div[3]/div/nav/ul/li[3]/a/div[2]/a[2]");
+    private final By checklorderbutton=By.xpath("(//table[contains(@class,'e-table')]//tbody//tr[last()]//input[@type='checkbox'])[1]");
+    private final By assigntodriverbutton= By.xpath("//button[contains(text(), 'Assign a Driver')]");
+    private final By assignbutton= By.xpath("//button[normalize-space()='Assign']");
+    private final By cancelprintbutton= By.xpath("//button[normalize-space()='Cancel']");
+    private final By paytheordersbutton= By.linkText("Pay the orders");
+    private final By selcetordertopaybutton= By.xpath("(//tbody/tr[last()]/td[1]//input[contains(@class,'e-checkbox')])[2]");
+    private final By paybutton= By.xpath("//button[contains(@class,'btnEdit') and normalize-space()='Pay']");
+    private final By ordertypes = By.xpath("//div[@id='v-pills-tab']//a");
+    private final By clickOk= By.xpath("//*[@id=\"modal-OrderType\"]/div/div/div[3]/button");
 
 
     //dynamic locator
-    private By productByName(String productName) {
-        return By.xpath("//div[contains(@class,'product-card')]//div[@class='productName' and normalize-space(text())='" + productName + "']");
+    private By productByIndex(int index) {
+        return By.xpath("(//div[contains(@class,'product-card')])["+index+"]");
     }
     private By volumeByIndex(int index) {
-        return By.xpath("(//div[@id='modal-Volums']//button[contains(@class,'volumeSelect')])[" + index + "]");
+        return By.xpath("(//div[@id='modal-Volums']//button[contains(@class,'volumeSelect')])["+index+"]");
     }
     private By sideDishByIndex(int index) {
-        return By.xpath("(//div[@id='modal-NewSideDishes']//li[contains(@class,'liSide')]//button[contains(@class,'btn-success')])[" + index + "]");
+        return By.xpath("(//div[@id='modal-NewSideDishes']//li[contains(@class,'liSide')]//button[contains(@class,'btn-success')])["+ index +"]");
     }
-    private By ordertypename(String tabName) {
-        return By.xpath("//a[contains(@class,'nav-link') and normalize-space(text())='" + tabName + "']");
+    private By hallByindex(int index) {
+        return By.xpath("(//li[contains(@class,'tab')])["+index+"]");
     }
-    private By hallByName(String hallName) {
-        return By.xpath("//li[contains(@class,'tab')]//span[normalize-space(text())='"+ hallName +"']");
-    }
-    private By tableByNumber(String tableNumber) {
-        return By.xpath("//li[contains(@class,'h')][.//div[@class='pull-left' and normalize-space(text())='" + tableNumber + "']]");
-    }
+    private final By ordertypenamebyindex =By.xpath("(//*[@id='v-pills-settings-tab'])[1]");
+
 
 
 
     //Actions
-    @Step("Click on Product: {productName}")
+    @Step("Click on Products")
     @Description("Click on Product: {productName} and handle volume and side dishes if popup appears")
-    public OrderPage clickOnProduct(String productName) {
-        driver.element().clickElement(productByName(productName));
+    public OrderPage clickOnProduct() throws InterruptedException {
+        driver.element().clickElement(productByIndex(1));
         if (driver.element().isElementVisible(volumesPOPUP)) {
             driver.element().clickElement(volumeByIndex(1));
         }
@@ -77,26 +94,119 @@ public class OrderPage {
             driver.element().clickElement(sideDishByIndex(2));
             driver.element().clickElement(okbuttonforsidedishmodal);
         }
+        driver.element().clickElement(productByIndex(2));
+        if (driver.element().isElementVisible(volumesPOPUP)) {
+            driver.element().clickElement(volumeByIndex(1));
+        }
+        if (driver.element().isElementVisible(sidedishPOPUP)) {
+            driver.element().clickElement(sideDishByIndex(1));
+            driver.element().clickElement(sideDishByIndex(2));
+            driver.element().clickElement(sideDishByIndex(2));
+            driver.element().clickElement(okbuttonforsidedishmodal);
+        }
+        Thread.sleep(2000);
+        String productName1 = driver.element().getElementText(productByIndex(1));
+        String productName2 = driver.element().getElementText(productByIndex(2));
+        Allure.step("Product Name And Price: " + productName1);
+        Allure.step("Product Name And Price: " + productName2);
         return this;
     }
     @Step("Select Order Type: {tabName}")
-    public OrderPage selectOrderType(String tabName) {
-        driver.element().clickElement(ordertypebutton);
-        driver.element().clickElement(ordertypename(tabName));
+    public OrderPage selectOrderTypebyindex() {
+        if (driver.element().isElementVisible(ordertypes)) {
+            if (!driver.element().isElementVisible(ordertypenamebyindex)) {
+                Allure.step("Order type element not found at index 1");
+                return this;
+            }
 
-        if (tabName.equals("توصيل")) {
+            String tabName = driver.element().getElementText(ordertypenamebyindex);
+            if (tabName == null || tabName.isBlank()) {
+                Allure.step("Order type text is null or empty at index 1");
+                return this;
+            }
+
+            tabName = tabName.trim();
+            Allure.step("Order Type: " + tabName);
+            driver.element().clickElement(ordertypenamebyindex);
+
+            if (tabName.toLowerCase().contains("توصيل") || tabName.toLowerCase().contains("delivery")) {
+                driver.element().clickElement(searchbynamefield);
+                driver.element().typeText(searchbynamefield, "abdo");
+                driver.element().clickElement(selectcustomerbutton);
+                driver.element().clickElement(selectaddressbutton);
+                driver.element().clickElement(closecustomerselectionmodalbutton);
+                Allure.step("Customer selected successfully");
+            }
+
+            if (tabName.toLowerCase().contains("صالة") || tabName.toLowerCase().contains("dine")) {
+                driver.element().clickElement(hallByindex(1));
+                driver.element().clickElement(tablenumber);
+                // التحقق من وجود العنصر قبل الحصول على النص
+                if (driver.element().isElementVisible(hallByindex(1))) {
+                    String hallName = driver.element().getElementText(hallByindex(1));
+                    String tableName = driver.element().isElementVisible(tablenumber) ?
+                            driver.element().getElementText(tablenumber) : "Table not found";
+                    Allure.step("HALL Name:" + hallName + " Table Number: " + tableName);
+                } else {
+                    Allure.step("Hall element not found");
+                }
+            }
+            if (tabName.toLowerCase().contains("تيك") || tabName.toLowerCase().contains("take")){
+                Allure.step("Order Type: " + tabName);
+            }
+            if (tabName.toLowerCase().contains("موظفين") || tabName.toLowerCase().contains("staff")|| tabName.toLowerCase().contains("employee")) {
+                Allure.step("Order Type: Staff Only");
+                driver.element().clickElement(employeebutton);
+            }
+            return this;
+
+        }
+        driver.element().clickElement(ordertypebutton);
+        if (!driver.element().isElementVisible(ordertypenamebyindex)) {
+            Allure.step("Order type element not found at index 1");
+            return this;
+        }
+
+        String tabName = driver.element().getElementText(ordertypenamebyindex);
+        if (tabName == null || tabName.isBlank()) {
+            Allure.step("Order type text is null or empty at index 1");
+            return this;
+        }
+
+        tabName = tabName.trim();
+        Allure.step("Order Type: " + tabName);
+        driver.element().clickElement(ordertypenamebyindex);
+
+        if (tabName.toLowerCase().contains("توصيل") || tabName.toLowerCase().contains("delivery")) {
             driver.element().clickElement(searchbynamefield);
             driver.element().typeText(searchbynamefield, "abdo");
             driver.element().clickElement(selectcustomerbutton);
             driver.element().clickElement(selectaddressbutton);
             driver.element().clickElement(closecustomerselectionmodalbutton);
+            Allure.step("Customer selected successfully");
         }
 
-        if (tabName.equals("صالة")) {
-            driver.element().clickElement(hallByName("vip"));
-            driver.element().clickElement(tableByNumber("1"));
+        if (tabName.toLowerCase().contains("صالة") || tabName.toLowerCase().contains("dine")) {
+            driver.element().clickElement(hallByindex(1));
+            driver.element().clickElement(tablenumber);
+            // التحقق من وجود العنصر قبل الحصول على النص
+            if (driver.element().isElementVisible(hallByindex(1))) {
+                String hallName = driver.element().getElementText(hallByindex(1));
+                String tableName = driver.element().isElementVisible(tablenumber) ?
+                        driver.element().getElementText(tablenumber) : "Table not found";
+                Allure.step("HALL Name:" + hallName + " Table Number: " + tableName);
+            } else {
+                Allure.step("Hall element not found");
+            }
+        }
+        if (tabName.toLowerCase().contains("تيك") || tabName.toLowerCase().contains("take")){
+            Allure.step("Order Type: " + tabName);
         }
 
+        if (tabName.toLowerCase().contains("موظفين") || tabName.toLowerCase().contains("staff")|| tabName.toLowerCase().contains("employee")) {
+            Allure.step("Order Type: Staff Only");
+            driver.element().clickElement(employeebutton);
+        }
         return this;
     }
 
@@ -108,14 +218,44 @@ public class OrderPage {
         driver.element().clickElement(okbuttononpersonscountbar);
         return this;
     }
+    @Step("Select Order To Pay")
+    public PaymentPage selectOrderToPay() {
+        driver.element().clickElement(selectorderbutton);
+        String tabName = driver.element().getElementText(ordertypebutton);
+        if (tabName.toLowerCase().contains("توصيل") || tabName.toLowerCase().contains("delivery")) {
+            driver.element().clickElement(cashieroperationbutton);
+            driver.element().clickElement(followorderbutton);
+            driver.element().clickElement(checklorderbutton);
+            driver.element().clickElement(assignbutton);
+            driver.element().clickElement(assigntodriverbutton);
+            driver.element().clickElement(cancelprintbutton);
+            driver.element().clickElement(paytheordersbutton);
+            driver.element().clickElement(selcetordertopaybutton);
+            driver.element().clickElement(paybutton);
+            return new PaymentPage(driver);
+        }
+
+        if (driver.element().isElementVisible(ordertypes)){
+
+            driver.element().clickElement(clickOk);
+        }
+
+        driver.element().clickElement(payementbutton);
+        return new PaymentPage(driver);
+    }
 
     //validation
     @Step("Validate that order is sent successfully")
-    public OrderPage validateOrderIsSentSuccessfully() {
+    public OrderPage validateOrderIsSentSuccessfully() throws InterruptedException {
         ScreenShotsManager.takeFullPageScreenshot(driver.get(), "Before Sending Order");
         String priceBeforeSendOrder = driver.element().getElementText(totalpricebeforesendorder);
         driver.element().clickElement(sendorderbutton);
+        if (driver.element().isElementVisible(ordertypes)){
+
+            driver.element().clickElement(clickOk);
+        }
         driver.element().clickElement(opensentordersbutton);
+        Thread.sleep(2000);
         ScreenShotsManager.takeFullPageScreenshot(driver.get(), "After Sending Order");
         String priceAfterSendOrder = driver.element().getElementText(totalpriceaftersendorder);
         if (!priceBeforeSendOrder.equals(priceAfterSendOrder)) {

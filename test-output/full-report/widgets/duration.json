@@ -1,1 +1,1 @@
-[{"uid":"7233c9fdd9597d65","name":"orderPageTC","time":{"start":1765114812633,"stop":1765114896726,"duration":84093},"status":"broken","severity":"normal"}]
+[{"uid":"9aaf4b857a0a9fc5","name":"paymentPageTC","time":{"start":1765350569300,"stop":1765350773558,"duration":204258},"status":"passed","severity":"normal"}]

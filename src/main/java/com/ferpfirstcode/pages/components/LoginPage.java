@@ -154,6 +154,7 @@ public class LoginPage {
     private final By loginButton = By.cssSelector("button.submitBtn");
     private final By visibleIcon = By.cssSelector("img.ms-user-img");
     private final By errorMessage = By.cssSelector("div.toast-error .toast-message");
+    private final By pinicon = By.xpath("//i[@class='fas fa-id-card menu-icon']");
 
     @Step("Navigate to Login Page")
     public LoginPage navigateToLoginPage() {
@@ -170,6 +171,12 @@ public class LoginPage {
     @Step("Enter Password")
     public LoginPage enterPassword(String password) {
         driver.element().typeText(passwordField, password);
+        return this;
+    }
+    @Step("Enter PIN")
+    public LoginPage enterPin(String pin) {
+        driver.element().clickElement(pinicon);
+        driver.element().typeText(passwordField, pin);
         return this;
     }
 

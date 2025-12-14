@@ -45,12 +45,12 @@ jobs:
       - name: 🚀 Start Frontend Server (Port 4600)
         shell: cmd # استخدام CMD
         run: |
-          echo Starting http-server on directory: ./%FRONTEND_BUILD_DIR%
-          
-          # استخدام أمر start ليعمل http-server في الخلفية
-          start "" http-server ./%FRONTEND_BUILD_DIR% -p 4600 -a 0.0.0.0 --silent
-
-          timeout /t 5 /nobreak 
+            echo Starting http-server on directory: ./%FRONTEND_BUILD_DIR%
+            
+            # استخدام أمر start ليعمل http-server في الخلفية
+            start "" http-server ./%FRONTEND_BUILD_DIR% -p 4600 -a 0.0.0.0 --silent
+            
+            timeout /t 5 /nobreak
 
       # انتظار تشغيل التطبيق (نعود لاستخدام PowerShell للفحص الموثوق)
       - name: ⏱️ Wait until App is running

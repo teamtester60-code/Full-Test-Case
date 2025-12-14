@@ -12,19 +12,16 @@ on:
 env:
   FRONTEND_BUILD_DIR: POS-19-10-2025/pos-front-app
   TARGET: "%regex[.*Tests.*],com.automationexercices.tests.**.**,com.automationexercices.tests.**"
+  LOGIN_TEST_TARGET: "LoginTest" # يستخدم اسم الفئة فقط، افترض أن Maven يمكنه إيجادها
 
 jobs:
 
-  Edge_Windows_Test:
+  Login_Test:
     runs-on: windows-latest
     permissions:
-      checks: write
-
+      contents: read
+      packages: read
     steps:
-
-      # -----------------------------------------------------
-      # 1. إعداد البيئة (Checkout & Node)
-      # -----------------------------------------------------
       - name: ⬇️ Checkout Code
         uses: actions/checkout@v4
 
@@ -32,10 +29,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
-
-      # -----------------------------------------------------
-      # 2. تشغيل الواجهة الأمامية (Frontend Service)
-      # -----------------------------------------------------
+          cache: 'npm'
 
       - name: 🛠️ Install http-server Globally
         run: npm install -g http-server
@@ -47,40 +41,107 @@ jobs:
           Write-Host "Modifying base href in ${indexPath}: / -> ./"
           (Get-Content -Path $indexPath) -replace '<base href="/">', '<base href="./">' | Set-Content $indexPath
 
+      # 🛑 المهمة السريعة: تشغيل الخادم مع --spa (تم تطبيقه مسبقاً)
       - name: 🚀 Start Frontend Server (Port 4300)
-        shell: bash # 🛑 تغيير Shell إلى Bash
+        shell: bash
         run: |
-            BUILD_DIR="./${{ env.FRONTEND_BUILD_DIR }}"
-            echo "Starting http-server on directory: $BUILD_DIR on port 4300 using nohup"
-            
-            # استخدام nohup & لتشغيل الخادم في الخلفية بشكل موثوق، وتوجيه الإخراج إلى ملف
-            nohup http-server "$BUILD_DIR" -p 4300 -a 127.0.0.1 > server.log 2>&1 &
-            
-            sleep 5
-            cat server.log # عرض سجل التشغيل للتشخيص
+          BUILD_DIR="./${{ env.FRONTEND_BUILD_DIR }}"
+          echo "Starting http-server with SPA fallback on port 4300"
+          nohup http-server "$BUILD_DIR" -p 4300 --spa > server.log 2>&1 &
+          sleep 5
+          cat server.log
 
-      # انتظار تشغيل التطبيق
       - name: ⏱️ Wait until App is running on Port 4300
-        shell: pwsh # العودة إلى PowerShell للفحص
+        shell: pwsh
         run: |
-            $max = 30
-            for ($i=0; $i -lt $max; $i++) {
-              try {
-                # فحص المنفذ 4300 باستخدام عنوان 127.0.0.1
-                Invoke-WebRequest -Uri "http://127.0.0.1:4300" -UseBasicParsing | Out-Null
-                Write-Host "✅ Angular Frontend is UP on port 4300!"
-                exit 0
-              } catch {
-                Write-Host "Waiting for Angular on port 4300... ($($i + 1)/$max)"
-                Start-Sleep -Seconds 3
-              }
+          $max = 30
+          for ($i=0; $i -lt $max; $i++) {
+            try {
+              Invoke-WebRequest -Uri "http://127.0.0.1:4300" -UseBasicParsing | Out-Null
+              Write-Host "✅ Angular Frontend is UP on port 4300!"
+              exit 0
+            } catch {
+              Write-Host "Waiting for Angular on port 4300... ($($i + 1)/$max)"
+              Start-Sleep -Seconds 3
             }
-            Write-Host "❌ Angular FAILED to start!"
-            exit 1
+          }
+          Write-Host "❌ Angular FAILED to start!"
+          exit 1
 
-      # -----------------------------------------------------
-      # 3. إعداد Java و Maven
-      # -----------------------------------------------------
+      - name: ☕ Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '21' # تم التعديل لتوحيد الإصدار
+
+      - name: 📦 Setup Maven
+        uses: stCarolas/setup-maven@v5
+        with:
+          maven-version: 3.9.9
+
+      - name: 🧪 Run Login Test
+        # 🛑 تم تعديل baseUrl ليتطابق مع عنوان خطوة الانتظار (127.0.0.1)
+        run: mvn -Dtest=${{ env.LOGIN_TEST_TARGET }} -DexecutionType="LocalHeadless" -DbrowserType="Edge" -DbaseUrl="http://127.0.0.1:4300" test
+
+      - name: 📤 Upload Test Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Login_Test_Report
+          path: test-output/reports/*.html
+
+  Edge_Windows_Test:
+    runs-on: windows-latest
+    permissions:
+      checks: write
+
+    steps:
+
+      - name: ⬇️ Checkout Code
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Setup Node.js (for http-server)
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: 🛠️ Install http-server Globally
+        run: npm install -g http-server
+
+      - name: 🩹 Fix Angular Base Href
+        shell: pwsh
+        run: |
+          $indexPath = "./${{ env.FRONTEND_BUILD_DIR }}/index.html"
+          Write-Host "Modifying base href in ${indexPath}: / -> ./"
+          (Get-Content -Path $indexPath) -replace '<base href="/">', '<base href="./">' | Set-Content $indexPath
+
+      # 🛑 المهمة الكاملة: تشغيل الخادم مع --spa (التعديل الجديد)
+      - name: 🚀 Start Frontend Server (Port 4300)
+        shell: bash
+        run: |
+          BUILD_DIR="./${{ env.FRONTEND_BUILD_DIR }}"
+          echo "Starting http-server with SPA fallback on port 4300"
+          nohup http-server "$BUILD_DIR" -p 4300 --spa > server.log 2>&1 & # 🛑 تم إضافة --spa هنا
+          sleep 5
+          cat server.log
+
+      - name: ⏱️ Wait until App is running on Port 4300
+        shell: pwsh
+        run: |
+          $max = 30
+          for ($i=0; $i -lt $max; $i++) {
+            try {
+              Invoke-WebRequest -Uri "http://127.0.0.1:4300" -UseBasicParsing | Out-Null
+              Write-Host "✅ Angular Frontend is UP on port 4300!"
+              exit 0
+            } catch {
+              Write-Host "Waiting for Angular on port 4300... ($($i + 1)/$max)"
+              Start-Sleep -Seconds 3
+            }
+          }
+          Write-Host "❌ Angular FAILED to start!"
+          exit 1
+
       - name: ☕ Setup Java
         uses: actions/setup-java@v4
         with:
@@ -92,20 +153,13 @@ jobs:
         with:
           maven-version: 3.9.9
 
-      # -----------------------------------------------------
-      # 4. تشغيل الاختبارات (Test Execution)
-      # -----------------------------------------------------
       - name: 🧪 Run Selenium Tests (Edge)
-        run: mvn -Dtest="${TARGET}" -DexecutionType="LocalHeadless" -DbrowserType="Edge" -DbaseUrl="http://localhost:4300" clean test
+        # 🛑 تم تعديل baseUrl ليتطابق مع عنوان خطوة الانتظار (127.0.0.1)
+        run: mvn -Dtest="${TARGET}" -DexecutionType="LocalHeadless" -DbrowserType="Edge" -DbaseUrl="http://127.0.0.1:4300" clean test
 
-      # -----------------------------------------------------
-      # 5. رفع التقارير (Artifact Upload)
-      # -----------------------------------------------------
       - name: 📤 Upload Test Results
-       # 🛑 إضافة هذا الشرط لضمان التنفيذ حتى عند فشل الاختبارات
         if: always()
         uses: actions/upload-artifact@v4
         with:
-            name: Edge_Windows_Report
-            # تأكد من أن هذا المسار صحيح، غالبًا ما يخرج Maven التقارير هنا
-            path: test-output/reports/*.html
+          name: Edge_Windows_Report
+          path: test-output/reports/*.html

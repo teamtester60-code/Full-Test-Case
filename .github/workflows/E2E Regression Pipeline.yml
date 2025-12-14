@@ -9,18 +9,12 @@ on:
 
 env:
   # -----------------------------------------------------
-  # 📌 إعدادات مسارات المشروع (Paths Configuration)
+  # 📌 إعدادات المنافذ والمسارات (Ports and Paths)
   # -----------------------------------------------------
   FRONTEND_BUILD_DIR: POS-19-10-2025/pos-front-app
-
-  # مجلد النشر حيث يوجد ملف POS.Web.exe
   BACKEND_PUBLISH_DIR: POS-19-10-2025/POS-BackPublish
-  # المسار إلى ملف EXE القابل للتشغيل
   BACKEND_EXE_PATH: POS-19-10-2025/POS-BackPublish/POS.Web.exe
 
-  # -----------------------------------------------------
-  # 📌 إعدادات المنافذ والاختبار (Ports and Testing)
-  # -----------------------------------------------------
   FRONTEND_PORT: 4300
   BACKEND_API_PORT: 56740
   ASPNETCORE_URLS: http://127.0.0.1:56740
@@ -35,30 +29,66 @@ jobs:
       packages: read
       checks: write
 
+    # 🛑 تشغيل خدمة MongoDB كـ Container
+    services:
+      mongodb:
+        image: mongo:latest
+        ports:
+          # ربط منفذ Docker بالمنفذ المحلي (127.0.0.1:27017)
+          - 27017:27017
+        options:
+          --name mongodb
+
     steps:
       - name: ⬇️ Checkout Code
         uses: actions/checkout@v4
 
       # -----------------------------------------------------
-      # 1. إعداد وتثبيت .NET Runtime 3.1
+      # 1. إعداد .NET Runtime 3.1 و MongoDB
       # -----------------------------------------------------
       - name: ⚙️ Install Required .NET Runtime 3.1
-        # هذه الخطوة ستحل مشكلة "Framework: 3.1.0' (x64) missing"
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '3.1.x'
 
-      - name: 🚀 Start Backend Service (Port ${{ env.BACKEND_API_PORT }})
+      - name: ⏱️ Wait for MongoDB to start (Port 27017)
         shell: bash
         run: |
+          MAX_ATTEMPTS=20
+          MONGO_URL="http://127.0.0.1:27017"
+          echo "Starting wait loop for MongoDB on $MONGO_URL"
+          for i in $(seq 1 $MAX_ATTEMPTS); do
+            # استخدام netcat (nc) أو curl لفحص المنفذ
+            # سنعتمد على curl هنا لتجنب التعقيد، على الرغم من أن فحص المنفذ يكون أدق
+            if curl -s --head --fail "$MONGO_URL" ; then 
+              echo "✅ MongoDB is UP!"
+              exit 0
+            else
+              echo "Waiting for MongoDB... ($i/$MAX_ATTEMPTS)"
+              sleep 3
+            fi
+          done
+          echo "❌ MongoDB FAILED to start!"
+          exit 1
+
+
+      - name: 🚀 Start Backend Service (Port ${{ env.BACKEND_API_PORT }})
+        shell: bash
+        env:
+          # توجيه .NET لربط المنفذ
+          ASPNETCORE_URLS: ${{ env.ASPNETCORE_URLS }}
+          # 🛑 تمرير سلسلة اتصال MongoDB (تتصل بـ 127.0.0.1 حيث تعمل الخدمة)
+          MongoConnection__ConnectionString: mongodb://127.0.0.1:27017/?minPoolSize=10&maxPoolSize=50
+          ApplicationSettings__Report_Connection: mongodb://127.0.0.1:27017
+
+        run: |
           echo "Starting .NET Kestrel server on port ${{ env.BACKEND_API_PORT }} using EXE"
-          # الانتقال للمجلد وتشغيل EXE
           cd ${{ env.BACKEND_PUBLISH_DIR }}
+          # تشغيل ملف EXE
           nohup ./POS.Web.exe > backend.log 2>&1 &
           cd -
           sleep 10
           echo "--- Backend Log Snippet ---"
-          # قراءة السجل
           cat ${{ env.BACKEND_PUBLISH_DIR }}/backend.log
           echo "---------------------------"
 

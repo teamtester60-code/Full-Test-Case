@@ -44,11 +44,12 @@ jobs:
       - name: 🩹 Fix Angular Base Href
         shell: pwsh
         run: |
-          $indexPath = "./${{ env.FRONTEND_BUILD_DIR }}/index.html"
-          Write-Host "Modifying base href in $indexPath: / -> ./"
-          
-          # استبدال base href="/ " بـ base href="./ "
-          (Get-Content -Path $indexPath) -replace '<base href="/">', '<base href="./">' | Set-Content $indexPath
+            $indexPath = "./${{ env.FRONTEND_BUILD_DIR }}/index.html"
+            # 🛑 تم تعديل السطر التالي بإضافة ${}
+            Write-Host "Modifying base href in ${indexPath}: / -> ./"
+            
+            # قراءة محتوى الملف، استبدال <base href="/"> بـ <base href="./">، ثم حفظه
+            (Get-Content -Path $indexPath) -replace '<base href="/">', '<base href="./">' | Set-Content $indexPath
 
       - name: 🚀 Start Frontend Server (Port 4600)
         shell: pwsh

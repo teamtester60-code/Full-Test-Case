@@ -37,18 +37,18 @@ jobs:
           node-version: 18
 
       - name: Install Angular Dependencies
-        working-directory: POS-19-10-2025/POSFront
+        working-directory: POS-19-10-2025/pos-front-app
         run: npm install
 
       # خطوة جديدة: بناء المشروع لإنتاج مجلد dist
       - name: Build Angular Project
-        working-directory: POS-19-10-2025/POSFront
+        working-directory: POS-19-10-2025/pos-front-app
         run: npm run build
 
       # خطوة معدلة: تشغيل http-server بدلاً من npm start
       # ملاحظة: تأكد من مسار مجلد dist الصحيح (قد يكون dist/POSFront أو dist/pos-front-app)
       - name: Start http-server (background)
-        working-directory: POS-19-10-2025/POSFront
+        working-directory: POS-19-10-2025/pos-front-app
         shell: pwsh
         run: |
           npm install -g http-server

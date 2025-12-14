@@ -34,6 +34,7 @@ public class PaymentTest extends BaseTest {
                 .clickOnProduct()
                 .validateOrderIsSentSuccessfully()
                 .selectOrderToPay()
-                .validateDiscountCalculation(50);
+                .validateDiscountCalculation(50)
+                .validateDeliveryOrder();
     }
 }

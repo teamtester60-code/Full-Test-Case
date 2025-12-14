@@ -24,6 +24,10 @@ public class PaymentPage {
     private final By totalamount=By.xpath("//*[@id=\"OverLayPin\"]/div/div[2]/div/app-payment/div[1]/div/div[1]/div/div[4]/div/div/div[1]/div/div[2]/table/tbody/tr[7]/td");
     private final By ordercost=By.xpath("//*[@id=\"OverLayPin\"]/div/div[2]/div/app-payment/div[1]/div/div[1]/div/div[4]/div/div/div[1]/div/div[2]/table/tbody/tr[1]/td");
     private final By totaldiscountamount=By.xpath("//*[@id=\"OverLayPin\"]/div/div[2]/div/app-payment/div[1]/div/div[1]/div/div[4]/div/div/div[1]/div/div[2]/table/tbody/tr[6]/td");
+    private final By manageOrdersbutton= By.xpath("//a[@href=\"/manageorderlist\"]");
+    private final By showorderbutton= By.xpath("(//tbody/tr)[last()]//button[contains(@class,'btn-info')][2]");
+    private final By customerreciptbutton= By.xpath("(//button[contains(@class, \"btn-primary\") and contains(@class, \"rounded\")])[1]");
+    private final By ordertypes = By.xpath("//div[@id='v-pills-tab']//a");
     //Actions
     @Step("Select Customer")
     public PaymentPage selectCustomer() {
@@ -51,6 +55,9 @@ public class PaymentPage {
     //validation
     @Step("Validate Discount Calculation")
     public PaymentPage validateDiscountCalculation(double discountPercentage) {
+        if (driver.element().isElementVisible(manageOrdersbutton)) {
+            return this;
+        }
         // 1. Read the total price before discount
         String beforeText = driver.element().getElementText(ordercost).replace(",", "").trim();
         double totalBefore = Double.parseDouble(beforeText);
@@ -80,6 +87,22 @@ public class PaymentPage {
 
         return this;
     }
+
+    @Step("Validate the order if order type is delivery")
+    public PaymentPage validateDeliveryOrder() throws InterruptedException {
+        if (driver.element().isElementVisible(manageOrdersbutton)) {
+
+            driver.element().clickElement(manageOrdersbutton);
+            driver.element().clickElement(showorderbutton);
+            driver.element().clickElement(customerreciptbutton);
+
+            Thread.sleep(6000);
+            ScreenShotsManager.takeFullPageScreenshot(driver.get(), "After Paid Order");
+        }
+
+        return this;
+    }
+
 
 
 

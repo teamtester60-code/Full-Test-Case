@@ -29,7 +29,7 @@ public class HomePage {
 
     //Actions
     @Step("Click Open Day Button if it is enabled")
-    public HomePage clickOpenDayButton() {
+    public HomePage clickOpenDayButton() throws InterruptedException {
         try {
             // Check if the element is present and enabled
             if (driver.element().isElementVisible(opendaybutton)
@@ -45,6 +45,7 @@ public class HomePage {
         } catch (Exception e) {
             LogsManager.info("Open Day button not found, skipping click.");
         }
+        Thread.sleep(4000);
         return this;
     }
 

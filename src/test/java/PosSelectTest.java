@@ -20,8 +20,7 @@ public class PosSelectTest extends BaseTest {
     public void posSelectTC() throws InterruptedException {
         new LoginPage(guiDriver)
                 .navigateToLoginPage()
-                .enterUsername(testdata.getJsonreader("username"))
-                .enterPassword(testdata.getJsonreader("password"))
+                .enterPin(testdata.getJsonreader("password"))
                 .clickLoginButton()
                 .verifyloggedinsuccess()
                 .clickEditPosButton()

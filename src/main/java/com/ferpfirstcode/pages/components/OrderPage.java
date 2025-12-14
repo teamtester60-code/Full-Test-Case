@@ -49,17 +49,20 @@ public class OrderPage {
     private final By tablenumber = By.xpath("(//li[starts-with(@id,'liDrag') and not(contains(@class,'TableBusy'))])[1]");
     private final By selectorderbutton= By.xpath("//*[@id=\"modal-78\"]/div/div/div[2]/div[2]/table/tbody/tr[1]/td[8]/button[2]");
     private final By employeebutton= By.xpath("//*[@id=\"modal-Waiter\"]/div/div/div[2]/div/div/div/div[3]/perfect-scrollbar/div/div[1]/table/tbody/tr[1]/td/button");
-    private final By cashieroperationbutton= By.id("#dropdownMenuLink");
-    private final By followorderbutton= By.xpath("//*[@id=\"OverLayPin\"]/div/div[1]/div[2]/div[3]/div/nav/ul/li[3]/a/div[2]/a[2]");
+    private final By cashieroperationbutton= By.xpath("//*[@id=\"dropdownMenuLink\"]");
+    private final By followorderbutton= By.xpath("//a[contains(@class, \"dropdown-item\") and @href=\"/FollowOrder\"]");
     private final By checklorderbutton=By.xpath("(//table[contains(@class,'e-table')]//tbody//tr[last()]//input[@type='checkbox'])[1]");
-    private final By assigntodriverbutton= By.xpath("//button[contains(text(), 'Assign a Driver')]");
-    private final By assignbutton= By.xpath("//button[normalize-space()='Assign']");
+    private final By assigntodriverbutton= By.xpath("(//button[contains(@class, \"btn-success\") and contains(@class, \"m-0\")])[1]");
+    private final By assignbutton= By.xpath("//button[@data-toggle=\"modal\" and @data-target=\"#modal-1\"]");
     private final By cancelprintbutton= By.xpath("//button[normalize-space()='Cancel']");
-    private final By paytheordersbutton= By.linkText("Pay the orders");
+    private final By paytheordersbutton= By.xpath("//li[@id=\"tab2\"]/a[@href=\"#tab144\"]\n");
     private final By selcetordertopaybutton= By.xpath("(//tbody/tr[last()]/td[1]//input[contains(@class,'e-checkbox')])[2]");
-    private final By paybutton= By.xpath("//button[contains(@class,'btnEdit') and normalize-space()='Pay']");
+    private final By paybutton= By.xpath("//button[@type=\"button\" and contains(@class, \"btn-success\") and contains(@class, \"btnEdit\")]");
     private final By ordertypes = By.xpath("//div[@id='v-pills-tab']//a");
     private final By clickOk= By.xpath("//*[@id=\"modal-OrderType\"]/div/div/div[3]/button");
+    private final By manageOrdersbutton= By.xpath("//a[@href=\"/manageorderlist\"]");
+    private final By showorderbutton= By.xpath("(//tbody/tr)[last()]//button[contains(@class,'btn-info')][2]");
+    private final By customerreciptbutton= By.xpath("(//button[contains(@class, \"btn-primary\") and contains(@class, \"rounded\")])[1]");
 
 
     //dynamic locator
@@ -105,6 +108,7 @@ public class OrderPage {
             driver.element().clickElement(okbuttonforsidedishmodal);
         }
         Thread.sleep(2000);
+        ScreenShotsManager.takeFullPageScreenshot(driver.get(),"AfterClickOnProduct");
         String productName1 = driver.element().getElementText(productByIndex(1));
         String productName2 = driver.element().getElementText(productByIndex(2));
         Allure.step("Product Name And Price: " + productName1);
@@ -219,18 +223,22 @@ public class OrderPage {
         return this;
     }
     @Step("Select Order To Pay")
-    public PaymentPage selectOrderToPay() {
+    public PaymentPage selectOrderToPay() throws InterruptedException {
         driver.element().clickElement(selectorderbutton);
         String tabName = driver.element().getElementText(ordertypebutton);
         if (tabName.toLowerCase().contains("توصيل") || tabName.toLowerCase().contains("delivery")) {
             driver.element().clickElement(cashieroperationbutton);
+            Thread.sleep(4000);
+            ScreenShotsManager.takeFullPageScreenshot(driver.get(),"BeforeSelectOrderToPay");
             driver.element().clickElement(followorderbutton);
             driver.element().clickElement(checklorderbutton);
             driver.element().clickElement(assignbutton);
             driver.element().clickElement(assigntodriverbutton);
+            Thread.sleep(2000);
             driver.element().clickElement(cancelprintbutton);
             driver.element().clickElement(paytheordersbutton);
             driver.element().clickElement(selcetordertopaybutton);
+            ScreenShotsManager.takeFullPageScreenshot(driver.get(),"BeforeSelectOrderToPay");
             driver.element().clickElement(paybutton);
             return new PaymentPage(driver);
         }

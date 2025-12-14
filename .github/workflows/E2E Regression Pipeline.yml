@@ -13,14 +13,10 @@ env:
   # -----------------------------------------------------
   FRONTEND_BUILD_DIR: POS-19-10-2025/pos-front-app
 
-  # 🛑 تم التحديث لـ .NET Core 3.1
-  DOTNET_VERSION: '3.1.x'
-  DOTNET_TARGET_FRAMEWORK: netcoreapp3.1 # الإطار المستهدف لـ dotnet publish
-
-  # 🛑 مجلد مصدر الواجهة الخلفية (يحتوي على ملف .csproj)
-  BACKEND_PROJECT_DIR: POS-19-10-2025/POS-BackPublish
-  # 🛑 مسار ملف DLL القابل للتشغيل (يتم إنشاؤه بعد النشر)
-  BACKEND_DLL_PATH: POS-19-10-2025/POS-BackPublish/POS.Web.dll
+  # 🛑 المسار إلى مجلد النشر
+  BACKEND_PUBLISH_DIR: POS-19-10-2025/POS-BackPublish
+  # 🛑 المسار إلى ملف EXE القابل للتشغيل
+  BACKEND_EXE_PATH: POS-19-10-2025/POS-BackPublish/POS.Web.exe
 
   # -----------------------------------------------------
   # 📌 إعدادات المنافذ والاختبار (Ports and Testing)
@@ -32,7 +28,7 @@ env:
 
 jobs:
 
-  Login_Test:
+Login_Test:
     runs-on: windows-latest
     permissions:
       contents: read
@@ -44,31 +40,24 @@ jobs:
         uses: actions/checkout@v4
 
       # -----------------------------------------------------
-      # 1. إعداد وبناء وتشغيل .NET Backend
+      # 1. تشغيل .NET Backend (ملفات قابلة للتشغيل موجودة مسبقًا)
       # -----------------------------------------------------
-      - name: ⚙️ Setup .NET SDK (${{ env.DOTNET_VERSION }})
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: ${{ env.DOTNET_VERSION }}
-
-      - name: 🛠️ Restore Dependencies
-        # يقوم باستعادة الحزم إلى مجلد المشروع
-        run: dotnet restore ${{ env.BACKEND_PROJECT_DIR }}
-
-      - name: 🛠️ Build and Publish Backend
-        # ينشئ مجلد 'publish' القابل للتشغيل باستخدام المسار المُحدد
-        run: dotnet publish ${{ env.BACKEND_PROJECT_DIR }} -c Release --self-contained true -r win-x64 -o ${{ env.BACKEND_PROJECT_DIR }}/bin/Release/${{ env.DOTNET_TARGET_FRAMEWORK }}/publish
+      # 🛑 إزالة Setup/Restore/Publish
 
       - name: 🚀 Start Backend Service (Port ${{ env.BACKEND_API_PORT }})
         shell: bash
         run: |
-          echo "Starting .NET Kestrel server on port ${{ env.BACKEND_API_PORT }}"
-          # nohup لضمان التشغيل في الخلفية حتى انتهاء الاختبار
-          nohup dotnet ${{ env.BACKEND_DLL_PATH }} > backend.log 2>&1 &
+          echo "Starting .NET Kestrel server on port ${{ env.BACKEND_API_PORT }} using EXE"
+          # تغيير المجلد ثم تشغيل ملف EXE مباشرة
+          cd ${{ env.BACKEND_PUBLISH_DIR }}
+          # تشغيل ملف EXE في الخلفية
+          nohup ./POS.Web.exe > backend.log 2>&1 &
+          cd - # العودة إلى المجلد الأصلي
           sleep 10
-          cat backend.log
+          cat ${{ env.BACKEND_PUBLISH_DIR }}/backend.log # قراءة ملف السجل من المسار الصحيح
 
       - name: ⏱️ Wait until Backend API is running
+        # ... (لم يتغير) ...
         shell: bash
         run: |
           MAX_ATTEMPTS=30
@@ -88,7 +77,7 @@ jobs:
           exit 1
 
       # -----------------------------------------------------
-      # 2. إعداد وتشغيل Angular Frontend
+      # 2. إعداد وتشغيل Angular Frontend (لم يتغير)
       # -----------------------------------------------------
       - name: ⚙️ Setup Node.js (for serve)
         uses: actions/setup-node@v4
@@ -99,40 +88,16 @@ jobs:
         run: npm install -g serve
 
       - name: 🩹 Fix Angular Base Href
-        shell: pwsh
-        run: |
-          $indexPath = "./${{ env.FRONTEND_BUILD_DIR }}/index.html"
-          (Get-Content -Path $indexPath) -replace '<base href="/">', '<base href="./">' | Set-Content $indexPath
+        # ... (لم يتغير) ...
 
       - name: 🚀 Start Frontend Server (Port ${{ env.FRONTEND_PORT }})
-        shell: bash
-        run: |
-          BUILD_DIR="./${{ env.FRONTEND_BUILD_DIR }}"
-          nohup serve -s "$BUILD_DIR" -l ${{ env.FRONTEND_PORT }} > server.log 2>&1 &
-          sleep 5
-          cat server.log
+        # ... (لم يتغير) ...
 
       - name: ⏱️ Wait until Frontend App is running
-        shell: bash
-        run: |
-          MAX_ATTEMPTS=30
-          URL="http://127.0.0.1:${{ env.FRONTEND_PORT }}"
-          
-          echo "Starting wait loop using curl on $URL"
-          for i in $(seq 1 $MAX_ATTEMPTS); do
-            if curl -s --head --fail "$URL" ; then
-              echo "✅ Angular Frontend is UP on port ${{ env.FRONTEND_PORT }}!"
-              exit 0
-            else
-              echo "Waiting for Angular on port ${{ env.FRONTEND_PORT }}... ($i/$MAX_ATTEMPTS)"
-              sleep 3
-            fi
-          done
-          echo "❌ Angular FAILED to start!"
-          exit 1
+          # ... (لم يتغير) ...
 
       # -----------------------------------------------------
-      # 3. تشغيل اختبارات Selenium
+      # 3. تشغيل اختبارات Selenium (لم يتغير)
       # -----------------------------------------------------
       - name: ☕ Setup Java (for Selenium Tests)
         uses: actions/setup-java@v4

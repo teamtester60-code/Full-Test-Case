@@ -41,16 +41,19 @@ jobs:
       - name: 🛠️ Install http-server Globally
         run: npm install -g http-server
 
-      # تشغيل http-server لخدمة مجلد البناء (في الخلفية باستخدام CMD)
+      # تشغيل http-server لخدمة مجلد البناء (في الخلفية باستخدام PowerShell)
       - name: 🚀 Start Frontend Server (Port 4600)
-        shell: cmd # استخدام CMD
+        shell: pwsh # 🛑 العودة إلى PowerShell
         run: |
-            echo Starting http-server on directory: ./%FRONTEND_BUILD_DIR%
-            
-            # استخدام أمر start ليعمل http-server في الخلفية
-            start "" http-server ./%FRONTEND_BUILD_DIR% -p 4600 -a 0.0.0.0 --silent
-            
-            timeout /t 5 /nobreak
+          # نستخدم أمر Start-Process مع redirection لضمان الفصل التام
+          $BuildPath = "./${{ env.FRONTEND_BUILD_DIR }}"
+          Write-Host "Starting http-server on directory: $BuildPath"
+
+          # تشغيل http-server عبر PowerShell في عملية منفصلة
+          Start-Process -FilePath "http-server" `
+              -ArgumentList $BuildPath, "-p", "4600", "-a", "0.0.0.0", "--silent"
+
+          Start-Sleep -Seconds 5
 
       # انتظار تشغيل التطبيق (نعود لاستخدام PowerShell للفحص الموثوق)
       - name: ⏱️ Wait until App is running

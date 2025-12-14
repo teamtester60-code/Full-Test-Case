@@ -1,4 +1,4 @@
-name: E2E Regression (Login Test Only - Static Service)
+name: E2E Regression (Login Test - Full Stack)
 
 on:
   push:
@@ -8,7 +8,26 @@ on:
   workflow_dispatch:
 
 env:
+  # -----------------------------------------------------
+  # 📌 إعدادات مسارات المشروع (Paths Configuration)
+  # -----------------------------------------------------
   FRONTEND_BUILD_DIR: POS-19-10-2025/pos-front-app
+
+  # 🛑 تم التحديث لـ .NET Core 3.1
+  DOTNET_VERSION: '3.1.x'
+  DOTNET_TARGET_FRAMEWORK: netcoreapp3.1 # الإطار المستهدف لـ dotnet publish
+
+  # 🛑 مجلد مصدر الواجهة الخلفية (يحتوي على ملف .csproj)
+  BACKEND_PROJECT_DIR: POS-19-10-2025/POS-BackPublish
+  # 🛑 مسار ملف DLL القابل للتشغيل (يتم إنشاؤه بعد النشر)
+  BACKEND_DLL_PATH: ${{ env.BACKEND_PROJECT_DIR }}/POS.Web.dll
+
+  # -----------------------------------------------------
+  # 📌 إعدادات المنافذ والاختبار (Ports and Testing)
+  # -----------------------------------------------------
+  FRONTEND_PORT: 4300
+  BACKEND_API_PORT: 56740
+  ASPNETCORE_URLS: http://127.0.0.1:56740
   LOGIN_TEST_TARGET: "LoginTest"
 
 jobs:
@@ -24,12 +43,58 @@ jobs:
       - name: ⬇️ Checkout Code
         uses: actions/checkout@v4
 
-      - name: ⚙️ Setup Node.js (for server)
+      # -----------------------------------------------------
+      # 1. إعداد وبناء وتشغيل .NET Backend
+      # -----------------------------------------------------
+      - name: ⚙️ Setup .NET SDK (${{ env.DOTNET_VERSION }})
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: 🛠️ Restore Dependencies
+        # يقوم باستعادة الحزم إلى مجلد المشروع
+        run: dotnet restore ${{ env.BACKEND_PROJECT_DIR }}
+
+      - name: 🛠️ Build and Publish Backend
+        # ينشئ مجلد 'publish' القابل للتشغيل باستخدام المسار المُحدد
+        run: dotnet publish ${{ env.BACKEND_PROJECT_DIR }} -c Release --self-contained true -r win-x64 -o ${{ env.BACKEND_PROJECT_DIR }}/bin/Release/${{ env.DOTNET_TARGET_FRAMEWORK }}/publish
+
+      - name: 🚀 Start Backend Service (Port ${{ env.BACKEND_API_PORT }})
+        shell: bash
+        run: |
+          echo "Starting .NET Kestrel server on port ${{ env.BACKEND_API_PORT }}"
+          # nohup لضمان التشغيل في الخلفية حتى انتهاء الاختبار
+          nohup dotnet ${{ env.BACKEND_DLL_PATH }} > backend.log 2>&1 &
+          sleep 10
+          cat backend.log
+
+      - name: ⏱️ Wait until Backend API is running
+        shell: bash
+        run: |
+          MAX_ATTEMPTS=30
+          API_URL="http://127.0.0.1:${{ env.BACKEND_API_PORT }}" 
+          
+          echo "Starting wait loop for API on $API_URL"
+          for i in $(seq 1 $MAX_ATTEMPTS); do
+            if curl -s --head --fail "$API_URL" ; then 
+              echo "✅ Backend API is UP on port ${{ env.BACKEND_API_PORT }}!"
+              exit 0
+            else
+              echo "Waiting for API on port ${{ env.BACKEND_API_PORT }}... ($i/$MAX_ATTEMPTS)"
+              sleep 3
+            fi
+          done
+          echo "❌ Backend API FAILED to start!"
+          exit 1
+
+      # -----------------------------------------------------
+      # 2. إعداد وتشغيل Angular Frontend
+      # -----------------------------------------------------
+      - name: ⚙️ Setup Node.js (for serve)
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      # 🛑 التعديل 1: تثبيت حزمة 'serve'
       - name: 🛠️ Install serve Globally
         run: npm install -g serve
 
@@ -37,52 +102,51 @@ jobs:
         shell: pwsh
         run: |
           $indexPath = "./${{ env.FRONTEND_BUILD_DIR }}/index.html"
-          Write-Host "Modifying base href in ${indexPath}: / -> ./"
           (Get-Content -Path $indexPath) -replace '<base href="/">', '<base href="./">' | Set-Content $indexPath
 
-      # 🛑 التعديل 2: استخدام 'serve' مع خيار -s (Single Page Application mode)
-      - name: 🚀 Start Frontend Server (Port 4300)
+      - name: 🚀 Start Frontend Server (Port ${{ env.FRONTEND_PORT }})
         shell: bash
         run: |
           BUILD_DIR="./${{ env.FRONTEND_BUILD_DIR }}"
-          echo "Starting serve with SPA mode on port 4300"
-          # -s: لتمكين وضع SPA (توجيه 404 إلى index.html)، -l: لتحديد المنفذ
-          nohup serve -s "$BUILD_DIR" -l 4300 > server.log 2>&1 &
+          nohup serve -s "$BUILD_DIR" -l ${{ env.FRONTEND_PORT }} > server.log 2>&1 &
           sleep 5
           cat server.log
 
-      - name: ⏱️ Wait until App is running on Port 4300 (using curl/bash)
+      - name: ⏱️ Wait until Frontend App is running
         shell: bash
         run: |
           MAX_ATTEMPTS=30
-          URL="http://127.0.0.1:4300"
+          URL="http://127.0.0.1:${{ env.FRONTEND_PORT }}"
           
           echo "Starting wait loop using curl on $URL"
           for i in $(seq 1 $MAX_ATTEMPTS); do
             if curl -s --head --fail "$URL" ; then
-              echo "✅ Angular Frontend is UP on port 4300!"
+              echo "✅ Angular Frontend is UP on port ${{ env.FRONTEND_PORT }}!"
               exit 0
             else
-              echo "Waiting for Angular on port 4300... ($i/$MAX_ATTEMPTS)"
+              echo "Waiting for Angular on port ${{ env.FRONTEND_PORT }}... ($i/$MAX_ATTEMPTS)"
               sleep 3
             fi
           done
           echo "❌ Angular FAILED to start!"
           exit 1
 
-      - name: ☕ Setup Java
+      # -----------------------------------------------------
+      # 3. تشغيل اختبارات Selenium
+      # -----------------------------------------------------
+      - name: ☕ Setup Java (for Selenium Tests)
         uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
           java-version: '21'
 
-      - name: 📦 Setup Maven
+      - name: 📦 Setup Maven (for Selenium Tests)
         uses: stCarolas/setup-maven@v5
         with:
           maven-version: 3.9.9
 
       - name: 🧪 Run Login Test
-        run: mvn -Dtest=${{ env.LOGIN_TEST_TARGET }} -DexecutionType="LocalHeadless" -DbrowserType="Edge" -DbaseUrl="http://127.0.0.1:4300" test
+        run: mvn -Dtest=${{ env.LOGIN_TEST_TARGET }} -DexecutionType="LocalHeadless" -DbrowserType="Edge" -DbaseUrl="http://127.0.0.1:${{ env.FRONTEND_PORT }}" test
 
       - name: 📤 Upload Test Results
         if: always()

@@ -48,35 +48,35 @@ jobs:
           (Get-Content -Path $indexPath) -replace '<base href="/">', '<base href="./">' | Set-Content $indexPath
 
       - name: 🚀 Start Frontend Server (Port 4300)
-        shell: pwsh
+        shell: bash # 🛑 تغيير Shell إلى Bash
         run: |
-          $BuildPath = "./${{ env.FRONTEND_BUILD_DIR }}"
-          Write-Host "Starting http-server on directory: $BuildPath on port 4300 (No Binding Address specified)"
-          
-          # 🛑 التعديل هنا: إزالة -a 0.0.0.0
-          Start-Process -FilePath "http-server" `
-              -ArgumentList $BuildPath, "-p", "4300", "--silent"
-
-          Start-Sleep -Seconds 5
+            BUILD_DIR="./${{ env.FRONTEND_BUILD_DIR }}"
+            echo "Starting http-server on directory: $BUILD_DIR on port 4300 using nohup"
+            
+            # استخدام nohup & لتشغيل الخادم في الخلفية بشكل موثوق، وتوجيه الإخراج إلى ملف
+            nohup http-server "$BUILD_DIR" -p 4300 -a 127.0.0.1 > server.log 2>&1 &
+            
+            sleep 5
+            cat server.log # عرض سجل التشغيل للتشخيص
 
       # انتظار تشغيل التطبيق
       - name: ⏱️ Wait until App is running on Port 4300
-        shell: pwsh
+        shell: pwsh # العودة إلى PowerShell للفحص
         run: |
-          $max = 30
-          for ($i=0; $i -lt $max; $i++) {
-            try {
-              # فحص المنفذ 4300
-              Invoke-WebRequest -Uri "http://localhost:4300" -UseBasicParsing | Out-Null
-              Write-Host "✅ Angular Frontend is UP on port 4300!"
-              exit 0
-            } catch {
-              Write-Host "Waiting for Angular on port 4300... ($($i + 1)/$max)"
-              Start-Sleep -Seconds 3
+            $max = 30
+            for ($i=0; $i -lt $max; $i++) {
+              try {
+                # فحص المنفذ 4300 باستخدام عنوان 127.0.0.1
+                Invoke-WebRequest -Uri "http://127.0.0.1:4300" -UseBasicParsing | Out-Null
+                Write-Host "✅ Angular Frontend is UP on port 4300!"
+                exit 0
+              } catch {
+                Write-Host "Waiting for Angular on port 4300... ($($i + 1)/$max)"
+                Start-Sleep -Seconds 3
+              }
             }
-          }
-          Write-Host "❌ Angular FAILED to start!"
-          exit 1
+            Write-Host "❌ Angular FAILED to start!"
+            exit 1
 
       # -----------------------------------------------------
       # 3. إعداد Java و Maven

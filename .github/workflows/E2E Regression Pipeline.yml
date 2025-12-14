@@ -51,7 +51,7 @@ jobs:
             # قراءة محتوى الملف، استبدال <base href="/"> بـ <base href="./">، ثم حفظه
             (Get-Content -Path $indexPath) -replace '<base href="/">', '<base href="./">' | Set-Content $indexPath
 
-      - name: 🚀 Start Frontend Server (Port 4600)
+      - name: 🚀 Start Frontend Server (Port 4300)
         shell: pwsh
         run: |
           $BuildPath = "./${{ env.FRONTEND_BUILD_DIR }}"
@@ -59,7 +59,7 @@ jobs:
           
           # تشغيل http-server في عملية منفصلة
           Start-Process -FilePath "http-server" `
-              -ArgumentList $BuildPath, "-p", "4600", "-a", "0.0.0.0", "--silent"
+              -ArgumentList $BuildPath, "-p", "4300", "-a", "0.0.0.0", "--silent"
 
           Start-Sleep -Seconds 5
 
@@ -70,11 +70,11 @@ jobs:
           $max = 30
           for ($i=0; $i -lt $max; $i++) {
             try {
-              Invoke-WebRequest -Uri "http://localhost:4600" -UseBasicParsing | Out-Null
-              Write-Host "✅ Angular Frontend is UP on port 4600!"
+              Invoke-WebRequest -Uri "http://localhost:4300" -UseBasicParsing | Out-Null
+              Write-Host "✅ Angular Frontend is UP on port 4300!"
               exit 0
             } catch {
-              Write-Host "Waiting for Angular on port 4600... ($($i + 1)/$max)"
+              Write-Host "Waiting for Angular on port 4300... ($($i + 1)/$max)"
               Start-Sleep -Seconds 3
             }
           }

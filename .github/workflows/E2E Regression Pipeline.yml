@@ -1,4 +1,4 @@
-name: E2E Regression (Fast Run - Static Service) # تم تغيير الاسم ليعكس الخدمة السريعة
+name: E2E Regression (Fast Run - Static Service)
 
 on:
   push:
@@ -10,7 +10,6 @@ on:
   workflow_dispatch:
 
 env:
-  # المسار المؤكد لمجلد البناء الذي يحتوي على index.html
   FRONTEND_BUILD_DIR: POS-19-10-2025/pos-front-app
   TARGET: "%regex[.*Tests.*],com.automationexercices.tests.**.**,com.automationexercices.tests.**"
 
@@ -42,28 +41,25 @@ jobs:
       - name: 🛠️ Install http-server Globally
         run: npm install -g http-server
 
-      # تشغيل http-server لخدمة مجلد البناء (في الخلفية باستخدام Start-Process)
+      # تشغيل http-server لخدمة مجلد البناء (في الخلفية باستخدام CMD)
       - name: 🚀 Start Frontend Server (Port 4600)
-        shell: pwsh
+        shell: cmd # استخدام CMD
         run: |
-            # 1. الحصول على المسار المطلق لمجلد البناء
-            $BuildPath = Get-Item -Path "./${{ env.FRONTEND_BUILD_DIR }}" | Select-Object -ExpandProperty FullName
-            Write-Host "Absolute Path to serve: $BuildPath"
-            
-            # 2. استخدام Start-Process لتشغيل الخادم بالمسار المطلق
-            # 3. نضيف خيار --local-address 0.0.0.0 لضمان الاستماع على جميع الواجهات
-            Start-Process -FilePath "http-server" `
-                -ArgumentList $BuildPath, "-p", "4600", "--silent", "-a", "0.0.0.0"
-            
-            Start-Sleep -Seconds 5
+          echo Starting http-server on directory: ./%FRONTEND_BUILD_DIR%
+          
+          # استخدام أمر start ليعمل http-server في الخلفية
+          start "" http-server ./%FRONTEND_BUILD_DIR% -p 4600 -a 0.0.0.0 --silent
 
-      # انتظار تشغيل التطبيق
+          timeout /t 5 /nobreak 
+
+      # انتظار تشغيل التطبيق (نعود لاستخدام PowerShell للفحص الموثوق)
       - name: ⏱️ Wait until App is running
         shell: pwsh
         run: |
-          $max = 30
+          $max = 10
           for ($i=0; $i -lt $max; $i++) {
             try {
+              # Failsafe: Try to kill http-server job from previous runs if any
               Invoke-WebRequest -Uri "http://localhost:4600" -UseBasicParsing | Out-Null
               Write-Host "✅ Angular Frontend is UP on port 4600!"
               exit 0
@@ -92,7 +88,6 @@ jobs:
       # -----------------------------------------------------
       # 4. تشغيل الاختبارات (Test Execution)
       # -----------------------------------------------------
-      # تمرير المنفذ 4600 إلى اختبارات السيلينيوم
       - name: 🧪 Run Selenium Tests (Edge)
         run: mvn -Dtest="${TARGET}" -DexecutionType="LocalHeadless" -DbrowserType="Edge" -DbaseUrl="http://localhost:4600" clean test
 

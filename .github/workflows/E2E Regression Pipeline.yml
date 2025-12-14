@@ -91,7 +91,7 @@ jobs:
       # 2. إعداد وتشغيل Angular Frontend
       # -----------------------------------------------------
       - name: ⚙️ Setup Node.js (for serve)
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 18
 

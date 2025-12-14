@@ -37,32 +37,28 @@ jobs:
       # 2. تشغيل الواجهة الأمامية (Frontend Service)
       # -----------------------------------------------------
 
-      # تثبيت http-server عالمياً
       - name: 🛠️ Install http-server Globally
         run: npm install -g http-server
 
-      # تشغيل http-server لخدمة مجلد البناء (في الخلفية باستخدام PowerShell)
       - name: 🚀 Start Frontend Server (Port 4600)
-        shell: pwsh # 🛑 العودة إلى PowerShell
+        shell: pwsh # العودة إلى PowerShell
         run: |
-          # نستخدم أمر Start-Process مع redirection لضمان الفصل التام
           $BuildPath = "./${{ env.FRONTEND_BUILD_DIR }}"
           Write-Host "Starting http-server on directory: $BuildPath"
-
-          # تشغيل http-server عبر PowerShell في عملية منفصلة
+          
+          # استخدام Start-Process لتشغيل http-server في عملية منفصلة
           Start-Process -FilePath "http-server" `
               -ArgumentList $BuildPath, "-p", "4600", "-a", "0.0.0.0", "--silent"
 
           Start-Sleep -Seconds 5
 
-      # انتظار تشغيل التطبيق (نعود لاستخدام PowerShell للفحص الموثوق)
+      # انتظار تشغيل التطبيق
       - name: ⏱️ Wait until App is running
         shell: pwsh
         run: |
-          $max = 10
+          $max = 30 # زيادة مدة الانتظار للتحسين
           for ($i=0; $i -lt $max; $i++) {
             try {
-              # Failsafe: Try to kill http-server job from previous runs if any
               Invoke-WebRequest -Uri "http://localhost:4600" -UseBasicParsing | Out-Null
               Write-Host "✅ Angular Frontend is UP on port 4600!"
               exit 0

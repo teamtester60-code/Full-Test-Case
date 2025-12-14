@@ -5,14 +5,10 @@ on:
     branches: [ master, main ]
   pull_request:
     branches: [ master, main ]
-  # إزالة الجدولة إذا كنت لا تحتاجها للاختبار السريع
-  # schedule:
-  #   - cron: '00 21 * * *'
   workflow_dispatch:
 
 env:
   FRONTEND_BUILD_DIR: POS-19-10-2025/pos-front-app
-  # تم حذف TARGET لأنه لن يستخدم
   LOGIN_TEST_TARGET: "LoginTest"
 
 jobs:
@@ -22,20 +18,20 @@ jobs:
     permissions:
       contents: read
       packages: read
-      checks: write # إضافة إذن checks لـ Login_Test إذا كنت تستخدم تقارير Checks
+      checks: write
 
     steps:
       - name: ⬇️ Checkout Code
         uses: actions/checkout@v4
 
-      - name: ⚙️ Setup Node.js & Cache (for http-server)
+      - name: ⚙️ Setup Node.js (for server)
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
-
-      - name: 🛠️ Install http-server Globally
-        run: npm install -g http-server
+      # 🛑 التعديل 1: تثبيت حزمة 'serve'
+      - name: 🛠️ Install serve Globally
+        run: npm install -g serve
 
       - name: 🩹 Fix Angular Base Href
         shell: pwsh
@@ -44,17 +40,17 @@ jobs:
           Write-Host "Modifying base href in ${indexPath}: / -> ./"
           (Get-Content -Path $indexPath) -replace '<base href="/">', '<base href="./">' | Set-Content $indexPath
 
+      # 🛑 التعديل 2: استخدام 'serve' مع خيار -s (Single Page Application mode)
       - name: 🚀 Start Frontend Server (Port 4300)
         shell: bash
         run: |
           BUILD_DIR="./${{ env.FRONTEND_BUILD_DIR }}"
-          echo "Starting http-server with SPA fallback on port 4300"
-          # استخدام nohup وتشغيل الخلفية مع --spa
-          nohup http-server "$BUILD_DIR" -p 4300 --spa > server.log 2>&1 &
+          echo "Starting serve with SPA mode on port 4300"
+          # -s: لتمكين وضع SPA (توجيه 404 إلى index.html)، -l: لتحديد المنفذ
+          nohup serve -s "$BUILD_DIR" -l 4300 > server.log 2>&1 &
           sleep 5
           cat server.log
 
-      # 🛑 الخطوة المصححة والأكثر موثوقية: الانتظار باستخدام curl و bash
       - name: ⏱️ Wait until App is running on Port 4300 (using curl/bash)
         shell: bash
         run: |
@@ -63,7 +59,6 @@ jobs:
           
           echo "Starting wait loop using curl on $URL"
           for i in $(seq 1 $MAX_ATTEMPTS); do
-            # فحص اتصال HTTP 200/300
             if curl -s --head --fail "$URL" ; then
               echo "✅ Angular Frontend is UP on port 4300!"
               exit 0
@@ -87,7 +82,6 @@ jobs:
           maven-version: 3.9.9
 
       - name: 🧪 Run Login Test
-        # تشغيل اختبار LoginTest فقط، وضمان استخدام 127.0.0.1:4300
         run: mvn -Dtest=${{ env.LOGIN_TEST_TARGET }} -DexecutionType="LocalHeadless" -DbrowserType="Edge" -DbaseUrl="http://127.0.0.1:4300" test
 
       - name: 📤 Upload Test Results

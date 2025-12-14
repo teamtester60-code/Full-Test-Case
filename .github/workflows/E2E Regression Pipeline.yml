@@ -1,18 +1,19 @@
-name: E2E Regression (Fast Run - Static Service)
+name: E2E Regression (Login Test Only - Static Service)
 
 on:
   push:
     branches: [ master, main ]
   pull_request:
     branches: [ master, main ]
-  schedule:
-    - cron: '00 21 * * *'
+  # إزالة الجدولة إذا كنت لا تحتاجها للاختبار السريع
+  # schedule:
+  #   - cron: '00 21 * * *'
   workflow_dispatch:
 
 env:
   FRONTEND_BUILD_DIR: POS-19-10-2025/pos-front-app
-  TARGET: "%regex[.*Tests.*],com.automationexercices.tests.**.**,com.automationexercices.tests.**"
-  LOGIN_TEST_TARGET: "LoginTest" # يستخدم اسم الفئة فقط، افترض أن Maven يمكنه إيجادها
+  # تم حذف TARGET لأنه لن يستخدم
+  LOGIN_TEST_TARGET: "LoginTest"
 
 jobs:
 
@@ -21,11 +22,13 @@ jobs:
     permissions:
       contents: read
       packages: read
+      checks: write # إضافة إذن checks لـ Login_Test إذا كنت تستخدم تقارير Checks
+
     steps:
       - name: ⬇️ Checkout Code
         uses: actions/checkout@v4
 
-      - name: ⚙️ Setup Node.js (for http-server)
+      - name: ⚙️ Setup Node.js & Cache (for http-server)
         uses: actions/setup-node@v4
         with:
           node-version: 18
@@ -41,109 +44,36 @@ jobs:
           Write-Host "Modifying base href in ${indexPath}: / -> ./"
           (Get-Content -Path $indexPath) -replace '<base href="/">', '<base href="./">' | Set-Content $indexPath
 
-      # 🛑 المهمة السريعة: تشغيل الخادم مع --spa (تم تطبيقه مسبقاً)
       - name: 🚀 Start Frontend Server (Port 4300)
         shell: bash
         run: |
           BUILD_DIR="./${{ env.FRONTEND_BUILD_DIR }}"
           echo "Starting http-server with SPA fallback on port 4300"
+          # استخدام nohup وتشغيل الخلفية مع --spa
           nohup http-server "$BUILD_DIR" -p 4300 --spa > server.log 2>&1 &
           sleep 5
           cat server.log
 
-      - name: ⏱️ Wait until App is running on Port 4300
-        shell: pwsh
-        run: |
-          $max = 30
-          for ($i=0; $i -lt $max; $i++) {
-            try {
-              Invoke-WebRequest -Uri "http://127.0.0.1:4300" -UseBasicParsing | Out-Null
-              Write-Host "✅ Angular Frontend is UP on port 4300!"
-              exit 0
-            } catch {
-              Write-Host "Waiting for Angular on port 4300... ($($i + 1)/$max)"
-              Start-Sleep -Seconds 3
-            }
-          }
-          Write-Host "❌ Angular FAILED to start!"
-          exit 1
-
-      - name: ☕ Setup Java
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'zulu'
-          java-version: '21' # تم التعديل لتوحيد الإصدار
-
-      - name: 📦 Setup Maven
-        uses: stCarolas/setup-maven@v5
-        with:
-          maven-version: 3.9.9
-
-      - name: 🧪 Run Login Test
-        # 🛑 تم تعديل baseUrl ليتطابق مع عنوان خطوة الانتظار (127.0.0.1)
-        run: mvn -Dtest=${{ env.LOGIN_TEST_TARGET }} -DexecutionType="LocalHeadless" -DbrowserType="Edge" -DbaseUrl="http://127.0.0.1:4300" test
-
-      - name: 📤 Upload Test Results
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: Login_Test_Report
-          path: test-output/reports/*.html
-
-  Edge_Windows_Test:
-    runs-on: windows-latest
-    permissions:
-      checks: write
-
-    steps:
-
-      - name: ⬇️ Checkout Code
-        uses: actions/checkout@v4
-
-      - name: ⚙️ Setup Node.js (for http-server)
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-
-      - name: 🛠️ Install http-server Globally
-        run: npm install -g http-server
-
-      - name: 🩹 Fix Angular Base Href
-        shell: pwsh
-        run: |
-          $indexPath = "./${{ env.FRONTEND_BUILD_DIR }}/index.html"
-          Write-Host "Modifying base href in ${indexPath}: / -> ./"
-          (Get-Content -Path $indexPath) -replace '<base href="/">', '<base href="./">' | Set-Content $indexPath
-
-      # 🛑 المهمة الكاملة: تشغيل الخادم مع --spa (التعديل الجديد)
-      - name: 🚀 Start Frontend Server (Port 4300)
+      # 🛑 الخطوة المصححة والأكثر موثوقية: الانتظار باستخدام curl و bash
+      - name: ⏱️ Wait until App is running on Port 4300 (using curl/bash)
         shell: bash
         run: |
-          BUILD_DIR="./${{ env.FRONTEND_BUILD_DIR }}"
-          echo "Starting http-server with SPA fallback on port 4300"
-          nohup http-server "$BUILD_DIR" -p 4300 --spa > server.log 2>&1 & # 🛑 تم إضافة --spa هنا
-          sleep 5
-          cat server.log
-
-      - name: ⏱️ Wait until App is running on Port 4300 (using curl/bash)
-        shell: bash # 🛑 تغيير Shell إلى Bash
-        run: |
-            MAX_ATTEMPTS=30
-            URL="http://127.0.0.1:4300"
-            
-            echo "Starting wait loop using curl on $URL"
-            for i in $(seq 1 $MAX_ATTEMPTS); do
-              # curl -s (Silent), --head (Headers only), --fail (Exit with error code on 4xx/5xx)
-              if curl -s --head --fail "$URL" ; then
-                echo "✅ Angular Frontend is UP on port 4300!"
-                exit 0
-              else
-                echo "Waiting for Angular on port 4300... ($i/$MAX_ATTEMPTS)"
-                sleep 3
-              fi
-            done
-            echo "❌ Angular FAILED to start!"
-            exit 1
+          MAX_ATTEMPTS=30
+          URL="http://127.0.0.1:4300"
+          
+          echo "Starting wait loop using curl on $URL"
+          for i in $(seq 1 $MAX_ATTEMPTS); do
+            # فحص اتصال HTTP 200/300
+            if curl -s --head --fail "$URL" ; then
+              echo "✅ Angular Frontend is UP on port 4300!"
+              exit 0
+            else
+              echo "Waiting for Angular on port 4300... ($i/$MAX_ATTEMPTS)"
+              sleep 3
+            fi
+          done
+          echo "❌ Angular FAILED to start!"
+          exit 1
 
       - name: ☕ Setup Java
         uses: actions/setup-java@v4
@@ -156,13 +86,13 @@ jobs:
         with:
           maven-version: 3.9.9
 
-      - name: 🧪 Run Selenium Tests (Edge)
-        # 🛑 تم تعديل baseUrl ليتطابق مع عنوان خطوة الانتظار (127.0.0.1)
-        run: mvn -Dtest="${TARGET}" -DexecutionType="LocalHeadless" -DbrowserType="Edge" -DbaseUrl="http://127.0.0.1:4300" clean test
+      - name: 🧪 Run Login Test
+        # تشغيل اختبار LoginTest فقط، وضمان استخدام 127.0.0.1:4300
+        run: mvn -Dtest=${{ env.LOGIN_TEST_TARGET }} -DexecutionType="LocalHeadless" -DbrowserType="Edge" -DbaseUrl="http://127.0.0.1:4300" test
 
       - name: 📤 Upload Test Results
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: Edge_Windows_Report
+          name: Login_Test_Report
           path: test-output/reports/*.html

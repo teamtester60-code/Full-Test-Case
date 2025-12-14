@@ -125,22 +125,24 @@ jobs:
           sleep 5
           cat server.log
 
-      - name: ⏱️ Wait until App is running on Port 4300
-        shell: pwsh
+      - name: ⏱️ Wait until App is running on Port 4300 (using curl/bash)
+        shell: bash # 🛑 تغيير Shell إلى Bash هنا أيضًا
         run: |
-          $max = 30
-          for ($i=0; $i -lt $max; $i++) {
-            try {
-              Invoke-WebRequest -Uri "http://127.0.0.1:4300" -UseBasicParsing | Out-Null
-              Write-Host "✅ Angular Frontend is UP on port 4300!"
-              exit 0
-            } catch {
-              Write-Host "Waiting for Angular on port 4300... ($($i + 1)/$max)"
-              Start-Sleep -Seconds 3
-            }
-          }
-          Write-Host "❌ Angular FAILED to start!"
-          exit 1
+            MAX_ATTEMPTS=30
+            URL="http://127.0.0.1:4300"
+            
+            for i in $(seq 1 $MAX_ATTEMPTS); do
+              # استخدام curl لفحص الاتصال والاستجابة 200/300، مع مهلة قصيرة
+              if curl -s --head --fail "$URL" ; then
+                echo "✅ Angular Frontend is UP on port 4300!"
+                exit 0
+              else
+                echo "Waiting for Angular on port 4300... ($i/$MAX_ATTEMPTS)"
+                sleep 3
+              fi
+            done
+            echo "❌ Angular FAILED to start!"
+            exit 1
 
       - name: ☕ Setup Java
         uses: actions/setup-java@v4

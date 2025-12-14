@@ -46,10 +46,16 @@ jobs:
       - name: 🚀 Start Frontend Server (Port 4600)
         shell: pwsh
         run: |
-          # استخدام Start-Process لتشغيل http-server كعملية خلفية موثوقة
-          Write-Host "Starting http-server on directory: ./${{ env.FRONTEND_BUILD_DIR }}"
-          Start-Process -FilePath "http-server" -ArgumentList "./${{ env.FRONTEND_BUILD_DIR }}", "-p", "4600", "--silent" 
-          Start-Sleep -Seconds 5 # إعطاء وقت كافٍ لبدء تشغيل الخادم
+            # 1. الحصول على المسار المطلق لمجلد البناء
+            $BuildPath = Get-Item -Path "./${{ env.FRONTEND_BUILD_DIR }}" | Select-Object -ExpandProperty FullName
+            Write-Host "Absolute Path to serve: $BuildPath"
+            
+            # 2. استخدام Start-Process لتشغيل الخادم بالمسار المطلق
+            # 3. نضيف خيار --local-address 0.0.0.0 لضمان الاستماع على جميع الواجهات
+            Start-Process -FilePath "http-server" `
+                -ArgumentList $BuildPath, "-p", "4600", "--silent", "-a", "0.0.0.0"
+            
+            Start-Sleep -Seconds 5
 
       # انتظار تشغيل التطبيق
       - name: ⏱️ Wait until App is running

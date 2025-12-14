@@ -47,14 +47,16 @@ jobs:
       - name: 🚀 Start Backend Service (Port ${{ env.BACKEND_API_PORT }})
         shell: bash
         run: |
-          echo "Starting .NET Kestrel server on port ${{ env.BACKEND_API_PORT }} using EXE"
-          # تغيير المجلد ثم تشغيل ملف EXE مباشرة
-          cd ${{ env.BACKEND_PUBLISH_DIR }}
-          # تشغيل ملف EXE في الخلفية
-          nohup ./POS.Web.exe > backend.log 2>&1 &
-          cd - # العودة إلى المجلد الأصلي
-          sleep 10
-          cat ${{ env.BACKEND_PUBLISH_DIR }}/backend.log
+            echo "Starting .NET Kestrel server on port ${{ env.BACKEND_API_PORT }} using EXE"
+            cd ${{ env.BACKEND_PUBLISH_DIR }}
+            # تشغيل ملف EXE في الخلفية
+            nohup ./POS.Web.exe > backend.log 2>&1 &
+            cd -
+            sleep 10
+            echo "--- Backend Log Snippet ---"
+            # عرض السجل الكامل إذا كان موجودًا
+            cat ${{ env.BACKEND_PUBLISH_DIR }}/backend.log
+            echo "---------------------------"
 
       - name: ⏱️ Wait until Backend API is running
         shell: bash

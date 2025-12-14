@@ -49,6 +49,11 @@ jobs:
           # تشغيل السيرفر وتوجيهه لمجلد البناء
           Start-Job -ScriptBlock { http-server ./${{ env.FRONTEND_BUILD_DIR }} -p 4600 }
           Start-Sleep -Seconds 5
+        # 👇 الخطوة الجديدة: لفحص محتويات المجلد
+      - name: 🔎
+        Debug: List Build Directory Contents
+        run: Get-ChildItem -Path ./${{ env.FRONTEND_BUILD_DIR }}
+        shell: pwsh
 
       # انتظار تشغيل التطبيق
       - name: Wait until App is running on Port 4600

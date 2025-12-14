@@ -13,31 +13,30 @@ env:
   # -----------------------------------------------------
   FRONTEND_BUILD_DIR: POS-19-10-2025/pos-front-app
   BACKEND_PUBLISH_DIR: POS-19-10-2025/POS-BackPublish
-  BACKEND_EXE_PATH: POS-19-10-2025/POS-BackPublish/POS.Web.exe
+  # المسار للملف الثنائي القابل للتنفيذ (Linux)
+  BACKEND_BINARY_PATH: POS-19-10-2025/POS-BackPublish/POS.Web
 
   FRONTEND_PORT: 4300
   BACKEND_API_PORT: 56740
-  ASPNETCORE_URLS: http://127.0.0.1:56740
+  ASPNETCORE_URLS: http://127.0.0.1:56740 # Kestrel URL
   LOGIN_TEST_TARGET: "LoginTest"
 
 jobs:
 
   Login_Test:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest # 🛑 التغيير إلى Linux
     permissions:
       contents: read
       packages: read
       checks: write
 
-    # 🛑 تشغيل خدمة MongoDB كـ Container
+    # 🛑 تشغيل خدمة MongoDB
     services:
       mongodb:
         image: mongo:latest
         ports:
-          # ربط منفذ Docker بالمنفذ المحلي (127.0.0.1:27017)
           - 27017:27017
-        options:
-          --name mongodb
+        options: --name mongodb
 
     steps:
       - name: ⬇️ Checkout Code
@@ -51,15 +50,18 @@ jobs:
         with:
           dotnet-version: '3.1.x'
 
+      - name: 🛠️ Set Permissions for Backend Binary
+        # منح إذن التنفيذ للملف القابل للتشغيل على Linux
+        run: chmod +x ${{ env.BACKEND_PUBLISH_DIR }}/POS.Web
+
       - name: ⏱️ Wait for MongoDB to start (Port 27017)
         shell: bash
         run: |
           MAX_ATTEMPTS=20
-          MONGO_URL="http://127.0.0.1:27017"
+          MONGO_URL="http://mongodb:27017" # نستخدم اسم الخدمة
           echo "Starting wait loop for MongoDB on $MONGO_URL"
           for i in $(seq 1 $MAX_ATTEMPTS); do
-            # استخدام netcat (nc) أو curl لفحص المنفذ
-            # سنعتمد على curl هنا لتجنب التعقيد، على الرغم من أن فحص المنفذ يكون أدق
+            # curl على اسم الخدمة للتأكد من أنها تستمع
             if curl -s --head --fail "$MONGO_URL" ; then 
               echo "✅ MongoDB is UP!"
               exit 0
@@ -75,17 +77,15 @@ jobs:
       - name: 🚀 Start Backend Service (Port ${{ env.BACKEND_API_PORT }})
         shell: bash
         env:
-          # توجيه .NET لربط المنفذ
           ASPNETCORE_URLS: ${{ env.ASPNETCORE_URLS }}
-          # 🛑 تمرير سلسلة اتصال MongoDB (تتصل بـ 127.0.0.1 حيث تعمل الخدمة)
-          MongoConnection__ConnectionString: mongodb://127.0.0.1:27017/?minPoolSize=10&maxPoolSize=50
-          ApplicationSettings__Report_Connection: mongodb://127.0.0.1:27017
+          # 🛑 استخدام اسم الخدمة (mongodb) في سلسلة الاتصال
+          MongoConnection__ConnectionString: mongodb://mongodb:27017/?minPoolSize=10&maxPoolSize=50
+          ApplicationSettings__Report_Connection: mongodb://mongodb:27017
 
         run: |
-          echo "Starting .NET Kestrel server on port ${{ env.BACKEND_API_PORT }} using EXE"
+          echo "Starting .NET Kestrel server on port ${{ env.BACKEND_API_PORT }} using Binary"
           cd ${{ env.BACKEND_PUBLISH_DIR }}
-          # تشغيل ملف EXE
-          nohup ./POS.Web.exe > backend.log 2>&1 &
+          nohup ./POS.Web > backend.log 2>&1 & 
           cd -
           sleep 10
           echo "--- Backend Log Snippet ---"
@@ -100,6 +100,7 @@ jobs:
           
           echo "Starting wait loop for API on $API_URL"
           for i in $(seq 1 $MAX_ATTEMPTS); do
+            # فحص اتصال API
             if curl -s --head --fail "$API_URL" ; then 
               echo "✅ Backend API is UP on port ${{ env.BACKEND_API_PORT }}!"
               exit 0
@@ -112,7 +113,7 @@ jobs:
           exit 1
 
       # -----------------------------------------------------
-      # 2. إعداد وتشغيل Angular Frontend (بدون تغيير)
+      # 2. إعداد وتشغيل Angular Frontend
       # -----------------------------------------------------
       - name: ⚙️ Setup Node.js (for serve)
         uses: actions/setup-node@v4
@@ -122,11 +123,12 @@ jobs:
       - name: 🛠️ Install serve Globally
         run: npm install -g serve
 
-      - name: 🩹 Fix Angular Base Href
-        shell: pwsh
+      - name: 🩹 Fix Angular Base Href (Linux/Bash)
+        shell: bash
         run: |
-          $indexPath = "./${{ env.FRONTEND_BUILD_DIR }}/index.html"
-          (Get-Content -Path $indexPath) -replace '<base href="/">', '<base href="./">' | Set-Content $indexPath
+          INDEX_PATH="./${{ env.FRONTEND_BUILD_DIR }}/index.html"
+          # استخدام sed لتعديل الملف
+          sed -i 's|<base href="/">|<base href="./">|g' "$INDEX_PATH"
 
       - name: 🚀 Start Frontend Server (Port ${{ env.FRONTEND_PORT }})
         shell: bash
@@ -156,7 +158,7 @@ jobs:
           exit 1
 
       # -----------------------------------------------------
-      # 3. تشغيل اختبارات Selenium (بدون تغيير)
+      # 3. تشغيل اختبارات Selenium
       # -----------------------------------------------------
       - name: ☕ Setup Java (for Selenium Tests)
         uses: actions/setup-java@v4

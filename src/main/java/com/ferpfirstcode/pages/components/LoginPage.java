@@ -177,6 +177,7 @@ public class LoginPage {
     public LoginPage enterPin(String pin) {
         ScreenShotsManager.takeFullPageScreenshot(driver.get(),"BeforePin");
         driver.element().clickElement(pinicon);
+        ScreenShotsManager.takeFullPageScreenshot(driver.get(),"AfterPin");
         driver.element().typeText(passwordField, pin);
         return this;
     }

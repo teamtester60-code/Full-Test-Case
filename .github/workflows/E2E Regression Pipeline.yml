@@ -1,4 +1,4 @@
-name: E2E Regression (Fast Run - Skip Frontend Build)
+name: E2E Regression (Fast Run - Static Service) # تم تغيير الاسم ليعكس الخدمة السريعة
 
 on:
   push:
@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 env:
-  # مسار مجلد البناء الذي يحتوي على index.html
+  # المسار المؤكد لمجلد البناء الذي يحتوي على index.html
   FRONTEND_BUILD_DIR: POS-19-10-2025/pos-front-app
   TARGET: "%regex[.*Tests.*],com.automationexercices.tests.**.**,com.automationexercices.tests.**"
 
@@ -24,76 +24,76 @@ jobs:
     steps:
 
       # -----------------------------------------------------
-      # 1. Checkout the repository
+      # 1. إعداد البيئة (Checkout & Node)
       # -----------------------------------------------------
-      - name: Checkout Code
+      - name: ⬇️ Checkout Code
         uses: actions/checkout@v4
 
-      # -----------------------------------------------------
-      # 2. Node Setup & Start http-server
-      # (نقوم بتثبيت Node فقط لاستخدام npm لتثبيت http-server)
-      # -----------------------------------------------------
-      - name: Setup Node.js
+      - name: ⚙️ Setup Node.js (for http-server)
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      # تثبيت http-server عالمياً (يجب أن يتم مرة واحدة)
-      - name: Install http-server Globally
+      # -----------------------------------------------------
+      # 2. تشغيل الواجهة الأمامية (Frontend Service)
+      # -----------------------------------------------------
+
+      # تثبيت http-server عالمياً
+      - name: 🛠️ Install http-server Globally
         run: npm install -g http-server
 
-      # تشغيل http-server لخدمة مجلد البناء (في الخلفية)
-      - name: Start http-server (Background on Port 4600)
+      # تشغيل http-server لخدمة مجلد البناء (في الخلفية باستخدام Start-Process)
+      - name: 🚀 Start Frontend Server (Port 4600)
         shell: pwsh
         run: |
-          # تشغيل السيرفر وتوجيهه لمجلد البناء
-          Start-Job -ScriptBlock { http-server ./${{ env.FRONTEND_BUILD_DIR }} -p 4600 }
-          Start-Sleep -Seconds 5
-        # 👇 الخطوة الجديدة: لفحص محتويات المجلد
-      - name: 🔎
-        run: Get-ChildItem -Path ./${{ env.FRONTEND_BUILD_DIR }}
-        shell: pwsh
+          # استخدام Start-Process لتشغيل http-server كعملية خلفية موثوقة
+          Write-Host "Starting http-server on directory: ./${{ env.FRONTEND_BUILD_DIR }}"
+          Start-Process -FilePath "http-server" -ArgumentList "./${{ env.FRONTEND_BUILD_DIR }}", "-p", "4600", "--silent" 
+          Start-Sleep -Seconds 5 # إعطاء وقت كافٍ لبدء تشغيل الخادم
 
       # انتظار تشغيل التطبيق
-      - name: Wait until App is running on Port 4600
+      - name: ⏱️ Wait until App is running
         shell: pwsh
         run: |
           $max = 30
           for ($i=0; $i -lt $max; $i++) {
             try {
               Invoke-WebRequest -Uri "http://localhost:4600" -UseBasicParsing | Out-Null
-              Write-Host "Angular Frontend is UP on port 4600!"
+              Write-Host "✅ Angular Frontend is UP on port 4600!"
               exit 0
             } catch {
-              Write-Host "Waiting for Angular on port 4600..."
+              Write-Host "Waiting for Angular on port 4600... ($($i + 1)/$max)"
               Start-Sleep -Seconds 3
             }
           }
-          Write-Host "Angular FAILED to start!"
+          Write-Host "❌ Angular FAILED to start!"
           exit 1
 
       # -----------------------------------------------------
-      # 3. Java + Maven + Selenium
+      # 3. إعداد Java و Maven
       # -----------------------------------------------------
-      - name: Setup Java
+      - name: ☕ Setup Java
         uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
           java-version: '21'
 
-      - name: Setup Maven
+      - name: 📦 Setup Maven
         uses: stCarolas/setup-maven@v5
         with:
           maven-version: 3.9.9
 
+      # -----------------------------------------------------
+      # 4. تشغيل الاختبارات (Test Execution)
+      # -----------------------------------------------------
       # تمرير المنفذ 4600 إلى اختبارات السيلينيوم
-      - name: Run Selenium Tests (Edge)
+      - name: 🧪 Run Selenium Tests (Edge)
         run: mvn -Dtest="${TARGET}" -DexecutionType="LocalHeadless" -DbrowserType="Edge" -DbaseUrl="http://localhost:4600" clean test
 
       # -----------------------------------------------------
-      # 4. Upload Reports
+      # 5. رفع التقارير (Artifact Upload)
       # -----------------------------------------------------
-      - name: Upload Test Results
+      - name: 📤 Upload Test Results
         uses: actions/upload-artifact@v4
         with:
           name: Edge_Windows_Report

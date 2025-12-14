@@ -11,6 +11,7 @@ on:
 
 env:
   FRONTEND_BUILD_DIR: POS-19-10-2025/pos-front-app
+  # تأكد من أن هذا المتغير صحيح ليطابق المسار في الكود البرمجي
   TARGET: "%regex[.*Tests.*],com.automationexercices.tests.**.**,com.automationexercices.tests.**"
 
 jobs:
@@ -40,36 +41,37 @@ jobs:
       - name: 🛠️ Install http-server Globally
         run: npm install -g http-server
 
-      # 🛑 الخطوة المصححة: تعديل base-href في index.html
+      # 🛑 الخطوة المصححة 1: تعديل base-href لتمكين تحميل موارد Angular
       - name: 🩹 Fix Angular Base Href
         shell: pwsh
         run: |
-            $indexPath = "./${{ env.FRONTEND_BUILD_DIR }}/index.html"
-            # 🛑 تم تعديل السطر التالي بإضافة ${}
-            Write-Host "Modifying base href in ${indexPath}: / -> ./"
-            
-            # قراءة محتوى الملف، استبدال <base href="/"> بـ <base href="./">، ثم حفظه
-            (Get-Content -Path $indexPath) -replace '<base href="/">', '<base href="./">' | Set-Content $indexPath
+          $indexPath = "./${{ env.FRONTEND_BUILD_DIR }}/index.html"
+          Write-Host "Modifying base href in ${indexPath}: / -> ./"
+          
+          # استبدال <base href="/"> بـ <base href="./">
+          (Get-Content -Path $indexPath) -replace '<base href="/">', '<base href="./">' | Set-Content $indexPath
 
+      # 🛑 الخطوة المصححة 2: تشغيل الخادم في الخلفية باستخدام Start-Process
       - name: 🚀 Start Frontend Server (Port 4300)
         shell: pwsh
         run: |
           $BuildPath = "./${{ env.FRONTEND_BUILD_DIR }}"
-          Write-Host "Starting http-server on directory: $BuildPath"
+          Write-Host "Starting http-server on directory: $BuildPath on port 4300"
           
-          # تشغيل http-server في عملية منفصلة
+          # استخدام Start-Process لضمان تشغيل http-server في عملية منفصلة
           Start-Process -FilePath "http-server" `
               -ArgumentList $BuildPath, "-p", "4300", "-a", "0.0.0.0", "--silent"
 
           Start-Sleep -Seconds 5
 
-      # انتظار تشغيل التطبيق (هذه الخطوة يجب أن تنجح الآن)
-      - name: ⏱️ Wait until App is running
+      # انتظار تشغيل التطبيق (الفحص الآن سيكون على المنفذ 4300)
+      - name: ⏱️ Wait until App is running on Port 4300
         shell: pwsh
         run: |
           $max = 30
           for ($i=0; $i -lt $max; $i++) {
             try {
+              # فحص المنفذ 4300
               Invoke-WebRequest -Uri "http://localhost:4300" -UseBasicParsing | Out-Null
               Write-Host "✅ Angular Frontend is UP on port 4300!"
               exit 0
@@ -99,7 +101,8 @@ jobs:
       # 4. تشغيل الاختبارات (Test Execution)
       # -----------------------------------------------------
       - name: 🧪 Run Selenium Tests (Edge)
-        run: mvn -Dtest="${TARGET}" -DexecutionType="LocalHeadless" -DbrowserType="Edge" -DbaseUrl="http://localhost:4600" clean test
+        # تأكد من أن baseUrl هنا هو 4300
+        run: mvn -Dtest="${TARGET}" -DexecutionType="LocalHeadless" -DbrowserType="Edge" -DbaseUrl="http://localhost:4300" clean test
 
       # -----------------------------------------------------
       # 5. رفع التقارير (Artifact Upload)

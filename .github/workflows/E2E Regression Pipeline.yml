@@ -135,7 +135,7 @@ jobs:
       # 3. تشغيل اختبارات Selenium
       # -----------------------------------------------------
       - name: ☕ Setup Java (for Selenium Tests)
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: 'zulu'
           java-version: '21'

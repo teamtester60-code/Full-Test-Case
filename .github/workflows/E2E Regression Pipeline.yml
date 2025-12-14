@@ -102,7 +102,10 @@ jobs:
       # 5. رفع التقارير (Artifact Upload)
       # -----------------------------------------------------
       - name: 📤 Upload Test Results
+       # 🛑 إضافة هذا الشرط لضمان التنفيذ حتى عند فشل الاختبارات
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: Edge_Windows_Report
-          path: test-output/reports/*.html
+            name: Edge_Windows_Report
+            # تأكد من أن هذا المسار صحيح، غالبًا ما يخرج Maven التقارير هنا
+            path: test-output/reports/*.html

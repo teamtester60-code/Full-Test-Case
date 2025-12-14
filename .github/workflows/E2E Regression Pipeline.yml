@@ -40,23 +40,33 @@ jobs:
       - name: 🛠️ Install http-server Globally
         run: npm install -g http-server
 
+      # 🛑 الخطوة المصححة: تعديل base-href في index.html
+      - name: 🩹 Fix Angular Base Href
+        shell: pwsh
+        run: |
+          $indexPath = "./${{ env.FRONTEND_BUILD_DIR }}/index.html"
+          Write-Host "Modifying base href in $indexPath: / -> ./"
+          
+          # استبدال base href="/ " بـ base href="./ "
+          (Get-Content -Path $indexPath) -replace '<base href="/">', '<base href="./">' | Set-Content $indexPath
+
       - name: 🚀 Start Frontend Server (Port 4600)
-        shell: pwsh # العودة إلى PowerShell
+        shell: pwsh
         run: |
           $BuildPath = "./${{ env.FRONTEND_BUILD_DIR }}"
           Write-Host "Starting http-server on directory: $BuildPath"
           
-          # استخدام Start-Process لتشغيل http-server في عملية منفصلة
+          # تشغيل http-server في عملية منفصلة
           Start-Process -FilePath "http-server" `
               -ArgumentList $BuildPath, "-p", "4600", "-a", "0.0.0.0", "--silent"
 
           Start-Sleep -Seconds 5
 
-      # انتظار تشغيل التطبيق
+      # انتظار تشغيل التطبيق (هذه الخطوة يجب أن تنجح الآن)
       - name: ⏱️ Wait until App is running
         shell: pwsh
         run: |
-          $max = 30 # زيادة مدة الانتظار للتحسين
+          $max = 30
           for ($i=0; $i -lt $max; $i++) {
             try {
               Invoke-WebRequest -Uri "http://localhost:4600" -UseBasicParsing | Out-Null

@@ -51,7 +51,6 @@ jobs:
           Start-Sleep -Seconds 5
         # 👇 الخطوة الجديدة: لفحص محتويات المجلد
       - name: 🔎
-        Debug: List Build Directory Contents
         run: Get-ChildItem -Path ./${{ env.FRONTEND_BUILD_DIR }}
         shell: pwsh
 

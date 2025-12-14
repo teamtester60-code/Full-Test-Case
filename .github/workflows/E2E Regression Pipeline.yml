@@ -1,4 +1,4 @@
-name: E2E Regression
+name: E2E Regression (Fast Run - Skip Frontend Build)
 
 on:
   push:
@@ -10,7 +10,8 @@ on:
   workflow_dispatch:
 
 env:
-  # تأكد أن اختبارات السيلينيوم لديك مهيئة لتقرأ الرابط الصحيح (http://localhost:4600)
+  # مسار مجلد البناء الذي يحتوي على index.html
+  FRONTEND_BUILD_DIR: POS-19-10-2025/pos-front-app
   TARGET: "%regex[.*Tests.*],com.automationexercices.tests.**.**,com.automationexercices.tests.**"
 
 jobs:
@@ -23,48 +24,39 @@ jobs:
     steps:
 
       # -----------------------------------------------------
-      # Checkout the repository
+      # 1. Checkout the repository
       # -----------------------------------------------------
       - name: Checkout Code
         uses: actions/checkout@v4
 
       # -----------------------------------------------------
-      # Node + Angular Setup & Build
+      # 2. Node Setup & Start http-server
+      # (نقوم بتثبيت Node فقط لاستخدام npm لتثبيت http-server)
       # -----------------------------------------------------
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      - name: Install Angular Dependencies
-        working-directory: POS-19-10-2025/pos-front-app
-        run: npm install
+      # تثبيت http-server عالمياً (يجب أن يتم مرة واحدة)
+      - name: Install http-server Globally
+        run: npm install -g http-server
 
-      # خطوة جديدة: بناء المشروع لإنتاج مجلد dist
-      - name: Build Angular Project
-        working-directory: POS-19-10-2025/pos-front-app
-        run: npm run build
-
-      # خطوة معدلة: تشغيل http-server بدلاً من npm start
-      # ملاحظة: تأكد من مسار مجلد dist الصحيح (قد يكون dist/POSFront أو dist/pos-front-app)
-      - name: Start http-server (background)
-        working-directory: POS-19-10-2025/pos-front-app
+      # تشغيل http-server لخدمة مجلد البناء (في الخلفية)
+      - name: Start http-server (Background on Port 4600)
         shell: pwsh
         run: |
-          npm install -g http-server
-          # نقوم بتشغيل السيرفر وتوجيهه لمجلد الـ build (غالباً يكون اسمه dist واسم المشروع بداخله)
-          # استبدل "dist/YOUR_PROJECT_NAME" بالمسار الصحيح الذي يظهر بعد الـ build
-          # بناء على مسارك المحلي سأفترض أنه يخدم المجلد الحالي أو dist مباشرة
-          Start-Job -ScriptBlock { http-server ./dist/pos-front-app -p 4600 }
+          # تشغيل السيرفر وتوجيهه لمجلد البناء
+          Start-Job -ScriptBlock { http-server ./${{ env.FRONTEND_BUILD_DIR }} -p 4600 }
           Start-Sleep -Seconds 5
 
-      - name: Wait until App is running (Port 4600)
+      # انتظار تشغيل التطبيق
+      - name: Wait until App is running on Port 4600
         shell: pwsh
         run: |
           $max = 30
           for ($i=0; $i -lt $max; $i++) {
             try {
-              # تم تغيير المنفذ إلى 4600
               Invoke-WebRequest -Uri "http://localhost:4600" -UseBasicParsing | Out-Null
               Write-Host "Angular Frontend is UP on port 4600!"
               exit 0
@@ -77,7 +69,7 @@ jobs:
           exit 1
 
       # -----------------------------------------------------
-      # Java + Maven + Selenium
+      # 3. Java + Maven + Selenium
       # -----------------------------------------------------
       - name: Setup Java
         uses: actions/setup-java@v4
@@ -90,12 +82,12 @@ jobs:
         with:
           maven-version: 3.9.9
 
-      # تأكد من تمرير الرابط الأساسي (Base URL) للاختبارات إذا كانت تحتاج ذلك
+      # تمرير المنفذ 4600 إلى اختبارات السيلينيوم
       - name: Run Selenium Tests (Edge)
         run: mvn -Dtest="${TARGET}" -DexecutionType="LocalHeadless" -DbrowserType="Edge" -DbaseUrl="http://localhost:4600" clean test
 
       # -----------------------------------------------------
-      # Upload Reports
+      # 4. Upload Reports
       # -----------------------------------------------------
       - name: Upload Test Results
         uses: actions/upload-artifact@v4

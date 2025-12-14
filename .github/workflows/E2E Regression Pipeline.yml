@@ -20,7 +20,7 @@ env:
   # 🛑 مجلد مصدر الواجهة الخلفية (يحتوي على ملف .csproj)
   BACKEND_PROJECT_DIR: POS-19-10-2025/POS-BackPublish
   # 🛑 مسار ملف DLL القابل للتشغيل (يتم إنشاؤه بعد النشر)
-  BACKEND_DLL_PATH: ${{ env.BACKEND_PROJECT_DIR }}/POS.Web.dll
+  BACKEND_DLL_PATH: POS-19-10-2025/POS-BackPublish/POS.Web.dll
 
   # -----------------------------------------------------
   # 📌 إعدادات المنافذ والاختبار (Ports and Testing)

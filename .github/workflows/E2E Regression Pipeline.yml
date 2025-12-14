@@ -126,13 +126,14 @@ jobs:
           cat server.log
 
       - name: ⏱️ Wait until App is running on Port 4300 (using curl/bash)
-        shell: bash # 🛑 تغيير Shell إلى Bash هنا أيضًا
+        shell: bash # 🛑 تغيير Shell إلى Bash
         run: |
             MAX_ATTEMPTS=30
             URL="http://127.0.0.1:4300"
             
+            echo "Starting wait loop using curl on $URL"
             for i in $(seq 1 $MAX_ATTEMPTS); do
-              # استخدام curl لفحص الاتصال والاستجابة 200/300، مع مهلة قصيرة
+              # curl -s (Silent), --head (Headers only), --fail (Exit with error code on 4xx/5xx)
               if curl -s --head --fail "$URL" ; then
                 echo "✅ Angular Frontend is UP on port 4300!"
                 exit 0

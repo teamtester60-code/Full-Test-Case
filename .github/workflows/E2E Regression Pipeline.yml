@@ -49,14 +49,14 @@ jobs:
             
             echo "Starting log check loop for MongoDB..."
             
-            # 🛑 التغيير: فحص فقط رسالة "Waiting for connections"
-            for ($i = 1; $i -le $MAX_ATTEMPTS); $i++) {
+            # 🛑 تم تصحيح الخطأ النحوي: إزالة الفاصلة المنقوطة قبل القوس '}'
+            for ($i = 1; $i -le $MAX_ATTEMPTS) {
                 $logOutput = docker logs mongodb 2>&1
             
                 if ($logOutput -like "*Waiting for connections*") {
                     echo "✅ MongoDB Server is UP. Allowing 10 seconds for data restoration to complete..."
             
-                    # 🛑 إضافة وقت ثابت (مثلاً 10 ثواني) لضمان اكتمال mongorestore
+                    # وقت ثابت لضمان اكتمال mongorestore
                     Start-Sleep -Seconds 10
                     exit 0
                 }

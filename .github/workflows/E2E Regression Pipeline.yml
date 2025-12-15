@@ -79,9 +79,10 @@ jobs:
       - name: 🚀 Start Backend Service (Port 5000)
         shell: bash
         env:
-          ASPNETCORE_URLS: ${{ env.ASPNETCORE_URLS }}
-          MongoConnection__ConnectionString: mongodb://127.0.0.1:27017/?minPoolSize=10&maxPoolSize=50
-          ApplicationSettings__Report_Connection: mongodb://127.0.0.1:27017
+            ASPNETCORE_URLS: ${{ env.ASPNETCORE_URLS }}
+            # 🛑 تحديث: إضافة اسم قاعدة البيانات /pos_db/ إلى سلسلة الاتصال
+            MongoConnection__ConnectionString: mongodb://127.0.0.1:27017/pos_db?minPoolSize=10&maxPoolSize=50
+            ApplicationSettings__Report_Connection: mongodb://127.0.0.1:27017/pos_db
 
         run: |
           PUBLISH_DIR="${{ env.BACKEND_PUBLISH_DIR}}"

@@ -49,7 +49,7 @@ jobs:
       - name: ⏱️ Wait for MongoDB to start
         shell: bash
         run: |
-          MAX_ATTEMPTS=20
+          MAX_ATTEMPTS=40
           MONGO_URL="http://127.0.0.1:27017" 
           echo "Starting wait loop for MongoDB on $MONGO_URL"
           for i in $(seq 1 $MAX_ATTEMPTS); do

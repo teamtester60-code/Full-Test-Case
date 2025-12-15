@@ -73,27 +73,32 @@ jobs:
       # 2. تشغيل الواجهة الخلفية (Backend)
       # -----------------------------------------------------
       - name: 🚀 Start Backend Service (Port ${{ env.BACKEND_API_PORT }})
-        shell: pwsh # التغيير إلى PowerShell
+        shell: pwsh
         env:
             ASPNETCORE_URLS: ${{ env.ASPNETCORE_URLS }}
             MongoConnection__ConnectionString: mongodb://127.0.0.1:27017/?minPoolSize=10&maxPoolSize=50
             ApplicationSettings__Report_Connection: mongodb://127.0.0.1:27017
 
         run: |
-            $logFile = "${{ env.BACKEND_PUBLISH_DIR}}/backend.log"
+            $publishDir = "${{ env.BACKEND_PUBLISH_DIR}}"
+            $logFile = "$publishDir/backend.log"
             
-            echo "Starting .NET Kestrel server on port ${{ env.BACKEND_API_PORT }} using EXE via PowerShell"
+            echo "Starting .NET Kestrel server on port ${{ env.BACKEND_API_PORT }}"
+            
+            # 🛑 يجب التأكد من أن ملف nlog.config موجود بجانب ملف EXE
+            # نفترض وجود nlog.config في مجلد الـ Publish
             
             # بدء العملية في الخلفية باستخدام Start-Process على Windows
-            Start-Process -FilePath "${{ env.BACKEND_PUBLISH_DIR}}/POS.Web.exe" `
-                          -RedirectStandardOutput $logFile ` # ✅ توجيه المخرجات فقط
-                          -NoNewWindow
+            # وتعيين WorkingDirectory لضمان العثور على nlog.config وملفات DLL
+            Start-Process -FilePath "$publishDir/POS.Web.exe" `
+                          -WorkingDirectory $publishDir ` # 🛑 تعيين مسار العمل للـ EXE
+                          -RedirectStandardOutput $logFile
             
             # الانتظار لمدة قصيرة للسماح ببدء العملية
             Start-Sleep -Seconds 10
             echo "--- Backend Log Snippet (After 10s) ---"
+            # قد تحتاج هنا إلى إضافة أمر لعرض الأخطاء القياسية إذا لم يتم تسجيلها في backend.log
             Get-Content $logFile
-            echo "---------------------------"
 
       - name: ⏱️ Wait until Backend API is running
         shell: bash

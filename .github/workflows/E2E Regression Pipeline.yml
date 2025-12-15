@@ -73,43 +73,53 @@ jobs:
       # 2. تشغيل الواجهة الخلفية (Backend)
       # -----------------------------------------------------
       - name: 🚀 Start Backend Service (Port ${{ env.BACKEND_API_PORT }})
-        shell: bash
+        shell: pwsh # 🛑 التغيير إلى PowerShell
         env:
-          ASPNETCORE_URLS: ${{ env.ASPNETCORE_URLS }}
-          # توجيه الاتصال إلى 127.0.0.1:27017 حيث تعمل MongoDB
-          MongoConnection__ConnectionString: mongodb://127.0.0.1:27017/?minPoolSize=10&maxPoolSize=50
-          ApplicationSettings__Report_Connection: mongodb://127.0.0.1:27017
+            ASPNETCORE_URLS: ${{ env.ASPNETCORE_URLS }}
+            MongoConnection__ConnectionString: mongodb://127.0.0.1:27017/?minPoolSize=10&maxPoolSize=50
+            ApplicationSettings__Report_Connection: mongodb://127.0.0.1:27017
 
         run: |
-          echo "Starting .NET Kestrel server on port ${{ env.BACKEND_API_PORT }} using EXE"
-          cd ${{ env.BACKEND_PUBLISH_DIR }}
-          # تشغيل ملف EXE في الخلفية
-          nohup ./POS.Web.exe > backend.log 2>&1 & 
-          cd -
-          sleep 10
-          echo "--- Backend Log Snippet ---"
-          cat ${{ env.BACKEND_PUBLISH_DIR }}/backend.log
-          echo "---------------------------"
+            $logFile = "${{ env.BACKEND_PUBLISH_DIR }}/backend.log"
+            
+            echo "Starting .NET Kestrel server on port ${{ env.BACKEND_API_PORT }} using EXE via PowerShell"
+            
+            # بدء العملية في الخلفية باستخدام Start-Process على Windows
+            Start-Process -FilePath "${{ env.BACKEND_PUBLISH_DIR }}/POS.Web.exe" `
+                       -RedirectStandardOutput $logFile `
+                       -RedirectStandardError $logFile `
+                       -NoNewWindow
+            
+            # الانتظار لمدة قصيرة للسماح ببدء العملية
+            Start-Sleep -Seconds 10
+            echo "--- Backend Log Snippet (After 10s) ---"
+            Get-Content $logFile
+            echo "---------------------------"
 
       - name: ⏱️ Wait until Backend API is running
         shell: bash
         run: |
-          MAX_ATTEMPTS=30
-          API_URL="http://127.0.0.1:${{ env.BACKEND_API_PORT }}" 
-          
-          echo "Starting wait loop for API on $API_URL"
-          for i in $(seq 1 $MAX_ATTEMPTS); do
-            # فحص استجابة API
-            if curl -s --head --fail "$API_URL" ; then 
-              echo "✅ Backend API is UP on port ${{ env.BACKEND_API_PORT }}!"
-              exit 0
-            else
-              echo "Waiting for API on port ${{ env.BACKEND_API_PORT }}... ($i/$MAX_ATTEMPTS)"
-              sleep 3
-            fi
-          done
-          echo "❌ Backend API FAILED to start!"
-          exit 1
+                MAX_ATTEMPTS=40 # 🛑 زيادة الوقت إلى 120 ثانية
+                API_URL="http://127.0.0.1:${{ env.BACKEND_API_PORT }}" 
+                
+                echo "Starting wait loop for API on $API_URL"
+                for i in $(seq 1 $MAX_ATTEMPTS); do
+                  if curl -s --head --fail "$API_URL" ; then 
+                    echo "✅ Backend API is UP on port ${{ env.BACKEND_API_PORT }}!"
+                    exit 0
+                  else
+                    echo "Waiting for API on port ${{ env.BACKEND_API_PORT }}... ($i/$MAX_ATTEMPTS)"
+                    sleep 3
+                  fi
+                done
+                echo "❌ Backend API FAILED to start!"
+                
+                # 🛑 عند الفشل، عرض السجل الكامل للتشخيص
+                echo "--- Final Backend Log for Diagnosis ---"
+                cat ${{ env.BACKEND_PUBLISH_DIR }}/backend.log
+                echo "---------------------------------------"
+                
+                exit 1
 
       # -----------------------------------------------------
       # 3. تشغيل الواجهة الأمامية (Frontend)

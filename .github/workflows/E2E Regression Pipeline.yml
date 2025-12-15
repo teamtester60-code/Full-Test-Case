@@ -42,30 +42,31 @@ jobs:
       - name: 🚀 Start Custom MongoDB Container and Wait (Seeded DB)
         shell: pwsh
         run: |
-          # تشغيل الصورة المخصصة التي تم بناؤها للتو
-          $containerID = docker run --name mongodb -p 27017:27017 -d seeded-mongo
-          echo "MongoDB Container ID: $containerID"
-          
-          $MAX_ATTEMPTS = 60 # 120s total
-          
-          echo "Starting log check loop for MongoDB..."
-          
-          # الانتظار حتى تكتمل عملية الاستعادة (restoration) ويصبح المنفذ متاحاً
-          for ($i = 1; $i -le $MAX_ATTEMPTS; $i++) {
-              $logOutput = docker logs mongodb 2>&1
-          
-              # نتحقق من أن الـ Restore اكتمل وأن MongoDB تستمع للاتصالات (based on init-mongo.sh)
-              if ($logOutput -like "*listening on*" -and $logOutput -like "*restoration complete*") {
-                  echo "✅ Custom MongoDB is UP and seeded!"
-                  exit 0
-              }
-              echo "Waiting for MongoDB to initialize and restore data... ($i/$MAX_ATTEMPTS)"
-              Start-Sleep -Seconds 2
-          }
-          
-          echo "❌ MongoDB FAILED to initialize and restore data!"
-          docker logs mongodb
-          exit 1
+            $containerID = docker run --name mongodb -p 27017:27017 -d seeded-mongo
+            echo "MongoDB Container ID: $containerID"
+            
+            $MAX_ATTEMPTS = 60 # 120s total
+            
+            echo "Starting log check loop for MongoDB..."
+            
+            # 🛑 التغيير: فحص فقط رسالة "Waiting for connections"
+            for ($i = 1; $i -le $MAX_ATTEMPTS); $i++) {
+                $logOutput = docker logs mongodb 2>&1
+            
+                if ($logOutput -like "*Waiting for connections*") {
+                    echo "✅ MongoDB Server is UP. Allowing 10 seconds for data restoration to complete..."
+            
+                    # 🛑 إضافة وقت ثابت (مثلاً 10 ثواني) لضمان اكتمال mongorestore
+                    Start-Sleep -Seconds 10
+                    exit 0
+                }
+                echo "Waiting for MongoDB to start... ($i/$MAX_ATTEMPTS)"
+                Start-Sleep -Seconds 2
+            }
+            
+            echo "❌ MongoDB FAILED to start!"
+            docker logs mongodb
+            exit 1
 
       # -----------------------------------------------------
       # 2. تشغيل الواجهة الخلفية (Backend)

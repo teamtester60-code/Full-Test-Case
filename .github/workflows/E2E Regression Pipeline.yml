@@ -40,30 +40,34 @@ jobs:
 
 
 
-      - name: 🚀 Start MongoDB Container
+      - name: 🚀 Start MongoDB Container and Wait
         shell: pwsh
         run: |
-          # تشغيل MongoDB في الخلفية وربطها بالـ localhost:27017
-          docker run --name mongodb -p 27017:27017 -d mongo:latest
+            # تشغيل الحاوية وتسجيل الـ Container ID في متغير بيئة مؤقت
+            $containerID = docker run --name mongodb -p 27017:27017 -d mongo:latest
+            echo "MongoDB Container ID: $containerID"
+            
+            $MAX_ATTEMPTS = 60 # 60 attempts * 2 seconds = 120s
+            
+            echo "Starting log check loop for MongoDB..."
+            
+            # الانتظار حتى تظهر رسالة "waiting for connections" في السجلات
+            for ($i = 1; $i -le $MAX_ATTEMPTS; $i++) {
+                $logOutput = docker logs mongodb 2>&1
+            
+                if ($logOutput -like "*waiting for connections*" -or $logOutput -like "*listening on*") {
+                    echo "✅ MongoDB is UP! Found connection message in logs."
+                    exit 0
+                }
+                echo "Waiting for MongoDB to initialize... ($i/$MAX_ATTEMPTS)"
+                Start-Sleep -Seconds 2
+            }
+            
+            echo "❌ MongoDB FAILED to initialize after $(($MAX_ATTEMPTS * 2)) seconds!"
+            # عرض السجلات الأخيرة للتشخيص
+            docker logs mongodb
+            exit 1
 
-      - name: ⏱️ Wait for MongoDB to start
-        shell: bash
-        run: |
-          MAX_ATTEMPTS=40
-          MONGO_URL="http://127.0.0.1:27017" 
-          echo "Starting wait loop for MongoDB on $MONGO_URL"
-          for i in $(seq 1 $MAX_ATTEMPTS); do
-            # فحص الاتصال
-            if curl -s --head --fail "$MONGO_URL" ; then 
-              echo "✅ MongoDB is UP!"
-              exit 0
-            else
-              echo "Waiting for MongoDB... ($i/$MAX_ATTEMPTS)"
-              sleep 3
-            fi
-          done
-          echo "❌ MongoDB FAILED to start!"
-          exit 1
 
       # -----------------------------------------------------
       # 2. تشغيل الواجهة الخلفية (Backend)

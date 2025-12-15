@@ -73,22 +73,21 @@ jobs:
       # 2. تشغيل الواجهة الخلفية (Backend)
       # -----------------------------------------------------
       - name: 🚀 Start Backend Service (Port ${{ env.BACKEND_API_PORT }})
-        shell: pwsh # 🛑 التغيير إلى PowerShell
+        shell: pwsh # التغيير إلى PowerShell
         env:
             ASPNETCORE_URLS: ${{ env.ASPNETCORE_URLS }}
             MongoConnection__ConnectionString: mongodb://127.0.0.1:27017/?minPoolSize=10&maxPoolSize=50
             ApplicationSettings__Report_Connection: mongodb://127.0.0.1:27017
 
         run: |
-            $logFile = "${{ env.BACKEND_PUBLISH_DIR }}/backend.log"
+            $logFile = "${{ env.BACKEND_PUBLISH_DIR}}/backend.log"
             
             echo "Starting .NET Kestrel server on port ${{ env.BACKEND_API_PORT }} using EXE via PowerShell"
             
             # بدء العملية في الخلفية باستخدام Start-Process على Windows
-            Start-Process -FilePath "${{ env.BACKEND_PUBLISH_DIR }}/POS.Web.exe" `
-                       -RedirectStandardOutput $logFile `
-                       -RedirectStandardError $logFile `
-                       -NoNewWindow
+            Start-Process -FilePath "${{ env.BACKEND_PUBLISH_DIR}}/POS.Web.exe" `
+                          -RedirectStandardOutput $logFile ` # ✅ توجيه المخرجات فقط
+                          -NoNewWindow
             
             # الانتظار لمدة قصيرة للسماح ببدء العملية
             Start-Sleep -Seconds 10

@@ -38,9 +38,7 @@ jobs:
         with:
           dotnet-version: '3.1.x'
 
-      - name: 🐋 Setup Docker for MongoDB
-        # تجهيز Docker لتشغيل الحاوية على Windows Runner
-        uses: docker/setup-docker@v3
+
 
       - name: 🚀 Start MongoDB Container
         shell: pwsh

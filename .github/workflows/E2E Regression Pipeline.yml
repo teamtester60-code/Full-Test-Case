@@ -13,14 +13,16 @@ env:
   # -----------------------------------------------------
   FRONTEND_BUILD_DIR: POS-19-10-2025/pos-front-app
   BACKEND_PUBLISH_DIR: POS-19-10-2025/POS-BackPublish
+
   FRONTEND_PORT: 4300
-  BACKEND_API_PORT: 56740
-  ASPNETCORE_URLS: http://127.0.0.1:56740
+  BACKEND_API_PORT: 5000 # 🛑 (FINAL FIX: يستخدم التطبيق فعليًا هذا المنفذ)
+  ASPNETCORE_URLS: http://127.0.0.1:5000 # 🛑 (FINAL FIX: تحديث عنوان Kestrel)
+
   LOGIN_TEST_TARGET: "LoginTest"
 
 jobs:
   Login_Test:
-    runs-on: windows-latest # استخدام Windows Runner
+    runs-on: windows-latest
     permissions:
       contents: read
       packages: read
@@ -38,90 +40,84 @@ jobs:
         with:
           dotnet-version: '3.1.x'
 
-
-
-      - name: 🚀 Start MongoDB Container and Wait
+      - name: 🚀 Start MongoDB Container and Wait (Log Check)
         shell: pwsh
         run: |
-            # تشغيل الحاوية وتسجيل الـ Container ID في متغير بيئة مؤقت
-            $containerID = docker run --name mongodb -p 27017:27017 -d mongo:latest
-            echo "MongoDB Container ID: $containerID"
-            
-            $MAX_ATTEMPTS = 60 # 60 attempts * 2 seconds = 120s
-            
-            echo "Starting log check loop for MongoDB..."
-            
-            # الانتظار حتى تظهر رسالة "waiting for connections" في السجلات
-            for ($i = 1; $i -le $MAX_ATTEMPTS; $i++) {
-                $logOutput = docker logs mongodb 2>&1
-            
-                if ($logOutput -like "*waiting for connections*" -or $logOutput -like "*listening on*") {
-                    echo "✅ MongoDB is UP! Found connection message in logs."
-                    exit 0
-                }
-                echo "Waiting for MongoDB to initialize... ($i/$MAX_ATTEMPTS)"
-                Start-Sleep -Seconds 2
-            }
-            
-            echo "❌ MongoDB FAILED to initialize after $(($MAX_ATTEMPTS * 2)) seconds!"
-            # عرض السجلات الأخيرة للتشخيص
-            docker logs mongodb
-            exit 1
+          # تشغيل الحاوية وتسجيل الـ Container ID
+          $containerID = docker run --name mongodb -p 27017:27017 -d mongo:latest
+          echo "MongoDB Container ID: $containerID"
+          
+          $MAX_ATTEMPTS = 60 # 60 attempts * 2 seconds = 120s
+          
+          echo "Starting log check loop for MongoDB..."
+          
+          # الانتظار حتى تظهر رسالة "waiting for connections" في السجلات
+          for ($i = 1; $i -le $MAX_ATTEMPTS; $i++) {
+              $logOutput = docker logs mongodb 2>&1
+          
+              if ($logOutput -like "*waiting for connections*" -or $logOutput -like "*listening on*") {
+                  echo "✅ MongoDB is UP! Found connection message in logs."
+                  exit 0
+              }
+              echo "Waiting for MongoDB to initialize... ($i/$MAX_ATTEMPTS)"
+              Start-Sleep -Seconds 2
+          }
+          
+          echo "❌ MongoDB FAILED to initialize after $(($MAX_ATTEMPTS * 2)) seconds!"
+          docker logs mongodb
+          exit 1
 
 
       # -----------------------------------------------------
       # 2. تشغيل الواجهة الخلفية (Backend)
       # -----------------------------------------------------
-      - name: 🚀 Start Backend Service (Port ${{ env.BACKEND_API_PORT }})
-        shell: bash # 🛑 العودة إلى Bash، وهي الأفضل لتشغيل العمليات في الخلفية
+      - name: 🚀 Start Backend Service (Port 5000)
+        shell: bash
         env:
-            ASPNETCORE_URLS: ${{ env.ASPNETCORE_URLS }}
-            MongoConnection__ConnectionString: mongodb://127.0.0.1:27017/?minPoolSize=10&maxPoolSize=50
-            ApplicationSettings__Report_Connection: mongodb://127.0.0.1:27017
+          # استخدام متغيرات البيئة لـ ASPNETCORE_URLS وسلاسل اتصال MongoDB
+          ASPNETCORE_URLS: ${{ env.ASPNETCORE_URLS }}
+          MongoConnection__ConnectionString: mongodb://127.0.0.1:27017/?minPoolSize=10&maxPoolSize=50
+          ApplicationSettings__Report_Connection: mongodb://127.0.0.1:27017
 
         run: |
-            PUBLISH_DIR="${{ env.BACKEND_PUBLISH_DIR}}"
-            LOG_FILE="$PUBLISH_DIR/backend.log"
-            EXE_PATH="./$PUBLISH_DIR/POS.Web.exe"
-            
-            echo "Starting .NET Kestrel server on port ${{ env.BACKEND_API_PORT }} using EXE via Bash"
-            
-            # 🛑 استخدام nohup لتشغيل العملية في الخلفية وتوجيه الإخراج إلى ملف السجل
-            # ويتم تشغيلها من مجلد الـ Publish لضمان العثور على nlog.config والـ DLLs
-            cd $PUBLISH_DIR
-            nohup ./POS.Web.exe > backend.log 2>&1 &
-            cd -
-            
-            # الانتظار لمدة قصيرة للسماح ببدء العملية
-            sleep 10
-            echo "--- Backend Log Snippet (After 10s) ---"
-            cat $LOG_FILE
-            echo "---------------------------"
+          PUBLISH_DIR="${{ env.BACKEND_PUBLISH_DIR}}"
+          LOG_FILE="$PUBLISH_DIR/backend.log"
+          
+          echo "Starting .NET Kestrel server on port ${{ env.BACKEND_API_PORT }} using EXE via Bash"
+          
+          # الدخول إلى مجلد النشر وتشغيل EXE في الخلفية لضمان العثور على nlog.config والـ DLLs
+          cd $PUBLISH_DIR
+          nohup ./POS.Web.exe > backend.log 2>&1 &
+          cd -
+          
+          sleep 10
+          echo "--- Backend Log Snippet (After 10s) ---"
+          cat $LOG_FILE
+          echo "---------------------------"
 
-      - name: ⏱️ Wait until Backend API is running
+      - name: ⏱️ Wait until Backend API is running (on 5000)
         shell: bash
         run: |
-                MAX_ATTEMPTS=40 # 🛑 زيادة الوقت إلى 120 ثانية
-                API_URL="http://127.0.0.1:${{ env.BACKEND_API_PORT }}" 
-                
-                echo "Starting wait loop for API on $API_URL"
-                for i in $(seq 1 $MAX_ATTEMPTS); do
-                  if curl -s --head --fail "$API_URL" ; then 
-                    echo "✅ Backend API is UP on port ${{ env.BACKEND_API_PORT }}!"
-                    exit 0
-                  else
-                    echo "Waiting for API on port ${{ env.BACKEND_API_PORT }}... ($i/$MAX_ATTEMPTS)"
-                    sleep 3
-                  fi
-                done
-                echo "❌ Backend API FAILED to start!"
-                
-                # 🛑 عند الفشل، عرض السجل الكامل للتشخيص
-                echo "--- Final Backend Log for Diagnosis ---"
-                cat ${{ env.BACKEND_PUBLISH_DIR }}/backend.log
-                echo "---------------------------------------"
-                
-                exit 1
+          MAX_ATTEMPTS=40
+          API_URL="http://127.0.0.1:${{ env.BACKEND_API_PORT }}" # سيتم تقييمها كـ 5000
+          
+          echo "Starting wait loop for API on $API_URL"
+          for i in $(seq 1 $MAX_ATTEMPTS); do
+            if curl -s --head --fail "$API_URL" ; then 
+              echo "✅ Backend API is UP on port ${{ env.BACKEND_API_PORT }}!"
+              exit 0
+            else
+              echo "Waiting for API on port ${{ env.BACKEND_API_PORT }}... ($i/$MAX_ATTEMPTS)"
+              sleep 3
+            fi
+          done
+          echo "❌ Backend API FAILED to start!"
+          
+          echo "--- Final Backend Log for Diagnosis ---"
+          cat ${{ env.BACKEND_PUBLISH_DIR }}/backend.log
+          echo "---------------------------------------"
+          
+          exit 1
 
       # -----------------------------------------------------
       # 3. تشغيل الواجهة الأمامية (Frontend)
@@ -144,7 +140,6 @@ jobs:
         shell: bash
         run: |
           BUILD_DIR="./${{ env.FRONTEND_BUILD_DIR }}"
-          # تشغيل Serve في الخلفية
           nohup serve -s "$BUILD_DIR" -l ${{ env.FRONTEND_PORT }} > server.log 2>&1 &
           sleep 5
           cat server.log
@@ -183,7 +178,7 @@ jobs:
           maven-version: 3.9.9
 
       - name: 🧪 Run Login Test
-        # سيعمل الاختبار الآن بعد التأكد من أن الواجهة الأمامية والخلفية تعملان
+        # سيتم توجيه الاختبار إلى الواجهة الأمامية (4300)
         run: mvn -Dtest=${{ env.LOGIN_TEST_TARGET }} -DexecutionType="LocalHeadless" -DbrowserType="Edge" -DbaseUrl="http://127.0.0.1:${{ env.FRONTEND_PORT }}" test
 
       - name: 📤 Upload Test Results

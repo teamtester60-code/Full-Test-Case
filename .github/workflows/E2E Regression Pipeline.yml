@@ -13,55 +13,53 @@ env:
   # -----------------------------------------------------
   FRONTEND_BUILD_DIR: POS-19-10-2025/pos-front-app
   BACKEND_PUBLISH_DIR: POS-19-10-2025/POS-BackPublish
-  # المسار للملف الثنائي القابل للتنفيذ (Linux)
-  BACKEND_BINARY_PATH: POS-19-10-2025/POS-BackPublish/POS.Web
+  # المسار للملف القابل للتنفيذ على Windows
+  BACKEND_EXE_PATH: POS-19-10-2025/POS-BackPublish/POS.Web.exe
 
   FRONTEND_PORT: 4300
   BACKEND_API_PORT: 56740
-  ASPNETCORE_URLS: http://127.0.0.1:56740 # Kestrel URL
+  ASPNETCORE_URLS: http://127.0.0.1:56740
   LOGIN_TEST_TARGET: "LoginTest"
 
 jobs:
 
   Login_Test:
-    runs-on: ubuntu-latest # 🛑 التغيير إلى Linux لدعم خدمات Docker
+    runs-on: windows-latest # ✅ تم تأكيد Windows Runner
     permissions:
-      contents: read # ⬅️ ضروري لجلب الإجراءات مثل actions/checkout
+      contents: read
       packages: read
       checks: write
-
-    # 🛑 تشغيل خدمة MongoDB
-    services:
-      mongodb:
-        image: mongo:latest
-        ports:
-          - 27017:27017
-        options: --name mongodb
 
     steps:
       - name: ⬇️ Checkout Code
         uses: actions/checkout@v4
 
       # -----------------------------------------------------
-      # 1. إعداد .NET Runtime 3.1 و MongoDB
+      # 1. إعداد .NET Runtime 3.1 وتشغيل MongoDB
       # -----------------------------------------------------
       - name: ⚙️ Install Required .NET Runtime 3.1
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '3.1.x'
 
-      - name: 🛠️ Set Permissions for Backend Binary
-        # منح إذن التنفيذ للملف القابل للتشغيل على Linux
-        run: chmod +x ${{ env.BACKEND_PUBLISH_DIR }}/POS.Web
+      - name: 🐋 Setup Docker for MongoDB (Windows)
+        # هذا الإجراء ضروري لتشغيل Docker
+        uses: docker/setup-docker@v3
 
-      - name: ⏱️ Wait for MongoDB to start (Port 27017)
+      - name: 🚀 Start MongoDB Container (Windows/PowerShell)
+        shell: pwsh
+        run: |
+          # تشغيل حاوية MongoDB في الخلفية وربط المنفذ 27017
+          docker run --name mongodb -p 27017:27017 -d mongo:latest
+
+      - name: ⏱️ Wait for MongoDB to start
         shell: bash
         run: |
           MAX_ATTEMPTS=20
-          MONGO_URL="http://mongodb:27017" # استخدام اسم الخدمة على Linux
+          # MongoDB تعمل على 127.0.0.1 لأن المنفذ مرتبط محلياً
+          MONGO_URL="http://127.0.0.1:27017" 
           echo "Starting wait loop for MongoDB on $MONGO_URL"
           for i in $(seq 1 $MAX_ATTEMPTS); do
-            # فحص الاتصال
             if curl -s --head --fail "$MONGO_URL" ; then 
               echo "✅ MongoDB is UP!"
               exit 0
@@ -78,15 +76,15 @@ jobs:
         shell: bash
         env:
           ASPNETCORE_URLS: ${{ env.ASPNETCORE_URLS }}
-          # 🛑 استخدام اسم الخدمة (mongodb) في سلسلة الاتصال
-          MongoConnection__ConnectionString: mongodb://mongodb:27017/?minPoolSize=10&maxPoolSize=50
-          ApplicationSettings__Report_Connection: mongodb://mongodb:27017
+          # استخدام 127.0.0.1:27017 للاتصال بـ MongoDB
+          MongoConnection__ConnectionString: mongodb://127.0.0.1:27017/?minPoolSize=10&maxPoolSize=50
+          ApplicationSettings__Report_Connection: mongodb://127.0.0.1:27017
 
         run: |
-          echo "Starting .NET Kestrel server on port ${{ env.BACKEND_API_PORT }} using Binary"
+          echo "Starting .NET Kestrel server on port ${{ env.BACKEND_API_PORT }} using EXE"
           cd ${{ env.BACKEND_PUBLISH_DIR }}
-          # تشغيل الملف الثنائي
-          nohup ./POS.Web > backend.log 2>&1 & 
+          # 🛑 تشغيل ملف EXE
+          nohup ./POS.Web.exe > backend.log 2>&1 & 
           cd -
           sleep 10
           echo "--- Backend Log Snippet ---"
@@ -123,12 +121,11 @@ jobs:
       - name: 🛠️ Install serve Globally
         run: npm install -g serve
 
-      - name: 🩹 Fix Angular Base Href (Linux/Bash)
-        shell: bash
+      - name: 🩹 Fix Angular Base Href (PowerShell)
+        shell: pwsh # 🛑 استخدام PowerShell
         run: |
-          INDEX_PATH="./${{ env.FRONTEND_BUILD_DIR }}/index.html"
-          # استخدام sed لتعديل الملف
-          sed -i 's|<base href="/">|<base href="./">|g' "$INDEX_PATH"
+          $indexPath = "./${{ env.FRONTEND_BUILD_DIR }}/index.html"
+          (Get-Content -Path $indexPath) -replace '<base href="/">', '<base href="./">' | Set-Content $indexPath
 
       - name: 🚀 Start Frontend Server (Port ${{ env.FRONTEND_PORT }})
         shell: bash

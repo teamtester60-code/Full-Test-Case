@@ -24,9 +24,9 @@ env:
 jobs:
 
   Login_Test:
-    runs-on: ubuntu-latest # 🛑 التغيير إلى Linux
+    runs-on: ubuntu-latest # 🛑 التغيير إلى Linux لدعم خدمات Docker
     permissions:
-      contents: read
+      contents: read # ⬅️ ضروري لجلب الإجراءات مثل actions/checkout
       packages: read
       checks: write
 
@@ -58,10 +58,10 @@ jobs:
         shell: bash
         run: |
           MAX_ATTEMPTS=20
-          MONGO_URL="http://mongodb:27017" # نستخدم اسم الخدمة
+          MONGO_URL="http://mongodb:27017" # استخدام اسم الخدمة على Linux
           echo "Starting wait loop for MongoDB on $MONGO_URL"
           for i in $(seq 1 $MAX_ATTEMPTS); do
-            # curl على اسم الخدمة للتأكد من أنها تستمع
+            # فحص الاتصال
             if curl -s --head --fail "$MONGO_URL" ; then 
               echo "✅ MongoDB is UP!"
               exit 0
@@ -85,6 +85,7 @@ jobs:
         run: |
           echo "Starting .NET Kestrel server on port ${{ env.BACKEND_API_PORT }} using Binary"
           cd ${{ env.BACKEND_PUBLISH_DIR }}
+          # تشغيل الملف الثنائي
           nohup ./POS.Web > backend.log 2>&1 & 
           cd -
           sleep 10
@@ -100,7 +101,6 @@ jobs:
           
           echo "Starting wait loop for API on $API_URL"
           for i in $(seq 1 $MAX_ATTEMPTS); do
-            # فحص اتصال API
             if curl -s --head --fail "$API_URL" ; then 
               echo "✅ Backend API is UP on port ${{ env.BACKEND_API_PORT }}!"
               exit 0

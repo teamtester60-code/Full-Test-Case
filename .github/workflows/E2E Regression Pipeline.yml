@@ -71,10 +71,8 @@ jobs:
           
       - name: 🔎 Verify Database Seeding
         shell: bash
-          # انتظار إضافي بسيط للاحتياط
-        run:
-         sleep 5 && docker exec mongodb mongosh --eval "db.adminCommand({ listDatabases:
-         1, nameOnly: true })" | grep pos_db
+        run: |
+            sleep 5 && docker exec mongodb mongosh --eval "db.adminCommand({ listDatabases: 1, nameOnly: true })" | grep pos_db
       # -----------------------------------------------------
       # 2. تشغيل الواجهة الخلفية (Backend)
       # -----------------------------------------------------

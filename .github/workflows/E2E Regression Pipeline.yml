@@ -16,7 +16,7 @@ env:
   # يتم الاحتفاظ بها لاستخدامها في أمر Maven
   # -----------------------------------------------------
   FRONTEND_PORT: 4200
-  LOGIN_TEST_TARGET: "LoginTest"
+  LOGIN_TEST_TARGET: "RegressionTest"
 
 jobs:
   Login_Test:

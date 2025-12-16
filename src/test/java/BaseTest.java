@@ -34,5 +34,6 @@ public class BaseTest {
             LogsManager.info("WebDriver closed successfully.");
         }
     }
+    // test
 
 }

@@ -22,12 +22,20 @@ public class LoginTest extends BaseTest {
     public void validLoginTC() throws InterruptedException {
         new LoginPage(guiDriver)
                 .navigateToLoginPage()
+<<<<<<< HEAD
                 .enterPin(testdata.getJsonreader("password"))
+=======
+                .enterUsername(testdata.getJsonreader("username"))
+                .enterPassword(testdata.getJsonreader("password"))
+>>>>>>> 6f52845df553065a0249f92ceeed6f22ac3e9a8e
                 .clickLoginButton()
                 .verifyloggedinsuccess();
 
         LogsManager.info("تم تنفيذ اختبار تسجيل الدخول بنجاح");
     }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 6f52845df553065a0249f92ceeed6f22ac3e9a8e
 }

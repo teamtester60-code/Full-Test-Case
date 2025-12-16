@@ -1,6 +1,7 @@
 package com.ferpfirstcode.pages.components;
 
 import com.ferpfirstcode.driver.GUIDriver;
+<<<<<<< HEAD
 import com.ferpfirstcode.media.ScreenShotsManager;
 import com.ferpfirstcode.utils.logs.LogsManager;
 import io.qameta.allure.Step;
@@ -103,3 +104,10 @@ public class HomePage {
 
 
 
+=======
+
+public class HomePage {
+    public HomePage(GUIDriver driver) {
+    }
+}
+>>>>>>> 6f52845df553065a0249f92ceeed6f22ac3e9a8e

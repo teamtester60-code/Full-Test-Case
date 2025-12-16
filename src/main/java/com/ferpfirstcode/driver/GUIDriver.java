@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //package com.ferpfirstcode.driver;
 //
 //import com.ferpfirstcode.utils.actions.AlertActions;
@@ -75,6 +76,8 @@
 //}
 
 
+=======
+>>>>>>> 6f52845df553065a0249f92ceeed6f22ac3e9a8e
 package com.ferpfirstcode.driver;
 
 import com.ferpfirstcode.utils.actions.AlertActions;
@@ -91,28 +94,50 @@ import org.openqa.selenium.support.ThreadGuard;
 public class GUIDriver {
 
     private final String browser = PropertyReader.getProperty("browserType");
+<<<<<<< HEAD
     private final ThreadLocal<WebDriver> driverThreadLocal = new ThreadLocal<>();
+=======
+    private ThreadLocal<WebDriver> driverThreadLocal = new ThreadLocal<>();
+>>>>>>> 6f52845df553065a0249f92ceeed6f22ac3e9a8e
 
     public GUIDriver() {
         LogsManager.info("Initializing GUIDriver...");
 
         String browserName = browser != null ? browser.trim().toUpperCase() : "";
+<<<<<<< HEAD
         LogsManager.info("Browser from properties: " + browserName);
+=======
+        LogsManager.info("قيمة المتصفح من الخصائص: " + browserName);
+>>>>>>> 6f52845df553065a0249f92ceeed6f22ac3e9a8e
 
         Browser browserType;
         try {
             browserType = Browser.valueOf(browserName);
         } catch (IllegalArgumentException e) {
+<<<<<<< HEAD
             LogsManager.error("Unknown browser: " + browserName + ". Using CHROME as default.");
             browserType = Browser.CHROME;
         }
 
         LogsManager.info("Starting driver for browser: " + browserType);
+=======
+            LogsManager.error("نوع المتصفح غير معروف: " + browserName + ". سيتم استخدام CHROME كافتراضي.");
+            browserType = Browser.CHROME;
+        }
+
+
+        LogsManager.info("Starting driver for browser: " + browserType);
+
+>>>>>>> 6f52845df553065a0249f92ceeed6f22ac3e9a8e
         AbstractDriver abstractDriver = browserType.getDriverFactory();
         WebDriver driver = ThreadGuard.protect(abstractDriver.createDriver());
         driverThreadLocal.set(driver);
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6f52845df553065a0249f92ceeed6f22ac3e9a8e
     public ElementActions element() {
         return new ElementActions(get());
     }
@@ -129,10 +154,18 @@ public class GUIDriver {
         return new AlertActions(get());
     }
 
+<<<<<<< HEAD
+=======
+    //soft assertions
+>>>>>>> 6f52845df553065a0249f92ceeed6f22ac3e9a8e
     public Validation validation() {
         return new Validation(get());
     }
 
+<<<<<<< HEAD
+=======
+    // hard assertions
+>>>>>>> 6f52845df553065a0249f92ceeed6f22ac3e9a8e
     public Verification verify() {
         return new Verification(get());
     }
@@ -142,8 +175,12 @@ public class GUIDriver {
     }
 
     public void quitDriver() {
+<<<<<<< HEAD
         if (driverThreadLocal.get() != null) {
             driverThreadLocal.get().quit();
         }
+=======
+        driverThreadLocal.get().quit();
+>>>>>>> 6f52845df553065a0249f92ceeed6f22ac3e9a8e
     }
 }

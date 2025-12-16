@@ -20,6 +20,7 @@ public class BaseTest {
     }
 
     @AfterMethod
+<<<<<<< HEAD
     public void tearDown(ITestResult result) {
         // إذا فشل الاختبار، التقط Screenshot
         if (result.getStatus() == ITestResult.FAILURE && webDriver != null) {
@@ -35,4 +36,19 @@ public class BaseTest {
         }
     }
 
+=======
+    public void tearDown() {
+        if (webDriver != null) {
+            webDriver.quit();
+        }
+    }
+    @AfterMethod
+    public void takeScreenshotOnFailure(ITestResult result) {
+        if (result.getStatus() == ITestResult.FAILURE && webDriver != null) {
+            ScreenShotsManager.takeFullPageScreenshot(webDriver, result.getMethod().getConstructorOrMethod().getName());
+         
+            LogsManager.info("Screenshot taken for failed test: " + result.getMethod().getConstructorOrMethod().getName());
+        }
+    }
+>>>>>>> 6f52845df553065a0249f92ceeed6f22ac3e9a8e
 }

@@ -52,7 +52,7 @@ public class OrderPage {
     private final By cashieroperationbutton= By.xpath("//*[@id=\"dropdownMenuLink\"]");
     private final By followorderbutton= By.xpath("//a[contains(@class, \"dropdown-item\") and @href=\"/FollowOrder\"]");
     private final By checklorderbutton=By.xpath("(//table[contains(@class,'e-table')]//tbody//tr[last()]//input[@type='checkbox'])[1]");
-    private final By assigntodriverbutton= By.xpath("(//button[contains(@class, \"btn-success\") and contains(@class, \"m-0\")])[1]");
+    private final By assigntodriverbutton= By.xpath("(//button[contains(@class, \"btn-success\") and contains(@class, \"m-0\")])[2]");
     private final By assignbutton= By.xpath("//button[@data-toggle=\"modal\" and @data-target=\"#modal-1\"]");
     private final By cancelprintbutton= By.xpath("//button[normalize-space()='Cancel']");
     private final By paytheordersbutton= By.xpath("//li[@id=\"tab2\"]/a[@href=\"#tab144\"]\n");

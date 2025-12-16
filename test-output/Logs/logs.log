@@ -19084,3 +19084,684 @@ Driver info: driver.version: unknown
 [INFO] - [11-12-2025 12:05:33] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - 🔥 Final Allure HTML report opened successfully
 [INFO] - [11-12-2025 12:05:33] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Allure Report Generated Successfully
 [INFO] - [11-12-2025 12:05:33] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Test Execution Finished ========
+[DEBUG] - [16-12-2025 11:50:57] [main] [org.testng.TestNG] - suiteXmlPath: "C:\Users\pc\AppData\Local\JetBrains\IntelliJIdea2025.3\temp-testng-customsuite.xml"
+[INFO] - [16-12-2025 11:50:58] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [16-12-2025 11:50:58] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [16-12-2025 11:50:58] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [16-12-2025 11:50:58] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [16-12-2025 11:50:58] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [16-12-2025 11:50:58] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [16-12-2025 11:50:58] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [16-12-2025 11:50:58] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [16-12-2025 11:50:58] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Starting Test Execution ========
+[INFO] - [16-12-2025 11:50:58] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Directories Cleaned Successfully
+[INFO] - [16-12-2025 11:50:58] [main] [com.ferpfirstcode.FileUtils] - Directory created: test-output/screenshots/
+[INFO] - [16-12-2025 11:50:58] [main] [com.ferpfirstcode.FileUtils] - Directory created: test-output/recordings/
+[INFO] - [16-12-2025 11:50:58] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Directories Created Successfully
+[INFO] - [16-12-2025 11:50:58] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [16-12-2025 11:50:58] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [16-12-2025 11:50:58] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [16-12-2025 11:50:58] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [16-12-2025 11:50:58] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [16-12-2025 11:50:58] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [16-12-2025 11:50:58] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [16-12-2025 11:50:58] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [16-12-2025 11:50:58] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Properties Loaded Successfully
+[INFO] - [16-12-2025 11:50:58] [main] [com.ferpfirstcode.utils.report.AllureEnviromentManger] - Allure environment variables set.
+[INFO] - [16-12-2025 11:51:00] [main] [com.ferpfirstcode.utils.report.AllureBinaryManger] - Allure binaries already exist.
+[INFO] - [16-12-2025 11:51:00] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Allure Environment Variables Set Successfully
+[INFO] - [16-12-2025 11:51:00] [main] [PaymentTest] - تم تحميل بيانات الاختبار من JSON
+[INFO] - [16-12-2025 11:51:00] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [16-12-2025 11:51:00] [main] [com.ferpfirstcode.driver.GUIDriver] - Browser from properties: EDGE
+[INFO] - [16-12-2025 11:51:00] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
+[INFO] - [16-12-2025 11:51:00] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [16-12-2025 11:51:00] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [16-12-2025 11:51:00] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [16-12-2025 11:51:00] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [16-12-2025 11:51:00] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [16-12-2025 11:51:00] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [16-12-2025 11:51:00] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [16-12-2025 11:51:00] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [16-12-2025 11:51:01] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Starting Test: paymentPageTC ========
+[INFO] - [16-12-2025 11:51:03] [main] [com.ferpfirstcode.utils.actions.BrowserActions] - Navigated to URL:  http://localhost:4200/login
+[DEBUG] - [16-12-2025 11:51:03] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['password']
+[INFO] - [16-12-2025 11:51:04] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
+[INFO] - [16-12-2025 11:51:04] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: //i[@class='fas fa-id-card menu-icon']
+[INFO] - [16-12-2025 11:51:04] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
+[INFO] - [16-12-2025 11:51:04] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text in element: By.id: pass
+[INFO] - [16-12-2025 11:51:05] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
+[INFO] - [16-12-2025 11:51:05] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.cssSelector: button.submitBtn
+[INFO] - [16-12-2025 11:51:09] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
+[INFO] - [16-12-2025 11:51:09] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: //*[@id="navbarSupportedContentt"]/ul/li[2]/button/i
+[INFO] - [16-12-2025 11:51:09] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.cssSelector: button.btn.m-0.p-2
+[ERROR] - [16-12-2025 11:51:29] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Failed to verify visibility of element: By.xpath: //button[contains(@class, "swal2-confirm") and contains(@class, "swal2-styled")] - Expected condition failed: waiting for com.ferpfirstcode.utils.actions.ElementActions$$Lambda/0x000001e001454ba8@78aa1753 (tried for 20 second(s) with 500 milliseconds interval)
+[ERROR] - [16-12-2025 11:51:29] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Failed to Capture Screenshot The filename, directory name, or volume label syntax is incorrect
+[INFO] - [16-12-2025 11:51:29] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Screenshot captured: isElementVisible-By.xpath: //button[contains(@class, "swal2-confirm") and contains(@class, "swal2-styled")]
+[INFO] - [16-12-2025 11:51:29] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: //button[.//i[contains(@class,'fa-save')]]
+[INFO] - [16-12-2025 11:51:30] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: (//a[.//i[text()='home']])[1]
+[INFO] - [16-12-2025 11:51:30] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //button[@data-target='#openDaymodal'] - true
+[INFO] - [16-12-2025 11:51:30] [main] [com.ferpfirstcode.pages.components.HomePage] - Open Day button is not enabled, skipping click.
+[INFO] - [16-12-2025 11:51:34] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //button[@data-target='#openshiftmodal'] - true
+[INFO] - [16-12-2025 11:51:34] [main] [com.ferpfirstcode.pages.components.HomePage] - Shift Open button is not enabled, skipping click.
+[INFO] - [16-12-2025 11:51:34] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: //div[contains(@class,'ms-panel-body')]//i[contains(@class,'fa-clipboard-list')]
+[INFO] - [16-12-2025 11:51:34] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: //a[@href='/order']
+[ERROR] - [16-12-2025 11:51:34] [main] [io.qameta.allure.util.NamingUtils] - Could not find parameter tabName
+[INFO] - [16-12-2025 11:51:35] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:51:35] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:51:36] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:51:36] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:51:37] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:51:37] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:51:38] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:51:39] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:51:39] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:51:40] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:51:40] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:51:41] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:51:41] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:51:42] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:51:42] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:51:43] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:51:43] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:51:44] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:51:44] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:51:45] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:51:45] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:51:46] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:51:47] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:51:47] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:51:48] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:51:48] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:51:49] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:51:49] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:51:50] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:51:50] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:51:51] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:51:51] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:51:52] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:51:52] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:51:53] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:51:54] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:51:54] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[ERROR] - [16-12-2025 11:51:54] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Failed to verify visibility of element: By.xpath: //div[@id='v-pills-tab']//a - Expected condition failed: waiting for com.ferpfirstcode.utils.actions.ElementActions$$Lambda/0x000001e001454ba8@321558f8 (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '4.38.0', revision: '6b412e825c*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '24.0.1'
+Driver info: driver.version: unknown
+[ERROR] - [16-12-2025 11:51:54] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Failed to Capture Screenshot The filename, directory name, or volume label syntax is incorrect
+[INFO] - [16-12-2025 11:51:54] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Screenshot captured: isElementVisible-By.xpath: //div[@id='v-pills-tab']//a
+[INFO] - [16-12-2025 11:51:54] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.id: ordertype-tab
+[INFO] - [16-12-2025 11:51:54] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: (//*[@id='v-pills-settings-tab'])[1] - false
+[INFO] - [16-12-2025 11:51:55] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: (//*[@id='v-pills-settings-tab'])[1] - true
+[INFO] - [16-12-2025 11:51:55] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Retrieved text from element: By.xpath: (//*[@id='v-pills-settings-tab'])[1] - توصيل
+[INFO] - [16-12-2025 11:51:55] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: (//*[@id='v-pills-settings-tab'])[1]
+[INFO] - [16-12-2025 11:51:55] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: (//input[@placeholder='Search By Name'])[1]
+[INFO] - [16-12-2025 11:51:56] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text in element: By.xpath: (//input[@placeholder='Search By Name'])[1]
+[INFO] - [16-12-2025 11:51:56] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.cssSelector: button.btnPLus.btn-link
+[INFO] - [16-12-2025 11:51:56] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: (//*[@id="collapseOne_@i"]/td[5]/button)[1]
+[INFO] - [16-12-2025 11:51:57] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: //*[@id="nav-home"]/div/div[2]/div[2]/div/button
+[INFO] - [16-12-2025 11:51:57] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: (//div[contains(@class,'product-card')])[1]
+[INFO] - [16-12-2025 11:51:57] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:51:58] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:51:58] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:51:59] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:51:59] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:52:00] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:52:00] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:52:01] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:52:01] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:52:02] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:52:02] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:52:03] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:52:03] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:52:04] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:52:04] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:52:05] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:52:05] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:52:06] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:52:07] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:52:07] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:52:08] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:52:08] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:52:09] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:52:09] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:52:10] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:52:10] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:52:11] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:52:11] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:52:12] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:52:12] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:52:13] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:52:13] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:52:14] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:52:14] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:52:15] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:52:16] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:52:16] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:52:17] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:52:17] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[ERROR] - [16-12-2025 11:52:17] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Failed to verify visibility of element: By.cssSelector: div.modal-content.modal-contentWidth - Expected condition failed: waiting for com.ferpfirstcode.utils.actions.ElementActions$$Lambda/0x000001e001454ba8@197c3101 (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '4.38.0', revision: '6b412e825c*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '24.0.1'
+Driver info: driver.version: unknown
+[ERROR] - [16-12-2025 11:52:17] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Failed to Capture Screenshot The filename, directory name, or volume label syntax is incorrect
+[INFO] - [16-12-2025 11:52:17] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Screenshot captured: isElementVisible-By.cssSelector: div.modal-content.modal-contentWidth
+[INFO] - [16-12-2025 11:52:17] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:18] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:18] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:19] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:19] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:20] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:20] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:21] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:21] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:22] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:23] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:23] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:24] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:24] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:25] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:25] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:26] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:26] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:27] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:27] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:28] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:28] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:29] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:29] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:30] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:30] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:31] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:32] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:32] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:33] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:33] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:34] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:34] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:35] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:35] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:36] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:36] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:37] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:37] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[ERROR] - [16-12-2025 11:52:37] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Failed to verify visibility of element: By.id: modal-NewSideDishes - Expected condition failed: waiting for com.ferpfirstcode.utils.actions.ElementActions$$Lambda/0x000001e001454ba8@3f8090db (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '4.38.0', revision: '6b412e825c*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '24.0.1'
+Driver info: driver.version: unknown
+[ERROR] - [16-12-2025 11:52:37] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Failed to Capture Screenshot The filename, directory name, or volume label syntax is incorrect
+[INFO] - [16-12-2025 11:52:37] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Screenshot captured: isElementVisible-By.id: modal-NewSideDishes
+[INFO] - [16-12-2025 11:52:38] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: (//div[contains(@class,'product-card')])[2]
+[INFO] - [16-12-2025 11:52:38] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:52:38] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - true
+[INFO] - [16-12-2025 11:52:38] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: (//div[@id='modal-Volums']//button[contains(@class,'volumeSelect')])[1]
+[INFO] - [16-12-2025 11:52:38] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:39] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:39] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:40] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:40] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:41] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:41] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:42] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:42] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:43] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:44] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:44] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:45] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:45] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:46] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:46] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:47] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:47] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:48] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:48] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:49] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:49] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:50] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:50] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:51] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:52] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:52] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:53] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:53] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:54] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:54] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:55] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:55] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:56] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:56] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:57] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:57] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:58] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:52:58] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[ERROR] - [16-12-2025 11:52:58] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Failed to verify visibility of element: By.id: modal-NewSideDishes - Expected condition failed: waiting for com.ferpfirstcode.utils.actions.ElementActions$$Lambda/0x000001e001454ba8@4691e2f5 (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '4.38.0', revision: '6b412e825c*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '24.0.1'
+Driver info: driver.version: unknown
+[ERROR] - [16-12-2025 11:52:58] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Failed to Capture Screenshot The filename, directory name, or volume label syntax is incorrect
+[INFO] - [16-12-2025 11:52:58] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Screenshot captured: isElementVisible-By.id: modal-NewSideDishes
+[INFO] - [16-12-2025 11:53:01] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
+[INFO] - [16-12-2025 11:53:01] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Retrieved text from element: By.xpath: (//div[contains(@class,'product-card')])[1] - 350.00
+طبق مشويات مشكل
+[INFO] - [16-12-2025 11:53:01] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Retrieved text from element: By.xpath: (//div[contains(@class,'product-card')])[2] - 60.00
+سلطة
+[INFO] - [16-12-2025 11:53:01] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
+[INFO] - [16-12-2025 11:53:01] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Retrieved text from element: By.xpath: //li[contains(@class,'bg-maingreen')]//h5[last()] - 350.00
+[INFO] - [16-12-2025 11:53:01] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: //*[@id="ct-tab"]/div[1]
+[INFO] - [16-12-2025 11:53:01] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:53:02] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:53:02] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:53:03] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:53:04] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:53:04] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:53:05] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:53:05] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:53:06] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:53:06] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:53:07] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:53:07] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:53:08] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:53:08] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:53:09] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:53:09] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:53:10] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:53:10] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:53:11] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:53:11] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:53:12] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:53:13] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:53:13] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:53:14] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:53:14] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:53:15] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:53:15] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:53:16] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:53:16] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:53:17] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:53:17] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:53:18] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:53:18] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:53:19] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:53:19] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:53:20] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:53:21] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:53:21] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[ERROR] - [16-12-2025 11:53:21] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Failed to verify visibility of element: By.xpath: //div[@id='v-pills-tab']//a - Expected condition failed: waiting for com.ferpfirstcode.utils.actions.ElementActions$$Lambda/0x000001e001454ba8@276961df (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '4.38.0', revision: '6b412e825c*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '24.0.1'
+Driver info: driver.version: unknown
+[ERROR] - [16-12-2025 11:53:21] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Failed to Capture Screenshot The filename, directory name, or volume label syntax is incorrect
+[INFO] - [16-12-2025 11:53:21] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Screenshot captured: isElementVisible-By.xpath: //div[@id='v-pills-tab']//a
+[INFO] - [16-12-2025 11:53:21] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: //*[@id="OverLayPin"]/div/div[1]/div[2]/div[3]/div/nav/ul/li[4]/a
+[INFO] - [16-12-2025 11:53:23] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
+[INFO] - [16-12-2025 11:53:23] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Retrieved text from element: By.xpath: //table[contains(@class,'table')]//tbody//tr[1]/td[3] - 350.00
+[INFO] - [16-12-2025 11:53:35] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: //*[@id="modal-78"]/div/div/div[2]/div[2]/table/tbody/tr[1]/td[8]/button[2]
+[INFO] - [16-12-2025 11:53:44] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Retrieved text from element: By.id: ordertype-tab - توصيل
+[INFO] - [16-12-2025 11:54:02] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: //*[@id="dropdownMenuLink"]
+[INFO] - [16-12-2025 11:54:16] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
+[INFO] - [16-12-2025 11:55:11] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: //a[contains(@class, "dropdown-item") and @href="/FollowOrder"]
+[INFO] - [16-12-2025 11:55:23] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: (//table[contains(@class,'e-table')]//tbody//tr[last()]//input[@type='checkbox'])[1]
+[INFO] - [16-12-2025 11:55:29] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: //button[@data-toggle="modal" and @data-target="#modal-1"]
+[INFO] - [16-12-2025 11:55:30] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: (//button[contains(@class, "btn-success") and contains(@class, "m-0")])[1]
+[ERROR] - [16-12-2025 11:55:54] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Failed to click element: By.xpath: //button[normalize-space()='Cancel'] - Expected condition failed: waiting for com.ferpfirstcode.utils.actions.ElementActions$$Lambda/0x000001e00144ae28@8d0dcd9 (tried for 20 second(s) with 500 milliseconds interval)
+[ERROR] - [16-12-2025 11:55:55] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Failed to Capture Screenshot The filename, directory name, or volume label syntax is incorrect
+[INFO] - [16-12-2025 11:55:55] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Screenshot captured: clickElement-By.xpath: //button[normalize-space()='Cancel']
+[ERROR] - [16-12-2025 11:55:55] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Failed to Capture Screenshot Cannot invoke "org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)" because "driver" is null
+[ERROR] - [16-12-2025 11:55:55] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Test: paymentPageTC Failed ========
+[INFO] - [16-12-2025 11:55:55] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
+[INFO] - [16-12-2025 11:55:55] [main] [BaseTest] - Screenshot taken for failed test: paymentPageTC
+[INFO] - [16-12-2025 11:55:55] [main] [BaseTest] - WebDriver closed successfully.
+[INFO] - [16-12-2025 11:55:59] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - 🛠️ Running Allure generate command: C:\Users\pc\.m2\repository\allure\allure-2.36.0\bin\allure.bat generate C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\allure-results -o C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\full-report --clean
+[INFO] - [16-12-2025 11:56:01] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - 🛠️ Running Allure generate command: C:\Users\pc\.m2\repository\allure\allure-2.36.0\bin\allure.bat generate C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\allure-results -o C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports --clean --single-file
+[INFO] - [16-12-2025 11:56:01] [main] [com.ferpfirstcode.FileUtils] - Target File Path: "C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports\index.html", file was renamed to "AllureReport_2025-12-16-11-56-01.html".
+[ERROR] - [16-12-2025 11:56:01] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - ❌ index.html not found. Report generation may have failed.
+[INFO] - [16-12-2025 11:56:01] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - REPORT PATH = C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports
+[INFO] - [16-12-2025 11:56:01] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - FULL FILE PATH = C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports\AllureReport_2025-12-16-11-56-01.html
+[INFO] - [16-12-2025 11:56:01] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - FILE EXISTS? true
+[INFO] - [16-12-2025 11:56:01] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - 🔥 Final Allure HTML report opened successfully
+[INFO] - [16-12-2025 11:56:01] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Allure Report Generated Successfully
+[INFO] - [16-12-2025 11:56:01] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Test Execution Finished ========
+[DEBUG] - [16-12-2025 11:57:50] [main] [org.testng.TestNG] - suiteXmlPath: "C:\Users\pc\AppData\Local\JetBrains\IntelliJIdea2025.3\temp-testng-customsuite.xml"
+[INFO] - [16-12-2025 11:57:51] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [16-12-2025 11:57:51] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [16-12-2025 11:57:51] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [16-12-2025 11:57:51] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [16-12-2025 11:57:51] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [16-12-2025 11:57:51] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [16-12-2025 11:57:51] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [16-12-2025 11:57:51] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [16-12-2025 11:57:51] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Starting Test Execution ========
+[INFO] - [16-12-2025 11:57:51] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Directories Cleaned Successfully
+[INFO] - [16-12-2025 11:57:51] [main] [com.ferpfirstcode.FileUtils] - Directory created: test-output/screenshots/
+[INFO] - [16-12-2025 11:57:51] [main] [com.ferpfirstcode.FileUtils] - Directory created: test-output/recordings/
+[INFO] - [16-12-2025 11:57:51] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Directories Created Successfully
+[INFO] - [16-12-2025 11:57:51] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [16-12-2025 11:57:51] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [16-12-2025 11:57:51] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [16-12-2025 11:57:51] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [16-12-2025 11:57:51] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [16-12-2025 11:57:51] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [16-12-2025 11:57:51] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [16-12-2025 11:57:51] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [16-12-2025 11:57:51] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Test Properties Loaded Successfully
+[INFO] - [16-12-2025 11:57:51] [main] [com.ferpfirstcode.utils.report.AllureEnviromentManger] - Allure environment variables set.
+[INFO] - [16-12-2025 11:57:53] [main] [com.ferpfirstcode.utils.report.AllureBinaryManger] - Allure binaries already exist.
+[INFO] - [16-12-2025 11:57:53] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Allure Environment Variables Set Successfully
+[INFO] - [16-12-2025 11:57:53] [main] [PaymentTest] - تم تحميل بيانات الاختبار من JSON
+[INFO] - [16-12-2025 11:57:53] [main] [com.ferpfirstcode.driver.GUIDriver] - Initializing GUIDriver...
+[INFO] - [16-12-2025 11:57:53] [main] [com.ferpfirstcode.driver.GUIDriver] - Browser from properties: EDGE
+[INFO] - [16-12-2025 11:57:53] [main] [com.ferpfirstcode.driver.GUIDriver] - Starting driver for browser: EDGE
+[INFO] - [16-12-2025 11:57:53] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\allure.properties
+[INFO] - [16-12-2025 11:57:53] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\db.properties
+[INFO] - [16-12-2025 11:57:53] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\enviroment.properties
+[INFO] - [16-12-2025 11:57:53] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\log4j2.properties
+[INFO] - [16-12-2025 11:57:53] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\seleniumGrid.properties
+[INFO] - [16-12-2025 11:57:53] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\video.properties
+[INFO] - [16-12-2025 11:57:53] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\waits.properties
+[INFO] - [16-12-2025 11:57:53] [main] [com.ferpfirstcode.utils.dataReader.PropertyReader] - Loaded properties from: C:\Users\pc\IdeaProjects\FirstProjectFERP\src\main\resources\webapp.properties
+[INFO] - [16-12-2025 11:57:54] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Starting Test: paymentPageTC ========
+[INFO] - [16-12-2025 11:57:56] [main] [com.ferpfirstcode.utils.actions.BrowserActions] - Navigated to URL:  http://localhost:4200/login
+[DEBUG] - [16-12-2025 11:57:56] [main] [com.jayway.jsonpath.internal.path.CompiledPath] - Evaluating path: $['password']
+[INFO] - [16-12-2025 11:57:56] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
+[INFO] - [16-12-2025 11:57:56] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: //i[@class='fas fa-id-card menu-icon']
+[INFO] - [16-12-2025 11:57:57] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
+[INFO] - [16-12-2025 11:57:57] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text in element: By.id: pass
+[INFO] - [16-12-2025 11:57:57] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
+[INFO] - [16-12-2025 11:57:57] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.cssSelector: button.submitBtn
+[INFO] - [16-12-2025 11:58:01] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
+[INFO] - [16-12-2025 11:58:02] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: //*[@id="navbarSupportedContentt"]/ul/li[2]/button/i
+[INFO] - [16-12-2025 11:58:02] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.cssSelector: button.btn.m-0.p-2
+[ERROR] - [16-12-2025 11:58:22] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Failed to verify visibility of element: By.xpath: //button[contains(@class, "swal2-confirm") and contains(@class, "swal2-styled")] - Expected condition failed: waiting for com.ferpfirstcode.utils.actions.ElementActions$$Lambda/0x000001cbba454df0@4eb73cc8 (tried for 20 second(s) with 500 milliseconds interval)
+[ERROR] - [16-12-2025 11:58:22] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Failed to Capture Screenshot The filename, directory name, or volume label syntax is incorrect
+[INFO] - [16-12-2025 11:58:22] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Screenshot captured: isElementVisible-By.xpath: //button[contains(@class, "swal2-confirm") and contains(@class, "swal2-styled")]
+[INFO] - [16-12-2025 11:58:22] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: //button[.//i[contains(@class,'fa-save')]]
+[INFO] - [16-12-2025 11:58:22] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: (//a[.//i[text()='home']])[1]
+[INFO] - [16-12-2025 11:58:22] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //button[@data-target='#openDaymodal'] - true
+[INFO] - [16-12-2025 11:58:22] [main] [com.ferpfirstcode.pages.components.HomePage] - Open Day button is not enabled, skipping click.
+[INFO] - [16-12-2025 11:58:26] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //button[@data-target='#openshiftmodal'] - true
+[INFO] - [16-12-2025 11:58:26] [main] [com.ferpfirstcode.pages.components.HomePage] - Shift Open button is not enabled, skipping click.
+[INFO] - [16-12-2025 11:58:27] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: //div[contains(@class,'ms-panel-body')]//i[contains(@class,'fa-clipboard-list')]
+[INFO] - [16-12-2025 11:58:27] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: //a[@href='/order']
+[ERROR] - [16-12-2025 11:58:27] [main] [io.qameta.allure.util.NamingUtils] - Could not find parameter tabName
+[INFO] - [16-12-2025 11:58:27] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:58:28] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:58:28] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:58:29] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:58:29] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:58:30] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:58:31] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:58:31] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:58:32] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:58:32] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:58:33] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:58:33] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:58:34] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:58:34] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:58:35] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:58:35] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:58:36] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:58:36] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:58:37] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:58:37] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:58:38] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:58:38] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:58:39] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:58:40] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:58:40] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:58:41] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:58:41] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:58:42] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:58:42] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:58:43] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:58:43] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:58:44] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:58:44] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:58:45] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:58:45] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:58:46] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:58:46] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:58:47] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[ERROR] - [16-12-2025 11:58:47] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Failed to verify visibility of element: By.xpath: //div[@id='v-pills-tab']//a - Expected condition failed: waiting for com.ferpfirstcode.utils.actions.ElementActions$$Lambda/0x000001cbba454df0@65293ca5 (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '4.38.0', revision: '6b412e825c*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '24.0.1'
+Driver info: driver.version: unknown
+[ERROR] - [16-12-2025 11:58:47] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Failed to Capture Screenshot The filename, directory name, or volume label syntax is incorrect
+[INFO] - [16-12-2025 11:58:47] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Screenshot captured: isElementVisible-By.xpath: //div[@id='v-pills-tab']//a
+[INFO] - [16-12-2025 11:58:47] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.id: ordertype-tab
+[INFO] - [16-12-2025 11:58:47] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: (//*[@id='v-pills-settings-tab'])[1] - false
+[INFO] - [16-12-2025 11:58:48] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: (//*[@id='v-pills-settings-tab'])[1] - true
+[INFO] - [16-12-2025 11:58:48] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Retrieved text from element: By.xpath: (//*[@id='v-pills-settings-tab'])[1] - توصيل
+[INFO] - [16-12-2025 11:58:48] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: (//*[@id='v-pills-settings-tab'])[1]
+[INFO] - [16-12-2025 11:58:48] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: (//input[@placeholder='Search By Name'])[1]
+[INFO] - [16-12-2025 11:58:49] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Typed text in element: By.xpath: (//input[@placeholder='Search By Name'])[1]
+[INFO] - [16-12-2025 11:58:49] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.cssSelector: button.btnPLus.btn-link
+[INFO] - [16-12-2025 11:58:49] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: (//*[@id="collapseOne_@i"]/td[5]/button)[1]
+[INFO] - [16-12-2025 11:58:50] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: //*[@id="nav-home"]/div/div[2]/div[2]/div/button
+[INFO] - [16-12-2025 11:58:50] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: (//div[contains(@class,'product-card')])[1]
+[INFO] - [16-12-2025 11:58:50] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:58:51] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:58:51] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:58:52] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:58:52] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:58:53] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:58:53] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:58:54] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:58:54] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:58:55] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:58:55] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:58:56] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:58:57] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:58:57] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:58:58] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:58:58] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:58:59] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:58:59] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:59:00] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:59:00] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:59:01] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:59:01] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:59:02] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:59:02] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:59:03] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:59:03] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:59:04] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:59:04] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:59:05] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:59:06] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:59:06] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:59:07] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:59:07] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:59:08] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:59:08] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:59:09] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:59:09] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:59:10] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:59:10] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[ERROR] - [16-12-2025 11:59:10] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Failed to verify visibility of element: By.cssSelector: div.modal-content.modal-contentWidth - Expected condition failed: waiting for com.ferpfirstcode.utils.actions.ElementActions$$Lambda/0x000001cbba454df0@508de524 (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '4.38.0', revision: '6b412e825c*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '24.0.1'
+Driver info: driver.version: unknown
+[ERROR] - [16-12-2025 11:59:10] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Failed to Capture Screenshot The filename, directory name, or volume label syntax is incorrect
+[INFO] - [16-12-2025 11:59:10] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Screenshot captured: isElementVisible-By.cssSelector: div.modal-content.modal-contentWidth
+[INFO] - [16-12-2025 11:59:10] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:11] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:12] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:12] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:13] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:13] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:14] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:14] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:15] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:15] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:16] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:16] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:17] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:17] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:18] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:18] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:19] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:19] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:20] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:21] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:21] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:22] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:22] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:23] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:23] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:24] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:24] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:25] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:25] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:26] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:26] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:27] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:27] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:28] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:29] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:29] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:30] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:30] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:31] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[ERROR] - [16-12-2025 11:59:31] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Failed to verify visibility of element: By.id: modal-NewSideDishes - Expected condition failed: waiting for com.ferpfirstcode.utils.actions.ElementActions$$Lambda/0x000001cbba454df0@6e0fd2dc (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '4.38.0', revision: '6b412e825c*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '24.0.1'
+Driver info: driver.version: unknown
+[ERROR] - [16-12-2025 11:59:31] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Failed to Capture Screenshot The filename, directory name, or volume label syntax is incorrect
+[INFO] - [16-12-2025 11:59:31] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Screenshot captured: isElementVisible-By.id: modal-NewSideDishes
+[INFO] - [16-12-2025 11:59:31] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: (//div[contains(@class,'product-card')])[2]
+[INFO] - [16-12-2025 11:59:31] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [16-12-2025 11:59:31] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - true
+[INFO] - [16-12-2025 11:59:31] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: (//div[@id='modal-Volums']//button[contains(@class,'volumeSelect')])[1]
+[INFO] - [16-12-2025 11:59:32] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:32] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:33] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:33] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:34] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:34] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:35] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:35] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:36] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:36] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:37] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:37] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:38] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:38] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:39] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:39] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:40] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:40] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:41] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:42] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:42] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:43] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:43] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:44] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:44] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:45] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:45] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:46] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:46] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:47] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:47] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:48] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:48] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:49] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:49] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:50] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:51] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:51] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[INFO] - [16-12-2025 11:59:52] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-NewSideDishes - false
+[ERROR] - [16-12-2025 11:59:52] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Failed to verify visibility of element: By.id: modal-NewSideDishes - Expected condition failed: waiting for com.ferpfirstcode.utils.actions.ElementActions$$Lambda/0x000001cbba454df0@2d4eba14 (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '4.38.0', revision: '6b412e825c*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '24.0.1'
+Driver info: driver.version: unknown
+[ERROR] - [16-12-2025 11:59:52] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Failed to Capture Screenshot The filename, directory name, or volume label syntax is incorrect
+[INFO] - [16-12-2025 11:59:52] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Screenshot captured: isElementVisible-By.id: modal-NewSideDishes
+[INFO] - [16-12-2025 11:59:54] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
+[INFO] - [16-12-2025 11:59:54] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Retrieved text from element: By.xpath: (//div[contains(@class,'product-card')])[1] - 350.00
+طبق مشويات مشكل
+[INFO] - [16-12-2025 11:59:54] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Retrieved text from element: By.xpath: (//div[contains(@class,'product-card')])[2] - 60.00
+سلطة
+[INFO] - [16-12-2025 11:59:54] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
+[INFO] - [16-12-2025 11:59:54] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Retrieved text from element: By.xpath: //li[contains(@class,'bg-maingreen')]//h5[last()] - 350.00
+[INFO] - [16-12-2025 11:59:54] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: //*[@id="ct-tab"]/div[1]
+[INFO] - [16-12-2025 11:59:54] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:59:55] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:59:55] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:59:56] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:59:56] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:59:57] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:59:58] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:59:58] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:59:59] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 11:59:59] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 12:00:00] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 12:00:00] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 12:00:01] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 12:00:01] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 12:00:02] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 12:00:02] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 12:00:03] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 12:00:03] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 12:00:04] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 12:00:05] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 12:00:05] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 12:00:06] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 12:00:06] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 12:00:07] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 12:00:07] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 12:00:08] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 12:00:08] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 12:00:09] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 12:00:09] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 12:00:10] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 12:00:10] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 12:00:11] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 12:00:11] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 12:00:12] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 12:00:13] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 12:00:13] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 12:00:14] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 12:00:14] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[INFO] - [16-12-2025 12:00:15] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //div[@id='v-pills-tab']//a - false
+[ERROR] - [16-12-2025 12:00:15] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Failed to verify visibility of element: By.xpath: //div[@id='v-pills-tab']//a - Expected condition failed: waiting for com.ferpfirstcode.utils.actions.ElementActions$$Lambda/0x000001cbba454df0@547a79cd (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '4.38.0', revision: '6b412e825c*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '24.0.1'
+Driver info: driver.version: unknown
+[ERROR] - [16-12-2025 12:00:15] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Failed to Capture Screenshot The filename, directory name, or volume label syntax is incorrect
+[INFO] - [16-12-2025 12:00:15] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Screenshot captured: isElementVisible-By.xpath: //div[@id='v-pills-tab']//a
+[INFO] - [16-12-2025 12:00:15] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: //*[@id="OverLayPin"]/div/div[1]/div[2]/div[3]/div/nav/ul/li[4]/a
+[INFO] - [16-12-2025 12:00:17] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
+[INFO] - [16-12-2025 12:00:17] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Retrieved text from element: By.xpath: //table[contains(@class,'table')]//tbody//tr[1]/td[3] - 350.00
+[INFO] - [16-12-2025 12:00:17] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: //*[@id="modal-78"]/div/div/div[2]/div[2]/table/tbody/tr[1]/td[8]/button[2]
+[INFO] - [16-12-2025 12:00:17] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Retrieved text from element: By.id: ordertype-tab - توصيل
+[INFO] - [16-12-2025 12:00:17] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: //*[@id="dropdownMenuLink"]
+[INFO] - [16-12-2025 12:00:22] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
+[INFO] - [16-12-2025 12:00:22] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: //a[contains(@class, "dropdown-item") and @href="/FollowOrder"]
+[INFO] - [16-12-2025 12:00:23] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: (//table[contains(@class,'e-table')]//tbody//tr[last()]//input[@type='checkbox'])[1]
+[INFO] - [16-12-2025 12:00:23] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: //button[@data-toggle="modal" and @data-target="#modal-1"]
+[INFO] - [16-12-2025 12:00:23] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: (//button[contains(@class, "btn-success") and contains(@class, "m-0")])[2]
+[INFO] - [16-12-2025 12:00:25] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: //button[normalize-space()='Cancel']
+[INFO] - [16-12-2025 12:00:26] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: //li[@id="tab2"]/a[@href="#tab144"]
+
+[INFO] - [16-12-2025 12:00:26] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: (//tbody/tr[last()]/td[1]//input[contains(@class,'e-checkbox')])[2]
+[INFO] - [16-12-2025 12:00:26] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
+[INFO] - [16-12-2025 12:00:27] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: //button[@type="button" and contains(@class, "btn-success") and contains(@class, "btnEdit")]
+[INFO] - [16-12-2025 12:00:27] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //a[@href="/manageorderlist"] - true
+[INFO] - [16-12-2025 12:00:27] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.xpath: //a[@href="/manageorderlist"] - true
+[INFO] - [16-12-2025 12:00:27] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: //a[@href="/manageorderlist"]
+[INFO] - [16-12-2025 12:00:28] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: (//tbody/tr)[last()]//button[contains(@class,'btn-info')][2]
+[INFO] - [16-12-2025 12:00:28] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: (//button[contains(@class, "btn-primary") and contains(@class, "rounded")])[1]
+[INFO] - [16-12-2025 12:00:34] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
+[ERROR] - [16-12-2025 12:00:34] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Failed to Capture Screenshot Cannot invoke "org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)" because "driver" is null
+[INFO] - [16-12-2025 12:00:35] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Test: paymentPageTC Finished Successfully ========
+[INFO] - [16-12-2025 12:00:35] [main] [BaseTest] - WebDriver closed successfully.
+[INFO] - [16-12-2025 12:00:38] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - 🛠️ Running Allure generate command: C:\Users\pc\.m2\repository\allure\allure-2.36.0\bin\allure.bat generate C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\allure-results -o C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\full-report --clean
+[INFO] - [16-12-2025 12:00:41] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - 🛠️ Running Allure generate command: C:\Users\pc\.m2\repository\allure\allure-2.36.0\bin\allure.bat generate C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\allure-results -o C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports --clean --single-file
+[INFO] - [16-12-2025 12:00:41] [main] [com.ferpfirstcode.FileUtils] - Target File Path: "C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports\index.html", file was renamed to "AllureReport_2025-12-16-12-00-41.html".
+[ERROR] - [16-12-2025 12:00:41] [main] [com.ferpfirstcode.utils.report.AllureReportGenerator] - ❌ index.html not found. Report generation may have failed.
+[INFO] - [16-12-2025 12:00:41] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - REPORT PATH = C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports
+[INFO] - [16-12-2025 12:00:41] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - FULL FILE PATH = C:\Users\pc\IdeaProjects\FirstProjectFERP\test-output\reports\AllureReport_2025-12-16-12-00-41.html
+[INFO] - [16-12-2025 12:00:41] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - FILE EXISTS? true
+[INFO] - [16-12-2025 12:00:41] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - 🔥 Final Allure HTML report opened successfully
+[INFO] - [16-12-2025 12:00:41] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ✅ Allure Report Generated Successfully
+[INFO] - [16-12-2025 12:00:41] [main] [com.ferpfirstcode.customlisteners.TestNGListeners] - ======== Test Execution Finished ========

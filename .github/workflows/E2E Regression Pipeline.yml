@@ -3,7 +3,7 @@ name: E2E Regression (Login Test - Refactored for Self-hosted)
 on:
   schedule:
     # تنسيق Cron: (Minute Hour Day_of_Month Month Day_of_Week)
-    - cron: '35 11 * * *'
+    - cron: '20 * * * *'
   push:
     branches: [ master, main ]
   pull_request:

@@ -12,6 +12,7 @@ env:
   # 📌 إعدادات المنافذ والمسارات (Ports and Paths)
   # يتم الاحتفاظ بها لاستخدامها في أمر Maven
   # -----------------------------------------------------
+  FRONTEND_PORT: 4200
   LOGIN_TEST_TARGET: "LoginTest"
 
 jobs:
@@ -28,21 +29,8 @@ jobs:
       # -----------------------------------------------------
       # 1. إعداد متطلبات تشغيل الاختبار
       # -----------------------------------------------------
-      # ☕ إعداد Java (يجب أن يكون Java موجوداً على الـ Runner أو يتم تثبيته)
-      - name: ☕ Setup Java (for Selenium Tests)
-        # ⚠️ ملاحظة: إذا كان Java مثبتاً بالفعل على الـ Runner، يمكن إزالة هذه الخطوة.
-        # إذا لم يكن مثبتاً، فستقوم هذه الخطوة بتثبيته.
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'zulu'
-          java-version: '21'
 
-      # 📦 إعداد Maven (يجب أن يكون Maven موجوداً على الـ Runner أو يتم تثبيته)
-      - name: 📦 Setup Maven (for Selenium Tests)
-        # ⚠️ ملاحظة: إذا كان Maven مثبتاً بالفعل على الـ Runner وموجوداً في متغيرات البيئة (PATH)، يمكن إزالة هذه الخطوة.
-        uses: stCarolas/setup-maven@v5
-        with:
-          maven-version: 3.9.9
+
 
       # -----------------------------------------------------
       # 2. تشغيل الاختبارات
@@ -50,7 +38,7 @@ jobs:
       - name: 🧪 Run Login Test (Simplified)
         # هذا هو الأمر المطلوب تشغيله.
         # يتم استخدام متغير البيئة FRONTEND_PORT لتمرير الـ BaseUrl
-        run: mvn -Dtest=${{ env.LOGIN_TEST_TARGET }} -DexecutionType="LocalHeadless" -DbrowserType="Edge"test
+        run: mvn -Dtest=${{ env.LOGIN_TEST_TARGET }} -DexecutionType="LocalHeadless" -DbrowserType="Edge" -DbaseUrl="http://127.0.0.1:${{ env.FRONTEND_PORT }}" test
 
       # -----------------------------------------------------
       # 3. خطوة اختيارية: رفع التقارير

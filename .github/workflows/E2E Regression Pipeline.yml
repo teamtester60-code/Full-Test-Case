@@ -2,8 +2,8 @@ name: E2E Regression (Login Test - Refactored for Self-hosted)
 
 on:
   schedule:
-    # تنسيق Cron: (Minute Hour Day_of_Month Month Day_of_Week)
-    - cron: '20 * * * *'
+    # 9:30 AM and 10:30 AM UTC
+    - cron: '30 9,10 * * *'
   push:
     branches: [ master, main ]
   pull_request:

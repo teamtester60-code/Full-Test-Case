@@ -19,9 +19,7 @@ public class HomePageTest extends BaseTest {
     public void homePageTC() throws InterruptedException {
         new com.ferpfirstcode.pages.components.LoginPage(guiDriver)
                 .navigateToLoginPage()
-                .enterUsername(testdata.getJsonreader("username"))
-                .enterPassword(testdata.getJsonreader("password"))
-                .clickLoginButton()
+                .loginwithpin()
                 .verifyloggedinsuccess()
                 .clickEditPosButton()
                 .clickAuthorAndUnAuthorButton()

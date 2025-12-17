@@ -1,4 +1,3 @@
-import com.ferpfirstcode.driver.GUIDriver;
 import com.ferpfirstcode.pages.components.LoginPage;
 import com.ferpfirstcode.utils.TimeManager;
 import com.ferpfirstcode.utils.dataReader.JsonReader;
@@ -27,8 +26,4 @@ public class LoginTest extends BaseTest {
 
         LogsManager.info("تم تنفيذ اختبار تسجيل الدخول بنجاح");
     }
-//aaa
-//bbb
-//ccc
-
 }   

@@ -17,11 +17,10 @@ public class PaymentTest extends BaseTest {
         LogsManager.info("تم تحميل بيانات الاختبار من JSON");
     }
     @Test
-    public void paymentPageTC() throws InterruptedException {
+    public void e2e() throws InterruptedException {
         new com.ferpfirstcode.pages.components.LoginPage(guiDriver)
                 .navigateToLoginPage()
-                .enterPin(testdata.getJsonreader("password"))
-                .clickLoginButton()
+                .loginwithpin()
                 .verifyloggedinsuccess()
                 .clickEditPosButton()
                 .clickAuthorAndUnAuthorButton()
@@ -37,5 +36,4 @@ public class PaymentTest extends BaseTest {
                 .validateDiscountCalculation(50)
                 .validateDeliveryOrder();
     }
-    //visca Barca
 }

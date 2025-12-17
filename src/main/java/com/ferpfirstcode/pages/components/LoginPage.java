@@ -137,9 +137,11 @@ package com.ferpfirstcode.pages.components;
 
 import com.ferpfirstcode.driver.GUIDriver;
 import com.ferpfirstcode.media.ScreenShotsManager;
+import com.ferpfirstcode.utils.dataReader.DataBaseReader;
 import com.ferpfirstcode.utils.dataReader.PropertyReader;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import org.testng.Assert;
 
 public class LoginPage {
     private final GUIDriver driver;
@@ -182,6 +184,27 @@ public class LoginPage {
         ScreenShotsManager.takeFullPageScreenshot(driver.get(),"Aftertyping");
         return this;
     }
+
+    @Step("login with pin that readed from database")
+    public PosPage loginwithpin() {
+    // 1. جلب الـ Pin من MongoDB
+    String dbPin = DataBaseReader.getAdminPin();
+    System.out.println("الرمز المستخرج من القاعدة هو: " + dbPin);
+
+    // التحقق من أن القيمة ليست فارغة (Assertion)
+    Assert.assertNotNull(dbPin, "فشل جلب الـ Pin من قاعدة البيانات!");
+
+    // 2. استخدام السيلينيوم لإدخال الـ Pin
+    LoginPage loginPage = new LoginPage(driver);
+    loginPage.enterPin(dbPin);
+    loginPage.clickLoginButton();
+    return new PosPage(driver);
+
+    // 3. التأكد من نجاح الدخول
+    // Assert.assertTrue(...)
+}
+
+
 
     @Step("Click Login Button")
     public PosPage clickLoginButton() {

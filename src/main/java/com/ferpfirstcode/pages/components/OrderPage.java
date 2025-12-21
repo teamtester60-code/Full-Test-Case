@@ -2,6 +2,8 @@ package com.ferpfirstcode.pages.components;
 
 import com.ferpfirstcode.driver.GUIDriver;
 import com.ferpfirstcode.media.ScreenShotsManager;
+import com.ferpfirstcode.utils.logs.LogsManager;
+
 import io.qameta.allure.Allure;
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
@@ -11,6 +13,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import java.util.List;
+import java.util.logging.LogManager;
 
 
 
@@ -47,7 +50,7 @@ public class OrderPage {
     private final By totalpriceaftersendorder=By.xpath("//table[contains(@class,'table')]//tbody//tr[1]/td[3]");
     private final By selectedcostomerindilevery= By.xpath("//*[@id=\"accordion\"]/tr[1]/td[1]");
     private final By tablenumber = By.xpath("(//li[starts-with(@id,'liDrag') and not(contains(@class,'TableBusy'))])[1]");
-    private final By selectorderbutton= By.xpath("//*[@id=\"modal-78\"]/div/div/div[2]/div[2]/table/tbody/tr[1]/td[8]/button[2]");
+    private final By selectorderbutton= By.xpath("(//table//tbody//button)[2]");
     private final By employeebutton= By.xpath("//*[@id=\"modal-Waiter\"]/div/div/div[2]/div/div/div/div[3]/perfect-scrollbar/div/div[1]/table/tbody/tr[1]/td/button");
     private final By cashieroperationbutton= By.xpath("//*[@id=\"dropdownMenuLink\"]");
     private final By followorderbutton= By.xpath("//a[contains(@class, \"dropdown-item\") and @href=\"/FollowOrder\"]");
@@ -63,6 +66,17 @@ public class OrderPage {
     private final By manageOrdersbutton= By.xpath("//a[@href=\"/manageorderlist\"]");
     private final By showorderbutton= By.xpath("(//tbody/tr)[last()]//button[contains(@class,'btn-info')][2]");
     private final By customerreciptbutton= By.xpath("(//button[contains(@class, \"btn-primary\") and contains(@class, \"rounded\")])[1]");
+    private final By cancelproductsbutton=By.xpath("//div[contains(@class, 'fiixedCancel')]");
+    private final By cancelbutton=By.xpath("//button[contains(@class, 'btn-danger')]");
+    private final By checkproducttocancel=By.xpath("(//input[@type='checkbox' and contains(@class, 'form-control')])[2]");
+    private final By sendorderaftercancelproduct=By.xpath("//button[contains(@class, 'btnEdit') and contains(text(), 'Send')]");
+    private final By customerresoncancelbutton = By.xpath("(//button[contains(@class, 'bg-maingreen')])[1]");
+    private final By priceOfProductToCancel= By.xpath("(//p[contains(@class,'digram')]//strong[contains(@class,'textVat')])[1]");
+
+
+
+
+    
 
 
     //dynamic locator
@@ -112,7 +126,8 @@ public class OrderPage {
         String productName1 = driver.element().getElementText(productByIndex(1));
         String productName2 = driver.element().getElementText(productByIndex(2));
         Allure.step("Product Name And Price: " + productName1);
-        Allure.step("Product Name And Price: " + productName2);
+        Allure.step("Product Name And Price: " + productName2); 
+        driver.element().clickElement(sendorderbutton);
         return this;
     }
     @Step("Select Order Type: {tabName}")
@@ -252,6 +267,32 @@ public class OrderPage {
         return new PaymentPage(driver);
     }
 
+
+    @Step("Cancel Order")
+    public OrderPage cancelOrder() {
+        driver.element().clickElement(opensentordersbutton);
+        driver.element().clickElement(selectorderbutton);
+        String priceOfProductTocancel = driver.element().getElementText(priceOfProductToCancel);
+        String totalpriceBeforderbeforecancel = driver.element().getElementText(totalpricebeforesendorder);
+        double priceOfProductToCancel = Double.parseDouble(priceOfProductTocancel);
+        double totalPriceBeforeCancel = Double.parseDouble(totalpriceBeforderbeforecancel);
+        driver.element().clickElementByJS(cancelproductsbutton);
+        driver.element().clickElement(checkproducttocancel);
+        driver.element().clickElement(sendorderaftercancelproduct);
+        driver.element().clickElement(customerresoncancelbutton);
+        driver.element().clickElement(opensentordersbutton);
+        String totalpriceoforderaftercancel = driver.element().getElementText(totalpriceaftersendorder);
+        double totalPriceAfterCancel = Double.parseDouble(totalpriceoforderaftercancel);
+        if (totalPriceBeforeCancel != totalPriceAfterCancel + priceOfProductToCancel) {
+            throw new AssertionError("Total price mismatch: before cancel: " + totalPriceBeforeCancel + ", after cancel: " + totalPriceAfterCancel + ", price of product to cancel: " + priceOfProductToCancel);
+        }
+    
+        LogsManager.info("Total price before cancel: " + totalPriceBeforeCancel + ", Total price after cancel: " + totalPriceAfterCancel + ", price of product to cancel: " + priceOfProductToCancel);
+        Allure.step("Total price before cancel: " + totalPriceBeforeCancel + ", Total price after cancel: " + totalPriceAfterCancel + ", price of product to cancel: " + priceOfProductToCancel);
+
+        return this;
+    }
+
     //validation
     @Step("Validate that order is sent successfully")
     public OrderPage validateOrderIsSentSuccessfully() throws InterruptedException {
@@ -263,8 +304,7 @@ public class OrderPage {
             driver.element().clickElement(clickOk);
         }
         driver.element().clickElement(opensentordersbutton);
-        Thread.sleep(2000);
-        ScreenShotsManager.takeFullPageScreenshot(driver.get(), "After Sending Order");
+               ScreenShotsManager.takeFullPageScreenshot(driver.get(), "After Sending Order");
         String priceAfterSendOrder = driver.element().getElementText(totalpriceaftersendorder);
         if (!priceBeforeSendOrder.equals(priceAfterSendOrder)) {
             throw new AssertionError("Order price mismatch: before sending order: " + priceBeforeSendOrder + ", after sending order: " + priceAfterSendOrder);

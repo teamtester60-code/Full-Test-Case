@@ -278,6 +278,19 @@ public class ElementActions {
         }
         return this;
     }
+    public ElementActions clickElementByJS(By locator){
+        try {
+            ((JavascriptExecutor) driver)
+                    .executeScript("arguments[0].click()", driver.findElement(locator));
+            LogsManager.info("Clicked element: " + locator);
+        }
+        catch (Exception e){
+            LogsManager.error("Failed to click element: " + locator + " - " + e.getMessage());
+            takeScreenshot("clickElementByJS-" + locator.toString());
+            throw e;
+        }
+        return this;
+    }
 
     public ElementActions typeText(By locator, String text) {
         try {

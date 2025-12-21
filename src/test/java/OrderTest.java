@@ -32,4 +32,25 @@ public class OrderTest extends BaseTest {
                 .clickOnProduct()
                 .validateOrderIsSentSuccessfully();
     }
+    
+
+    @Test
+    public void cancelorderTC() throws InterruptedException{
+        new com.ferpfirstcode.pages.components.LoginPage(guiDriver)
+                .navigateToLoginPage()
+                .enterPin(testdata.getJsonreader("password"))
+                .clickLoginButton()
+                .verifyloggedinsuccess()
+                .clickEditPosButton()
+                .clickAuthorAndUnAuthorButton()
+                .clickSavePosButton()
+                .clickHomeButton()
+                .clickOpenDayButton()
+                .clickShiftOpenButton()
+                .gotoorderpage()
+                .selectOrderTypebyindex()
+                .clickOnProduct()
+                .cancelOrder();
+    }
+
 }

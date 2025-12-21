@@ -89,18 +89,15 @@ public class PaymentPage {
     }
 
     @Step("Validate the order if order type is delivery")
-    public PaymentPage validateDeliveryOrder() throws InterruptedException {
+    public OrderPage validateDeliveryOrder() throws InterruptedException {
         if (driver.element().isElementVisible(manageOrdersbutton)) {
 
             driver.element().clickElement(manageOrdersbutton);
-            driver.element().clickElement(showorderbutton);
-            driver.element().clickElement(customerreciptbutton);
-
             Thread.sleep(6000);
             ScreenShotsManager.takeFullPageScreenshot(driver.get(), "After Paid Order");
         }
 
-        return this;
+        return new OrderPage(driver);
     }
 
 

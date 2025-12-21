@@ -72,6 +72,18 @@ public class OrderPage {
     private final By sendorderaftercancelproduct=By.xpath("//button[contains(@class, 'btnEdit') and contains(text(), 'Send')]");
     private final By customerresoncancelbutton = By.xpath("(//button[contains(@class, 'bg-maingreen')])[1]");
     private final By priceOfProductToCancel= By.xpath("(//p[contains(@class,'digram')]//strong[contains(@class,'textVat')])[1]");
+    private final By returnordersbutton=By.xpath("//a[@href='/returnorder']");
+    private final By createreturnorderbutton=By.xpath("//i[@class='fa bi bi-plus-lg']");
+    private final By selectordertomakereturnorder=By.xpath("(//input[@type='checkbox' and contains(@class,'e-checkbox')])[1]");
+    private final By showordertoreturn=By.xpath("(//button[@class='btn btn-view'])[1]");
+    private final By selectallproductroreturn=By.xpath("(//input[@name='selectAllIschecked'])[1]");
+    private final By savetheReturn=By.xpath("//button[@type='submit' and contains(@class,'btnNav')]");
+    private final By returnorderlist=By.xpath("(//a[.//i[contains(@class,'material-icons')]])[4]");
+    private final By thepriceofreturnorder=By.xpath("//*[@id=\"grid_content_table\"]/tbody/tr[1]/td[4]");
+    private final By homebutton=By.xpath("//*[@id=\"OverLayPin\"]/div/div[1]/div[2]/div[3]/div/nav/ul/li[1]/a/div/i");
+    private final By OrderListsButton= By.xpath("//div[contains(@class,'ms-panel-body')]//i[contains(@class,'fa-clipboard-list')]");
+    private final By pricebforereturn=By.xpath("//span[i[@class='fas fa-dollar-sign px-2']]");
+
 
 
 
@@ -127,7 +139,7 @@ public class OrderPage {
         String productName2 = driver.element().getElementText(productByIndex(2));
         Allure.step("Product Name And Price: " + productName1);
         Allure.step("Product Name And Price: " + productName2); 
-        driver.element().clickElement(sendorderbutton);
+        
         return this;
     }
     @Step("Select Order Type: {tabName}")
@@ -229,6 +241,33 @@ public class OrderPage {
         return this;
     }
 
+    @Step("Make A Return Order")
+    public OrderPage makeAReturnOrder() {
+        if (!driver.element().isElementVisible(returnordersbutton)) {
+                driver.element().clickElement(homebutton);
+                driver.element().clickElement(OrderListsButton);
+        }
+    
+        driver.element().clickElement(returnordersbutton);
+        driver.element().clickElement(createreturnorderbutton);
+        driver.element().clickElement(selectordertomakereturnorder);
+        driver.element().clickElement(showordertoreturn);
+        driver.element().clickElement(selectallproductroreturn);
+        String pricebeforereturn = driver.element().getElementText(pricebforereturn);
+        double priceBeforeReturn = Double.parseDouble(pricebeforereturn);
+        driver.element().clickElement(savetheReturn);
+        driver.element().clickElement(returnorderlist);
+        String priceafterreturn = driver.element().getElementText(thepriceofreturnorder);
+        double priceAfterReturn = Double.parseDouble(priceafterreturn);
+        if (priceBeforeReturn != priceAfterReturn) {
+            throw new AssertionError("Price before return: " + priceBeforeReturn + ", Price after return: " + priceAfterReturn);
+        }
+        ScreenShotsManager.takeFullPageScreenshot(driver.get(), "ReturnOrder");
+        LogsManager.info("Price before return: " + priceBeforeReturn + ", Price after return: " + priceAfterReturn);
+        Allure.step("Price before return: " + priceBeforeReturn + ", Price after return: " + priceAfterReturn);
+        return this;
+    }
+
     @Step("Create New Order for {numberOfPeople} people")
     public OrderPage createNewOrder(int numberOfPeople) {
         driver.element().clickElement(newOrderButton);
@@ -305,9 +344,10 @@ public class OrderPage {
             driver.element().clickElement(clickOk);
         }
         driver.element().clickElement(opensentordersbutton);
-               ScreenShotsManager.takeFullPageScreenshot(driver.get(), "After Sending Order");
+        Thread.sleep(2000); 
+        ScreenShotsManager.takeFullPageScreenshot(driver.get(), "After Sending Order");
         String priceAfterSendOrder = driver.element().getElementText(totalpriceaftersendorder);
-        Thread.sleep(2000);
+        
         if (!priceBeforeSendOrder.equals(priceAfterSendOrder)) {
             throw new AssertionError("Order price mismatch: before sending order: " + priceBeforeSendOrder + ", after sending order: " + priceAfterSendOrder);
         }

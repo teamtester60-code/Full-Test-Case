@@ -36,4 +36,28 @@ public class PaymentTest extends BaseTest {
                 .validateDiscountCalculation(50)
                 .validateDeliveryOrder();
     }
+
+
+     @Test
+    public void createreturnorderTC() throws InterruptedException {
+        new com.ferpfirstcode.pages.components.LoginPage(guiDriver)
+                .navigateToLoginPage()
+                .loginwithpin()
+                .verifyloggedinsuccess()
+                .clickEditPosButton()
+                .clickAuthorAndUnAuthorButton()
+                .clickSavePosButton()
+                .clickHomeButton()
+                .clickOpenDayButton()
+                .clickShiftOpenButton()
+                .gotoorderpage()
+                .selectOrderTypebyindex()
+                .clickOnProduct()
+                .validateOrderIsSentSuccessfully()
+                .selectOrderToPay()
+                .validateDiscountCalculation(50)
+                .validateDeliveryOrder()
+                .makeAReturnOrder();
+    }
+
 }

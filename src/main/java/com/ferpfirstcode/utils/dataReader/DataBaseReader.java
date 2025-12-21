@@ -23,32 +23,33 @@ public class DataBaseReader {
 
     // قراءة وثيقة (Document) واحدة بناءً على مفتاح وقيمة (مثل رقم الطلب)
     public static Document getDocumentByField(String collectionName, String fieldName, String value) {
-        MongoCollection<org.bson.Document> collection = database.getCollection("Quiz");
+        MongoCollection<Document> collection = database.getCollection(collectionName);
         return (Document) collection.find(Filters.eq(fieldName, value)).first();
     }
     public static String getPinByUsername(String collectionName, String username) {
-    MongoCollection<org.bson.Document> collection = database.getCollection(collectionName);
+    MongoCollection<Document> collection = database.getCollection(collectionName);
     
     // البحث عن الوثيقة التي تطابق اسم المستخدم
     Document userDoc = (Document) collection.find(Filters.eq("username", username)).first();
     
     if (userDoc != null) {
-        return ((org.bson.Document) userDoc).getString("pin"); // نفترض أن الحقل في MongoDB اسمه "pin"
+        return ((Document) userDoc).getString("Pin"); // نفترض أن الحقل في MongoDB اسمه "pin"
     }
     return null;
 }
 
 
 public static String getAdminPin() {
+    if (database == null) connect();
     // الوصول إلى مجموعة applicationUsers
-    MongoCollection<org.bson.Document> collection = database.getCollection("applicationUsers");
+    MongoCollection<Document> collection = database.getCollection("applicationUsers");
     
     // البحث عن المستخدم الذي اسمه "Admin"
-    Document userDoc = (Document) collection.find(Filters.eq("UserName", "Admin")).first();
+    Document userDoc = (Document) collection.find(Filters.eq("UserName", "admin")).first();
     
-    if (userDoc != null && ((org.bson.Document) userDoc).containsKey("Pin")) {
+    if (userDoc != null && ((Document) userDoc).containsKey("Pin")) {
         // جلب قيمة الـ Pin (تأكد من مطابقة حالة الأحرف كما في الصورة)
-        return ((org.bson.Document) userDoc).getString("Pin"); 
+        return ((Document) userDoc).getString("Pin"); 
     }
     return null;
 }

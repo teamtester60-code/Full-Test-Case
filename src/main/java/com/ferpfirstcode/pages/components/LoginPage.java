@@ -139,6 +139,8 @@ import com.ferpfirstcode.driver.GUIDriver;
 import com.ferpfirstcode.media.ScreenShotsManager;
 import com.ferpfirstcode.utils.dataReader.DataBaseReader;
 import com.ferpfirstcode.utils.dataReader.PropertyReader;
+import com.ferpfirstcode.utils.logs.LogsManager;
+
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.testng.Assert;
@@ -189,7 +191,7 @@ public class LoginPage {
     public PosPage loginwithpin() {
     // 1. جلب الـ Pin من MongoDB
     String dbPin = DataBaseReader.getAdminPin();
-    System.out.println("الرمز المستخرج من القاعدة هو: " + dbPin);
+    LogsManager.info("الرمز المستخرج من القاعدة هو: " + dbPin);
 
     // التحقق من أن القيمة ليست فارغة (Assertion)
     Assert.assertNotNull(dbPin, "فشل جلب الـ Pin من قاعدة البيانات!");

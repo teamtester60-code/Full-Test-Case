@@ -298,6 +298,7 @@ public class OrderPage {
     public OrderPage validateOrderIsSentSuccessfully() throws InterruptedException {
         ScreenShotsManager.takeFullPageScreenshot(driver.get(), "Before Sending Order");
         String priceBeforeSendOrder = driver.element().getElementText(totalpricebeforesendorder);
+        Thread.sleep(2000);
         driver.element().clickElement(sendorderbutton);
         if (driver.element().isElementVisible(ordertypes)){
 
@@ -306,6 +307,7 @@ public class OrderPage {
         driver.element().clickElement(opensentordersbutton);
                ScreenShotsManager.takeFullPageScreenshot(driver.get(), "After Sending Order");
         String priceAfterSendOrder = driver.element().getElementText(totalpriceaftersendorder);
+        Thread.sleep(2000);
         if (!priceBeforeSendOrder.equals(priceAfterSendOrder)) {
             throw new AssertionError("Order price mismatch: before sending order: " + priceBeforeSendOrder + ", after sending order: " + priceAfterSendOrder);
         }

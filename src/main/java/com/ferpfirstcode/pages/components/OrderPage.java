@@ -79,7 +79,7 @@ public class OrderPage {
     private final By selectallproductroreturn=By.xpath("(//input[@name='selectAllIschecked'])[1]");
     private final By savetheReturn=By.xpath("//button[@type='submit' and contains(@class,'btnNav')]");
     private final By returnorderlist=By.xpath("(//a[.//i[contains(@class,'material-icons')]])[4]");
-    private final By thepriceofreturnorder=By.xpath("//*[@id=\"grid_content_table\"]/tbody/tr[1]/td[4]");
+    private final By thepriceofreturnorder=By.xpath("(//td[@class='e-rowcell' and @aria-colindex='3'])[1]");
     private final By homebutton=By.xpath("//*[@id=\"OverLayPin\"]/div/div[1]/div[2]/div[3]/div/nav/ul/li[1]/a/div/i");
     private final By OrderListsButton= By.xpath("//div[contains(@class,'ms-panel-body')]//i[contains(@class,'fa-clipboard-list')]");
     private final By pricebforereturn=By.xpath("//span[i[@class='fas fa-dollar-sign px-2']]");

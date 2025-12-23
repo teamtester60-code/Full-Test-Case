@@ -84,10 +84,10 @@ public class OrderPage {
     private final By homebutton=By.xpath("//*[@id=\"OverLayPin\"]/div/div[1]/div[2]/div[3]/div/nav/ul/li[1]/a/div/i");
     private final By OrderListsButton= By.xpath("//div[contains(@class,'ms-panel-body')]//i[contains(@class,'fa-clipboard-list')]");
     private final By pricebforereturn=By.xpath("//span[i[@class='fas fa-dollar-sign px-2']]");
-
-
-
-
+    private final By returndriver=By.xpath("//button[@data-target='#modal-2']");
+    private final By selectreturndriver=By.xpath("//td[@aria-colindex='2']//button[@type='button']");
+    private final By closereturndriver=By.xpath("(//div[contains(@class,'modal-content')]//button[@data-dismiss='modal'])[2]");
+ 
 
     
 
@@ -289,14 +289,20 @@ public class OrderPage {
             driver.element().clickElement(cashieroperationbutton);
             driver.element().clickElement(followorderbutton);
             driver.element().clickElement(checklorderbutton);
+            driver.element().clickElement(returndriver);
+            if (driver.element().isElementVisible(selectreturndriver)) {
+
+                driver.element().clickElement(selectreturndriver);
+            }
+            else{
+                driver.element().clickElement(closereturndriver);
+            }
             driver.element().clickElement(assignbutton);
-            ScreenShotsManager.takeFullPageScreenshot(driver.get(),"Before select driver");
             driver.element().clickElement(assigntodriverbutton);
             driver.element().isElementVisible(cancelprintbutton);
             driver.element().clickElement(cancelprintbutton);
             driver.element().clickElement(paytheordersbutton);
             driver.element().clickElement(selcetordertopaybutton);
-            ScreenShotsManager.takeFullPageScreenshot(driver.get(),"BeforeSelectOrderToPay");
             driver.element().clickElement(paybutton);
             return new PaymentPage(driver);
         }

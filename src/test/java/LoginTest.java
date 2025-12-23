@@ -28,10 +28,8 @@ public class LoginTest extends BaseTest {
     @Epic("POS System")
     @Feature("Login Management")
     @Story("Login With Valid Data")
-    @Severity(SeverityLevel.CRITICAL)
+    @Severity(SeverityLevel.BLOCKER)
     @Owner("Ahmed Hassan")
-
-
     @Test
     public void validLoginTC() throws InterruptedException {
         new LoginPage(guiDriver)
@@ -41,4 +39,25 @@ public class LoginTest extends BaseTest {
 
         LogsManager.info("تم تنفيذ اختبار تسجيل الدخول بنجاح");
     }
+
+
+    @Epic("POS System")
+    @Feature("Login Management")
+    @Story("Login With Valid Data")
+    @Severity(SeverityLevel.BLOCKER)
+    @Owner("Ahmed Hassan")
+    @Test
+    public void invalidLoginTCwithWrongPIN(){
+            new LoginPage(guiDriver)
+            .navigateToLoginPage()
+            .enterPin("741963")
+            .clickLoginButton();
+             new LoginPage (guiDriver)
+            .verifyErrorMessage("Username or Password is incorrect.");
+
+
+
+    }
+
+
 }   

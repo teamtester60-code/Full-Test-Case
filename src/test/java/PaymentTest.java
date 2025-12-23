@@ -53,7 +53,7 @@ public class PaymentTest extends BaseTest {
     @Epic("POS System")
     @Feature("Return Order")
     @Story("Create and Return Order")
-    @Severity(SeverityLevel.CRITICAL)
+    @Severity(SeverityLevel.NORMAL)
     @Owner("Ahmed Hassan")
     @Test
     public void createreturnorderTC() throws InterruptedException {

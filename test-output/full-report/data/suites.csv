@@ -1,2 +1,2 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","156678","orderPageTC","Default Suite","2025-12-23","passed","2025-12-23","OrderTest","TestNGTest-207a8c89-ebca-4f4e-9594-aee3dbcbfc32","OrderTest","orderPageTC"
+"","10239","invalidLoginTCwithWrongPIN","Default Suite","2025-12-23","passed","2025-12-23","LoginTest","TestNGTest-1d513ab4-66f5-40d2-8c51-c64d6cb5a70a","LoginTest","invalidLoginTCwithWrongPIN"

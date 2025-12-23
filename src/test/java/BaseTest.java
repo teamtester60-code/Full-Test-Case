@@ -30,13 +30,6 @@ public void setUpSuite() {
 
     @AfterMethod
     public void tearDown(ITestResult result) {
-        // إذا فشل الاختبار، التقط Screenshot
-        if (result.getStatus() == ITestResult.FAILURE && webDriver != null) {
-            ScreenShotsManager.takeFullPageScreenshot(webDriver,
-                    "failed-" + result.getMethod().getConstructorOrMethod().getName());
-            LogsManager.info("Screenshot taken for failed test: " + result.getMethod().getConstructorOrMethod().getName());
-        }
-
         // إغلاق الـ WebDriver
         if (webDriver != null) {
             webDriver.quit();

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class WaitsManager {
 
-    private static WebDriver driver;
+    private final WebDriver driver;
 
     public WaitsManager(WebDriver driver) {
         this.driver = driver;
@@ -26,8 +26,6 @@ public class WaitsManager {
 
         ArrayList<Class<? extends Exception>> exceptions = new ArrayList<>();
         exceptions.add(NoSuchElementException.class);
-        exceptions.add(IndexOutOfBoundsException.class);
-        exceptions.add(NullPointerException.class);
         exceptions.add(StaleElementReferenceException.class);
         exceptions.add(ElementClickInterceptedException.class);
         exceptions.add(ElementNotInteractableException.class);

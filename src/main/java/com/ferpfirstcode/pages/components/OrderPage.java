@@ -8,6 +8,7 @@ import io.qameta.allure.Allure;
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
@@ -113,27 +114,9 @@ public class OrderPage {
     @Step("Click on Products")
     @Description("Click on Product: {productName} and handle volume and side dishes if popup appears")
     public OrderPage clickOnProduct() throws InterruptedException {
-        driver.element().clickElement(productByIndex(1));
-        if (driver.element().isElementVisible(volumesPOPUP)) {
-            driver.element().clickElement(volumeByIndex(1));
-        }
-        if (driver.element().isElementVisible(sidedishPOPUP)) {
-            driver.element().clickElement(sideDishByIndex(1));
-            driver.element().clickElement(sideDishByIndex(2));
-            driver.element().clickElement(sideDishByIndex(2));
-            driver.element().clickElement(okbuttonforsidedishmodal);
-        }
-        driver.element().clickElement(productByIndex(2));
-        if (driver.element().isElementVisible(volumesPOPUP)) {
-            driver.element().clickElement(volumeByIndex(1));
-        }
-        if (driver.element().isElementVisible(sidedishPOPUP)) {
-            driver.element().clickElement(sideDishByIndex(1));
-            driver.element().clickElement(sideDishByIndex(2));
-            driver.element().clickElement(sideDishByIndex(2));
-            driver.element().clickElement(okbuttonforsidedishmodal);
-        }
-        Thread.sleep(2000);
+        addProduct(1);
+        addProduct(2);
+        driver.element().isElementVisible(totalpricebeforesendorder);
         ScreenShotsManager.takeFullPageScreenshot(driver.get(),"AfterClickOnProduct");
         String productName1 = driver.element().getElementText(productByIndex(1));
         String productName2 = driver.element().getElementText(productByIndex(2));
@@ -141,6 +124,27 @@ public class OrderPage {
         Allure.step("Product Name And Price: " + productName2); 
         
         return this;
+    }
+
+    private void addProduct(int index) {
+        driver.element().clickElement(productByIndex(index));
+        handleVolumeIfShown();
+        handleSideDishIfShown();
+    }
+
+    private void handleVolumeIfShown() {
+        if (driver.element().isElementVisible(volumesPOPUP)) {
+            driver.element().clickElement(volumeByIndex(1));
+        }
+    }
+
+    private void handleSideDishIfShown() {
+        if (driver.element().isElementVisible(sidedishPOPUP)) {
+            driver.element().clickElement(sideDishByIndex(1));
+            driver.element().clickElement(sideDishByIndex(2));
+            driver.element().clickElement(sideDishByIndex(2));
+            driver.element().clickElement(okbuttonforsidedishmodal);
+        }
     }
     @Step("Select Order Type: {tabName}")
     public OrderPage selectOrderTypebyindex() {
@@ -249,7 +253,8 @@ public class OrderPage {
         }
     
         driver.element().clickElement(returnordersbutton);
-        driver.element().clickElement(createreturnorderbutton);
+        driver.browser().refreshPage();
+        driver.element().clickElement(createreturnorderbutton); 
         driver.element().clickElement(selectordertomakereturnorder);
         driver.element().clickElement(showordertoreturn);
         driver.element().clickElement(selectallproductroreturn);
@@ -282,13 +287,12 @@ public class OrderPage {
         String tabName = driver.element().getElementText(ordertypebutton);
         if (tabName.toLowerCase().contains("توصيل") || tabName.toLowerCase().contains("delivery")) {
             driver.element().clickElement(cashieroperationbutton);
-            Thread.sleep(4000);
-            ScreenShotsManager.takeFullPageScreenshot(driver.get(),"BeforeSelectOrderToPay");
             driver.element().clickElement(followorderbutton);
             driver.element().clickElement(checklorderbutton);
             driver.element().clickElement(assignbutton);
+            ScreenShotsManager.takeFullPageScreenshot(driver.get(),"Before select driver");
             driver.element().clickElement(assigntodriverbutton);
-            Thread.sleep(2000);
+            driver.element().isElementVisible(cancelprintbutton);
             driver.element().clickElement(cancelprintbutton);
             driver.element().clickElement(paytheordersbutton);
             driver.element().clickElement(selcetordertopaybutton);
@@ -337,14 +341,13 @@ public class OrderPage {
     public OrderPage validateOrderIsSentSuccessfully() throws InterruptedException {
         ScreenShotsManager.takeFullPageScreenshot(driver.get(), "Before Sending Order");
         String priceBeforeSendOrder = driver.element().getElementText(totalpricebeforesendorder);
-        Thread.sleep(2000);
         driver.element().clickElement(sendorderbutton);
         if (driver.element().isElementVisible(ordertypes)){
 
             driver.element().clickElement(clickOk);
         }
         driver.element().clickElement(opensentordersbutton);
-        Thread.sleep(2000); 
+        driver.element().isElementVisible(totalpriceaftersendorder);
         ScreenShotsManager.takeFullPageScreenshot(driver.get(), "After Sending Order");
         String priceAfterSendOrder = driver.element().getElementText(totalpriceaftersendorder);
         

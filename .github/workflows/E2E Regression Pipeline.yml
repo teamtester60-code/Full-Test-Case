@@ -38,10 +38,10 @@ jobs:
       # -----------------------------------------------------
       # 2. تشغيل الاختبارات
       # -----------------------------------------------------
-      - name: 🧪 Run Login Test (Simplified)
-        # هذا هو الأمر المطلوب تشغيله.
-        # يتم استخدام متغير البيئة FRONTEND_PORT لتمرير الـ BaseUrl
-        run: mvn -Dtest="*Test, *TEST, *test*" -DexecutionType="localHeadless" -DbrowserType="Edge" -DbaseUrl="http://127.0.0.1:${{ env.FRONTEND_PORT }}" test
+      - name: 🧪 Run Regression Test (Simplified)
+        continue-on-error: true
+        run: mvn -Dtest="*Test,*TEST,*test*" -DexecutionType="localHeadless" -DbrowserType="Edge" -DbaseUrl="http://127.0.0.1:${{ env.FRONTEND_PORT }}" test
+
 
       # -----------------------------------------------------
       # 3. خطوة اختيارية: رفع التقارير

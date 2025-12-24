@@ -1,1 +1,1 @@
-[{"uid":"cb2d5c2846ae8f9c","name":"invalidLoginTCwithWrongPIN","time":{"start":1766503422010,"stop":1766503432249,"duration":10239},"status":"passed","severity":"blocker"}]
+[{"uid":"44a0036ac829dcd4","name":"createreturnorderTC","time":{"start":1766575546787,"stop":1766575928407,"duration":381620},"status":"passed","severity":"normal"}]

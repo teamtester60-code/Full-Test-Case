@@ -288,7 +288,6 @@ public class OrderPage {
         if (tabName.toLowerCase().contains("توصيل") || tabName.toLowerCase().contains("delivery")) {
             driver.element().clickElement(cashieroperationbutton);
             driver.element().clickElement(followorderbutton);
-            driver.element().clickElement(checklorderbutton);
             driver.element().clickElement(returndriver);
             if (driver.element().isElementVisible(selectreturndriver)) {
 
@@ -297,6 +296,7 @@ public class OrderPage {
             else{
                 driver.element().clickElement(closereturndriver);
             }
+            driver.element().clickElement(checklorderbutton);
             driver.element().clickElement(assignbutton);
             driver.element().clickElement(assigntodriverbutton);
             driver.element().isElementVisible(cancelprintbutton);

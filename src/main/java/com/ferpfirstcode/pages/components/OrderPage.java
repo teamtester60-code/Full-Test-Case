@@ -246,14 +246,17 @@ public class OrderPage {
     }
 
     @Step("Make A Return Order")
-    public OrderPage makeAReturnOrder() {
+    public OrderPage makeAReturnOrder() throws InterruptedException {
         if (!driver.element().isElementVisible(returnordersbutton)) {
                 driver.element().clickElement(homebutton);
                 driver.element().clickElement(OrderListsButton);
         }
     
         driver.element().clickElement(returnordersbutton);
+        Thread.sleep(3000);
         driver.browser().refreshPage();
+        Thread.sleep(3000);
+        ScreenShotsManager.takeFullPageScreenshot(driver.get(), "ReturnOrder");
         driver.element().clickElement(createreturnorderbutton); 
         driver.element().clickElement(selectordertomakereturnorder);
         driver.element().clickElement(showordertoreturn);

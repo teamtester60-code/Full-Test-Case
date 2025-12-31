@@ -65,14 +65,14 @@ public class FileUtils {
 
 
     //clean directory method
-    public static void cleanDirectory(File file) {
-        try {
-            org.apache.commons.io.FileUtils.deleteQuietly(file);
-        } catch (Exception e) {
-            LogsManager.error("Error cleaning directory: " + file.getAbsolutePath(), e.getMessage());
-        }
-
+    public static void cleanDirectory(File dir) {
+    try {
+        org.apache.commons.io.FileUtils.cleanDirectory(dir); // ✅ يمسح المحتوى فقط
+    } catch (IOException e) {
+        LogsManager.error("Error cleaning directory: " + dir.getAbsolutePath(), e.getMessage());
     }
+}
+
 
     public static void cleanLogs(String logDirectoryPath) {
         File logDir = new File(logDirectoryPath);
@@ -103,5 +103,10 @@ public class FileUtils {
     }
 
     private static void forceDelete(File logFile) {
+        try {
+            org.apache.commons.io.FileUtils.forceDelete(logFile);
+        } catch (IOException e) {
+            LogsManager.error("Error force deleting file: " + logFile.getAbsolutePath(), e.getMessage());
+        }
     }
 }

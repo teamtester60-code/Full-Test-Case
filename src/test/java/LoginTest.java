@@ -60,4 +60,20 @@ public class LoginTest extends BaseTest {
     }
 
 
+    @Epic("POS System")
+    @Feature("Login Management")
+    @Story("Login With Empty Fields")
+    @Severity(SeverityLevel.NORMAL)
+    @Owner("Ahmed Hassan")
+    @Test
+    public void loginWithEmptyFields() {
+       new LoginPage(guiDriver)
+            .navigateToLoginPage()
+            .clickPinField()
+            .clickLoginButton();
+            new LoginPage(guiDriver)
+            .verifyMessageLabel(" كلمة المرور مطلوبة ", " Password Is Required ");
+    }
+
+
 }   

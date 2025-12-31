@@ -59,8 +59,8 @@ public class OrderPage {
     private final By assigntodriverbutton= By.xpath("(//button[contains(@class, \"btn-success\") and contains(@class, \"m-0\")])[2]");
     private final By assignbutton= By.xpath("//button[@data-toggle=\"modal\" and @data-target=\"#modal-1\"]");
     private final By cancelprintbutton= By.xpath("//button[normalize-space()='Cancel']");
-    private final By paytheordersbutton= By.xpath("//li[@id=\"tab2\"]/a[@href=\"#tab144\"]\n");
-    private final By selcetordertopaybutton= By.xpath("(//tbody/tr[last()]/td[1]//input[contains(@class,'e-checkbox')])[2]");
+    private final By paytheordersbutton= By.xpath("//a[@aria-controls='tab144']");
+    private final By selcetordertopaybutton= By.xpath("//tbody/tr[last()]/td[1]//input[contains(@class,'e-checkbox')]");
     private final By paybutton= By.xpath("//button[@type=\"button\" and contains(@class, \"btn-success\") and contains(@class, \"btnEdit\")]");
     private final By ordertypes = By.xpath("//div[@id='v-pills-tab']//a");
     private final By clickOk= By.xpath("//*[@id=\"modal-OrderType\"]/div/div/div[3]/button");
@@ -87,6 +87,7 @@ public class OrderPage {
     private final By returndriver=By.xpath("//button[@data-target='#modal-2']");
     private final By selectreturndriver=By.xpath("//td[@aria-colindex='2']//button[@type='button']");
     private final By closereturndriver=By.xpath("(//div[contains(@class,'modal-content')]//button[@data-dismiss='modal'])[2]");
+    private final By cancelassigndriver=By.xpath("//*[@id=\"modal-1\"]/div/div/div/div[1]/button/span");
  
 
     
@@ -303,8 +304,12 @@ public class OrderPage {
             driver.element().clickElement(checklorderbutton);
             driver.element().clickElement(assignbutton);
             driver.element().clickElement(assigntodriverbutton);
-            driver.element().isElementVisible(cancelprintbutton);
-            driver.element().clickElement(cancelprintbutton);
+            if (driver.element().isElementVisible(cancelprintbutton)) {
+                driver.element().clickElement(cancelprintbutton); 
+            }
+            if (driver.element().isElementVisible(cancelassigndriver)) {
+                driver.element().clickElement(cancelassigndriver);
+            }
             driver.element().clickElement(paytheordersbutton);
             driver.element().clickElement(selcetordertopaybutton);
             driver.element().clickElement(paybutton);

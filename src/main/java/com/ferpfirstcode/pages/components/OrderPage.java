@@ -295,6 +295,7 @@ public class OrderPage {
             if (driver.element().isElementVisible(selectreturndriver)) {
 
                 driver.element().clickElement(selectreturndriver);
+                driver.element().clickElement(closereturndriver);
             }
             else{
                 driver.element().clickElement(closereturndriver);

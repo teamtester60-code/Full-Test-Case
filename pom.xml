@@ -19,7 +19,7 @@
     <selenium.version>4.39.0</selenium.version>
     <testng.version>7.11.0</testng.version>
     <allure.version>2.32.0</allure.version>
-    <aspectj.version>1.9.25.1</aspectj.version>
+    <aspectj.version>1.9.21</aspectj.version>
     <log4j.version>2.25.3</log4j.version>
     <commons-io.version>2.21.0</commons-io.version>
   </properties>
@@ -59,10 +59,7 @@
         <version>3.5.4</version>
         <configuration>
 
-          <!-- Run via testng.xml (recommended for parallel) -->
-          <suiteXmlFiles>
-            <suiteXmlFile>testng.xml</suiteXmlFile>
-          </suiteXmlFiles>
+        
 
           <!-- Pass system properties (your -DbrowserType etc.) -->
           <systemPropertyVariables>
@@ -72,9 +69,13 @@
           </systemPropertyVariables>
 
           <!-- AspectJ for Allure @Step -->
-          <argLine>
-            -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-          </argLine>
+     <argLine>
+        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+     </argLine>
+
+
+
+
 
           <!-- Helpful for stability -->
           <testFailureIgnore>false</testFailureIgnore>

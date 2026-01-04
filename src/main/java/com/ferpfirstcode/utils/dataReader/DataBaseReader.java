@@ -1,7 +1,10 @@
 package com.ferpfirstcode.utils.dataReader;
 
+import java.util.List;
+
 import org.bson.Document;
 
+import com.ferpfirstcode.utils.logs.LogsManager;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
@@ -55,6 +58,43 @@ public class DataBaseReader {
         }
         return null;
     }
+
+
+    public static Double getLastPayAmountBySerialNumber() {
+    if (database == null) connect();
+
+    MongoCollection<Document> collection = database.getCollection("POSOrders");
+
+    // آخر Order اتعمل
+    Document order = collection.find()
+            .sort(new Document("CreationTime", -1))
+            .limit(1)
+            .first();
+
+    if (order == null) {
+        throw new RuntimeException("❌ No orders found in POSOrders collection");
+    }
+
+    Number serialNumber = (Number) order.get("SerialNumber");
+    long serial = serialNumber.longValue();
+
+    List<Document> payments = order.getList("OrderPayments", Document.class);
+    if (payments == null || payments.isEmpty()) {
+        throw new RuntimeException("❌ OrderPayments is empty for SerialNumber = " + serial);
+    }
+
+    Document lastPayment = payments.get(payments.size() - 1);
+
+    Object payAmountObj = lastPayment.get("PayAmount");
+    if (payAmountObj == null) {
+        throw new RuntimeException("❌ PayAmount is null for SerialNumber = " + serial);
+    }
+    
+    Number payAmount = (Number) payAmountObj;
+    LogsManager.info("Last Order SerialNumber = " + serial);
+    LogsManager.info("Last PayAmount = " + payAmount.doubleValue());
+    return payAmount.doubleValue();
+}
 
     public static void close() {
         if (mongoClient != null) {

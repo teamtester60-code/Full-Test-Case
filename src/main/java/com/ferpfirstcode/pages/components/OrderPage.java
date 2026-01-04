@@ -88,6 +88,8 @@ public class OrderPage {
     private final By selectreturndriver=By.xpath("//td[@aria-colindex='2']//button[@type='button']");
     private final By closereturndriver=By.xpath("(//div[contains(@class,'modal-content')]//button[@data-dismiss='modal'])[2]");
     private final By cancelassigndriver=By.xpath("//*[@id=\"modal-1\"]/div/div/div/div[1]/button/span");
+    private final By takeawayordertype=By.xpath("//a[normalize-space(.)='تيك اواى' or normalize-space(.)='Takeaway']");
+    private final By homebutton2=By.cssSelector("a.menu-a[href='/home']");
  
 
     
@@ -350,6 +352,22 @@ public class OrderPage {
 
         return this;
     }
+
+
+    @Step("Select takeaway order type")
+    public OrderPage makeTakeAwayOrder() {
+        driver.element().clickElement(ordertypebutton);
+        driver.element().clickElement(takeawayordertype);
+        return this;
+    }
+
+    @Step("Go to Payment for Takeaway Order")
+    public PaymentPage goToPaymentForTakeawayOrder() {
+        driver.element().clickElement(payementbutton);
+        return new PaymentPage(driver);
+    }
+
+
 
     //validation
     @Step("Validate that order is sent successfully")

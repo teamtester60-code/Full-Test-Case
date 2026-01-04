@@ -1,5 +1,7 @@
+import com.ferpfirstcode.utils.SnagitUtils;
 import com.ferpfirstcode.utils.dataReader.JsonReader;
 import com.ferpfirstcode.utils.logs.LogsManager;
+import com.ferpfirstcode.utils.report.AllureAttachmentManger;
 
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -7,6 +9,8 @@ import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
+
+import java.io.File;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
@@ -76,5 +80,30 @@ public class PaymentTest extends BaseTest {
                 .validateDeliveryOrder()
                 .makeAReturnOrder();
     }
+    
+    @Test
+    public void overpaymenttestwithdatabase() throws InterruptedException {
+          new com.ferpfirstcode.pages.components.LoginPage(guiDriver)
+                .navigateToLoginPage()
+                .loginwithpin()
+                .verifyloggedinsuccess()
+                .clickEditPosButton()
+                .clickAuthorAndUnAuthorButton()
+                .clickSavePosButton()
+                .clickHomeButton()
+                .clickOpenDayButton()
+                .clickShiftOpenButton()
+                .gotoorderpage()
+                .makeTakeAwayOrder()
+                .clickOnProduct()
+                .goToPaymentForTakeawayOrder()
+                .payOverPrice()
+                .closeOrder();
+                new com.ferpfirstcode.pages.components.PaymentPage(guiDriver) 
+                .getLastPaymentAmountFromDB();
+                new com.ferpfirstcode.pages.components.PaymentPage(guiDriver) 
+                .validatePaymentAmountMatchesDB();       
+    }
+
 
 }

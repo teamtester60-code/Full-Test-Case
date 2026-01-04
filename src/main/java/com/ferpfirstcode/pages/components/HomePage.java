@@ -25,6 +25,7 @@ public class HomePage {
     private final By cancelbuttonatopenshiftmodal=By.xpath("(//div[@id='openshiftmodal']//button[@data-dismiss='modal'])[2]");
     private final By OrderListButton= By.xpath("//div[contains(@class,'ms-panel-body')]//i[contains(@class,'fa-clipboard-list')]");
     private final By orderpagebutton = By.xpath("//a[@href='/order']");
+    private final By manageorderbutton = By.cssSelector("a[href='/manageorderlist']");
 
 
     //Actions
@@ -77,6 +78,13 @@ public class HomePage {
         driver.element().clickElement(OrderListButton);
         driver.element().clickElement(orderpagebutton);
         return new OrderPage(driver);
+    }
+
+    @Step("Go to Manage Page")
+    public ManageOrderPage gotomanagepage() {
+        driver.element().clickElement(OrderListButton); 
+        driver.element().clickElement(manageorderbutton);
+        return new ManageOrderPage(driver);
     }
 
 

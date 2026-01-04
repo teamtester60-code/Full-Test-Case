@@ -3,10 +3,14 @@ package com.ferpfirstcode.utils.report;
 import com.ferpfirstcode.media.ScreenRecordManager;
 import com.ferpfirstcode.utils.logs.LogsManager;
 import io.qameta.allure.Allure;
+import io.qameta.allure.Step;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.LoggerContext;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
@@ -52,5 +56,20 @@ public class AllureAttachmentManger {
             }
         }
     }
+
+    @Step("Attach printed invoice from Snagit")
+    public static void attachSnagitCapture(File file) {
+        try (InputStream is = new FileInputStream(file)) {
+            Allure.addAttachment(
+                    "Printed Invoice",
+                    "image/png",
+                    is,
+                    ".png"
+            );
+        } catch (Exception e) {
+            LogsManager.error("Failed to attach Snagit file: " + e.getMessage());
+        }
+    }
+
 
 }

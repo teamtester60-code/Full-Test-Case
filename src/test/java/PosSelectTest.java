@@ -2,18 +2,25 @@ import com.ferpfirstcode.pages.components.LoginPage;
 import com.ferpfirstcode.utils.dataReader.JsonReader;
 import com.ferpfirstcode.utils.logs.LogsManager;
 
+import io.qameta.allure.Allure;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Step;
 import io.qameta.allure.Story;
+import io.qameta.allure.testng.AllureTestNg;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-@Listeners(com.ferpfirstcode.customlisteners.TestNGListeners.class)
+@Listeners({
+    com.ferpfirstcode.customlisteners.TestNGListeners.class,
+    io.qameta.allure.testng.AllureTestNg.class
+})
+
 public class PosSelectTest extends BaseTest {
     protected String timestamp = com.ferpfirstcode.utils.TimeManager.gettimestamp();
     protected JsonReader testdata;
@@ -42,4 +49,5 @@ public class PosSelectTest extends BaseTest {
 
         LogsManager.info("تم تنفيذ اختبار اختيار نقطة البيع بنجاح");
     }
+
 }

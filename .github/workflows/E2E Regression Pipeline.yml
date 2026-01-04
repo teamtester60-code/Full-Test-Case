@@ -1,54 +1,79 @@
-name: E2E Regression (Login Test - Refactored for Self-hosted)
+name: E2E Regression - Login Test (Self-hosted)
 
 on:
-  schedule:
-    # 9:30 AM and 10:30 AM UTC
-    - cron: '30 9,10 * * *'
   push:
     branches: [ master, main ]
+
   pull_request:
     branches: [ master, main ]
+
+  schedule:
+    # ⏰ 9:30 AM & 10:30 AM UTC
+    - cron: '30 9,10 * * *'
+
   workflow_dispatch:
 
+# -----------------------------------------------------
+# 🌍 متغيرات عامة لكل الـ Jobs
+# -----------------------------------------------------
 env:
-  # -----------------------------------------------------
-  # 📌 إعدادات المنافذ والمسارات (Ports and Paths)
-  # يتم الاحتفاظ بها لاستخدامها في أمر Maven
-  # -----------------------------------------------------
   FRONTEND_PORT: 4200
-  LOGIN_TEST_TARGET: "RegressionTest"
+  LOGIN_TEST_TARGET: RegressionTest
+  BASE_URL: http://127.0.0.1:4200
+  BROWSER: Edge
+  EXECUTION_TYPE: localHeadless
 
 jobs:
-  Login_Test:
-    # 🚨 التغيير الرئيسي: استخدام الـ Runner المحلي
+  login_test:
+    name: 🧪 Login Regression Tests
     runs-on: self-hosted
 
-    # 💡 ملاحظة: يتم إزالة الإذن 'permissions' حيث أن الـ Self-hosted Runner يمتلك صلاحيات الجهاز الذي يعمل عليه.
-
     steps:
+      # -----------------------------------------------------
+      # 1️⃣ Checkout Repository
+      # -----------------------------------------------------
       - name: ⬇️ Checkout Code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
       # -----------------------------------------------------
-      # 1. إعداد متطلبات تشغيل الاختبار
+      # 2️⃣ Setup Java
       # -----------------------------------------------------
-
-
-
-      # -----------------------------------------------------
-      # 2. تشغيل الاختبارات
-      # -----------------------------------------------------
-      - name: 🧪 Run Regression Test (Simplified)
-        continue-on-error: true
-        run: mvn -Dtest="*Test,*TEST,*test*" -DexecutionType="localHeadless" -DbrowserType="Edge" -DbaseUrl="http://127.0.0.1:${{ env.FRONTEND_PORT }}" test
-
-
-      # -----------------------------------------------------
-      # 3. خطوة اختيارية: رفع التقارير
-      # -----------------------------------------------------
-      - name: 📤 Upload Test Results
-        if: always()
-        uses: actions/upload-artifact@v6
+      - name: ☕ Setup Java
+        uses: actions/setup-java@v4
         with:
-          name: RegressionTest
-          path: test-output/reports/*.html
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+
+      # -----------------------------------------------------
+      # 3️⃣ Verify Environment (Debug step)
+      # -----------------------------------------------------
+      - name: 🔍 Verify Environment
+        run: |
+          java -version
+          mvn -version
+          echo "Base URL: $BASE_URL"
+          echo "Browser: $BROWSER"
+          echo "Execution Type: $EXECUTION_TYPE"
+
+      # -----------------------------------------------------
+      # 4️⃣ Run Regression Tests
+      # -----------------------------------------------------
+      - name: 🧪 Run Regression Tests
+        continue-on-error: true
+        run: |
+          mvn test \
+            -Dtest="*Test,*TEST,*test*" \
+            -DexecutionType=${EXECUTION_TYPE} \
+            -DbrowserType=${BROWSER} \
+            -DbaseUrl=${BASE_URL}
+
+      # -----------------------------------------------------
+      # 5️⃣ Upload Test Reports
+      # -----------------------------------------------------
+      - name: 📤 Upload Test Reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: regression-test-reports
+          path: test-output/reports/**/*.html

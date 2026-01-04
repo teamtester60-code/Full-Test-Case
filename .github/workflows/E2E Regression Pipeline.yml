@@ -59,14 +59,9 @@ jobs:
       # -----------------------------------------------------
       # 4️⃣ Run Regression Tests
       # -----------------------------------------------------
-      - name: 🧪 Run Regression Tests
+      - name: 🧪 Run Regression Test (Simplified)
         continue-on-error: true
-        run: |
-          mvn test \
-            -Dtest="*Test,*TEST,*test*" \
-            -DexecutionType=${EXECUTION_TYPE} \
-            -DbrowserType=${BROWSER} \
-            -DbaseUrl=${BASE_URL}
+        run: mvn -Dtest="*Test,*TEST,*test*" -DexecutionType="localHeadless" -DbrowserType="Edge" -DbaseUrl="http://127.0.0.1:${{ env.FRONTEND_PORT }}" test
 
       # -----------------------------------------------------
       # 5️⃣ Upload Test Results

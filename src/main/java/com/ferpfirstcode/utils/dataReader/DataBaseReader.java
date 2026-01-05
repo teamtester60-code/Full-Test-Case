@@ -24,7 +24,7 @@ public class DataBaseReader {
         String connectionString = PropertyReader.getProperty("mongo.uri");
         if (connectionString.isBlank()) {
             connectionString = "mongodb://localhost:27017";
-        }
+        } 
         String dbName = PropertyReader.getProperty("mongo.db");
         if (dbName.isBlank()) {
             dbName = "Quiz";

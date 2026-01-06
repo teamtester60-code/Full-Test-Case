@@ -298,7 +298,7 @@ public class OrderPage {
             if (driver.element().isElementVisible(selectreturndriver)) {
 
                 driver.element().clickElement(selectreturndriver);
-                driver.element().clickElement(closereturndriver);
+                
             }
             else{
                 driver.element().clickElement(closereturndriver);
@@ -330,6 +330,7 @@ public class OrderPage {
 
     @Step("Cancel Order")
     public OrderPage cancelOrder() {
+        driver.element().clickElement(sendorderbutton);
         driver.element().clickElement(opensentordersbutton);
         driver.element().clickElement(selectorderbutton);
         String priceOfProductTocancel = driver.element().getElementText(priceOfProductToCancel);

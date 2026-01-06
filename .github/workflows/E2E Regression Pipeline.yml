@@ -70,5 +70,5 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v6
         with:
-          name: regression-test-results
+          name: RegressionTest
           path: test-output/reports/*.html

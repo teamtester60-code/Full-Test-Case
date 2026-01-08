@@ -70,7 +70,7 @@ jobs:
       # 5️⃣ Run Regression Tests
       - name: 🧪 Run Regression Tests
         shell: powershell
-        run: mvn test -Dtest="%TEST_PATTERN%" -DexecutionType="%EXECUTION_TYPE%" -DbrowserType="%BROWSER%" -DbaseUrl="%BASE_URL%" -Dmongo.uri="%MONGO_URI%" -Dmongo.db="%MONGO_DB%"
+        run: mvn test -Dtest=%TEST_PATTERN% -DexecutionType=%EXECUTION_TYPE% -DbrowserType=%BROWSER% -DbaseUrl=%BASE_URL% -Dmongo.uri=%MONGO_URI% -Dmongo.db=%MONGO_DB%
 
       # 6️⃣ Upload Test Results
       - name: 📤 Upload Test Results

@@ -29,6 +29,8 @@ public class DataBaseReader {
         if (dbName.isBlank()) {
             dbName = "Quiz";
         }
+          LogsManager.info("🔌 Connecting to MongoDB URI: " + connectionString);
+          LogsManager.info("📦 Using database: " + dbName);
         mongoClient = MongoClients.create(connectionString);
         database = mongoClient.getDatabase(dbName);
     }

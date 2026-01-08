@@ -128,47 +128,56 @@ public class PaymentPage {
         return amount;
     }
 
-   @Step("Validate payment amount: UI = DB / 2 | UI = {uiAmount} | DB = {dbAmount}")
+
+    private Double waitForPaymentAmountFromDB(int timeoutSeconds) {
+
+    long endTime = System.currentTimeMillis() + timeoutSeconds * 1000;
+
+    while (System.currentTimeMillis() < endTime) {
+
+        Double amount = getLastPaymentAmountFromDB();
+
+        if (amount != null && amount > 0) {
+            return amount;
+        }
+
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+    }
+
+    throw new AssertionError("❌ DB PayAmount still 0 after waiting");
+}
+
+
+@Step("Validate payment amount: UI = DB / 2 | UI = {uiAmount} | DB = {dbAmount}")
 public PaymentPage validatePaymentAmountMatchesDB() {
 
-    Double dbAmount = getLastPaymentAmountFromDB();
+    Double dbAmount = waitForPaymentAmountFromDB(15);
+
     Double uiAmount = Double.valueOf(
             driver.element().getElementText(totalprice)
                     .replaceAll("[^0-9.]", "")
                     .trim()
     );
 
-    double expectedUiAmount = dbAmount / 2;
+    double expectedUI = dbAmount / 2;
+    double delta = 0.01;
 
-    Allure.parameter("Expected UI Amount (DB / 2)", expectedUiAmount);
-    Allure.parameter("Total Price Amount", uiAmount);
-    Allure.parameter("Paid Amount (DB)", dbAmount);
-
-    if (Math.abs(uiAmount - expectedUiAmount) > 0.01) {
-
-        Allure.addAttachment(
-                "❌ Amount Mismatch",
-                "UI Amount = " + uiAmount +
-                "\nDB Amount = " + dbAmount +
-                "\nExpected UI (DB / 2) = " + expectedUiAmount
-        );
-
+    if (Math.abs(uiAmount - expectedUI) > delta) {
         throw new AssertionError(
-                "Payment amount mismatch: UI=" + uiAmount +
+                "Payment amount mismatch: " +
+                "UI=" + uiAmount +
                 ", DB=" + dbAmount +
-                ", Expected UI(DB/2)=" + expectedUiAmount
+                ", Expected UI(DB/2)=" + expectedUI
         );
     }
 
-    Allure.addAttachment(
-            "✅ Amount Match",
-            "Total Price Amount = " + uiAmount +
-            "\nDB Amount (Paid) = " + dbAmount +
-            "\nValidated rule: Total Price Amount = Paid Amount / 2"
-        );
-
     return this;
 }
+
 
 
 

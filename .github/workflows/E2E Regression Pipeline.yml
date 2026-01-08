@@ -6,65 +6,74 @@ on:
   pull_request:
     branches: [ master, main ]
   schedule:
+    # ⏰ 9:30 AM & 10:30 AM UTC
     - cron: '30 9,10 * * *'
   workflow_dispatch:
 
+# -----------------------------------------------------
+# 🌍 Global Environment Variables
+# -----------------------------------------------------
 env:
+  # UI
   FRONTEND_PORT: 4200
   BASE_URL: http://127.0.0.1:4200
+
+  # Test Execution
   EXECUTION_TYPE: Headless
   BROWSER: Edge
   TEST_PATTERN: "*Test,*TEST,*test*"
+
+  # MongoDB (local – self-hosted)
   MONGO_URI: mongodb://localhost:27017
   MONGO_DB: Quiz
 
 jobs:
   login_test:
     runs-on: self-hosted
+
     steps:
-      - name: Checkout Repository
+      # 1️⃣ Checkout Repository
+      - name: ⬇️ Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Java
+      # 2️⃣ Setup Java
+      - name: ☕ Setup Java
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '21'
           cache: maven
 
-      - name: Verify Environment
+      # 3️⃣ Verify Environment
+      - name: 🔍 Verify Environment
         shell: powershell
         run: |
           java -version
           mvn -version
-          Write-Host "Base URL: $env:BASE_URL"
-          Write-Host "Browser: $env:BROWSER"
-          Write-Host "Execution Type: $env:EXECUTION_TYPE"
-          Write-Host "Mongo URI: $env:MONGO_URI"
-          Write-Host "Mongo DB: $env:MONGO_DB"
+          echo "Base URL: %BASE_URL%"
+          echo "Browser: %BROWSER%"
+          echo "Execution Type: %EXECUTION_TYPE%"
+          echo "Mongo URI: %MONGO_URI%"
+          echo "Mongo DB: %MONGO_DB%"
 
-      - name: Check MongoDB
+      # 4️⃣ Check MongoDB Running
+      - name: ✅ Check MongoDB
         shell: powershell
         run: |
           if (!(netstat -an | findstr "27017")) {
-            Write-Host "❌ MongoDB is not running on port 27017!"
+            Write-Host "MongoDB not running!"
             exit 1
           } else {
-            Write-Host "✅ MongoDB is running on port 27017"
+            Write-Host "MongoDB is running on port 27017"
           }
 
-      - name: Run Regression Tests
+      # 5️⃣ Run Regression Tests
+      - name: 🧪 Run Regression Tests
         shell: powershell
-        run: >
-          mvn test
-          -Dtest="$env:TEST_PATTERN"
-          -DexecutionType="$env:EXECUTION_TYPE"
-          -DbrowserType="$env:BROWSER"
-          -DbaseUrl="$env:BASE_URL"
-          -Dmongo.uri="$env:MONGO_URI"
-          -Dmongo.db="$env:MONGO_DB"
+        run: mvn test -Dtest="%TEST_PATTERN%" -DexecutionType="%EXECUTION_TYPE%" -DbrowserType="%BROWSER%" -DbaseUrl="%BASE_URL%" -Dmongo.uri="%MONGO_URI%" -Dmongo.db="%MONGO_DB%"
 
-      - name: Upload Test Results
+      # 6️⃣ Upload Test Results
+      - name: 📤 Upload Test Results
         if: always()
         uses: actions/upload-artifact@v6
         with:

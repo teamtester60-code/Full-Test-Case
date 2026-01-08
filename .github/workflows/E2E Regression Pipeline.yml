@@ -82,14 +82,15 @@ jobs:
       # -----------------------------------------------------
       - name: 🧪 Run Regression Tests
         continue-on-error: true
+        shell: powershell
         run: |
-          mvn test \
-            -Dtest="$TEST_PATTERN" \
-            -DexecutionType="$EXECUTION_TYPE" \
-            -DbrowserType="$BROWSER" \
-            -DbaseUrl="$BASE_URL" \
-            -Dmongo.uri="$MONGO_URI" \
-            -Dmongo.db="$MONGO_DB"
+          mvn test `
+            -Dtest=$env:TEST_PATTERN `
+            -DexecutionType=$env:EXECUTION_TYPE `
+            -DbrowserType=$env:BROWSER `
+            -DbaseUrl=$env:BASE_URL `
+            -Dmongo.uri=$env:MONGO_URI `
+            -Dmongo.db=$env:MONGO_DB
 
       # -----------------------------------------------------
       # 5️⃣ Upload Test Results

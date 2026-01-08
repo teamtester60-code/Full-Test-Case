@@ -69,8 +69,13 @@ jobs:
 
 
       - name: 🗄️ Check MongoDB
+        shell: powershell
         run: |
-          netstat -an | grep 27017 || echo "MongoDB not running!"
+          if (!(netstat -an | findstr "27017")) {
+            Write-Host "MongoDB not running!"
+          } else {
+            Write-Host "MongoDB is running on port 27017"
+          }
 
       # -----------------------------------------------------
       # 4️⃣ Run Regression Tests

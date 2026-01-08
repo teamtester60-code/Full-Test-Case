@@ -18,22 +18,33 @@ public class DataBaseReader {
     private static MongoDatabase database;
 
     public static void connect() {
-        if (mongoClient != null) {
-            return;
-        }
-        String connectionString = PropertyReader.getProperty("mongo.uri");
-        if (connectionString.isBlank()) {
-            connectionString = "mongodb://localhost:27017";
-        } 
-        String dbName = PropertyReader.getProperty("mongo.db");
-        if (dbName.isBlank()) {
-            dbName = "Quiz";
-        }
-          LogsManager.info("🔌 Connecting to MongoDB URI: " + connectionString);
-          LogsManager.info("📦 Using database: " + dbName);
-        mongoClient = MongoClients.create(connectionString);
-        database = mongoClient.getDatabase(dbName);
+    if (mongoClient != null) return;
+
+    String connectionString =
+            System.getenv("MONGO_URI") != null
+            ? System.getenv("MONGO_URI")
+            : PropertyReader.getProperty("mongo.uri");
+
+    if (connectionString == null || connectionString.isBlank()) {
+        connectionString = "mongodb://localhost:27017";
     }
+
+    String dbName =
+            System.getenv("MONGO_DB") != null
+            ? System.getenv("MONGO_DB")
+            : PropertyReader.getProperty("mongo.db");
+
+    if (dbName == null || dbName.isBlank()) {
+        dbName = "Quiz";
+    }
+
+    LogsManager.info("🔌 Connecting to MongoDB URI: " + connectionString);
+    LogsManager.info("📦 Using database: " + dbName);
+
+    mongoClient = MongoClients.create(connectionString);
+    database = mongoClient.getDatabase(dbName);
+}
+
 
     public static Document getDocumentByField(String collectionName, String fieldName, String value) {
         if (database == null) connect();

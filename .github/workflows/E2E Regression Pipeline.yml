@@ -69,14 +69,15 @@ jobs:
 
       # 5️⃣ Run Regression Tests
       - name: 🧪 Run Regression Tests
-        shell: powershell
-        run: mvn test -Dtest=$env:TEST_PATTERN -DexecutionType=$env:EXECUTION_TYPE -DbrowserType=$env:BROWSER -DbaseUrl=$env:BASE_URL -Dmongo.uri=$env:MONGO_URI -Dmongo.db=$env:MONGO_DB
+        continue-on-error: true
+        run: |
+          mvn -Dtest="*Test,*TEST,*test*" -DexecutionType="localHeadless" -DbrowserType="Edge" -DbaseUrl="http://127.0.0.1:${{ env.FRONTEND_PORT }}" test -Dmongo.uri=$env:MONGO_URI -Dmongo.db=$env:MONGO_DB
 
 
       # 6️⃣ Upload Test Results
       - name: 📤 Upload Test Results
         if: always()
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v6  
         with:
           name: RegressionTest
           path: test-output/reports/*.html

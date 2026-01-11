@@ -71,7 +71,7 @@ jobs:
       - name: 🧪 Run Regression Tests
         continue-on-error: true
         run: |
-          mvn "-Dtest=PaymentTest#verifyMongoDBConnection" `
+          mvn "-Dtest=*Test,*TEST,*test*" `
           "-DexecutionType=localHeadless" `
           "-DbrowserType=Edge" `
           "-DbaseUrl=http://127.0.0.1:4200" `

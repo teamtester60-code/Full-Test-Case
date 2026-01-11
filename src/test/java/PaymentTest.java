@@ -107,29 +107,4 @@ public class PaymentTest extends BaseTest {
                 .validatePaymentAmountMatchesDB();       
     }
 
-
-    @Test
-    public void verifyMongoDBConnection() {
-
-        String mongoUri = System.getProperty("mongo.uri");
-        String mongoDb  = System.getProperty("mongo.db");
-
-        LogsManager.info("🔍 mongo.uri = " + mongoUri);
-        LogsManager.info("🔍 mongo.db  = " + mongoDb);
-
-        // 1️⃣ تأكد إن القيم وصلت من GitHub Actions
-        Assert.assertNotNull(mongoUri, "❌ mongo.uri is NULL");
-        Assert.assertNotNull(mongoDb, "❌ mongo.db is NULL");
-
-        // 2️⃣ حاول تقرأ رقم فعلي من الداتابيز
-        Double amount = DataBaseReader.getLastPayAmountBySerialNumber();
-
-        LogsManager.info("✅ PayAmount from DB = " + amount);
-
-        // 3️⃣ تأكيد نهائي
-        Assert.assertNotNull(amount, "❌ PayAmount returned NULL");
-        Assert.assertTrue(amount > 0, "❌ PayAmount is 0 or negative");
-    }
-
-
 }

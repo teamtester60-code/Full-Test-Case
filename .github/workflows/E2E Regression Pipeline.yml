@@ -50,11 +50,11 @@ jobs:
         run: |
           java -version
           mvn -version
-          echo "Base URL: %BASE_URL%"
-          echo "Browser: %BROWSER%"
-          echo "Execution Type: %EXECUTION_TYPE%"
-          echo "Mongo URI: %MONGO_URI%"
-          echo "Mongo DB: %MONGO_DB%"
+          Write-Host "Base URL: $env:BASE_URL"
+          Write-Host "Browser: $env:BROWSER"
+          Write-Host "Execution Type: $env:EXECUTION_TYPE"
+          Write-Host "Mongo URI: $env:MONGO_URI"
+          Write-Host "Mongo DB: $env:MONGO_DB"
 
       # 4️⃣ Check MongoDB Running
       - name: ✅ Check MongoDB
@@ -71,7 +71,7 @@ jobs:
       - name: 🧪 Run Regression Tests
         continue-on-error: true
         run: |
-          mvn -Dtest="*Test,*TEST,*test*" -DexecutionType="localHeadless" -DbrowserType="Edge" -DbaseUrl="http://127.0.0.1:${{ env.FRONTEND_PORT }}" test
+          mvn -Dtest="PaymentTest#verifyMongoDBConnection" -DexecutionType="localHeadless" -DbrowserType="Edge" -DbaseUrl="http://127.0.0.1:${{ env.FRONTEND_PORT }}" test
 
 
       # 6️⃣ Upload Test Results

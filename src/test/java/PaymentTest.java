@@ -1,4 +1,5 @@
 import com.ferpfirstcode.utils.SnagitUtils;
+import com.ferpfirstcode.utils.dataReader.DataBaseReader;
 import com.ferpfirstcode.utils.dataReader.JsonReader;
 import com.ferpfirstcode.utils.logs.LogsManager;
 import com.ferpfirstcode.utils.report.AllureAttachmentManger;
@@ -12,6 +13,7 @@ import io.qameta.allure.Story;
 
 import java.io.File;
 
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -103,6 +105,30 @@ public class PaymentTest extends BaseTest {
                 .getLastPaymentAmountFromDB();
                 new com.ferpfirstcode.pages.components.PaymentPage(guiDriver) 
                 .validatePaymentAmountMatchesDB();       
+    }
+
+
+    @Test
+    public void verifyMongoDBConnection() {
+
+        String mongoUri = System.getProperty("mongo.uri");
+        String mongoDb  = System.getProperty("mongo.db");
+
+        LogsManager.info("🔍 mongo.uri = " + mongoUri);
+        LogsManager.info("🔍 mongo.db  = " + mongoDb);
+
+        // 1️⃣ تأكد إن القيم وصلت من GitHub Actions
+        Assert.assertNotNull(mongoUri, "❌ mongo.uri is NULL");
+        Assert.assertNotNull(mongoDb, "❌ mongo.db is NULL");
+
+        // 2️⃣ حاول تقرأ رقم فعلي من الداتابيز
+        Double amount = DataBaseReader.getLastPayAmountBySerialNumber();
+
+        LogsManager.info("✅ PayAmount from DB = " + amount);
+
+        // 3️⃣ تأكيد نهائي
+        Assert.assertNotNull(amount, "❌ PayAmount returned NULL");
+        Assert.assertTrue(amount > 0, "❌ PayAmount is 0 or negative");
     }
 
 

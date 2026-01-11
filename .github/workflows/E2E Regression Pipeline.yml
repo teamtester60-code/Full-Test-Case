@@ -71,7 +71,14 @@ jobs:
       - name: 🧪 Run Regression Tests
         continue-on-error: true
         run: |
-          mvn -Dtest="PaymentTest#verifyMongoDBConnection" -DexecutionType="localHeadless" -DbrowserType="Edge" -DbaseUrl="http://127.0.0.1:${{ env.FRONTEND_PORT }}" test  -Dmongo.uri="mongodb://localhost:27017" -Dmongo.db="Quiz"
+          mvn ^
+          -Dtest="PaymentTest#verifyMongoDBConnection" ^
+          -DexecutionType="localHeadless" ^
+          -DbrowserType="Edge" ^
+          -DbaseUrl="http://127.0.0.1:4200" ^
+          -Dmongo.uri="mongodb://localhost:27017" ^
+          -Dmongo.db="Quiz" ^
+           test
 
 
       # 6️⃣ Upload Test Results

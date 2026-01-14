@@ -1,3 +1,5 @@
+import com.ferpfirstcode.pages.components.HomePage;
+import com.ferpfirstcode.pages.components.OrderPage;
 import com.ferpfirstcode.utils.dataReader.JsonReader;
 import com.ferpfirstcode.utils.logs.LogsManager;
 
@@ -13,15 +15,8 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 @Listeners(com.ferpfirstcode.customlisteners.TestNGListeners.class)
-public class OrderTest extends BaseTest {
-    protected String timestamp = com.ferpfirstcode.utils.TimeManager.gettimestamp();
-    protected JsonReader testdata;
-
-    @BeforeClass
-    public void precondition() {
-        testdata = new JsonReader("login-data");
-        LogsManager.info("تم تحميل بيانات الاختبار من JSON");
-    }
+public class OrderTest extends AuthenticatedBaseTest {
+    
 
     @Epic("POS System")
     @Feature("Create Order")
@@ -31,21 +26,11 @@ public class OrderTest extends BaseTest {
 
     @Test
     public void shouldCreateDeliveryOrderAndPaySuccessfully() throws InterruptedException {
-        new com.ferpfirstcode.pages.components.LoginPage(guiDriver)
-                .navigateToLoginPage()
-                .enterPin(testdata.getJsonreader("password"))
-                .clickLoginButton()
-                .verifyloggedinsuccess()
-                .clickEditPosButton()
-                .clickAuthorAndUnAuthorButton()
-                .clickSavePosButton()
-                .clickHomeButton()
-                .clickOpenDayButton()
-                .clickShiftOpenButton()
-                .gotoorderpage()
-                .selectOrderTypebyindex()
-                .clickOnProduct()
-                .validateOrderIsSentSuccessfully();
+             HomePage homePage = new HomePage(guiDriver);
+             homePage.gotoorderpage()
+            .selectOrderTypebyindex()
+            .clickOnProduct()
+            .validateOrderIsSentSuccessfully();
     }
     
     @Epic("POS System")
@@ -55,21 +40,11 @@ public class OrderTest extends BaseTest {
     @Owner("Ahmed Hassan")
     @Test
     public void cancelorderTC() throws InterruptedException{
-        new com.ferpfirstcode.pages.components.LoginPage(guiDriver)
-                .navigateToLoginPage()
-                .enterPin(testdata.getJsonreader("password"))
-                .clickLoginButton()
-                .verifyloggedinsuccess()
-                .clickEditPosButton()
-                .clickAuthorAndUnAuthorButton()
-                .clickSavePosButton()
-                .clickHomeButton()
-                .clickOpenDayButton()
-                .clickShiftOpenButton()
-                .gotoorderpage()
-                .selectOrderTypebyindex()
-                .clickOnProduct()
-                .cancelOrder();
+            HomePage homePage = new HomePage(guiDriver);
+            homePage.gotoorderpage()
+            .selectOrderTypebyindex()
+            .clickOnProduct()
+            .cancelOrder();
     }
 
 }

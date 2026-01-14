@@ -151,18 +151,38 @@ public class PaymentPage {
     throw new AssertionError("❌ DB PayAmount still 0 after waiting");
 }
 
+private double readMoneyOrFail(By locator, String nameForLog) {
+    String text = null;
+    try {
+        // حاول تتأكد إنه ظاهر قبل القراءة (لو عندك verify)
+        driver.verify().isElementVisible(locator);
+
+        text = driver.element().getElementText(locator);
+        if (text == null || text.isBlank()) {
+            ScreenShotsManager.takeFullPageScreenshot(driver.get(), "NULL_TEXT_" + nameForLog);
+            throw new AssertionError("❌ Text is null/blank for: " + nameForLog + " locator=" + locator);
+        }
+
+        return Double.parseDouble(text.replaceAll("[^0-9.]", "").trim());
+
+    } catch (Exception e) {
+        ScreenShotsManager.takeFullPageScreenshot(driver.get(), "READ_FAIL_" + nameForLog);
+        throw new AssertionError(
+                "❌ Failed to read money value for: " + nameForLog +
+                " | rawText=" + text +
+                " | locator=" + locator +
+                " | error=" + e.getMessage(), e
+        );
+    }
+}
+
 
 @Step("Validate payment amount: UI = DB / 2 | UI = {uiAmount} | DB = {dbAmount}")
 public PaymentPage validatePaymentAmountMatchesDB() {
 
     Double dbAmount = waitForPaymentAmountFromDB(15);
 
-    Double uiAmount = Double.valueOf(
-            driver.element().getElementText(totalprice)
-                    .replaceAll("[^0-9.]", "")
-                    .trim()
-    );
-
+    double uiAmount = readMoneyOrFail(totalprice, "totalprice");
     double expectedUI = dbAmount / 2;
     double delta = 0.01;
 

@@ -56,11 +56,12 @@ public class PaymentTest extends AuthenticatedBaseTest {
              .makeTakeAwayOrder()
              .clickOnProduct()
              .goToPaymentForTakeawayOrder()
-             .payOverPrice()
-             .closeOrder();
+             .payOverPrice();
+             
              PaymentPage paymentPage = new PaymentPage(guiDriver); 
              paymentPage.getLastPaymentAmountFromDB();
-             paymentPage.validatePaymentAmountMatchesDB();       
+             paymentPage.validatePaymentAmountMatchesDB();   
+             paymentPage.closeOrder();    
     }
 
 }

@@ -17,33 +17,49 @@ public class DataBaseReader {
     private static MongoClient mongoClient;
     private static MongoDatabase database;
 
-    public static void connect() {
+    public static synchronized void connect() {
     if (mongoClient != null) return;
 
-    String connectionString =
-            System.getenv("MONGO_URI") != null
-            ? System.getenv("MONGO_URI")
-            : PropertyReader.getProperty("mongo.uri");
+    // 1) System properties (mvn -Dmongo.uri=...)
+    String connectionString = System.getProperty("mongo.uri");
+
+    // 2) Env vars (GitHub Actions env / secrets)
+    if (connectionString == null || connectionString.isBlank()) {
+        connectionString = System.getenv("MONGO_URI");
+    }
+
+    // 3) properties file fallback
+    if (connectionString == null || connectionString.isBlank()) {
+        connectionString = PropertyReader.getProperty("mongo.uri");
+    }
 
     if (connectionString == null || connectionString.isBlank()) {
         connectionString = "mongodb://localhost:27017";
     }
 
-    String dbName =
-            System.getenv("MONGO_DB") != null
-            ? System.getenv("MONGO_DB")
-            : PropertyReader.getProperty("mongo.db");
+    // DB name (same priority)
+    String dbName = System.getProperty("mongo.db");
+
+    if (dbName == null || dbName.isBlank()) {
+        dbName = System.getenv("MONGO_DB");
+    }
+
+    if (dbName == null || dbName.isBlank()) {
+        dbName = PropertyReader.getProperty("mongo.db");
+    }
 
     if (dbName == null || dbName.isBlank()) {
         dbName = "Quiz";
     }
 
-    LogsManager.info("🔌 Connecting to MongoDB URI: " + connectionString);
+    // Don't leak credentials in logs
+    LogsManager.info("🔌 Connecting to MongoDB...");
     LogsManager.info("📦 Using database: " + dbName);
 
     mongoClient = MongoClients.create(connectionString);
     database = mongoClient.getDatabase(dbName);
 }
+    
 
 
     public static Document getDocumentByField(String collectionName, String fieldName, String value) {

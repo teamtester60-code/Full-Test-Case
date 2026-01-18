@@ -329,20 +329,21 @@ public class ElementActions {
     }
 
     public String getElementText(By locator) {
-        try {
-            return waitsManager.fluentWait().until(d -> {
-                WebElement element = d.findElement(locator);
-                scrollToElement(locator);
-                String text = element.getText();
-                LogsManager.info("Retrieved text from element: " + locator + " - " + text);
-                return text.isEmpty() ? null : text;
-            });
-        } catch (Exception e) {
-            LogsManager.error("Failed to get text from element: " + locator + " - " + e.getMessage());
-            takeScreenshot("getText-" + locator.toString());
-            return null;
-        }
+    try {
+        return waitsManager.fluentWait().until(d -> {
+            WebElement element = d.findElement(locator);
+            scrollToElement(locator);
+            String text = element.getText();
+            LogsManager.info("Retrieved text from element: " + locator + " - " + text);
+            return text == null ? "" : text; // never return null
+        });
+    } catch (Exception e) {
+        LogsManager.error("Failed to get text from element: " + locator + " - " + e.getMessage());
+        takeScreenshot("getText-" + locator.toString());
+        return ""; // never null
     }
+}
+
 
     public List<String> getElementsText(By locator) {
         try {

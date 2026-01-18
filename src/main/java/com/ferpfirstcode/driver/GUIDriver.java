@@ -141,9 +141,15 @@ public class GUIDriver {
         return driverThreadLocal.get();
     }
 
-    public void quitDriver() {
-        if (driverThreadLocal.get() != null) {
-            driverThreadLocal.get().quit();
+   public void quitDriver() {
+    WebDriver d = driverThreadLocal.get();
+    if (d != null) {
+        try {
+            d.quit();
+        } finally {
+            driverThreadLocal.remove();
         }
     }
+}
+
 }

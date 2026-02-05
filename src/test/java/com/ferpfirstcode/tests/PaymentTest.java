@@ -1,3 +1,4 @@
+package com.ferpfirstcode.tests;
 import com.ferpfirstcode.pages.components.HomePage;
 import com.ferpfirstcode.pages.components.PaymentPage;
 import io.qameta.allure.Epic;
@@ -50,18 +51,24 @@ public class PaymentTest extends AuthenticatedBaseTest {
     }
     
     @Test
-    public void overpaymenttestwithdatabase() throws InterruptedException {
-           HomePage homePage = new HomePage(guiDriver);
-             homePage.gotoorderpage()
-             .makeTakeAwayOrder()
-             .clickOnProduct()
-             .goToPaymentForTakeawayOrder()
-             .payOverPrice();
-             
-             PaymentPage paymentPage = new PaymentPage(guiDriver); 
-             paymentPage.getLastPaymentAmountFromDB();
-             paymentPage.validatePaymentAmountMatchesDB();   
-             paymentPage.closeOrder();    
-    }
+public void overpaymenttestwithdatabase() throws InterruptedException {
+
+    PaymentPage paymentPage =
+            new HomePage(guiDriver)
+                    .gotoorderpage()
+                    .makeTakeAwayOrder()
+                    .clickOnProduct()
+                    .goToPaymentForTakeawayOrder();
+
+    long orderNumber = paymentPage.getOrderNumberFromUI();
+
+    paymentPage
+            .setOrderNumber(orderNumber)
+            .payOverPrice()
+            .closeOrder();
+
+    paymentPage.validateDBPayAmountIsDoubleTotal(20, 0.01);
+}
+
 
 }

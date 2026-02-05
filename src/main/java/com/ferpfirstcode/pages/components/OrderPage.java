@@ -8,14 +8,7 @@ import io.qameta.allure.Allure;
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebElement;
-import org.testng.annotations.Test;
-
-import java.util.List;
-import java.util.logging.LogManager;
-
+import org.openqa.selenium.Keys;
 
 
 public class OrderPage {
@@ -24,16 +17,8 @@ public class OrderPage {
         this.driver = driver;
     }
     //Locators
-    private final By OrderListButton= By.xpath("//div[contains(@class,'ms-panel-body')]//i[contains(@class,'fa-clipboard-list')]");
-    private final By orderpagebutton = By.xpath("//a[@href='/order']");
     private final By volumesPOPUP= By.cssSelector("div.modal-content.modal-contentWidth");
     private final By okbuttonforsidedishmodal = By.cssSelector("button.btn.btn-primary.btn-footer.btnEdit");
-    private  final By volumeseditionbutton= By.xpath("(//button[contains(@class,'dropDownBtn')])[1]");
-    private  final By sidedisheeditionbutton= By.xpath("(//button[contains(@class,'dropDownBtn')])[2]");
-    private  final By noteseditionbutton= By.xpath("(//button[contains(@class,'dropDownBtn')])[3]");
-    private  final By productdiscounteditionbutton= By.xpath("(//button[contains(@class,'dropDownBtn')])[4]");
-    private  final By insuranceitemseditionbutton= By.xpath("(//button[contains(@class,'dropDownBtn')])[5]");
-    private  final By changepriceeditionbutton= By.xpath("(//button[contains(@class,'dropDownBtn')])[6]");
     private final By ordertypebutton= By.id("ordertype-tab");
     private final By newOrderButton= By.id("c-tab");
     private final By numberofpeopleontable= By.cssSelector("img.pull-right.img-thumbnail");
@@ -49,7 +34,6 @@ public class OrderPage {
     private final By opensentordersbutton= By.xpath("//*[@id=\"OverLayPin\"]/div/div[1]/div[2]/div[3]/div/nav/ul/li[4]/a");
     private final By totalpricebeforesendorder=By.xpath("//li[contains(@class,'bg-maingreen')]//h5[last()]");
     private final By totalpriceaftersendorder=By.xpath("//table[contains(@class,'table')]//tbody//tr[1]/td[3]");
-    private final By selectedcostomerindilevery= By.xpath("//*[@id=\"accordion\"]/tr[1]/td[1]");
     private final By tablenumber = By.xpath("(//li[starts-with(@id,'liDrag') and not(contains(@class,'TableBusy'))])[1]");
     private final By selectorderbutton= By.xpath("(//table//tbody//button)[2]");
     private final By employeebutton= By.xpath("//*[@id=\"modal-Waiter\"]/div/div/div[2]/div/div/div/div[3]/perfect-scrollbar/div/div[1]/table/tbody/tr[1]/td/button");
@@ -64,11 +48,7 @@ public class OrderPage {
     private final By paybutton= By.xpath("//button[@type=\"button\" and contains(@class, \"btn-success\") and contains(@class, \"btnEdit\")]");
     private final By ordertypes = By.xpath("//div[@id='v-pills-tab']//a");
     private final By clickOk= By.xpath("//*[@id=\"modal-OrderType\"]/div/div/div[3]/button");
-    private final By manageOrdersbutton= By.xpath("//a[@href=\"/manageorderlist\"]");
-    private final By showorderbutton= By.xpath("(//tbody/tr)[last()]//button[contains(@class,'btn-info')][2]");
-    private final By customerreciptbutton= By.xpath("(//button[contains(@class, \"btn-primary\") and contains(@class, \"rounded\")])[1]");
     private final By cancelproductsbutton=By.xpath("//div[contains(@class, 'fiixedCancel')]");
-    private final By cancelbutton=By.xpath("//button[contains(@class, 'btn-danger')]");
     private final By checkproducttocancel=By.xpath("(//input[@type='checkbox' and contains(@class, 'form-control')])[2]");
     private final By sendorderaftercancelproduct=By.xpath("//button[contains(@class, 'btnEdit') and contains(text(), 'Send')]");
     private final By customerresoncancelbutton = By.xpath("(//button[contains(@class, 'bg-maingreen')])[1]");
@@ -88,12 +68,11 @@ public class OrderPage {
     private final By selectreturndriver=By.xpath("//td[@aria-colindex='2']//button[@type='button']");
     private final By closereturndriver=By.xpath("(//div[contains(@class,'modal-content')]//button[@data-dismiss='modal'])[2]");
     private final By cancelassigndriver=By.xpath("//*[@id=\"modal-1\"]/div/div/div/div[1]/button/span");
-    private final By takeawayordertype=By.xpath("//a[normalize-space(.)='تيك اواى' or normalize-space(.)='Takeaway']");
-    private final By homebutton2=By.cssSelector("a.menu-a[href='/home']");
- 
-
-    
-
+    private final By takeawayordertype=By.xpath("//a[normalize-space(.)='تيك اواى' or normalize-space(.)='Takeaway' or normalize-space(.)='سفري']");
+    private final By okbuttononordertype=By.xpath("(//div[contains(@class,'modal-footer')]//button[normalize-space()='Ok'])[1]");
+    private final By closeorderbutton=By.xpath("(//button[.//i[contains(@class,'fa-times')]])[1]");
+    private final By checktocloseorder=By.cssSelector(".modal-content.pos-confirm-close-modal");
+    private final By confirmorderbutton=By.cssSelector(".pos-confirm-close-modal .modal-footer button.btn.btn-primary");
 
     //dynamic locator
     private By productByIndex(int index) {
@@ -111,6 +90,8 @@ public class OrderPage {
     private final By ordertypenamebyindex =By.xpath("(//*[@id='v-pills-settings-tab'])[1]");
 
 
+
+    private String selectedOrderType;
 
 
     //Actions
@@ -212,6 +193,7 @@ public class OrderPage {
         }
 
         tabName = tabName.trim();
+        driver.setSelectedOrderType(tabName);
         Allure.step("Order Type: " + tabName);
         driver.element().clickElement(ordertypenamebyindex);
 
@@ -250,7 +232,25 @@ public class OrderPage {
 
     @Step("Make A Return Order")
     public OrderPage makeAReturnOrder() throws InterruptedException {
+        String orderType = driver.getSelectedOrderType();
+
+        if (orderType == null || orderType.isBlank()) {
+            throw new IllegalStateException("Order type is null. Make sure selectOrderTypebyindex() was executed successfully before makeAReturnOrder()");
+        }
+
+        Allure.step("Using Order Type: " + orderType);
+
+        if (!orderType.equalsIgnoreCase("delivery") && !orderType.equalsIgnoreCase("توصيل")) {
+            driver.element().clickElement(closeorderbutton);
+            if (driver.element().isElementVisible(checktocloseorder)) {
+                driver.element().clickElement(confirmorderbutton);
+            }
+        }
+
+
+
         if (!driver.element().isElementVisible(returnordersbutton)) {
+                Thread.sleep(2000);
                 driver.element().clickElement(homebutton);
                 driver.element().clickElement(OrderListsButton);
         }
@@ -331,6 +331,10 @@ public class OrderPage {
     @Step("Cancel Order")
     public OrderPage cancelOrder() {
         driver.element().clickElement(sendorderbutton);
+        if (driver.element().isElementVisible(okbuttononordertype)) {
+            driver.get().switchTo().activeElement().sendKeys(Keys.ESCAPE);
+
+        }
         driver.element().clickElement(opensentordersbutton);
         driver.element().clickElement(selectorderbutton);
         String priceOfProductTocancel = driver.element().getElementText(priceOfProductToCancel);
@@ -355,12 +359,54 @@ public class OrderPage {
     }
 
 
-    @Step("Select takeaway order type")
+    @Step("Select first takeaway (تيك اواي / سفري / takeaway)")
     public OrderPage makeTakeAwayOrder() {
-        driver.element().clickElement(ordertypebutton);
-        driver.element().clickElement(takeawayordertype);
-        return this;
+
+        // افتح نافذة اختيار النوع
+        if (isVisibleAndEnabled(ordertypebutton)) {
+            driver.element().clickElement(ordertypebutton);
+        }
+
+        By orderTypes = By.cssSelector("div#v-pills-tab a.nav-link");
+
+        if (!driver.element().isElementVisible(orderTypes)) {
+            ScreenShotsManager.takeFullPageScreenshot(driver.get(), "order_types_popup_not_visible");
+            throw new AssertionError("❌ Order types popup is not visible");
+        }
+
+        var types = driver.get().findElements(orderTypes);
+
+        for (var el : types) {
+            String text = el.getText().trim().toLowerCase();
+
+            if (text.contains("takeaway") || text.contains("take")
+                    || text.contains("تيك") || text.contains("تيك اواي")
+                    || text.contains("سفري") || text.contains("سفرى")) {
+
+                Allure.step("✅ Selecting Order Type: " + el.getText().trim());
+                el.click();
+
+                // لو بتستخدم context في GUIDriver
+                driver.setSelectedOrderType(el.getText().trim());
+
+                return this;
+            }
+        }
+
+        ScreenShotsManager.takeFullPageScreenshot(driver.get(), "takeaway_not_found");
+        throw new AssertionError("❌ No takeaway order type found (تيك اواي/سفري/takeaway)");
     }
+
+    private boolean isVisibleAndEnabled(By locator) {
+        try {
+            if (!driver.element().isElementVisible(locator)) return false;
+            return driver.get().findElement(locator).isEnabled();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+
 
     @Step("Go to Payment for Takeaway Order")
     public PaymentPage goToPaymentForTakeawayOrder() {
@@ -392,3 +438,6 @@ public class OrderPage {
     }
 
 }
+
+
+

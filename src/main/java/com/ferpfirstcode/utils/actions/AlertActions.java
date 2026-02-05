@@ -5,11 +5,9 @@ import com.ferpfirstcode.utils.logs.LogsManager;
 import org.openqa.selenium.WebDriver;
 
 public class AlertActions {
-    private final WebDriver driver;
     private final WaitsManager waitsManager;
 
     public AlertActions(WebDriver driver) {
-        this.driver = driver;
         this.waitsManager = new WaitsManager(driver);
     }
 

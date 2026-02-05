@@ -41,7 +41,7 @@ public class ScreenShotsManager {
             // Save screenshot to a file if needed
             File screenshotFile = new File(SCREENSHOTS_PATH + ariaName + "-" + TimeManager.gettimestamp() + ".png");
             FileUtils.copyFile(screenshotSrc, screenshotFile);
-            // TODO: Attach the screenshot to Allure if needed
+            
 
             LogsManager.info("Capturing Screenshot Succeeded");
         } catch (Exception e) {

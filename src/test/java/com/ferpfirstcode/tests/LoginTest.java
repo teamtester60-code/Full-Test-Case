@@ -1,3 +1,5 @@
+package com.ferpfirstcode.tests;
+
 import com.ferpfirstcode.pages.components.LoginPage;
 import com.ferpfirstcode.utils.TimeManager;
 import com.ferpfirstcode.utils.dataReader.JsonReader;
@@ -51,7 +53,7 @@ public class LoginTest extends BaseTest {
             new LoginPage(guiDriver)
             .navigateToLoginPage()
             .enterPin("741963")
-            .clickLoginButton();
+            .clickLoginButton(); 
              new LoginPage (guiDriver)
             .verifyErrorMessage("Username or Password is incorrect.");
 
@@ -74,6 +76,4 @@ public class LoginTest extends BaseTest {
             new LoginPage(guiDriver)
             .verifyMessageLabel(" كلمة المرور مطلوبة ", " Password Is Required ");
     }
-
-
 }   

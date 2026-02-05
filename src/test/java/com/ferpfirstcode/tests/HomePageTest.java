@@ -1,3 +1,4 @@
+package com.ferpfirstcode.tests;
 import com.ferpfirstcode.utils.dataReader.JsonReader;
 import com.ferpfirstcode.utils.logs.LogsManager;
 

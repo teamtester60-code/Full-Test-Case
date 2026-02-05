@@ -2,37 +2,46 @@ package com.ferpfirstcode.driver;
 
 import com.ferpfirstcode.utils.dataReader.PropertyReader;
 import com.ferpfirstcode.utils.logs.LogsManager;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
-import org.openqa.selenium.remote.RemoteWebDriver;
-
-import java.net.URI;
-
 
 public class EdgeFactory extends AbstractDriver {
-    static {
-    PropertyReader.loadProperties();
-}
 
+    static { PropertyReader.loadProperties(); }
 
-    private EdgeOptions getEdgeOptions() {
+    private static final String DEFAULT_EXECUTION = "local";
+
+    private EdgeOptions buildOptions(String executionType) {
         EdgeOptions options = new EdgeOptions();
-        options.addArguments("--remote-allow-origins=*");
-        options.addArguments("--disable-notifications");
-        options.addArguments("--start-maximized");
-        // options.addExtensions(blurimageextensions);
-        switch (PropertyReader.getProperty("executionType")) {
-            case "localHeadless", "Remote" -> {
-                options.addArguments("--headless=new"); // استخدام الوضع Headless الجديد
-                options.addArguments("--window-size=1920,1080");
-                options.addArguments("--disable-gpu");
-                options.addArguments("--no-sandbox");
-                options.addArguments("--disable-dev-shm-usage");
-            }
 
+        // Base options (always)
+        options.addArguments(
+                "--remote-allow-origins=*",
+                "--disable-notifications",
+                "--start-maximized"
+        );
 
+        // Normalize
+        String exec = executionType == null ? DEFAULT_EXECUTION : executionType.trim().toLowerCase();
+
+        if ("localheadless".equals(exec)) {
+            options.addArguments(
+                    "--headless=new",
+                    "--disable-gpu",
+                    "--disable-extensions"
+            );
+
+            // على Windows غالبًا غير ضرورية، لكن لا تضر
+            options.addArguments("--no-sandbox", "--disable-dev-shm-usage");
+
+            // ⚠️ لو عندك تعارض بورت أو parallel شيلها
+            // options.addArguments("--remote-debugging-port=9222");
+
+        } else if ("remote".equals(exec)) {
+            // أنت قلت remote غير مدعوم عندك حاليا
+            // لو هتدعمه لاحقًا هنرجع نضيف RemoteWebDriver هنا
+            options.addArguments("--headless=new", "--disable-gpu", "--disable-extensions");
         }
 
         return options;
@@ -40,25 +49,19 @@ public class EdgeFactory extends AbstractDriver {
 
     @Override
     public WebDriver createDriver() {
-        if (PropertyReader.getProperty("executionType").equalsIgnoreCase("local") ||
-                PropertyReader.getProperty("executionType").equalsIgnoreCase("localHeadless")) {
+        String executionType = PropertyReader.getPropertyOrDefault("executionType", DEFAULT_EXECUTION);
+        LogsManager.info("Edge executionType = " + executionType);
 
-            return new EdgeDriver(getEdgeOptions());
-        } else if (PropertyReader.getProperty("executionType").equalsIgnoreCase("Remote")) {
-            try {
-
-                return new RemoteWebDriver(
-                        new URI("http://" + remoteHost + ":" + remoteport + "/wd/hub").toURL(), getEdgeOptions()
-
-                );
-            } catch (Exception e) {
-                LogsManager.error("Error Creating RemoteWebDriver:" + e.getMessage());
-                throw new RuntimeException("Failed To Create RemoteWebDriver", e);
-            }
-        } else {
-            LogsManager.error("invalid execution type:" + PropertyReader.getProperty("executionType"));
-            throw new RuntimeException("Invalid execution type for Edge Driver");
+        if (executionType.equalsIgnoreCase("local") || executionType.equalsIgnoreCase("localHeadless")) {
+            return new EdgeDriver(buildOptions(executionType));
         }
 
+        if (executionType.equalsIgnoreCase("remote")) {
+            LogsManager.error("Remote execution type is not supported yet");
+            throw new RuntimeException("Remote execution type is not supported yet");
+        }
+
+        LogsManager.error("Invalid execution type: " + executionType);
+        throw new RuntimeException("Invalid execution type for Edge Driver: " + executionType);
     }
 }

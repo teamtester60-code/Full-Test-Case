@@ -1,7 +1,5 @@
+package com.ferpfirstcode.tests;
 import com.ferpfirstcode.pages.components.HomePage;
-import com.ferpfirstcode.pages.components.OrderPage;
-import com.ferpfirstcode.utils.dataReader.JsonReader;
-import com.ferpfirstcode.utils.logs.LogsManager;
 
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -10,7 +8,6 @@ import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 

@@ -11,8 +11,6 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.ferpfirstcode.utils.OSUtils.OSType.*;
-import static com.ferpfirstcode.utils.dataReader.PropertyReader.getProperty;
 import static com.ferpfirstcode.utils.report.AllureConstants.HISTORY_FOLDER;
 import static com.ferpfirstcode.utils.report.AllureConstants.RESULTS_HISTORY_FOLDER;
 

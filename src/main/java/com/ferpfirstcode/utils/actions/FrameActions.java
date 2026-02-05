@@ -6,11 +6,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class FrameActions {
-    private final WebDriver driver;
     private final WaitsManager waitsManager;
 
     public FrameActions(WebDriver driver) {
-        this.driver = driver;
         this.waitsManager = new WaitsManager(driver);
     }
 

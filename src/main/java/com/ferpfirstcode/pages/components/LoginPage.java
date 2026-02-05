@@ -24,7 +24,6 @@ public class LoginPage {
     private final By usernameField = By.id("username");
     private final By passwordField = By.id("pass");
     private final By loginButton = By.cssSelector("button.submitBtn");
-    private final By visibleIcon = By.cssSelector("img.ms-user-img");
     private final By errorMessage = By.cssSelector("div.toast-error .toast-message");
     private final By pinicon = By.xpath("//i[@class='fas fa-id-card menu-icon']");
     private final By messageLabel = By.xpath("//div[contains(@class,'alert-danger')]");

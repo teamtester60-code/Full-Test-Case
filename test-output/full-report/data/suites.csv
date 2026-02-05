@@ -1,2 +1,2 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","71784","overpaymenttestwithdatabase","Default Suite","2026-01-13","passed","2026-01-13","PaymentTest","TestNGTest-a7f226c7-5eaa-4e32-aa4c-4ed5468c08d0","PaymentTest","overpaymenttestwithdatabase"
+"","151539","overpaymenttestwithdatabase","Default Suite","2026-02-05","passed","2026-02-05","com.ferpfirstcode.tests.PaymentTest","FirstProjectFERP","com.ferpfirstcode.tests.PaymentTest","overpaymenttestwithdatabase"

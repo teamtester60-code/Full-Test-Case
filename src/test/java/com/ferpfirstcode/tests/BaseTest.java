@@ -1,6 +1,6 @@
+package com.ferpfirstcode.tests;
 import com.ferpfirstcode.driver.GUIDriver;
 import com.ferpfirstcode.driver.WebDriverProvider;
-import com.ferpfirstcode.media.ScreenShotsManager;
 import com.ferpfirstcode.utils.dataReader.DataBaseReader;
 import com.ferpfirstcode.utils.logs.LogsManager;
 import io.qameta.allure.testng.AllureTestNg;
@@ -36,10 +36,9 @@ public class BaseTest implements WebDriverProvider {
         // (اختياري) Screenshot عند الفشل - قبل ما نقفل driver
         if (webDriver != null && result != null && result.getStatus() == ITestResult.FAILURE) {
             try {
-                ScreenShotsManager.takeFullPageScreenshot(webDriver, result.getName());
-                LogsManager.info("Screenshot captured for failed test: " + result.getName());
+                LogsManager.info( result.getName());
             } catch (Exception e) {
-                LogsManager.error("Failed to capture screenshot: " + e.getMessage());
+                LogsManager.error("Failed to log test name: " + e.getMessage());
             }
         }
 

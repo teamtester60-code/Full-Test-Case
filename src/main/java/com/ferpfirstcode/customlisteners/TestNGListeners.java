@@ -13,8 +13,10 @@ import com.ferpfirstcode.utils.report.AllureReportGenerator;
 import com.ferpfirstcode.validations.Validation;
 import org.openqa.selenium.WebDriver;
 import org.testng.*;
+import io.qameta.allure.Allure;
+import io.qameta.allure.model.Label;
+import static io.qameta.allure.Allure.getLifecycle;
 
-import java.awt.*;
 import java.io.File;
 import java.nio.file.Path;
 
@@ -67,13 +69,13 @@ public class TestNGListeners implements IExecutionListener, IInvokedMethodListen
     }
 
 
-    public void beforeInvocation(IInvokedMethod method, ITestResult testResult) {
-        if (method.isTestMethod()) {
-            ScreenRecordManager.startRecording();
-            LogsManager.info("======== Starting Test: " + testResult.getMethod().getMethodName() + " ========");
-        }
+    // public void beforeInvocation(IInvokedMethod method, ITestResult testResult) {
+    //     if (method.isTestMethod()) {
+    //         ScreenRecordManager.startRecording();
+    //         LogsManager.info("======== Starting Test: " + testResult.getMethod().getMethodName() + " ========");
+    //     }
 
-    }
+    // }
 
     public void afterInvocation(IInvokedMethod method, ITestResult testResult) {
         WebDriver driver = null;
@@ -110,6 +112,7 @@ public class TestNGListeners implements IExecutionListener, IInvokedMethodListen
      * @see ITestResult#SUCCESS
      */
     public void onTestSuccess(ITestResult result) {
+        markFlakyIfRetried(result);
         LogsManager.info("======== Test: " + result.getMethod().getMethodName() + " Finished Successfully ========");
     }
 
@@ -120,6 +123,7 @@ public class TestNGListeners implements IExecutionListener, IInvokedMethodListen
      * @see ITestResult#FAILURE
      */
     public void onTestFailure(ITestResult result) {
+        
         LogsManager.error("======== Test: " + result.getMethod().getMethodName() + " Failed ========");
     }
 
@@ -130,6 +134,7 @@ public class TestNGListeners implements IExecutionListener, IInvokedMethodListen
      * @see ITestResult#SKIP
      */
     public void onTestSkipped(ITestResult result) {
+        markFlakyIfRetried(result);
         LogsManager.warn("======== Test: " + result.getMethod().getMethodName() + " Skipped ========");
     }
 
@@ -148,6 +153,24 @@ public class TestNGListeners implements IExecutionListener, IInvokedMethodListen
         FileUtils.createDirectory(ScreenShotsManager.SCREENSHOTS_PATH);
         FileUtils.createDirectory(ScreenRecordManager.RECORDINGS_PATH);
     }
+
+    private void markFlakyIfRetried(ITestResult result) {
+    Object wasRetried = result.getAttribute("wasRetried");
+    Object retryCount = result.getAttribute("retryCount");
+
+    if (wasRetried != null && (boolean) wasRetried) {
+        getLifecycle().updateTestCase(tc -> {
+            tc.getLabels().add(new Label().setName("flaky").setValue("true"));
+            tc.getLabels().add(new Label().setName("retry").setValue(String.valueOf(retryCount)));
+        });
+
+        Allure.addAttachment(
+                "Retry Info",
+                "Test was retried once and marked as flaky."
+        );
+    }
+}
+
 
 
 }

@@ -5,13 +5,16 @@ import com.ferpfirstcode.media.ScreenShotsManager;
 import com.ferpfirstcode.utils.dataReader.DataBaseReader;
 import com.ferpfirstcode.utils.logs.LogsManager;
 
-import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class PaymentPage {
-    private final GUIDriver driver;
+    public final GUIDriver driver;
     public PaymentPage(GUIDriver driver) {
         this.driver=driver;
     }
@@ -25,15 +28,17 @@ public class PaymentPage {
     private final By closecustomerselectionmodalbutton= By.xpath("(//*[@id=\"nav-home\"]/div/div[2]/div[2]/div/button)[1]");
     private final By discountbypercentagebutton= By.xpath("//*[@id=\"modal-DetailDiscount\"]/div/div/div[2]/div[1]/ul/li[8]/a");
     private final By okbuttonofdiscountmodal= By.xpath("(//*[@id=\"modal-DetailDiscount\"]/div/div/div[3]/button)[1]");
-    private final By totalamount=By.xpath("//*[@id=\"OverLayPin\"]/div/div[2]/div/app-payment/div[1]/div/div[1]/div/div[4]/div/div/div[1]/div/div[2]/table/tbody/tr[7]/td");
     private final By ordercost=By.xpath("//*[@id=\"OverLayPin\"]/div/div[2]/div/app-payment/div[1]/div/div[1]/div/div[4]/div/div/div[1]/div/div[2]/table/tbody/tr[1]/td");
     private final By totaldiscountamount=By.xpath("//*[@id=\"OverLayPin\"]/div/div[2]/div/app-payment/div[1]/div/div[1]/div/div[4]/div/div/div[1]/div/div[2]/table/tbody/tr[6]/td");
     private final By manageOrdersbutton= By.xpath("//a[@href=\"/manageorderlist\"]");
-    private final By showorderbutton= By.xpath("(//tbody/tr)[last()]//button[contains(@class,'btn-info')][2]");
-    private final By customerreciptbutton= By.xpath("(//button[contains(@class, \"btn-primary\") and contains(@class, \"rounded\")])[1]");
-    private final By ordertypes = By.xpath("//div[@id='v-pills-tab']//a");
     private final By totalprice= By.xpath("(//div[contains(@class,'col-4') and contains(@class,'text-right')])[1]");
     private final By paymentamountfield = By.id("PayAmount0");
+    private final By orderNumberLabel= By.xpath("(//div[contains(@class,'col-12') and contains(@class,'mt-1')]  //table[contains(@class,'table-bordered')])[last()]//tr[1]/td");
+
+    private long orderNumber;
+    private Double lastPaidAmount;
+    private Double orderTotalAmount;
+
     //Actions
     @Step("Select Customer")
     public PaymentPage selectCustomer() {
@@ -57,20 +62,28 @@ public class PaymentPage {
         return new OrderPage(driver);
     }
 
+
+
     @Step("pay the order overprice")
     public PaymentPage payOverPrice() {
-        String buttonText = driver.element().getElementText(totalprice);
-        String cleanText = buttonText.replace(",", "").trim();
-        Double totalAmount = Double.valueOf(cleanText);
-        Double overPrice = totalAmount * 2; 
-        
+
+        double totalAmount = readMoneyOrFail(totalprice, "totalprice");
+        double overPrice = totalAmount * 2;
+
         driver.element().typeText(paymentamountfield, String.valueOf(overPrice));
+
+        this.orderTotalAmount = totalAmount;
+        this.lastPaidAmount = overPrice;
+
         LogsManager.info("Total amount: " + totalAmount);
         LogsManager.info("Paid amount: " + overPrice);
         ScreenShotsManager.takeFullPageScreenshot(driver.get(), "overpayment");
 
         return this;
     }
+
+
+
 
     //validation
     @Step("Validate Discount Calculation")
@@ -119,39 +132,72 @@ public class PaymentPage {
 
         return new OrderPage(driver);
     }
-
-    @Step("Get last payment amount from database")
-    public Double getLastPaymentAmountFromDB() {
-        LogsManager.info("Getting last payment amount from database");
-        Double amount = DataBaseReader.getLastPayAmountBySerialNumber();
-        LogsManager.info("Retrieved amount from DB: " + amount);
-        return amount;
-    }
-
-
-    private Double waitForPaymentAmountFromDB(int timeoutSeconds) {
-
-    long endTime = System.currentTimeMillis() + timeoutSeconds * 1000;
-
-    while (System.currentTimeMillis() < endTime) {
-
-        Double amount = getLastPaymentAmountFromDB();
-
-        if (amount != null && amount > 0) {
-            return amount;
-        }
-
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-        }
-    }
-
-    throw new AssertionError("❌ DB PayAmount still 0 after waiting");
+    
+    public PaymentPage setOrderNumber(long orderNumber) {
+    this.orderNumber = orderNumber;
+    return this;
 }
 
-private double readMoneyOrFail(By locator, String nameForLog) {
+
+    public long getOrderNumberFromUI() {
+        new WebDriverWait(driver.get(), Duration.ofSeconds(10))
+                .until(d -> !d.findElement(orderNumberLabel).getText().trim().isEmpty());
+        String raw = driver.element().getElementText(orderNumberLabel); // عدّل حسب طريقتك في القراءة
+        if (raw == null) raw = "";
+
+        raw = raw.trim();
+
+        if (raw.isEmpty()) {
+            throw new RuntimeException("Order number is empty on UI. Check locator/wait/flow before parsing.");
+        }
+
+        // استخراج أول رقم موجود داخل النص
+        Matcher m = Pattern.compile("(\\d+)").matcher(raw);
+        if (!m.find()) {
+            throw new RuntimeException("Order number text does not contain digits. Raw text: [" + raw + "]");
+        }
+
+        return Long.parseLong(m.group(1));
+    }
+
+
+
+    private Double waitForPaymentAmountFromDB(double expectedMin, int timeoutSeconds) {
+
+        long endTime = System.currentTimeMillis() + timeoutSeconds * 1000L;
+        Double last = null;
+
+        while (System.currentTimeMillis() < endTime) {
+
+            Double amount = DataBaseReader.getPayAmountByOrderNumber(this.orderNumber);
+            last = amount;
+
+            LogsManager.info("Polling DB | OrderNumber=" + this.orderNumber + " | PayAmount=" + amount);
+
+            if (amount != null && amount >= expectedMin) {
+                return amount;
+            }
+
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                break;
+            }
+        }
+
+        ScreenShotsManager.takeFullPageScreenshot(driver.get(), "DB_PayAmount_Not_Reached");
+        throw new AssertionError(
+                "❌ DB PayAmount did not reach expectedMin=" + expectedMin +
+                        " | last=" + last +
+                        " | OrderNumber=" + this.orderNumber
+        );
+    }
+
+
+
+
+    private double readMoneyOrFail(By locator, String nameForLog) {
     String text = null;
     try {
         // حاول تتأكد إنه ظاهر قبل القراءة (لو عندك verify)
@@ -177,26 +223,34 @@ private double readMoneyOrFail(By locator, String nameForLog) {
 }
 
 
-@Step("Validate payment amount: UI = DB / 2 | UI = {uiAmount} | DB = {dbAmount}")
-public PaymentPage validatePaymentAmountMatchesDB() {
+    @Step("Validate DB PayAmount equals Total*2 (timeout={timeoutSeconds}s, delta={delta})")
+    public PaymentPage validateDBPayAmountIsDoubleTotal(int timeoutSeconds, double delta) {
 
-    Double dbAmount = waitForPaymentAmountFromDB(15);
+        if (this.orderNumber == 0) {
+            throw new IllegalStateException("OrderNumber is not set before DB validation");
+        }
+        if (this.orderTotalAmount == null) {
+            throw new IllegalStateException("orderTotalAmount is not set. Call payOverPrice() before DB validation");
+        }
 
-    double uiAmount = readMoneyOrFail(totalprice, "totalprice");
-    double expectedUI = dbAmount / 2;
-    double delta = 0.01;
+        double expected = this.orderTotalAmount * 2;
 
-    if (Math.abs(uiAmount - expectedUI) > delta) {
-        throw new AssertionError(
-                "Payment amount mismatch: " +
-                "UI=" + uiAmount +
-                ", DB=" + dbAmount +
-                ", Expected UI(DB/2)=" + expectedUI
-        );
+        // ننتظر لحد ما DB توصل تقريبًا للـ expected
+        Double dbPayAmount = waitForPaymentAmountFromDB(expected - delta, timeoutSeconds);
+
+        if (Math.abs(dbPayAmount - expected) > delta) {
+            ScreenShotsManager.takeFullPageScreenshot(driver.get(), "DB_PayAmount_Mismatch");
+            throw new AssertionError(
+                    "❌ DB PayAmount mismatch | Expected (Total*2)=" + expected +
+                            " | DB PayAmount=" + dbPayAmount +
+                            " | OrderNumber=" + this.orderNumber
+            );
+        }
+
+        LogsManager.info("✅ DB PayAmount matches Total*2 | Expected=" + expected + " | DB=" + dbPayAmount);
+        return this;
     }
 
-    return this;
-}
 
 
 

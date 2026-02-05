@@ -9,6 +9,7 @@ import static com.ferpfirstcode.utils.dataReader.PropertyReader.getProperty;
 import static com.github.automatedowl.tools.AllureEnvironmentWriter.allureEnvironmentWriter;
 
 public class AllureEnviromentManger {
+    @SuppressWarnings("null")
     public static void setEnvironmentVariables() {
         allureEnvironmentWriter(
                 ImmutableMap.<String, String>builder()

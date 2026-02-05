@@ -1,16 +1,14 @@
+package com.ferpfirstcode.tests;
 import com.ferpfirstcode.pages.components.LoginPage;
 import com.ferpfirstcode.utils.dataReader.JsonReader;
 import com.ferpfirstcode.utils.logs.LogsManager;
 
-import io.qameta.allure.Allure;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
-import io.qameta.allure.Step;
 import io.qameta.allure.Story;
-import io.qameta.allure.testng.AllureTestNg;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;

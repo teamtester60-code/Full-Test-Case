@@ -53,4 +53,30 @@ public class PropertyReader {
         }
         return value.trim();
     }
+
+    public static String getPropertyOrNull(String key) {
+        // 1) System properties first (always highest priority)
+        String sys = System.getProperty(key);
+        if (sys != null && !sys.trim().isEmpty()) {
+            return sys.trim();
+        }
+
+        // 2) Then loaded properties files
+        if (properties == null) {
+            loadProperties();
+        }
+
+        String value = properties.getProperty(key);
+        if (value == null || value.trim().isEmpty()) {
+            return null;
+        }
+        return value.trim();
+    }
+
+    public static String getPropertyOrDefault(String key, String defaultValue) {
+        String v = getPropertyOrNull(key);
+        return (v == null) ? defaultValue : v;
+    }
+
+
 }

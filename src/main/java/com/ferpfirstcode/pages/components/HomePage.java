@@ -20,9 +20,7 @@ public class HomePage {
     private final By opendaybutton=By.xpath("//button[@data-target='#openDaymodal']");
     private final By shiftOpenbutton=By.xpath("//button[@data-target='#openshiftmodal']");
     private final By savebuttonatopendaymodal=By.xpath("//div[@id='openDaymodal']//button[@type='button' and contains(@class,'btn-primary')]");
-    private final By cancelbuttonatopendaymodal=By.xpath("//div[@id='openDaymodal']//div[@class='modal-footer']/button[2]");
     private final By savebuttonatopenshiftmodal=By.xpath("//div[@id='openshiftmodal']//button[@type='button' and contains(@class,'btn-primary')]");
-    private final By cancelbuttonatopenshiftmodal=By.xpath("(//div[@id='openshiftmodal']//button[@data-dismiss='modal'])[2]");
     private final By OrderListButton= By.xpath("//div[contains(@class,'ms-panel-body')]//i[contains(@class,'fa-clipboard-list')]");
     private final By orderpagebutton = By.xpath("//a[@href='/order']");
     private final By manageorderbutton = By.cssSelector("a[href='/manageorderlist']");

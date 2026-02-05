@@ -68,7 +68,7 @@ public class OrderPage {
     private final By selectreturndriver=By.xpath("//td[@aria-colindex='2']//button[@type='button']");
     private final By closereturndriver=By.xpath("(//div[contains(@class,'modal-content')]//button[@data-dismiss='modal'])[2]");
     private final By cancelassigndriver=By.xpath("//*[@id=\"modal-1\"]/div/div/div/div[1]/button/span");
-    private final By takeawayordertype=By.xpath("//a[normalize-space(.)='تيك اواى' or normalize-space(.)='Takeaway' or normalize-space(.)='سفري']");
+    private final By takeawayordertype=By.cssSelector("div#v-pills-tab a.nav-link");
     private final By okbuttononordertype=By.xpath("(//div[contains(@class,'modal-footer')]//button[normalize-space()='Ok'])[1]");
     private final By closeorderbutton=By.xpath("(//button[.//i[contains(@class,'fa-times')]])[1]");
     private final By checktocloseorder=By.cssSelector(".modal-content.pos-confirm-close-modal");
@@ -367,14 +367,14 @@ public class OrderPage {
             driver.element().clickElement(ordertypebutton);
         }
 
-        By orderTypes = By.cssSelector("div#v-pills-tab a.nav-link");
 
-        if (!driver.element().isElementVisible(orderTypes)) {
+
+        if (!driver.element().isElementVisible(takeawayordertype)) {
             ScreenShotsManager.takeFullPageScreenshot(driver.get(), "order_types_popup_not_visible");
             throw new AssertionError("❌ Order types popup is not visible");
         }
 
-        var types = driver.get().findElements(orderTypes);
+        var types = driver.get().findElements(takeawayordertype);
 
         for (var el : types) {
             String text = el.getText().trim().toLowerCase();

@@ -14,7 +14,7 @@ env:
   BASE_URL: http://127.0.0.1:4200
 
   EXECUTION_TYPE: localHeadless
-  BROWSER: Edge
+  BROWSER: EDGE
   TEST_PATTERN: "*Test,*TEST,*test*"
 
   MONGO_URI: mongodb://localhost:27017

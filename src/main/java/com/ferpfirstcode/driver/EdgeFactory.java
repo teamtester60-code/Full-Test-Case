@@ -19,6 +19,7 @@ public class EdgeFactory extends AbstractDriver {
         options.addArguments(
                 "--remote-allow-origins=*",
                 "--disable-notifications",
+                "--window-size=1920,1080",
                 "--start-maximized"
         );
 

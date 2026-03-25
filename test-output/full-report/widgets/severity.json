@@ -1,1 +1,1 @@
-[{"uid":"f30a62be150127d3","name":"validLoginTC","time":{"start":1770292660218,"stop":1770292667058,"duration":6840},"status":"passed","severity":"blocker"}]
+[{"uid":"332878eb704c6260","name":"Check_Available_Quantity_From_Daily_Stock_That_Equals_To_The_Quantity_in_Order","time":{"start":1774445247344,"stop":1774445255674,"duration":8330},"status":"passed","severity":"critical"}]

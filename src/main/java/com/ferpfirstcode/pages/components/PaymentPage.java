@@ -10,30 +10,33 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class PaymentPage {
     public final GUIDriver driver;
+
     public PaymentPage(GUIDriver driver) {
-        this.driver=driver;
+        this.driver = driver;
     }
+
     //Locators
-    private final By customersbutton=By.xpath("(//button[contains(@class,'btn bg-maingreen cairo-font w-100 mb-1')])[1]");
-    private final By discountbutton=By.xpath("(//button[contains(@class,'btn') and contains(@class,'bg-maingreen')])[5]");
-    private final By closeOrderbutton=By.cssSelector("button.btn.btn-success.ng-star-inserted");
-    private final By searchbynamefield= By.xpath("(//input[@placeholder='Search By Name'])[1]");
-    private final By selectcustomerbutton= By.cssSelector("button.btnPLus.btn-link");
-    private final By selectaddressbutton= By.xpath("(//*[@id=\"collapseOne_@i\"]/td[5]/button)[1]");
-    private final By closecustomerselectionmodalbutton= By.xpath("(//*[@id=\"nav-home\"]/div/div[2]/div[2]/div/button)[1]");
-    private final By discountbypercentagebutton= By.xpath("//*[@id=\"modal-DetailDiscount\"]/div/div/div[2]/div[1]/ul/li[8]/a");
-    private final By okbuttonofdiscountmodal= By.xpath("(//*[@id=\"modal-DetailDiscount\"]/div/div/div[3]/button)[1]");
-    private final By ordercost=By.xpath("//*[@id=\"OverLayPin\"]/div/div[2]/div/app-payment/div[1]/div/div[1]/div/div[4]/div/div/div[1]/div/div[2]/table/tbody/tr[1]/td");
-    private final By totaldiscountamount=By.xpath("//*[@id=\"OverLayPin\"]/div/div[2]/div/app-payment/div[1]/div/div[1]/div/div[4]/div/div/div[1]/div/div[2]/table/tbody/tr[6]/td");
-    private final By manageOrdersbutton= By.xpath("//a[@href=\"/manageorderlist\"]");
-    private final By totalprice= By.xpath("(//div[contains(@class,'col-4') and contains(@class,'text-right')])[1]");
+    private final By customersbutton = By.xpath("(//button[contains(@class,'btn bg-maingreen cairo-font w-100 mb-1')])[1]");
+    private final By discountbutton = By.xpath("(//button[contains(@class,'btn') and contains(@class,'bg-maingreen')])[5]");
+    private final By closeOrderbutton = By.cssSelector("button.btn.btn-success.ng-star-inserted");
+    private final By searchbynamefield = By.xpath("(//input[@placeholder='Search By Name'])[1]");
+    private final By selectcustomerbutton = By.cssSelector("button.btnPLus.btn-link");
+    private final By selectaddressbutton = By.xpath("(//*[@id=\"collapseOne_@i\"]/td[5]/button)[1]");
+    private final By closecustomerselectionmodalbutton = By.xpath("(//*[@id=\"nav-home\"]/div/div[2]/div[2]/div/button)[1]");
+    private final By discountbypercentagebutton = By.xpath("//*[@id=\"modal-DetailDiscount\"]/div/div/div[2]/div[1]/ul/li[8]/a");
+    private final By okbuttonofdiscountmodal = By.xpath("(//*[@id=\"modal-DetailDiscount\"]/div/div/div[3]/button)[1]");
+    private final By ordercost = By.xpath("//*[@id=\"OverLayPin\"]/div/div[2]/div/app-payment/div[1]/div/div[1]/div/div[4]/div/div/div[1]/div/div[2]/table/tbody/tr[1]/td");
+    private final By totaldiscountamount = By.xpath("//*[@id=\"OverLayPin\"]/div/div[2]/div/app-payment/div[1]/div/div[1]/div/div[4]/div/div/div[1]/div/div[2]/table/tbody/tr[6]/td");
+    private final By manageOrdersbutton = By.xpath("//a[@href=\"/manageorderlist\"]");
+    private final By totalprice = By.xpath("(//div[contains(@class,'col-4') and contains(@class,'text-right')])[1]");
     private final By paymentamountfield = By.id("PayAmount0");
-    private final By orderNumberLabel= By.xpath("(//div[contains(@class,'col-12') and contains(@class,'mt-1')]  //table[contains(@class,'table-bordered')])[last()]//tr[1]/td");
+    private final By orderNumberLabel = By.xpath("(//div[contains(@class,'col-12') and contains(@class,'mt-1')]  //table[contains(@class,'table-bordered')])[last()]//tr[1]/td");
 
     private long orderNumber;
     private Double lastPaidAmount;
@@ -43,12 +46,13 @@ public class PaymentPage {
     @Step("Select Customer")
     public PaymentPage selectCustomer() {
         driver.element().clickElement(customersbutton);
-        driver.element().clickElement(searchbynamefield).typeText(searchbynamefield,"abdo");
+        driver.element().clickElement(searchbynamefield).typeText(searchbynamefield, "abdo");
         driver.element().clickElement(selectcustomerbutton);
         driver.element().clickElement(selectaddressbutton);
         driver.element().clickElement(closecustomerselectionmodalbutton);
         return this;
     }
+
     @Step("Select Discount")
     public PaymentPage selectDiscount() {
         driver.element().clickElement(discountbutton);
@@ -56,12 +60,22 @@ public class PaymentPage {
         driver.element().clickElement(okbuttonofdiscountmodal);
         return this;
     }
+
     @Step("Close Order")
     public OrderPage closeOrder() {
+
+        // احفظ total قبل الإغلاق لأن الإغلاق = الدفع
+        double totalAmount = readMoneyOrFail(totalprice, "totalprice");
+        this.orderTotalAmount = totalAmount;
+        this.lastPaidAmount = totalAmount;
+
+        LogsManager.info("Closing order with total amount: " + totalAmount);
+        ScreenShotsManager.takeFullPageScreenshot(driver.get(), "before_close_order");
+
         driver.element().clickElement(closeOrderbutton);
+
         return new OrderPage(driver);
     }
-
 
 
     @Step("pay the order overprice")
@@ -81,8 +95,6 @@ public class PaymentPage {
 
         return this;
     }
-
-
 
 
     //validation
@@ -132,11 +144,11 @@ public class PaymentPage {
 
         return new OrderPage(driver);
     }
-    
+
     public PaymentPage setOrderNumber(long orderNumber) {
-    this.orderNumber = orderNumber;
-    return this;
-}
+        this.orderNumber = orderNumber;
+        return this;
+    }
 
 
     public long getOrderNumberFromUI() {
@@ -161,8 +173,7 @@ public class PaymentPage {
     }
 
 
-
-    private Double waitForPaymentAmountFromDB(double expectedMin, int timeoutSeconds) {
+    private Double waitForPaymentAmountFromDB(double expected, double delta, int timeoutSeconds) {
 
         long endTime = System.currentTimeMillis() + timeoutSeconds * 1000L;
         Double last = null;
@@ -172,9 +183,13 @@ public class PaymentPage {
             Double amount = DataBaseReader.getPayAmountByOrderNumber(this.orderNumber);
             last = amount;
 
-            LogsManager.info("Polling DB | OrderNumber=" + this.orderNumber + " | PayAmount=" + amount);
+            LogsManager.info(
+                    "Polling DB | OrderNumber=" + this.orderNumber +
+                            " | Expected=" + expected +
+                            " | Actual=" + amount
+            );
 
-            if (amount != null && amount >= expectedMin) {
+            if (amount != null && Math.abs(amount - expected) <= delta) {
                 return amount;
             }
 
@@ -186,41 +201,44 @@ public class PaymentPage {
             }
         }
 
+        String debugInfo = DataBaseReader.getOrderDebugInfo(this.orderNumber);
+        LogsManager.error(debugInfo);
+
         ScreenShotsManager.takeFullPageScreenshot(driver.get(), "DB_PayAmount_Not_Reached");
+
         throw new AssertionError(
-                "❌ DB PayAmount did not reach expectedMin=" + expectedMin +
+                "❌ DB PayAmount did not match expected=" + expected +
                         " | last=" + last +
-                        " | OrderNumber=" + this.orderNumber
+                        " | OrderNumber=" + this.orderNumber +
+                        " | " + debugInfo
         );
     }
-
-
 
 
     private double readMoneyOrFail(By locator, String nameForLog) {
-    String text = null;
-    try {
-        // حاول تتأكد إنه ظاهر قبل القراءة (لو عندك verify)
-        driver.verify().isElementVisible(locator);
+        String text = null;
+        try {
+            // حاول تتأكد إنه ظاهر قبل القراءة (لو عندك verify)
+            driver.verify().isElementVisible(locator);
 
-        text = driver.element().getElementText(locator);
-        if (text == null || text.isBlank()) {
-            ScreenShotsManager.takeFullPageScreenshot(driver.get(), "NULL_TEXT_" + nameForLog);
-            throw new AssertionError("❌ Text is null/blank for: " + nameForLog + " locator=" + locator);
+            text = driver.element().getElementText(locator);
+            if (text == null || text.isBlank()) {
+                ScreenShotsManager.takeFullPageScreenshot(driver.get(), "NULL_TEXT_" + nameForLog);
+                throw new AssertionError("❌ Text is null/blank for: " + nameForLog + " locator=" + locator);
+            }
+
+            return Double.parseDouble(text.replaceAll("[^0-9.]", "").trim());
+
+        } catch (Exception e) {
+            ScreenShotsManager.takeFullPageScreenshot(driver.get(), "READ_FAIL_" + nameForLog);
+            throw new AssertionError(
+                    "❌ Failed to read money value for: " + nameForLog +
+                            " | rawText=" + text +
+                            " | locator=" + locator +
+                            " | error=" + e.getMessage(), e
+            );
         }
-
-        return Double.parseDouble(text.replaceAll("[^0-9.]", "").trim());
-
-    } catch (Exception e) {
-        ScreenShotsManager.takeFullPageScreenshot(driver.get(), "READ_FAIL_" + nameForLog);
-        throw new AssertionError(
-                "❌ Failed to read money value for: " + nameForLog +
-                " | rawText=" + text +
-                " | locator=" + locator +
-                " | error=" + e.getMessage(), e
-        );
     }
-}
 
 
     @Step("Validate DB PayAmount equals Total*2 (timeout={timeoutSeconds}s, delta={delta})")
@@ -236,7 +254,13 @@ public class PaymentPage {
         double expected = this.orderTotalAmount * 2;
 
         // ننتظر لحد ما DB توصل تقريبًا للـ expected
-        Double dbPayAmount = waitForPaymentAmountFromDB(expected - delta, timeoutSeconds);
+        Double dbPayAmount = waitForPaymentAmountFromDB(expected, delta, timeoutSeconds);
+
+        LogsManager.info(
+                "Checking DB PayAmount | OrderNumber=" + this.orderNumber +
+                        " | Expected=" + expected +
+                        " | Actual=" + dbPayAmount
+        );
 
         if (Math.abs(dbPayAmount - expected) > delta) {
             ScreenShotsManager.takeFullPageScreenshot(driver.get(), "DB_PayAmount_Mismatch");
@@ -250,6 +274,145 @@ public class PaymentPage {
         LogsManager.info("✅ DB PayAmount matches Total*2 | Expected=" + expected + " | DB=" + dbPayAmount);
         return this;
     }
+
+
+    @Step("Validate order created within last {seconds} seconds")
+    public PaymentPage validateOrderCreatedRecently(int seconds) {
+
+        if (this.orderNumber == 0) {
+            throw new IllegalStateException("OrderNumber is not set before DB validation");
+        }
+
+        LocalDateTime dbTime =
+                DataBaseReader.getOrderCreationDateTime(this.orderNumber);
+
+        if (dbTime == null) {
+            throw new AssertionError("❌ CreationTime is null in DB");
+        }
+
+        LocalDateTime now = LocalDateTime.now();
+
+        long diffSeconds =
+                java.time.Duration.between(dbTime, now).getSeconds();
+
+        if (diffSeconds > seconds) {
+            throw new AssertionError(
+                    "❌ Order not created recently | DB Time=" + dbTime +
+                            " | Now=" + now +
+                            " | DiffSeconds=" + diffSeconds +
+                            " | OrderNumber=" + this.orderNumber
+            );
+        }
+
+        LogsManager.info(
+                "✅ Order created recently | DiffSeconds=" + diffSeconds +
+                        " | OrderNumber=" + this.orderNumber
+        );
+
+        return this;
+    }
+
+
+    @Step("Validate latest DB order matches UI order")
+    public PaymentPage validateLatestOrderFromDB() {
+
+        if (this.orderTotalAmount == null) {
+            throw new IllegalStateException("orderTotalAmount not set");
+        }
+
+        Order order =
+                DataBaseReader.getLatestOrderByFilter(
+                        "Admin Admin",
+                        this.orderTotalAmount,
+                        30
+                );
+
+        if (order == null) {
+            throw new AssertionError("❌ No matching order found in DB");
+        }
+
+        if (Math.abs(order.getTotal() - this.orderTotalAmount) > 0.01) {
+
+            throw new AssertionError(
+                    "❌ DB Total mismatch | UI=" + this.orderTotalAmount +
+                            " | DB=" + order.getTotal()
+            );
+        }
+
+        this.orderNumber = order.getOrderNumber();
+
+        LogsManager.info(
+                "✅ Order validated from DB | OrderNumber=" + order.getOrderNumber() +
+                        " | Total=" + order.getTotal() +
+                        " | Created=" + order.getCreationTime()
+        );
+
+        return this;
+    }
+
+    private Double waitForOrderTotalFromDB(double expectedMin, int timeoutSeconds) {
+
+        long endTime = System.currentTimeMillis() + timeoutSeconds * 1000L;
+        Double last = null;
+
+        while (System.currentTimeMillis() < endTime) {
+
+            Double total = DataBaseReader.getOrderTotalByOrderNumber(this.orderNumber);
+            last = total;
+
+            LogsManager.info("Polling DB Total | OrderNumber=" + this.orderNumber + " | DB Total=" + total);
+
+            if (total != null && total >= expectedMin) {
+                return total;
+            }
+
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                break;
+            }
+        }
+
+        ScreenShotsManager.takeFullPageScreenshot(driver.get(), "DB_Total_Not_Reached");
+
+        throw new AssertionError(
+                "❌ DB Total did not reach expectedMin=" + expectedMin +
+                        " | last=" + last +
+                        " | OrderNumber=" + this.orderNumber
+        );
+    }
+
+
+
+
+    @Step("Validate DB Total equals UI Total")
+    public PaymentPage validateDBTotalEqualsUITotal(double delta) {
+
+        if (this.orderNumber == 0) {
+            throw new IllegalStateException("OrderNumber is not set before DB validation");
+        }
+
+        if (this.orderTotalAmount == null) {
+            throw new IllegalStateException("orderTotalAmount is not set before DB validation");
+        }
+
+        double dbTotal = waitForOrderTotalFromDB(this.orderTotalAmount - delta, 20);
+
+        if (Math.abs(dbTotal - this.orderTotalAmount) > delta) {
+            ScreenShotsManager.takeFullPageScreenshot(driver.get(), "DB_Total_Mismatch");
+
+            throw new AssertionError(
+                    "❌ DB Total mismatch | UI Total=" + this.orderTotalAmount +
+                            " | DB Total=" + dbTotal +
+                            " | OrderNumber=" + this.orderNumber
+            );
+        }
+
+        LogsManager.info("✅ DB Total matches UI Total | UI=" + this.orderTotalAmount + " | DB=" + dbTotal);
+        return this;
+    }
+
 
 
 

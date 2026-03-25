@@ -33,7 +33,7 @@ public class LoginTest extends BaseTest {
     @Severity(SeverityLevel.BLOCKER)
     @Owner("Ahmed Hassan")
     @Test
-    public void validLoginTC() throws InterruptedException {
+    public void Valid_Login_TC() throws InterruptedException {
         new LoginPage(guiDriver)
                 .navigateToLoginPage()
                 .loginwithpin()
@@ -49,7 +49,7 @@ public class LoginTest extends BaseTest {
     @Severity(SeverityLevel.BLOCKER)
     @Owner("Ahmed Hassan")
     @Test
-    public void invalidLoginTCwithWrongPIN(){
+    public void Invalid_Login_TC_with_Wrong_PIN(){
             new LoginPage(guiDriver)
             .navigateToLoginPage()
             .enterPin("741963")
@@ -68,7 +68,7 @@ public class LoginTest extends BaseTest {
     @Severity(SeverityLevel.NORMAL)
     @Owner("Ahmed Hassan")
     @Test
-    public void loginWithEmptyFields() {
+    public void Login_With_Empty_Fields() {
        new LoginPage(guiDriver)
             .navigateToLoginPage()
             .clickPinField()

@@ -5,6 +5,11 @@ import com.ferpfirstcode.media.ScreenShotsManager;
 import com.ferpfirstcode.utils.logs.LogsManager;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 
 public class HomePage {
@@ -13,7 +18,6 @@ public class HomePage {
     public HomePage(GUIDriver driver) {
         this.driver = driver;
     }
-
 
     // Locators
     private final By visibleUsername = By.xpath("//span[@class='ng-star-inserted']/h6");
@@ -24,6 +28,11 @@ public class HomePage {
     private final By OrderListButton= By.xpath("//div[contains(@class,'ms-panel-body')]//i[contains(@class,'fa-clipboard-list')]");
     private final By orderpagebutton = By.xpath("//a[@href='/order']");
     private final By manageorderbutton = By.cssSelector("a[href='/manageorderlist']");
+    private final By generalsettingbutton = By.cssSelector("div.ms-widget.widgetEditing i.mainIcon.fa-cogs");
+    private final By settingbtn=By.xpath("//a[@href='/POSsettings' and contains(@class,'d-flex')]");
+    private final By transactionbutton = By.xpath("//i[contains(@class,'fa-donate')]/ancestor::div[contains(@class,'ms-panel-body')]");
+    private final By dailystockbutton = By.cssSelector("a.d-flex[href='/dailystock']");
+
 
 
     //Actions
@@ -48,7 +57,6 @@ public class HomePage {
         return this;
     }
 
-
     @Step("Click Shift Open Button if it is enabled")
     public HomePage clickShiftOpenButton() {
         try {
@@ -71,6 +79,13 @@ public class HomePage {
         return this;
     }
 
+    @Step ("Go to Setting Page")
+    public SettingPage gotoSettingPage() {
+        driver.element().clickElement(generalsettingbutton);
+        driver.element().clickElement(settingbtn);
+        return new SettingPage(driver);
+    }
+
     @Step("Go to Order Page")
     public OrderPage gotoorderpage() {
         driver.element().clickElement(OrderListButton);
@@ -84,10 +99,12 @@ public class HomePage {
         driver.element().clickElement(manageorderbutton);
         return new ManageOrderPage(driver);
     }
-
-
-
-
+    @Step("Go to Daily Stock Page")
+    public DailyStockPage gotoDailyStockPage() {
+        driver.element().clickElement(transactionbutton);
+        driver.element().clickElement(dailystockbutton);
+        return new DailyStockPage(driver);
+    }
 
     //Verification
     @Step("verify successful go to homepage" )
@@ -97,6 +114,7 @@ public class HomePage {
         driver.verify().isElementVisible(visibleUsername);
         return this;
     }
+
     @Step("Take Screenshot of Home Page After Shift Open" )
     public HomePage takeScreenshotOfHomePageAfterShiftOpen() {
         ScreenShotsManager.takeFullPageScreenshot(driver.get(), "HomePageAfterShiftOpen");

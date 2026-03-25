@@ -1,13 +1,12 @@
 package com.ferpfirstcode.tests;
+import com.ferpfirstcode.pages.components.DailyStockPage;
 import com.ferpfirstcode.pages.components.HomePage;
 
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Owner;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
-import io.qameta.allure.Story;
+import com.ferpfirstcode.pages.components.OrderPage;
+import com.ferpfirstcode.pages.components.ProductStockData;
+import io.qameta.allure.*;
 
+import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -22,7 +21,7 @@ public class OrderTest extends AuthenticatedBaseTest {
     @Owner("Ahmed Hassan")
 
     @Test
-    public void shouldCreateDeliveryOrderAndPaySuccessfully() throws InterruptedException {
+    public void Should_Create_Order_And_Pay_Successfully() throws InterruptedException {
              HomePage homePage = new HomePage(guiDriver);
              homePage.gotoorderpage()
             .selectOrderTypebyindex()
@@ -36,12 +35,46 @@ public class OrderTest extends AuthenticatedBaseTest {
     @Severity(SeverityLevel.CRITICAL)
     @Owner("Ahmed Hassan")
     @Test
-    public void cancelorderTC() throws InterruptedException{
+    public void Cancel_order_TC() throws InterruptedException{
             HomePage homePage = new HomePage(guiDriver);
             homePage.gotoorderpage()
             .selectOrderTypebyindex()
             .clickOnProduct()
             .cancelOrder();
+    }
+
+    @Epic("Order Management")
+    @Feature("Daily Stock")
+    @Story("Validate available quantity in order page matches daily stock quantity")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Verify that the available quantity shown in the order page is equal to the last quantity from daily stock for the same product")
+    @Owner("Ahmed Hassan")
+    @Test
+    public void Check_Available_Quantity_From_Daily_Stock_That_Equals_To_The_Quantity_in_Order() throws InterruptedException {
+        HomePage homePage = new HomePage(guiDriver);
+        DailyStockPage dailyStockPage = new DailyStockPage(guiDriver);
+
+        homePage.gotoSettingPage()
+                .enable_ShowProducts_AvaliableQuantity_Settings()
+                .enable_Use_Daily_Stock()
+                .clickOnSaveButton()
+                .clickOnHomeButton()
+                .gotoDailyStockPage()
+                .gotoDailyStockListPage()
+                .openTodayDailyStockOrCreateNew();
+
+        ProductStockData stockData = dailyStockPage.getProductNameAndLastQuantity();
+
+        String productName = stockData.getProductName();
+        int expectedQuantity = stockData.getLastQuantity();
+
+        dailyStockPage.clickOnHomeButton()
+                .gotoorderpage()
+                .validateAvailableQuantityMatchesDailyStock(
+                        productName,
+                        expectedQuantity
+                );
+
     }
 
 }

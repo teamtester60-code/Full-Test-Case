@@ -1,2 +1,2 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","6840","validLoginTC","Default Suite","2026-02-05","passed","2026-02-05","com.ferpfirstcode.tests.LoginTest","FirstProjectFERP","com.ferpfirstcode.tests.LoginTest","validLoginTC"
+"Verify that the available quantity shown in the order page is equal to the last quantity from daily stock for the same product","8330","Check_Available_Quantity_From_Daily_Stock_That_Equals_To_The_Quantity_in_Order","Default Suite","2026-03-25","passed","2026-03-25","com.ferpfirstcode.tests.OrderTest","FirstProjectFERP","com.ferpfirstcode.tests.OrderTest","Check_Available_Quantity_From_Daily_Stock_That_Equals_To_The_Quantity_in_Order"

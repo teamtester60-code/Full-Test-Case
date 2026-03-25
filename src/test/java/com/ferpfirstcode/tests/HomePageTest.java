@@ -31,7 +31,7 @@ public class HomePageTest extends BaseTest {
     @Severity(SeverityLevel.NORMAL)
     @Owner("Ahmed Hassan")
     @Test
-    public void homePageTC() throws InterruptedException {
+    public void Home_Page_TC() throws InterruptedException {
         new com.ferpfirstcode.pages.components.LoginPage(guiDriver)
                 .navigateToLoginPage()
                 .loginwithpin()

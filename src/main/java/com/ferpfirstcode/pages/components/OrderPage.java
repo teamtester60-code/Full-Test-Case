@@ -9,6 +9,7 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.testng.Assert;
 
 
 public class OrderPage {
@@ -41,7 +42,7 @@ public class OrderPage {
     private final By followorderbutton= By.xpath("//a[contains(@class, \"dropdown-item\") and @href=\"/FollowOrder\"]");
     private final By checklorderbutton=By.xpath("(//table[contains(@class,'e-table')]//tbody//tr[last()]//input[@type='checkbox'])[1]");
     private final By assigntodriverbutton= By.xpath("(//button[contains(@class, \"btn-success\") and contains(@class, \"m-0\")])[2]");
-    private final By assignbutton= By.xpath("//button[@data-toggle=\"modal\" and @data-target=\"#modal-1\"]");
+    private final By assignbutton= By.xpath("(//button[contains(@class,'btn-info')])[1]");
     private final By cancelprintbutton= By.xpath("//button[normalize-space()='Cancel']");
     private final By paytheordersbutton= By.xpath("//a[@aria-controls='tab144']");
     private final By selcetordertopaybutton= By.xpath("//tbody/tr[last()]/td[1]//input[contains(@class,'e-checkbox')]");
@@ -64,7 +65,7 @@ public class OrderPage {
     private final By homebutton=By.xpath("//*[@id=\"OverLayPin\"]/div/div[1]/div[2]/div[3]/div/nav/ul/li[1]/a/div/i");
     private final By OrderListsButton= By.xpath("//div[contains(@class,'ms-panel-body')]//i[contains(@class,'fa-clipboard-list')]");
     private final By pricebforereturn=By.xpath("//span[i[@class='fas fa-dollar-sign px-2']]");
-    private final By returndriver=By.xpath("//button[@data-target='#modal-2']");
+    private final By returndriver=By.cssSelector("button.btn.custom-btn.btn-success");
     private final By selectreturndriver=By.xpath("//td[@aria-colindex='2']//button[@type='button']");
     private final By closereturndriver=By.xpath("(//div[contains(@class,'modal-content')]//button[@data-dismiss='modal'])[2]");
     private final By cancelassigndriver=By.xpath("//*[@id=\"modal-1\"]/div/div/div/div[1]/button/span");
@@ -73,6 +74,7 @@ public class OrderPage {
     private final By closeorderbutton=By.xpath("(//button[.//i[contains(@class,'fa-times')]])[1]");
     private final By checktocloseorder=By.cssSelector(".modal-content.pos-confirm-close-modal");
     private final By confirmorderbutton=By.cssSelector(".pos-confirm-close-modal .modal-footer button.btn.btn-primary");
+    private final By returneditem=By.xpath("//tr[@data-dismiss='modal']/td[last()-1]");
 
     //dynamic locator
     private By productByIndex(int index) {
@@ -88,12 +90,7 @@ public class OrderPage {
         return By.xpath("(//li[contains(@class,'tab')])["+index+"]");
     }
     private final By ordertypenamebyindex =By.xpath("(//*[@id='v-pills-settings-tab'])[1]");
-
-
-
     private String selectedOrderType;
-
-
     //Actions
     @Step("Click on Products")
     @Description("Click on Product: {productName} and handle volume and side dishes if popup appears")
@@ -266,16 +263,25 @@ public class OrderPage {
         driver.element().clickElement(selectallproductroreturn);
         String pricebeforereturn = driver.element().getElementText(pricebforereturn);
         double priceBeforeReturn = Double.parseDouble(pricebeforereturn);
+        driver.element().getElementText(returneditem);
+        String returnedItem = driver.element().getElementText(returneditem);
         driver.element().clickElement(savetheReturn);
         driver.element().clickElement(returnorderlist);
         String priceafterreturn = driver.element().getElementText(thepriceofreturnorder);
         double priceAfterReturn = Double.parseDouble(priceafterreturn);
-        if (priceBeforeReturn != priceAfterReturn) {
-            throw new AssertionError("Price before return: " + priceBeforeReturn + ", Price after return: " + priceAfterReturn);
+        double expectedAfterReturn = priceBeforeReturn - Double.parseDouble(returnedItem);
+        if (Math.abs(expectedAfterReturn - priceAfterReturn) < 0.01) {
+            throw new AssertionError(
+                    "❌ Return calculation mismatch | " +
+                            "Before=" + priceBeforeReturn +
+                            " | ReturnedItem=" + returnedItem +
+                            " | ExpectedAfter=" +  expectedAfterReturn +
+                            " | ActualAfter=" + priceAfterReturn
+            );
         }
         ScreenShotsManager.takeFullPageScreenshot(driver.get(), "ReturnOrder");
-        LogsManager.info("Price before return: " + priceBeforeReturn + ", Price after return: " + priceAfterReturn);
-        Allure.step("Price before return: " + priceBeforeReturn + ", Price after return: " + priceAfterReturn);
+        LogsManager.info("Price before return: " + priceBeforeReturn + ", Price after return: " + priceAfterReturn + ", Expected after return: " + expectedAfterReturn);
+        Allure.step("Price before return: " + priceBeforeReturn + ", Price after return: " + priceAfterReturn + ", Expected after return: " + expectedAfterReturn);
         return this;
     }
 
@@ -326,6 +332,11 @@ public class OrderPage {
         driver.element().clickElement(payementbutton);
         return new PaymentPage(driver);
     }
+    // @Step("Select table if order type is dine in")
+    // public OrderPage selectTable() {
+    //     driver.element().clickElement(selecttablebutton);
+    //     return this;
+    // }
 
 
     @Step("Cancel Order")
@@ -415,6 +426,27 @@ public class OrderPage {
     }
 
 
+    @Step("Get product quantity by name from order page")
+    public int getProductQuantityByName(String productName) {
+        By productQtyLocator = By.xpath(
+                "//div[contains(@class,'product-card')][.//div[contains(@class,'productName') and normalize-space()='" + productName + "']]//*[contains(@class,'productAvalQty')]"
+        );
+
+        String quantityText = driver.element().getElementText(productQtyLocator);
+        System.out.println("Raw quantity text for product [" + productName + "] = [" + quantityText + "]");
+
+        if (quantityText == null || quantityText.trim().isEmpty()) {
+            throw new AssertionError("Available quantity is empty for product: " + productName);
+        }
+
+        quantityText = quantityText.replaceAll("[^0-9]", "");
+
+        if (quantityText.isEmpty()) {
+            throw new AssertionError("No numeric quantity found for product: " + productName);
+        }
+
+        return Integer.parseInt(quantityText);
+    }
 
     //validation
     @Step("Validate that order is sent successfully")
@@ -434,6 +466,21 @@ public class OrderPage {
         if (!priceBeforeSendOrder.equals(priceAfterSendOrder)) {
             throw new AssertionError("Order price mismatch: before sending order: " + priceBeforeSendOrder + ", after sending order: " + priceAfterSendOrder);
         }
+        return this;
+    }
+    @Step("Validate available quantity matches daily stock")
+    public OrderPage validateAvailableQuantityMatchesDailyStock(String productName, int expectedQuantity) {
+
+        int actualQuantity = getProductQuantityByName(productName);
+
+        Assert.assertEquals(
+                actualQuantity,
+                expectedQuantity,
+                "Quantity mismatch for product: " + productName
+        );
+        LogsManager.info("Actual Quantity ="+ actualQuantity ,"Expected Quantity ="+ expectedQuantity);
+        Allure.step("✅ Available quantity matches daily stock for product: " + productName + " (Actual: " + actualQuantity + ", Expected: " + expectedQuantity + ")");
+
         return this;
     }
 

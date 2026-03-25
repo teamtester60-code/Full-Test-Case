@@ -68,6 +68,28 @@ public class ElementActions {
         }
         return this;
     }
+    public boolean isElementSelected(By locator) {
+        try {
+            WebElement element = driver.findElement(locator);
+            boolean selected = element.isSelected();
+            System.out.println("Element selected status = " + selected);
+            return selected;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    public String getAttribute(By locator, String attributeName) {
+        try {
+            WebElement element = driver.findElement(locator);
+            return element.getAttribute(attributeName);
+        } catch (Exception e) {
+            System.out.println("Failed to get attribute '" + attributeName + "' from locator: " + locator);
+            throw new RuntimeException(
+                    "Failed to get attribute '" + attributeName + "' from element: " + locator, e
+            );
+        }
+    }
 
     public ElementActions uploadFile(By locator, String filePath) {
         try {

@@ -21,7 +21,7 @@ public class PaymentTest extends AuthenticatedBaseTest {
     @Severity(SeverityLevel.CRITICAL)
     @Owner("Ahmed Hassan")
     @Test
-    public void shouldCreateAndPayDeliveryOrder() throws InterruptedException {
+    public void Should_Create_And_Pay_Delivery_Order() throws InterruptedException {
                  HomePage homePage = new HomePage(guiDriver);
                 homePage.gotoorderpage()
                 .selectOrderTypebyindex()
@@ -38,7 +38,7 @@ public class PaymentTest extends AuthenticatedBaseTest {
     @Severity(SeverityLevel.NORMAL)
     @Owner("Ahmed Hassan")
     @Test
-    public void createreturnorderTC() throws InterruptedException {
+    public void Create_Return_Order_TC() throws InterruptedException {
          HomePage homePage = new HomePage(guiDriver);
              homePage.gotoorderpage()
              .selectOrderTypebyindex()
@@ -51,7 +51,7 @@ public class PaymentTest extends AuthenticatedBaseTest {
     }
     
     @Test
-public void overpaymenttestwithdatabase() throws InterruptedException {
+public void Over_Payment_Test_With_Database() throws InterruptedException {
 
     PaymentPage paymentPage =
             new HomePage(guiDriver)
@@ -67,8 +67,25 @@ public void overpaymenttestwithdatabase() throws InterruptedException {
             .payOverPrice()
             .closeOrder();
 
-    paymentPage.validateDBPayAmountIsDoubleTotal(20, 0.01);
+    paymentPage.validateDBPayAmountIsDoubleTotal(40, 0.01);
 }
+    @Test
+ public void DB_Matches_UI() throws InterruptedException {
+
+        PaymentPage paymentPage = new PaymentPage(guiDriver);
+         new HomePage(guiDriver)
+                .gotoorderpage()
+                 .makeTakeAwayOrder()
+                 .clickOnProduct()
+                 .goToPaymentForTakeawayOrder();
+            long orderNumber = paymentPage.getOrderNumberFromUI();
+            paymentPage.setOrderNumber(orderNumber)
+                 .closeOrder();
+            paymentPage.validateDBTotalEqualsUITotal(0.2);
+
+ }
 
 
+
 }
+

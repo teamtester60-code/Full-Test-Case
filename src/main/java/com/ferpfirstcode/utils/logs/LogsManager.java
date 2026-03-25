@@ -1,6 +1,7 @@
 package com.ferpfirstcode.utils.logs;
 
 import com.ferpfirstcode.utils.report.AllureConstants;
+import io.qameta.allure.Allure;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

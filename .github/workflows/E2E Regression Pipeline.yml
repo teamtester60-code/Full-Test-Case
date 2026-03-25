@@ -1,4 +1,4 @@
-name: E2E Regression - Login Test (Self-hosted)
+name: E2E Regression - Regression Test (Self-hosted)
 
 on:
   push:

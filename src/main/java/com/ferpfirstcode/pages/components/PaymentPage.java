@@ -5,6 +5,7 @@ import com.ferpfirstcode.media.ScreenShotsManager;
 import com.ferpfirstcode.utils.dataReader.DataBaseReader;
 import com.ferpfirstcode.utils.logs.LogsManager;
 
+import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -172,25 +173,31 @@ public class PaymentPage {
         return Long.parseLong(m.group(1));
     }
 
-
     private Double waitForPaymentAmountFromDB(double expected, double delta, int timeoutSeconds) {
 
         long endTime = System.currentTimeMillis() + timeoutSeconds * 1000L;
-        Double last = null;
+        Double lastAmount = null;
+        Double lastPayAmount = null;
 
         while (System.currentTimeMillis() < endTime) {
 
-            Double amount = DataBaseReader.getPayAmountByOrderNumber(this.orderNumber);
-            last = amount;
+            // 👇 You MUST fetch both values
+            Double amount = DataBaseReader.getPaymentAmountFieldByOrderNumber(this.orderNumber);       // 380
+            Double payAmount = DataBaseReader.getPayAmountByOrderNumber(this.orderNumber); // 760
+
+            lastAmount = amount;
+            lastPayAmount = payAmount;
 
             LogsManager.info(
                     "Polling DB | OrderNumber=" + this.orderNumber +
-                            " | Expected=" + expected +
-                            " | Actual=" + amount
+                            " | Amount=" + amount +
+                            " | PayAmount=" + payAmount
             );
 
-            if (amount != null && Math.abs(amount - expected) <= delta) {
-                return amount;
+            // ✅ Your new rule: PayAmount = Amount * 2
+            if (amount != null && payAmount != null &&
+                    Math.abs(payAmount - (amount * 2)) <= delta) {
+                return payAmount;
             }
 
             try {
@@ -201,16 +208,11 @@ public class PaymentPage {
             }
         }
 
-        String debugInfo = DataBaseReader.getOrderDebugInfo(this.orderNumber);
-        LogsManager.error(debugInfo);
-
-        ScreenShotsManager.takeFullPageScreenshot(driver.get(), "DB_PayAmount_Not_Reached");
-
         throw new AssertionError(
-                "❌ DB PayAmount did not match expected=" + expected +
-                        " | last=" + last +
-                        " | OrderNumber=" + this.orderNumber +
-                        " | " + debugInfo
+                "❌ DB condition failed | Expected PayAmount = Amount*2" +
+                        " | Last Amount=" + lastAmount +
+                        " | Last PayAmount=" + lastPayAmount +
+                        " | OrderNumber=" + this.orderNumber
         );
     }
 
@@ -244,6 +246,7 @@ public class PaymentPage {
     @Step("Validate DB PayAmount equals Total*2 (timeout={timeoutSeconds}s, delta={delta})")
     public PaymentPage validateDBPayAmountIsDoubleTotal(int timeoutSeconds, double delta) {
 
+        // --- Early validation ---
         if (this.orderNumber == 0) {
             throw new IllegalStateException("OrderNumber is not set before DB validation");
         }
@@ -251,27 +254,35 @@ public class PaymentPage {
             throw new IllegalStateException("orderTotalAmount is not set. Call payOverPrice() before DB validation");
         }
 
-        double expected = this.orderTotalAmount * 2;
+        // --- Expected DB value is double the order total ---
+        double expectedPayAmount = this.orderTotalAmount * 2;
 
-        // ننتظر لحد ما DB توصل تقريبًا للـ expected
-        Double dbPayAmount = waitForPaymentAmountFromDB(expected, delta, timeoutSeconds);
+        // --- Wait for DB to reach expected value ---
+        Double dbPayAmount = waitForPaymentAmountFromDB(expectedPayAmount, delta, timeoutSeconds);
 
-        LogsManager.info(
-                "Checking DB PayAmount | OrderNumber=" + this.orderNumber +
-                        " | Expected=" + expected +
-                        " | Actual=" + dbPayAmount
-        );
+        // --- Logging for info ---
+        LogsManager.info(String.format(
+                "Checking DB PayAmount | OrderNumber=%d | Expected=%.2f | Actual=%.2f",
+                this.orderNumber, expectedPayAmount, dbPayAmount
+        ));
 
-        if (Math.abs(dbPayAmount - expected) > delta) {
+        // --- Validation with screenshot on mismatch ---
+        if (Math.abs(dbPayAmount - expectedPayAmount) > delta) {
             ScreenShotsManager.takeFullPageScreenshot(driver.get(), "DB_PayAmount_Mismatch");
-            throw new AssertionError(
-                    "❌ DB PayAmount mismatch | Expected (Total*2)=" + expected +
-                            " | DB PayAmount=" + dbPayAmount +
-                            " | OrderNumber=" + this.orderNumber
-            );
+            throw new AssertionError(String.format(
+                    "❌ DB PayAmount mismatch | Expected=%.2f | DB PayAmount=%.2f | OrderNumber=%d",
+                    expectedPayAmount, dbPayAmount, this.orderNumber
+            ));
         }
 
-        LogsManager.info("✅ DB PayAmount matches Total*2 | Expected=" + expected + " | DB=" + dbPayAmount);
+        // --- Allure step & logging for success ---
+        String successMessage = String.format(
+                "✅ DB PayAmount matches Total*2 | Expected=%.2f | DB=%.2f",
+                expectedPayAmount, dbPayAmount
+        );
+        Allure.step(successMessage);
+        LogsManager.info(successMessage);
+
         return this;
     }
 
@@ -408,6 +419,7 @@ public class PaymentPage {
                             " | OrderNumber=" + this.orderNumber
             );
         }
+        Allure.step("✅ DB Total matches UI Total | UI=" + this.orderTotalAmount + " | DB=" + dbTotal);
 
         LogsManager.info("✅ DB Total matches UI Total | UI=" + this.orderTotalAmount + " | DB=" + dbTotal);
         return this;

@@ -10,12 +10,13 @@ import org.bson.Document;
 import org.bson.types.Decimal128;
 
 import java.time.Instant;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
 
-import static com.mongodb.client.model.Filters.eq;
+import static com.mongodb.client.model.Filters.*;
 
 public class DataBaseReader {
 
@@ -102,9 +103,21 @@ public class DataBaseReader {
 
     public static Document getOrderByOrderNumber(long orderNumber) {
         try {
+            // Start of today
+            LocalDate today = LocalDate.now();
+            Date startOfDay = Date.from(today.atStartOfDay(ZoneId.systemDefault()).toInstant());
+
+            // Start of tomorrow
+            Date endOfDay = Date.from(today.plusDays(1).atStartOfDay(ZoneId.systemDefault()).toInstant());
+
             return getCollection(POS_ORDERS_COLLECTION)
-                    .find(eq("OrderNumber", (int) orderNumber))
+                    .find(and(
+                            eq("OrderNumber", (int) orderNumber),
+                            gte("CreationTime", startOfDay),
+                            lt("CreationTime", endOfDay)
+                    ))
                     .first();
+
         } catch (Exception e) {
             LogsManager.error("[DB] getOrderByOrderNumber error: " + e.getMessage());
             return null;

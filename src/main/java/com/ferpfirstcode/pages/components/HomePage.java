@@ -87,7 +87,8 @@ public class HomePage {
     }
 
     @Step("Go to Order Page")
-    public OrderPage gotoorderpage() {
+    public OrderPage gotoorderpage() throws InterruptedException {
+        Thread.sleep(4000);
         driver.element().clickElement(OrderListButton);
         driver.element().clickElement(orderpagebutton);
         return new OrderPage(driver);

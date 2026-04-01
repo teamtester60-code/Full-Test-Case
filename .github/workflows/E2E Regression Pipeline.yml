@@ -72,8 +72,6 @@ jobs:
         continue-on-error: true
         run: |
           Write-Host "🚀 Running TestNG XML suite..."
-          
-          
           mvn test `
             -DsuiteXmlFile=src/test/resources/testng.xml `
             -Dmaven.test.failure.ignore=true `

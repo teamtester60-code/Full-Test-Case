@@ -28,6 +28,7 @@ public class OrderTest extends AuthenticatedBaseTest {
             .clickOnProduct()
             .validateOrderIsSentSuccessfully();
     }
+
     
     @Epic("POS System")
     @Feature("Cancel Order")

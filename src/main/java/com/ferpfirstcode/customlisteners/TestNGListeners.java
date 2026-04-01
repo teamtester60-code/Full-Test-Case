@@ -161,7 +161,7 @@ public class TestNGListeners implements IExecutionListener, IInvokedMethodListen
     if (wasRetried != null && (boolean) wasRetried) {
         getLifecycle().updateTestCase(tc -> {
             tc.getLabels().add(new Label().setName("flaky").setValue("true"));
-            tc.getLabels().add(new Label().setName("retry").setValue(String.valueOf(retryCount)));
+            tc.getLabels().add(new Label().setName("retryCount").setValue(String.valueOf(retryCount)));
         });
 
         Allure.addAttachment(
@@ -170,6 +170,8 @@ public class TestNGListeners implements IExecutionListener, IInvokedMethodListen
         );
     }
 }
+
+
 
 
 

@@ -98,7 +98,7 @@ public class OrderPage {
         addProduct(1);
         addProduct(2);
         driver.element().isElementVisible(totalpricebeforesendorder);
-        ScreenShotsManager.takeFullPageScreenshot(driver.get(),"AfterClickOnProduct");
+        ScreenShotsManager.takeFullPageScreenshot(driver.get(),"After Select Product");
         String productName1 = driver.element().getElementText(productByIndex(1));
         String productName2 = driver.element().getElementText(productByIndex(2));
         Allure.step("Product Name And Price: " + productName1);

@@ -243,8 +243,8 @@ public class PaymentPage {
     }
 
 
-    @Step("Validate DB PayAmount equals Total*2 (timeout={timeoutSeconds}s, delta={delta})")
-    public PaymentPage validateDBPayAmountIsDoubleTotal(int timeoutSeconds, double delta) {
+    @Step("Validate DB PayAmount equals Total*2 ")
+    public PaymentPage validateDBPayAmountIsDoubleTotal(int timeoutSeconds, double delta) throws InterruptedException {
 
         // --- Early validation ---
         if (this.orderNumber == 0) {
@@ -258,6 +258,7 @@ public class PaymentPage {
         double expectedPayAmount = this.orderTotalAmount * 2;
 
         // --- Wait for DB to reach expected value ---
+        Thread.sleep(3000);
         Double dbPayAmount = waitForPaymentAmountFromDB(expectedPayAmount, delta, timeoutSeconds);
 
         // --- Logging for info ---
@@ -268,7 +269,6 @@ public class PaymentPage {
 
         // --- Validation with screenshot on mismatch ---
         if (Math.abs(dbPayAmount - expectedPayAmount) > delta) {
-            ScreenShotsManager.takeFullPageScreenshot(driver.get(), "DB_PayAmount_Mismatch");
             throw new AssertionError(String.format(
                     "❌ DB PayAmount mismatch | Expected=%.2f | DB PayAmount=%.2f | OrderNumber=%d",
                     expectedPayAmount, dbPayAmount, this.orderNumber

@@ -12,11 +12,13 @@ import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-@Listeners(com.ferpfirstcode.customlisteners.TestNGListeners.class)
+@Listeners({com.ferpfirstcode.customlisteners.TestNGListeners.class ,
+        com.ferpfirstcode.customlisteners.RetryTransformer.class})
 public class LoginTest extends BaseTest {
     protected String timestamp = TimeManager.gettimestamp();
     protected JsonReader testdata;
@@ -41,7 +43,6 @@ public class LoginTest extends BaseTest {
 
         LogsManager.info("تم تنفيذ اختبار تسجيل الدخول بنجاح");
     }
-
 
     @Epic("POS System")
     @Feature("Login Management")

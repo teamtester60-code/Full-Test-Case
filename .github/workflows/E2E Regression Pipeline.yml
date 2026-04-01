@@ -72,14 +72,7 @@ jobs:
         continue-on-error: true
         run: |
           Write-Host "🚀 Running TestNG XML suite..."
-          mvn test `
-            -DsuiteXmlFile=src/test/resources/testng.xml `
-            -Dmaven.test.failure.ignore=true `
-            "-DexecutionType=$env:EXECUTION_TYPE" `
-            "-DbrowserType=$env:BROWSER" `
-            "-DbaseUrl=$env:BASE_URL" `
-            "-Dmongo.uri=$env:MONGO_URI" `
-            "-Dmongo.db=$env:MONGO_DB"
+          mvn test -DsuiteXmlFile=src/test/resources/testng.xml -Dmaven.test.failure.ignore=true "-DexecutionType=$env:EXECUTION_TYPE" "-DbrowserType=$env:BROWSER" "-DbaseUrl=$env:BASE_URL" "-Dmongo.uri=$env:MONGO_URI" "-Dmongo.db=$env:MONGO_DB"
 
       - name: 📤 Upload Test Results
         if: always()

@@ -2,18 +2,29 @@ package com.ferpfirstcode.pages.components;
 
 import com.ferpfirstcode.driver.GUIDriver;
 import com.ferpfirstcode.media.ScreenShotsManager;
+import com.ferpfirstcode.utils.dataReader.PropertyReader;
 import com.ferpfirstcode.utils.logs.LogsManager;
 
 import io.qameta.allure.Allure;
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+
+import java.time.Duration;
+import java.util.List;
+import java.util.Map;
 
 
 public class OrderPage {
     private final GUIDriver driver;
+
     public OrderPage(GUIDriver driver) {
         this.driver = driver;
     }
@@ -174,6 +185,8 @@ public class OrderPage {
                 Allure.step("Order Type: Staff Only");
                 driver.element().clickElement(employeebutton);
             }
+           
+            driver.setSelectedOrderType(tabName);
             return this;
 
         }
@@ -239,6 +252,12 @@ public class OrderPage {
 
         if (!orderType.equalsIgnoreCase("delivery") && !orderType.equalsIgnoreCase("توصيل")) {
             driver.element().clickElement(closeorderbutton);
+            Thread.sleep(2000);
+            if(isOrderTypePopupOpen())
+            {
+                Thread.sleep(2000);
+                driver.element().clickElement(okbuttononordertype);
+            }
             if (driver.element().isElementVisible(checktocloseorder)) {
                 driver.element().clickElement(confirmorderbutton);
             }
@@ -371,10 +390,11 @@ public class OrderPage {
 
 
     @Step("Select first takeaway (تيك اواي / سفري / takeaway)")
-    public OrderPage makeTakeAwayOrder() {
+    public OrderPage makeTakeAwayOrder() throws InterruptedException {
 
         // افتح نافذة اختيار النوع
-        if (isVisibleAndEnabled(ordertypebutton)) {
+        Thread.sleep(3000);
+        if (!isOrderTypePopupOpen()) {
             driver.element().clickElement(ordertypebutton);
         }
 
@@ -392,6 +412,7 @@ public class OrderPage {
 
             if (text.contains("takeaway") || text.contains("take")
                     || text.contains("تيك") || text.contains("تيك اواي")
+                    || text.contains("تيكاوي")
                     || text.contains("سفري") || text.contains("سفرى")) {
 
                 Allure.step("✅ Selecting Order Type: " + el.getText().trim());
@@ -416,6 +437,24 @@ public class OrderPage {
             return false;
         }
     }
+    private boolean isClickable(By locator) {
+        try {
+            new WebDriverWait(driver.get(), Duration.ofSeconds(5))
+                    .until(ExpectedConditions.elementToBeClickable(locator));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    private boolean isOrderTypePopupOpen() {
+        try {
+            WebElement popup = driver.get().findElement(By.id("modal-OrderType"));
+            return popup.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
 
 
 
@@ -423,6 +462,24 @@ public class OrderPage {
     public PaymentPage goToPaymentForTakeawayOrder() {
         driver.element().clickElement(payementbutton);
         return new PaymentPage(driver);
+    }
+
+
+    public class ProductAPI {
+
+        public String getFirstComboProductName() {
+            Response response = RestAssured.given()
+                    .baseUri(PropertyReader.getProperty("baseURLapi"))
+                    .get("/products/preview");
+
+            List<Map<String, Object>> products = response.jsonPath().getList("products");
+
+            return products.stream()
+                    .filter(p -> Boolean.TRUE.equals(p.get("isCombo")))
+                    .map(p -> p.get("name").toString())
+                    .findFirst()
+                    .orElseThrow(() -> new RuntimeException("No combo product found"));
+        }
     }
 
 

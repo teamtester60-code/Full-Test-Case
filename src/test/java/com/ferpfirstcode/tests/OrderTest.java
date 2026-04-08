@@ -1,9 +1,6 @@
 package com.ferpfirstcode.tests;
-import com.ferpfirstcode.pages.components.DailyStockPage;
-import com.ferpfirstcode.pages.components.HomePage;
+import com.ferpfirstcode.pages.components.*;
 
-import com.ferpfirstcode.pages.components.OrderPage;
-import com.ferpfirstcode.pages.components.ProductStockData;
 import io.qameta.allure.*;
 
 import org.testng.Assert;
@@ -76,6 +73,15 @@ public class OrderTest extends AuthenticatedBaseTest {
                         expectedQuantity
                 );
 
+    }
+
+    @Test
+    public void Get_First_Combo_Product_Name() throws InterruptedException {
+        HomePage homePage = new HomePage(guiDriver);
+        homePage.gotoorderpage();
+        OrderAPI orderAPI = new OrderAPI();
+        String productName = orderAPI.getFirstComboProductName();
+        Allure.step("First combo product name: " + productName);
     }
 
 }

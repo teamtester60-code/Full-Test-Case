@@ -87,6 +87,36 @@ public void Over_Payment_Test_With_Database() throws InterruptedException {
 
  }
 
+ @Test
+    public void Pay_With_Multiple_Payment() throws InterruptedException {
+        PaymentPage paymentPage= new PaymentPage(guiDriver);
+        new HomePage(guiDriver)
+                .gotoorderpage()
+                .makeTakeAwayOrder()
+                .clickOnProduct()
+                .goToPaymentForTakeawayOrder();
+        paymentPage
+                .pay_With_Multiple_Payment()
+                .closeOrder();
+
+    }
+    @Test
+    public void Make_Discount_With_Fixed_Amount() throws InterruptedException {
+        PaymentPage paymentPage = new PaymentPage(guiDriver);
+        new HomePage(guiDriver)
+                .gotoorderpage()
+                .makeTakeAwayOrder()
+                .clickOnProduct()
+                .goToPaymentForTakeawayOrder();
+        paymentPage
+                .validate_Discount_By_Fixed_Amount()
+                .closeOrder();
+
+
+
+    }
+
+
 
 
 }

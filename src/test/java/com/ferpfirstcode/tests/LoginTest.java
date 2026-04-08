@@ -5,15 +5,11 @@ import com.ferpfirstcode.utils.TimeManager;
 import com.ferpfirstcode.utils.dataReader.JsonReader;
 import com.ferpfirstcode.utils.logs.LogsManager;
 
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Owner;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -29,13 +25,27 @@ public class LoginTest extends BaseTest {
         LogsManager.info("تم تحميل بيانات الاختبار من JSON");
     }
 
+
+
+    @DataProvider(name = "parallelUsers", parallel = true)
+    public Object[][] data() {
+        return new Object[][] {
+                {1},
+                {2},
+                {3},
+                {4},
+                {5},
+        };
+    }
+
     @Epic("POS System")
     @Feature("Login Management")
     @Story("Login With Valid Data")
     @Severity(SeverityLevel.BLOCKER)
     @Owner("Ahmed Hassan")
-    @Test
-    public void Valid_Login_TC() throws InterruptedException {
+    @Test(dataProvider = "parallelUsers")
+    public void Valid_Login_TC(int runNumber) throws InterruptedException {
+        Allure.step("Step " + runNumber + " - Login With Valid Data");
         new LoginPage(guiDriver)
                 .navigateToLoginPage()
                 .loginwithpin()

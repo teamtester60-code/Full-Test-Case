@@ -37,7 +37,15 @@ public class PaymentPage {
     private final By manageOrdersbutton = By.xpath("//a[@href=\"/manageorderlist\"]");
     private final By totalprice = By.xpath("(//div[contains(@class,'col-4') and contains(@class,'text-right')])[1]");
     private final By paymentamountfield = By.id("PayAmount0");
+    private final By paymentamountfield2 = By.id("PayAmount1");
+    private final By paymentamountfield3 = By.id("PayAmount2");
     private final By orderNumberLabel = By.xpath("(//div[contains(@class,'col-12') and contains(@class,'mt-1')]  //table[contains(@class,'table-bordered')])[last()]//tr[1]/td");
+    private final By paymenttype1=By.xpath("(//div[@id='navbarSupportedContentt3']//a)[1]");
+    private final By paymenttype2=By.xpath("(//div[@id='navbarSupportedContentt3']//a)[2]");
+    private final By paymenttype3=By.xpath("(//div[@id='navbarSupportedContentt3']//a)[3]");
+    private final By discountvalue=By.xpath("(//input[@id='DiscountAmount11'])[1]");
+    private final By discountpercentage=By.xpath("(//input[contains(@id,'DiscountPercentage')])[1]");
+
 
     private long orderNumber;
     private Double lastPaidAmount;
@@ -96,6 +104,58 @@ public class PaymentPage {
 
         return this;
     }
+
+    @Step("pay the order with multiple payment")
+    public PaymentPage pay_With_Multiple_Payment() {
+        double totalAmount = readMoneyOrFail(totalprice, "totalprice");
+        double firstPayment = totalAmount / 3;
+        double secondPayment = totalAmount / 3;
+        double thirdPayment = totalAmount / 3;
+        driver.element().clickElement(paymenttype1);
+        String namepaytype1 = driver.element().getElementText(paymenttype1);
+        if (driver.element().isElementVisible(searchbynamefield)) {
+            driver.element().clickElement(searchbynamefield).typeText(searchbynamefield, "abdo");
+            driver.element().clickElement(selectcustomerbutton);
+            driver.element().clickElement(selectaddressbutton);
+            driver.element().clickElement(closecustomerselectionmodalbutton);
+        }
+        driver.element().typeText(paymentamountfield, String.valueOf(firstPayment));
+        driver.element().clickElement(paymenttype2);
+        String namepaytype2 = driver.element().getElementText(paymenttype2);
+        if (driver.element().isElementVisible(searchbynamefield)) {
+            driver.element().clickElement(searchbynamefield).typeText(searchbynamefield, "abdo");
+            driver.element().clickElement(selectcustomerbutton);
+            driver.element().clickElement(selectaddressbutton);
+            driver.element().clickElement(closecustomerselectionmodalbutton);
+        }
+        driver.element().typeText(paymentamountfield2, String.valueOf(secondPayment));
+        driver.element().clickElement(paymenttype3);
+        if (driver.element().isElementVisible(searchbynamefield)) {
+            driver.element().clickElement(searchbynamefield).typeText(searchbynamefield, "abdo");
+            driver.element().clickElement(selectcustomerbutton);
+            driver.element().clickElement(selectaddressbutton);
+            driver.element().clickElement(closecustomerselectionmodalbutton);
+        }
+        driver.element().typeText(paymentamountfield3, String.valueOf(thirdPayment));
+        String namepaytype3 = driver.element().getElementText(paymenttype3);
+
+        Allure.step("Pay with multiple payment");
+        Allure.step("Pay Type 1:"+namepaytype1);
+        Allure.step("Pay Type 2:"+namepaytype2);
+        Allure.step("Pay Type 3:"+namepaytype3);
+        return this;
+    }
+    @Step("Validate Discount By Fixed Amount")
+    public PaymentPage validate_Discount_By_Fixed_Amount() {
+        double totalAmount = readMoneyOrFail(totalprice, "totalprice");
+        double discountAmount = totalAmount / 4;
+        driver.element().clickElement(discountbutton);
+        driver.element().typeText(discountvalue, String.valueOf(discountAmount));
+        driver.element().clickElement(okbuttonofdiscountmodal);
+        Allure.step(" Discount Amount Value:" + discountAmount);
+        return this;
+    }
+
 
 
     //validation

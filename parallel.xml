@@ -1,0 +1,24 @@
+<!-- Parallel Login Suite -->
+<suite name="Parallel Login Suite" parallel="methods" thread-count="8">
+
+    <listeners>
+        <listener class-name="com.ferpfirstcode.customlisteners.RetryTransformer"/>
+        <listener class-name="com.ferpfirstcode.customlisteners.TestNGListeners"/>
+    </listeners>
+
+    <test name="Login Tests">
+
+        <classes>
+            <class name="com.ferpfirstcode.tests.LoginTest">
+
+                <!-- هنا بنحدد التست بس -->
+                <methods>
+                    <include name="Valid_Login_TC"/>
+                </methods>
+
+            </class>
+        </classes>
+
+    </test>
+
+</suite>

@@ -1,2 +1,2 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","8946","Get_First_Combo_Product_Name","Default Suite","2026-04-08","passed","2026-04-08","com.ferpfirstcode.tests.OrderTest","FirstProjectFERP","com.ferpfirstcode.tests.OrderTest","Get_First_Combo_Product_Name"
+"Verify that the available quantity shown in the order page is equal to the last quantity from daily stock for the same product","19025","check_Product_Out_Of_Stock","Default Suite","2026-04-12","passed","2026-04-12","com.ferpfirstcode.tests.OrderTest","FirstProjectFERP","com.ferpfirstcode.tests.OrderTest","check_Product_Out_Of_Stock"

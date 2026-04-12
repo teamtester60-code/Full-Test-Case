@@ -2,6 +2,7 @@ package com.ferpfirstcode.pages.components;
 
 import com.ferpfirstcode.driver.GUIDriver;
 import com.ferpfirstcode.utils.logs.LogsManager;
+import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -42,30 +43,76 @@ public class DailyStockPage {
 
 
     @Step("Open today's daily stock if exists, otherwise create a new one")
-    public DailyStockPage openTodayDailyStockOrCreateNew() {
+    public HomePage openTodayDailyStockOrCreateNew0() throws InterruptedException {
 
         String today = LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-
+        Thread.sleep(3000);
         List<WebElement> rows = driver.get().findElements(dateindailystock);
-
         for (WebElement row : rows) {
             String rowText = row.getText().trim();
-
             if (rowText.contains(today)) {
                 row.click();
                 driver.element().clickElement(editButton);
-                return this;
+                return openTodayDailyStockOrCreateNew();
+            }
+            else{
+                driver.element().clickElement(createNewButton);
+                Thread.sleep(3000);
+                driver.element().clickElement(selectallproduct);
             }
         }
-
-        driver.element().clickElement(createNewButton);
-        driver.element().clickElement(selectallproduct);
+        Thread.sleep(3000);
         driver.element().clickElement(insertItemQuantityButton);
         driver.element().typeText(insertItemQuantityButton, "10");
         driver.element().clickElement(savebutton);
         driver.browser().refreshPage();
-        return openTodayDailyStockOrCreateNew();
+        return new HomePage(driver);
+
     }
+
+
+    @Step("Open today's daily stock if exists, otherwise create a new one")
+    public HomePage openTodayDailyStockOrCreateNew() throws InterruptedException {
+
+        String today = LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+
+        Thread.sleep(3000);
+
+        List<WebElement> rows = driver.get().findElements(dateindailystock);
+
+        // 🔍 ندور الأول هل موجود ولا لا
+        for (WebElement row : rows) {
+            String rowText = row.getText().trim();
+
+            if (rowText.contains(today)) {
+                System.out.println("✅ Today's stock found");
+
+                row.click();
+                driver.element().clickElement(editButton);
+
+                return new HomePage(driver); // ✅ بدون recursion
+            }
+        }
+
+        // ❌ لو مش موجود → نعمل create جديد
+        Allure.step("⚠️ Today's stock not found → creating new");
+
+        driver.element().clickElement(createNewButton);
+
+        driver.element().clickElement(selectallproduct);
+
+        driver.element().typeText(insertItemQuantityButton, "10");
+
+        driver.element().clickElement(savebutton);
+
+        driver.browser().refreshPage();
+
+
+        return new HomePage(driver);
+    }
+
+
+
 
     @Step("Get Product Name And Last Quantity Of It")
     public ProductStockData getProductNameAndLastQuantity() {
@@ -98,4 +145,5 @@ public class DailyStockPage {
         driver.element().clickElement(homebutton);
         return new HomePage(driver);
     }
+
 }

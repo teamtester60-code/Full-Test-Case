@@ -57,7 +57,7 @@ public class OrderPage {
     private final By cancelprintbutton= By.xpath("//button[normalize-space()='Cancel']");
     private final By paytheordersbutton= By.xpath("//a[@aria-controls='tab144']");
     private final By selcetordertopaybutton= By.xpath("//tbody/tr[last()]/td[1]//input[contains(@class,'e-checkbox')]");
-    private final By paybutton= By.xpath("//button[@type=\"button\" and contains(@class, \"btn-success\") and contains(@class, \"btnEdit\")]");
+    private final By paybutton= By.cssSelector("#coact-tab");
     private final By ordertypes = By.xpath("//div[@id='v-pills-tab']//a");
     private final By clickOk= By.xpath("//*[@id=\"modal-OrderType\"]/div/div/div[3]/button");
     private final By cancelproductsbutton=By.xpath("//div[contains(@class, 'fiixedCancel')]");
@@ -86,6 +86,11 @@ public class OrderPage {
     private final By checktocloseorder=By.cssSelector(".modal-content.pos-confirm-close-modal");
     private final By confirmorderbutton=By.cssSelector(".pos-confirm-close-modal .modal-footer button.btn.btn-primary");
     private final By returneditem=By.xpath("//tr[@data-dismiss='modal']/td[last()-1]");
+    private final By quantityinput=By.xpath("//input[@id='qty0']");
+    private final By  takeawayordertype1=By.xpath("//a[contains(@class,'nav-link') and (     contains(normalize-space(text()),'تيكاوي') or     contains(normalize-space(text()),'تيك اواى') or     contains(translate(normalize-space(text()),         'ABCDEFGHIJKLMNOPQRSTUVWXYZ',         'abcdefghijklmnopqrstuvwxyz'),'takeaway') )]");
+    private final By searchinput=By.xpath("//input[@id='searchOrder']");
+    private final By volumemodal= By.xpath("//div[@id='modal-Volums']");
+
 
     //dynamic locator
     private By productByIndex(int index) {
@@ -539,6 +544,47 @@ public class OrderPage {
         Allure.step("✅ Available quantity matches daily stock for product: " + productName + " (Actual: " + actualQuantity + ", Expected: " + expectedQuantity + ")");
 
         return this;
+    }
+    @Step("Create Order With A Product is Out Of Stock")
+    public OrderPage
+    createOrderWithProductIsOutOfStock(String productName, int expectedQuantity) throws InterruptedException {
+        Thread.sleep(3000);
+        if (isOrderTypePopupOpen()){
+            driver.element().clickElement(takeawayordertype1);
+        }
+        driver.element().typeText(searchinput, productName);
+
+
+        driver.element().clickElement(By.xpath("//div[contains(@class,'productName') and normalize-space(text())='" + productName + "']"));
+        if (volumemodal!=null){
+            driver.element().clickElement(volumeByIndex(1));
+        }
+        int actualQuantity= Integer.parseInt(driver.element().getElementText(By.xpath("//div[contains(@class,'productName') and normalize-space(text())='" + productName + "'] /ancestor::div[contains(@class,'product-card')] //div[contains(@class,'productAvalQty')]//span")));
+
+        Allure.step("✅ Available quantity for product: " + productName + " is: " + actualQuantity);
+        int quantityToOrder = actualQuantity+1;
+        driver.element().clickElement(quantityinput);
+        driver.element().typeText(quantityinput, String.valueOf(quantityToOrder));
+        driver.element().clickElement(paybutton);
+        driver.element().clickElement(closeorderbutton);
+        return this;
+    }
+    public void validateToastContains(String expectedText) {
+
+        By toast = By.cssSelector(".toast-info .toast-message");
+
+        driver.element().hoverOverElement(toast);
+        driver.element().getElementText(toast);
+
+        String actual = driver.element().getElementText(toast);
+
+        if (!actual.contains(expectedText)) {
+            throw new AssertionError(
+                    "❌ Expected: " + expectedText + " but found: " + actual
+            );
+        }
+
+        Allure.step("✅ Toast validated: " + actual);
     }
 
 }

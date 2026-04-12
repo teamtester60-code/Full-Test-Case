@@ -75,6 +75,34 @@ public class OrderTest extends AuthenticatedBaseTest {
 
     }
 
+
+    @Epic("Order Management")
+    @Feature("Daily Stock")
+    @Story("Validate available quantity in order page matches daily stock quantity")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Verify that the available quantity shown in the order page is equal to the last quantity from daily stock for the same product")
+    @Owner("Ahmed Hassan")
+    @Test
+    public void check_Product_Out_Of_Stock() throws InterruptedException {
+        HomePage homePage = new HomePage(guiDriver);
+        DailyStockPage dailyStockPage = new DailyStockPage(guiDriver);
+        homePage.gotoSettingPage()
+                .enable_ShowProducts_AvaliableQuantity_Settings()
+                .enable_Use_Daily_Stock()
+                .clickOnSaveButton()
+                .clickOnHomeButton()
+                .gotoDailyStockPage()
+                .gotoDailyStockListPage()
+                .openTodayDailyStockOrCreateNew();
+                 ProductStockData stockData = dailyStockPage.getProductNameAndLastQuantity();
+                 String productName = stockData.getProductName();
+                 int expectedQuantity = stockData.getLastQuantity();
+                 dailyStockPage.clickOnHomeButton()
+                .gotoorderpage()
+                .createOrderWithProductIsOutOfStock(productName, expectedQuantity)
+                .validateToastContains("لا يوجد كميه متاحه من الوجبه");
+    }
+
     @Test
     public void Get_First_Combo_Product_Name() throws InterruptedException {
         HomePage homePage = new HomePage(guiDriver);
@@ -83,5 +111,4 @@ public class OrderTest extends AuthenticatedBaseTest {
         String productName = orderAPI.getFirstComboProductName();
         Allure.step("First combo product name: " + productName);
     }
-
 }

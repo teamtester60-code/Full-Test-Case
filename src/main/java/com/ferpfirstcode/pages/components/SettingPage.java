@@ -32,6 +32,19 @@ public class SettingPage {
         return this;
     }
 
+    @Step("Disable show products available quantity settings")
+    public SettingPage disable_ShowProducts_AvaliableQuantity_Settings() throws InterruptedException {
+        Thread.sleep(3000);
+
+        WebElement checkbox = driver.get().findElement(ShowProductsAvaliableQuantity);
+
+        if (checkbox.isSelected()) {
+            checkbox.click();
+        }
+
+        return this;
+    }
+
 
     @Step("disable show products avaliable quantity settings")
     public SettingPage disable_ShowProducts_Avaliable_Quantity_Settings() {

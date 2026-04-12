@@ -53,7 +53,7 @@ public class PaymentTest extends AuthenticatedBaseTest {
     }
 
     @Test
-public void Over_Payment_Test_With_Database() throws InterruptedException {
+    public void Over_Payment_Test_With_Database() throws InterruptedException {
 
     PaymentPage paymentPage =
             new HomePage(guiDriver)
@@ -72,7 +72,7 @@ public void Over_Payment_Test_With_Database() throws InterruptedException {
     paymentPage.validateDBPayAmountIsDoubleTotal(40, 0.01);
 }
     @Test
- public void DB_Matches_UI() throws InterruptedException {
+    public void DB_Matches_UI() throws InterruptedException {
 
         PaymentPage paymentPage = new PaymentPage(guiDriver);
          new HomePage(guiDriver)
@@ -87,7 +87,7 @@ public void Over_Payment_Test_With_Database() throws InterruptedException {
 
  }
 
- @Test
+    @Test
     public void Pay_With_Multiple_Payment() throws InterruptedException {
         PaymentPage paymentPage= new PaymentPage(guiDriver);
         new HomePage(guiDriver)
@@ -100,6 +100,7 @@ public void Over_Payment_Test_With_Database() throws InterruptedException {
                 .closeOrder();
 
     }
+
     @Test
     public void Make_Discount_With_Fixed_Amount() throws InterruptedException {
         PaymentPage paymentPage = new PaymentPage(guiDriver);

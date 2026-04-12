@@ -454,8 +454,18 @@ public class PaymentPage {
         );
     }
 
+    @Step("pay less than total cost")
+    public PaymentPage payLessThanTotalCost() {
+        driver.element().typeText(paymentamountfield,"1");
+        return this;
+    }
 
 
+    @Step("Validate the Message that appear when pay less than total cost")
+    public PaymentPage validate_pay_amount_less_than_total_cost() {
+
+        return this;
+    }
 
     @Step("Validate DB Total equals UI Total")
     public PaymentPage validateDBTotalEqualsUITotal(double delta) {

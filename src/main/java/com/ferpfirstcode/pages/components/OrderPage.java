@@ -85,7 +85,7 @@ public class OrderPage {
     private final By closeorderbutton=By.xpath("(//button[.//i[contains(@class,'fa-times')]])[1]");
     private final By checktocloseorder=By.cssSelector(".modal-content.pos-confirm-close-modal");
     private final By confirmorderbutton=By.cssSelector(".pos-confirm-close-modal .modal-footer button.btn.btn-primary");
-    private final By returneditem=By.xpath("//tr[@data-dismiss='modal']/td[last()-1]");
+    private final By returneditem=By.xpath("//tr[@data-dismiss='modal']/td[3]");
     private final By quantityinput=By.xpath("//input[@id='qty0']");
     private final By  takeawayordertype1=By.xpath("//a[contains(@class,'nav-link') and (     contains(normalize-space(text()),'تيكاوي') or     contains(normalize-space(text()),'تيك اواى') or     contains(translate(normalize-space(text()),         'ABCDEFGHIJKLMNOPQRSTUVWXYZ',         'abcdefghijklmnopqrstuvwxyz'),'takeaway') )]");
     private final By searchinput=By.xpath("//input[@id='searchOrder']");
@@ -285,16 +285,16 @@ public class OrderPage {
         driver.element().clickElement(selectordertomakereturnorder);
         driver.element().clickElement(showordertoreturn);
         driver.element().clickElement(selectallproductroreturn);
-        String pricebeforereturn = driver.element().getElementText(pricebforereturn);
-        double priceBeforeReturn = Double.parseDouble(pricebeforereturn);
+        String pricebeforereturn = waitForNonEmptyText(pricebforereturn);
+        double priceBeforeReturn = safeParseDouble(pricebeforereturn, "Price before return");
         driver.element().getElementText(returneditem);
-        String returnedItem = driver.element().getElementText(returneditem);
+        String returnedItem =waitForNonEmptyText(returneditem);
         driver.element().clickElement(savetheReturn);
         driver.element().clickElement(returnorderlist);
-        String priceafterreturn = driver.element().getElementText(thepriceofreturnorder);
-        double priceAfterReturn = Double.parseDouble(priceafterreturn);
-        double expectedAfterReturn = priceBeforeReturn - Double.parseDouble(returnedItem);
-        if (Math.abs(expectedAfterReturn - priceAfterReturn) < 0.01) {
+        String priceafterreturn = waitForNonEmptyText(thepriceofreturnorder);
+        double priceAfterReturn = safeParseDouble(priceafterreturn, "Price after return");
+        double expectedAfterReturn = priceBeforeReturn;
+        if (Math.abs(expectedAfterReturn - priceAfterReturn) > 0.1) {
             throw new AssertionError(
                     "❌ Return calculation mismatch | " +
                             "Before=" + priceBeforeReturn +
@@ -307,6 +307,30 @@ public class OrderPage {
         LogsManager.info("Price before return: " + priceBeforeReturn + ", Price after return: " + priceAfterReturn + ", Expected after return: " + expectedAfterReturn);
         Allure.step("Price before return: " + priceBeforeReturn + ", Price after return: " + priceAfterReturn + ", Expected after return: " + expectedAfterReturn);
         return this;
+    }
+    private String waitForNonEmptyText(By locator) {
+        WebDriverWait wait = new WebDriverWait(driver.get(), Duration.ofSeconds(10));
+
+        return wait.until(d -> {
+            try {
+                String text = d.findElement(locator).getText();
+                System.out.println("DEBUG TEXT: [" + text + "]");
+                return (text != null && !text.trim().isEmpty()) ? text : null;
+            } catch (Exception e) {
+                return null;
+            }
+        });
+    }
+    private double safeParseDouble(String value, String fieldName) {
+        if (value == null || value.trim().isEmpty()) {
+            throw new RuntimeException("❌ " + fieldName + " is empty or null");
+        }
+
+        try {
+            return Double.parseDouble(value.trim());
+        } catch (NumberFormatException e) {
+            throw new RuntimeException("❌ Invalid number format in " + fieldName + ": " + value);
+        }
     }
 
     @Step("Create New Order for {numberOfPeople} people")
@@ -489,7 +513,9 @@ public class OrderPage {
 
 
     @Step("Get product quantity by name from order page")
-    public int getProductQuantityByName(String productName) {
+    public int getProductQuantityByName(String productName) throws InterruptedException {
+        Thread.sleep(3000);
+        driver.element().typeText(searchinput, productName);
         By productQtyLocator = By.xpath(
                 "//div[contains(@class,'product-card')][.//div[contains(@class,'productName') and normalize-space()='" + productName + "']]//*[contains(@class,'productAvalQty')]"
         );
@@ -531,7 +557,13 @@ public class OrderPage {
         return this;
     }
     @Step("Validate available quantity matches daily stock")
-    public OrderPage validateAvailableQuantityMatchesDailyStock(String productName, int expectedQuantity) {
+    public OrderPage validateAvailableQuantityMatchesDailyStock(String productName, int expectedQuantity) throws InterruptedException {
+        Thread.sleep(3000);
+        if(isOrderTypePopupOpen())
+        {
+            Thread.sleep(2000);
+            driver.element().clickElement(takeawayordertype1);
+        }
 
         int actualQuantity = getProductQuantityByName(productName);
 

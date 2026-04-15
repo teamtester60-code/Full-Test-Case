@@ -25,7 +25,11 @@ public class PaymentTest extends AuthenticatedBaseTest {
     @Test
     public void Should_Create_And_Pay_Delivery_Order() throws InterruptedException {
                  HomePage homePage = new HomePage(guiDriver);
-                homePage.gotoorderpage()
+        homePage.gotoSettingPage()
+                .disable_Use_Daily_Stock()
+                .clickOnSaveButton()
+                .clickOnHomeButton();
+        homePage.gotoorderpage()
                 .selectOrderTypebyindex()
                 .clickOnProduct()
                 .validateOrderIsSentSuccessfully()
@@ -113,6 +117,21 @@ public class PaymentTest extends AuthenticatedBaseTest {
                 .validate_Discount_By_Fixed_Amount()
                 .closeOrder();
 
+
+
+    }
+
+    @Test
+    public void Pay_Less_than_Total_cost() throws InterruptedException {
+        PaymentPage paymentPage= new PaymentPage(guiDriver);
+        new HomePage(guiDriver)
+                .gotoorderpage()
+                .makeTakeAwayOrder()
+                .clickOnProduct()
+                .goToPaymentForTakeawayOrder();
+        paymentPage
+                .payLessThanTotalCost()
+                .validate_pay_amount_less_than_total_cost("يجب ان يكون المبلغ المدفوع");
 
 
     }

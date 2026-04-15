@@ -20,10 +20,14 @@ public class OrderTest extends AuthenticatedBaseTest {
     @Test
     public void Should_Create_Order_And_Pay_Successfully() throws InterruptedException {
              HomePage homePage = new HomePage(guiDriver);
+             homePage.gotoSettingPage()
+                     .disable_Use_Daily_Stock()
+                     .clickOnSaveButton()
+                     .clickOnHomeButton();
              homePage.gotoorderpage()
-            .selectOrderTypebyindex()
-            .clickOnProduct()
-            .validateOrderIsSentSuccessfully();
+                     .selectOrderTypebyindex()
+                     .clickOnProduct()
+                     .validateOrderIsSentSuccessfully();
     }
 
     

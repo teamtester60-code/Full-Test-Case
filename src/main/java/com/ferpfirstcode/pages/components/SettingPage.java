@@ -89,6 +89,17 @@ public class SettingPage {
 
 
     }
+    @Step("disable Use Daily Stock")
+    public SettingPage disable_Use_Daily_Stock(){
+
+        boolean isChecked = driver.element().isElementSelected(UseDailyStock);
+        if (isChecked){
+            driver.element().clickElement(UseDailyStock);
+        }
+        return this;
+
+
+    }
 
     @Step("click on save button")
     public SettingPage clickOnSaveButton(){

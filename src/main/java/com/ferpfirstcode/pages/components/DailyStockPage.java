@@ -88,6 +88,7 @@ public class DailyStockPage {
                 System.out.println("✅ Today's stock found");
 
                 row.click();
+                Thread.sleep(3000);
                 driver.element().clickElement(editButton);
 
                 return new HomePage(driver); // ✅ بدون recursion
@@ -96,6 +97,7 @@ public class DailyStockPage {
 
         // ❌ لو مش موجود → نعمل create جديد
         Allure.step("⚠️ Today's stock not found → creating new");
+        Thread.sleep(3000);
 
         driver.element().clickElement(createNewButton);
 

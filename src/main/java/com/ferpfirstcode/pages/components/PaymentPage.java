@@ -457,13 +457,27 @@ public class PaymentPage {
     @Step("pay less than total cost")
     public PaymentPage payLessThanTotalCost() {
         driver.element().typeText(paymentamountfield,"1");
+        driver.element().clickElement(closeOrderbutton);
         return this;
     }
 
 
     @Step("Validate the Message that appear when pay less than total cost")
-    public PaymentPage validate_pay_amount_less_than_total_cost() {
+    public PaymentPage validate_pay_amount_less_than_total_cost(String expectedText) {
 
+        By toast = By.cssSelector(".toast-warning .toast-message");
+
+        driver.element().getElementText(toast);
+
+        String actual = driver.element().getElementText(toast);
+
+        if (!actual.contains(expectedText)) {
+            throw new AssertionError(
+                    "❌ Expected: " + expectedText + "\nActual: " + actual
+            );
+        }
+
+        System.out.println("✅ Toast validated: " + actual);
         return this;
     }
 

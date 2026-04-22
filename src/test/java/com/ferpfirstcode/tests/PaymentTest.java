@@ -3,6 +3,7 @@ import com.ferpfirstcode.RetryAnalyzer;
 import com.ferpfirstcode.pages.components.CustomerOrderPage;
 import com.ferpfirstcode.pages.components.HomePage;
 import com.ferpfirstcode.pages.components.PaymentPage;
+import com.ferpfirstcode.pages.components.SettingPage;
 import io.qameta.allure.*;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
@@ -19,7 +20,7 @@ public class PaymentTest extends AuthenticatedBaseTest {
     @Severity(SeverityLevel.CRITICAL)
     @Owner("Ahmed Hassan")
     @Test
-    public void Should_Create_And_Pay_Delivery_Order() throws InterruptedException {
+    public void Create_And_Pay_Delivery_Order() throws InterruptedException {
                  HomePage homePage = new HomePage(guiDriver);
         homePage.gotoSettingPage()
                 .disable_Use_Daily_Stock()
@@ -41,7 +42,13 @@ public class PaymentTest extends AuthenticatedBaseTest {
     @Owner("Ahmed Hassan")
     @Test
     public void Create_Return_Order_TC() throws InterruptedException {
-         HomePage homePage = new HomePage(guiDriver);
+        HomePage homePage = new HomePage(guiDriver);
+        homePage.gotoSettingPage();
+        SettingPage settingPage = new SettingPage(guiDriver);
+        settingPage.disable_Use_Daily_Stock()
+                .clickOnSaveButton()
+                .clickOnHomeButton();
+
              homePage.gotoorderpage()
              .selectOrderTypebyindex()
              .clickOnProduct()
@@ -54,6 +61,11 @@ public class PaymentTest extends AuthenticatedBaseTest {
 
     @Test
     public void Over_Payment_Test_With_Database() throws InterruptedException {
+        HomePage homePage = new HomePage(guiDriver);
+        homePage.gotoSettingPage()
+                .disable_Use_Daily_Stock()
+                .clickOnSaveButton()
+                .clickOnHomeButton();
 
     PaymentPage paymentPage =
             new HomePage(guiDriver)
@@ -73,6 +85,11 @@ public class PaymentTest extends AuthenticatedBaseTest {
 }
     @Test
     public void DB_Matches_UI() throws InterruptedException {
+        HomePage homePage = new HomePage(guiDriver);
+        homePage.gotoSettingPage()
+                .disable_Use_Daily_Stock()
+                .clickOnSaveButton()
+                .clickOnHomeButton();
 
         PaymentPage paymentPage = new PaymentPage(guiDriver);
          new HomePage(guiDriver)
@@ -89,6 +106,11 @@ public class PaymentTest extends AuthenticatedBaseTest {
 
     @Test
     public void Pay_With_Multiple_Payment() throws InterruptedException {
+        HomePage homePage = new HomePage(guiDriver);
+        homePage.gotoSettingPage()
+                .disable_Use_Daily_Stock()
+                .clickOnSaveButton()
+                .clickOnHomeButton();
         PaymentPage paymentPage= new PaymentPage(guiDriver);
         new HomePage(guiDriver)
                 .gotoorderpage()
@@ -103,6 +125,11 @@ public class PaymentTest extends AuthenticatedBaseTest {
 
     @Test
     public void Make_Discount_With_Fixed_Amount() throws InterruptedException {
+        HomePage homePage = new HomePage(guiDriver);
+        homePage.gotoSettingPage()
+                .disable_Use_Daily_Stock()
+                .clickOnSaveButton()
+                .clickOnHomeButton();
         PaymentPage paymentPage = new PaymentPage(guiDriver);
         new HomePage(guiDriver)
                 .gotoorderpage()
@@ -119,6 +146,11 @@ public class PaymentTest extends AuthenticatedBaseTest {
 
     @Test
     public void Pay_Less_than_Total_cost() throws InterruptedException {
+        HomePage homePage = new HomePage(guiDriver);
+        homePage.gotoSettingPage()
+                .disable_Use_Daily_Stock()
+                .clickOnSaveButton()
+                .clickOnHomeButton();
         PaymentPage paymentPage= new PaymentPage(guiDriver);
         new HomePage(guiDriver)
                 .gotoorderpage()
@@ -146,7 +178,8 @@ public class PaymentTest extends AuthenticatedBaseTest {
                 .selectRandomOrderType()
                 .selectRandomProduct()
                 .enterRandomQuantity()
-                .enterRandomDiscount();
+                .enterRandomDiscount()
+                .saveCustomerOrder();
 
 
     }

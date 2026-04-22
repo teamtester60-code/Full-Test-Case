@@ -38,7 +38,13 @@ public class OrderTest extends AuthenticatedBaseTest {
     @Owner("Ahmed Hassan")
     @Test
     public void Cancel_order_TC() throws InterruptedException{
+
             HomePage homePage = new HomePage(guiDriver);
+            homePage.gotoSettingPage()
+                    .disable_Use_Daily_Stock()
+                    .clickOnSaveButton()
+                    .clickOnHomeButton();
+
             homePage.gotoorderpage()
             .selectOrderTypebyindex()
             .clickOnProduct()

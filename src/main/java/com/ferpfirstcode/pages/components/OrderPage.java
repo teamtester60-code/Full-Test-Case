@@ -404,13 +404,14 @@ public class OrderPage {
 
 
     @Step("Cancel Order")
-    public OrderPage cancelOrder() {
+    public OrderPage cancelOrder() throws InterruptedException {
         driver.element().clickElement(sendorderbutton);
         if (driver.element().isElementVisible(okbuttononordertype)) {
             driver.get().switchTo().activeElement().sendKeys(Keys.ESCAPE);
 
         }
         driver.element().clickElement(opensentordersbutton);
+        Thread.sleep(2000);
         driver.element().clickElement(selectorderbutton);
         String priceOfProductTocancel = driver.element().getElementText(priceOfProductToCancel);
         String totalpriceBeforderbeforecancel = driver.element().getElementText(totalpricebeforesendorder);
@@ -426,6 +427,7 @@ public class OrderPage {
 
         }
         driver.element().clickElement(opensentordersbutton);
+        Thread.sleep(2000);
         String totalpriceoforderaftercancel = driver.element().getElementText(totalpriceaftersendorder);
         double totalPriceAfterCancel = Double.parseDouble(totalpriceoforderaftercancel);
         double expected = totalPriceAfterCancel + priceOfProductToCancel;

@@ -161,5 +161,11 @@ public class CustomerOrderPage {
         Allure.step("✅ Successfully typed random quantity: " + quantityText);
         return this;
     }
+    @Step("Save The Customer Order")
+    public CustomerOrderPage saveCustomerOrder() {
+        driver.element().clickElement(savebutton);
+        return this;
+    }
+
 
 }

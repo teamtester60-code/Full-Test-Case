@@ -33,9 +33,8 @@ public class LoginTest extends BaseTest {
     @Story("Login With Valid Data")
     @Severity(SeverityLevel.BLOCKER)
     @Owner("Ahmed Hassan")
-    @Test()
-    public void Valid_Login_TC(int runNumber) throws InterruptedException {
-        Allure.step("Step " + runNumber + " - Login With Valid Data");
+    @Test
+    public void Valid_Login_TC() throws InterruptedException {
         new LoginPage(guiDriver)
                 .navigateToLoginPage()
                 .loginwithpin()

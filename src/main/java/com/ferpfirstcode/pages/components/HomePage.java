@@ -5,11 +5,6 @@ import com.ferpfirstcode.media.ScreenShotsManager;
 import com.ferpfirstcode.utils.logs.LogsManager;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.List;
 
 
 public class HomePage {
@@ -32,6 +27,7 @@ public class HomePage {
     private final By settingbtn=By.xpath("//a[@href='/POSsettings' and contains(@class,'d-flex')]");
     private final By transactionbutton = By.xpath("//i[contains(@class,'fa-donate')]/ancestor::div[contains(@class,'ms-panel-body')]");
     private final By dailystockbutton = By.cssSelector("a.d-flex[href='/dailystock']");
+    private final By customerorderbutton = By.xpath("//a[@href='/CustomerOrders']");
 
 
 
@@ -92,6 +88,12 @@ public class HomePage {
         driver.element().clickElement(OrderListButton);
         driver.element().clickElement(orderpagebutton);
         return new OrderPage(driver);
+    }
+    @Step("Go to Customer Order Page")
+    public CustomerOrderPage gotocustomerorderpage() {
+        driver.element().clickElement(transactionbutton);
+        driver.element().clickElement(customerorderbutton);
+        return new CustomerOrderPage(driver);
     }
 
     @Step("Go to Manage Page")

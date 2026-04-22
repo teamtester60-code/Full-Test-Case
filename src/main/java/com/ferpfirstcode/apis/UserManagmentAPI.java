@@ -3,12 +3,16 @@ package com.ferpfirstcode.apis;
 import com.ferpfirstcode.driver.GUIDriver;
 import com.ferpfirstcode.utils.logs.LogsManager;
 import com.ferpfirstcode.validations.Verification;
+import com.jayway.jsonpath.JsonPath;
+import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import org.testng.Assert;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class UserManagmentAPI {
@@ -135,4 +139,94 @@ public class UserManagmentAPI {
         verification.Equals(response.jsonPath().get("message"), "Account deleted!", "User not deleted!");
         return this;
     }
+
+    @Step("Dynamically fetch the first available customer using multiple search letters")
+    public String getFirstAvailableCustomerName() {
+
+        String token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiJkMWYyYzY3Ny1kOGQ3LTQxMGUtODgzMC0yMzc3NmY2OGNjNzkiLCJyb2xlIjoiQWRtaW4iLCJVc2VyTmFtZSI6ImFkbWluIiwibmJmIjoxNzc2NTgyNzgwLCJleHAiOjE3NzY2NjkxODAsImlhdCI6MTc3NjU4Mjc4MH0.xmH9nArySaYqKwg_Y72s6MxZ865jAXOHIG_FIgf8ODM";
+        String POSdocumentID = "6903c153f6a6de2248add31d";
+
+        // 1. Array of common letters to search for (English, Arabic, and even a space)
+        String[] searchCharacters = {"a","A","M", "m", "s", "م", "ا", "س", " "};
+
+        // 2. Loop through the characters one by one
+        for (String letter : searchCharacters) {
+
+            String payload = "{\"Name\": \"" + letter + "\", \"UseCredit\": true}";
+
+            Response response = RestAssured.given()
+                    .header("Authorization", token)
+                    .header("Accept", "application/json")
+                    .header("Content-Type", "application/json")
+                    .header("PointOfSaleDocumentId", POSdocumentID)
+                    .body(payload)
+                    .when()
+                    .post("http://localhost:56740/api/Order/GetCustomerByMobileOrNameAsync/");
+
+            int statusCode = response.getStatusCode();
+
+            // 3. If we get 200, we found customers! Let's extract the first one and break the loop.
+            if (statusCode == 200) {
+                String responseBody = response.getBody().asString();
+                List<String> allNames = JsonPath.read(responseBody, "$[*].Name");
+
+                if (allNames != null && !allNames.isEmpty()) {
+                    String firstCustomer = allNames.get(0);
+                    Allure.step("✅ Found customer using letter '" + letter + "': " + firstCustomer);
+                    return firstCustomer; // Exit the function immediately with the name
+                }
+            } else {
+                // Log that this specific letter didn't work, but the loop will continue
+                System.out.println("Letter '" + letter + "' returned " + statusCode + ", trying next...");
+            }
+        }
+
+        // 4. If the loop finishes all letters and still hasn't returned a name, THEN we fail the test.
+        Assert.fail("🚨 CRITICAL FAILURE: Tried all search letters (A-Z fallback) but the server returned 204 No Content every time! Is the database empty?");
+
+        return null;
+    }
+
+
+    @Step("Get all product names from FirstOpen API")
+    public List<String> getAllProductNames() {
+
+        // Variables for easy maintenance
+        String token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiJkMWYyYzY3Ny1kOGQ3LTQxMGUtODgzMC0yMzc3NmY2OGNjNzkiLCJyb2xlIjoiQWRtaW4iLCJVc2VyTmFtZSI6ImFkbWluIiwibmJmIjoxNzc2NjcwMDk2LCJleHAiOjE3NzY3NTY0OTYsImlhdCI6MTc3NjY3MDA5Nn0.gDGQaKjs5U0NlsNgs5WHL8oBfe5BvWQIuRoQGhENNLk";
+        String POSdocumentID = "6903c153f6a6de2248add31d";
+
+        Response response = RestAssured.given()
+                .header("Authorization", token)
+                .header("Accept", "application/json")
+                .header("Content-Type", "application/json")
+                .header("PointOfSaleDocumentId", POSdocumentID) // Passing the variable perfectly
+                .when()
+                .get("http://localhost:56740/api/Order/FirstOpen");
+
+        int statusCode = response.getStatusCode();
+        Allure.step("Status code: " + statusCode);
+
+        // Hard Assertion: If status is not 200, the test STOPS here immediately.
+        Assert.assertEquals(statusCode, 200, "🚨 API Request failed! Expected status code 200 but found: " + statusCode);
+
+        // If the code reaches this line, it means the status code is definitely 200
+        String responseBody = response.getBody().asString();
+
+        // Extracting product names
+        List<String> allProducts = JsonPath.read(responseBody, "$.productTypes[*].ProductGroups[*].Products[*].Name");
+
+        // Validating the parsed data to prevent NullPointerException
+        Assert.assertNotNull(allProducts, "🚨 The extracted product list is null! Check the JSONPath.");
+        Assert.assertFalse(allProducts.isEmpty(), "🚨 The product list is empty! No products were found.");
+
+        Allure.step("The number of products fetched: " + allProducts.size());
+        // 1. Format the list to have each product on a new line instead of one big block
+        String formattedProducts = String.join("\n", allProducts);
+
+        // 2. Add it as a clean text attachment inside the Allure Report
+        Allure.addAttachment("📜 Full Product List (" + allProducts.size() + " Items)", "text/plain", formattedProducts);
+
+        return allProducts;
+    }
+
 }

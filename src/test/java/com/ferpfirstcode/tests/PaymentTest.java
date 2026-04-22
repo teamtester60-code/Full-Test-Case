@@ -1,13 +1,9 @@
 package com.ferpfirstcode.tests;
 import com.ferpfirstcode.RetryAnalyzer;
+import com.ferpfirstcode.pages.components.CustomerOrderPage;
 import com.ferpfirstcode.pages.components.HomePage;
 import com.ferpfirstcode.pages.components.PaymentPage;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Owner;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -135,6 +131,27 @@ public class PaymentTest extends AuthenticatedBaseTest {
 
 
     }
+
+    @Test
+    public void Create_Customer_Order_With_Random_Data() throws InterruptedException {
+        HomePage homePage = new HomePage(guiDriver);
+        homePage.gotocustomerorderpage()
+                .clickOnAddButton();
+
+        CustomerOrderPage customerOrderPage = new CustomerOrderPage(guiDriver);
+        String dynamicCustomerName = customerOrderPage.getCustomerNameFromNetwork();
+
+        customerOrderPage.entertextname(dynamicCustomerName)
+                .selectFirstPaymentType()
+                .selectRandomOrderType()
+                .selectRandomProduct()
+                .enterRandomQuantity()
+                .enterRandomDiscount();
+
+
+    }
+
+
 
 
 

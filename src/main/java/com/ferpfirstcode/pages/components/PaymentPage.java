@@ -464,6 +464,7 @@ public class PaymentPage {
 
     @Step("Validate the Message that appear when pay less than total cost")
     public PaymentPage validate_pay_amount_less_than_total_cost(String expectedText) {
+        driver.element().clickElement(closeOrderbutton);
 
         By toast = By.cssSelector(".toast-warning .toast-message");
 

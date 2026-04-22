@@ -18,7 +18,7 @@ public class OrderTest extends AuthenticatedBaseTest {
     @Owner("Ahmed Hassan")
 
     @Test
-    public void Should_Create_Order_And_Pay_Successfully() throws InterruptedException {
+    public void Create_Order_And_Pay_Successfully() throws InterruptedException {
              HomePage homePage = new HomePage(guiDriver);
              homePage.gotoSettingPage()
                      .disable_Use_Daily_Stock()
@@ -114,5 +114,15 @@ public class OrderTest extends AuthenticatedBaseTest {
         OrderAPI orderAPI = new OrderAPI();
         String productName = orderAPI.getFirstComboProductName();
         Allure.step("First combo product name: " + productName);
+    }
+
+    @Test
+    public void Get_Products_Name_From_API() throws InterruptedException {
+        HomePage homePage = new HomePage(guiDriver);
+        homePage.gotoorderpage();
+        OrderPage orderPage = new OrderPage(guiDriver);
+        orderPage.get_All_Product_From_API();
+
+
     }
 }

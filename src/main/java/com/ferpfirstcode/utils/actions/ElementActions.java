@@ -212,5 +212,22 @@ public class ElementActions {
             return false; // instead of throwing, return false
         }
     }
+    public int getElementsCount(By locator) {
+        try {
+            // Using driver.findElements directly. It returns an empty list (size 0)
+            // if no elements are found, which is exactly what we want when counting.
+            List<WebElement> elements = driver.findElements(locator);
+            int count = elements.size();
+
+            LogsManager.info("Counted " + count + " elements for locator: " + locator);
+            return count;
+
+        } catch (Exception e) {
+            // Catching any unexpected WebDriver errors, logging them, and returning 0 safely
+            LogsManager.error("Failed to count elements for: " + locator + " - " + e.getMessage());
+            takeScreenshot("getElementsCount-" + locator.toString());
+            return 0;
+        }
+    }
 }
 

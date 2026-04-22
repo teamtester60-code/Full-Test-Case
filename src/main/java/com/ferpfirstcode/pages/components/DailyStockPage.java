@@ -4,6 +4,7 @@ import com.ferpfirstcode.driver.GUIDriver;
 import com.ferpfirstcode.utils.logs.LogsManager;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
+import org.apache.poi.ss.formula.functions.T;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -103,13 +104,14 @@ public class DailyStockPage {
 
         driver.element().clickElement(selectallproduct);
 
+        Thread.sleep(3000);
         driver.element().typeText(insertItemQuantityButton, "10");
 
         driver.element().clickElement(savebutton);
 
         driver.browser().refreshPage();
 
-
+        Thread.sleep(3000);
         return new HomePage(driver);
     }
 

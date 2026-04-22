@@ -1,5 +1,6 @@
 package com.ferpfirstcode.pages.components;
 
+import com.ferpfirstcode.apis.UserManagmentAPI;
 import com.ferpfirstcode.driver.GUIDriver;
 import com.ferpfirstcode.media.ScreenShotsManager;
 import com.ferpfirstcode.utils.dataReader.PropertyReader;
@@ -38,7 +39,8 @@ public class OrderPage {
     private final By okbuttononpersonscountbar= By.id("#modal-Persons div.modal-footer button.btnEdit");
     private final By sendorderbutton= By.xpath("//*[@id=\"ct-tab\"]/div[1]");
     private final By payementbutton= By.xpath("//*[@id=\"coact-tab\"]/div[1]");
-    private final By sidedishPOPUP= By.id("modal-NewSideDishes");
+    private final By sidedishPOPUP= By.xpath("//div[@id='modal-NewSideDishes' and contains(@class,'show')]");
+    private final By sidedishitem= By.xpath("(//div[contains(@class,'row')]//input[@type='checkbox'])[2]");
     private final By searchbynamefield= By.xpath("(//input[@placeholder='Search By Name'])[1]");
     private final By selectcustomerbutton= By.cssSelector("button.btnPLus.btn-link");
     private final By selectaddressbutton= By.xpath("(//*[@id=\"collapseOne_@i\"]/td[5]/button)[1]");
@@ -89,7 +91,7 @@ public class OrderPage {
     private final By quantityinput=By.xpath("//input[@id='qty0']");
     private final By  takeawayordertype1=By.xpath("//a[contains(@class,'nav-link') and (     contains(normalize-space(text()),'تيكاوي') or     contains(normalize-space(text()),'تيك اواى') or     contains(translate(normalize-space(text()),         'ABCDEFGHIJKLMNOPQRSTUVWXYZ',         'abcdefghijklmnopqrstuvwxyz'),'takeaway') )]");
     private final By searchinput=By.xpath("//input[@id='searchOrder']");
-    private final By volumemodal= By.xpath("//div[@id='modal-Volums']");
+    private final By volumemodal= By.xpath("//div[@id='modal-Volums' and contains(@class,'show')]");
 
 
     //dynamic locator
@@ -97,7 +99,7 @@ public class OrderPage {
         return By.xpath("(//div[contains(@class,'product-card')])["+index+"]");
     }
     private By volumeByIndex(int index) {
-        return By.xpath("(//div[@id='modal-Volums']//button[contains(@class,'volumeSelect')])["+index+"]");
+        return By.xpath("(//button[contains(@class,'volumeSelect')])["+index+"]");
     }
     private By sideDishByIndex(int index) {
         return By.xpath("(//div[@id='modal-NewSideDishes']//li[contains(@class,'liSide')]//button[contains(@class,'btn-success')])["+ index +"]");
@@ -143,7 +145,7 @@ public class OrderPage {
             driver.element().clickElement(okbuttonforsidedishmodal);
         }
     }
-    @Step("Select Order Type: {tabName}")
+    @Step("Select Order Type: ")
     public OrderPage selectOrderTypebyindex() {
         if (driver.element().isElementVisible(ordertypes)) {
             if (!driver.element().isElementVisible(ordertypenamebyindex)) {
@@ -158,7 +160,6 @@ public class OrderPage {
             }
 
             tabName = tabName.trim();
-            Allure.step("Order Type: " + tabName);
             driver.element().clickElement(ordertypenamebyindex);
 
             if (tabName.toLowerCase().contains("توصيل") || tabName.toLowerCase().contains("delivery")) {
@@ -245,69 +246,84 @@ public class OrderPage {
         return this;
     }
 
-    @Step("Make A Return Order")
+    @Step("Make A Return Order (Full Return)")
     public OrderPage makeAReturnOrder() throws InterruptedException {
         String orderType = driver.getSelectedOrderType();
 
         if (orderType == null || orderType.isBlank()) {
-            throw new IllegalStateException("Order type is null. Make sure selectOrderTypebyindex() was executed successfully before makeAReturnOrder()");
+            throw new IllegalStateException("Order type is null. Make sure selectOrderTypebyindex() was executed successfully.");
         }
 
         Allure.step("Using Order Type: " + orderType);
 
+        // 1. التعامل مع إغلاق الطلب (لغير التوصيل)
         if (!orderType.equalsIgnoreCase("delivery") && !orderType.equalsIgnoreCase("توصيل")) {
             driver.element().clickElement(closeorderbutton);
             Thread.sleep(2000);
-            if(isOrderTypePopupOpen())
-            {
-                Thread.sleep(2000);
+
+            // استبدال الـ Sleep بانتظار ذكي للـ Popup
+            if(isOrderTypePopupOpen()) {
                 driver.element().clickElement(okbuttononordertype);
             }
+
             if (driver.element().isElementVisible(checktocloseorder)) {
                 driver.element().clickElement(confirmorderbutton);
             }
         }
 
-
-
+        // 2. التنقل لشاشة المرتجعات بذكاء
         if (!driver.element().isElementVisible(returnordersbutton)) {
-                Thread.sleep(2000);
-                driver.element().clickElement(homebutton);
-                driver.element().clickElement(OrderListsButton);
+            driver.element().clickElement(homebutton);
+            driver.element().clickElement(OrderListsButton);
         }
-    
+
         driver.element().clickElement(returnordersbutton);
-        Thread.sleep(3000);
-        driver.browser().refreshPage();
-        Thread.sleep(3000);
-        ScreenShotsManager.takeFullPageScreenshot(driver.get(), "ReturnOrder");
-        driver.element().clickElement(createreturnorderbutton); 
+
+        // ملاحظة: الـ Refresh قد يكون حلاً لمشكلة في الـ Angular (Sync issue)، لا بأس بتركه إذا كان يحل مشكلة فعلية.
+//        driver.browser().refreshPage();
+
+
+        // 3. إنشاء المرتجع
+        Thread.sleep(4000);
+        driver.element().clickElement(createreturnorderbutton);
         driver.element().clickElement(selectordertomakereturnorder);
         driver.element().clickElement(showordertoreturn);
         driver.element().clickElement(selectallproductroreturn);
+
+        // 4. الحسابات (Math & Extractions)
         String pricebeforereturn = waitForNonEmptyText(pricebforereturn);
         double priceBeforeReturn = safeParseDouble(pricebeforereturn, "Price before return");
-        driver.element().getElementText(returneditem);
-        String returnedItem =waitForNonEmptyText(returneditem);
+
+        String returnedItem = waitForNonEmptyText(returneditem); // تم حذف السطر المكرر هنا
+
+        // 5. حفظ المرتجع والعودة للقائمة
         driver.element().clickElement(savetheReturn);
+        ScreenShotsManager.takeFullPageScreenshot(driver.get(), "Before_CreateReturnOrder");
         driver.element().clickElement(returnorderlist);
+
+        // 6. التحقق النهائي (Full Return Assumption)
         String priceafterreturn = waitForNonEmptyText(thepriceofreturnorder);
-        double priceAfterReturn = safeParseDouble(priceafterreturn, "Price after return");
-        double expectedAfterReturn = priceBeforeReturn;
+        double priceAfterReturn = safeParseDouble(priceafterreturn, "Price of Return Invoice");
+
+        double expectedAfterReturn = priceBeforeReturn; // لأننا اخترنا selectallproductroreturn
+
         if (Math.abs(expectedAfterReturn - priceAfterReturn) > 0.1) {
             throw new AssertionError(
                     "❌ Return calculation mismatch | " +
-                            "Before=" + priceBeforeReturn +
-                            " | ReturnedItem=" + returnedItem +
-                            " | ExpectedAfter=" +  expectedAfterReturn +
-                            " | ActualAfter=" + priceAfterReturn
+                            "Original Order Total = " + priceBeforeReturn +
+                            " | Returned Items = " + returnedItem +
+                            " | Return Invoice Total = " + priceAfterReturn
             );
         }
-        ScreenShotsManager.takeFullPageScreenshot(driver.get(), "ReturnOrder");
-        LogsManager.info("Price before return: " + priceBeforeReturn + ", Price after return: " + priceAfterReturn + ", Expected after return: " + expectedAfterReturn);
-        Allure.step("Price before return: " + priceBeforeReturn + ", Price after return: " + priceAfterReturn + ", Expected after return: " + expectedAfterReturn);
+
+        ScreenShotsManager.takeFullPageScreenshot(driver.get(), "After_ReturnOrder_Success");
+        LogsManager.info("✅ Full Return Successful. Original Price: " + priceBeforeReturn + ", Return Invoice Price: " + priceAfterReturn);
+        Allure.step("✅ Full Return Successful. Original Price: " + priceBeforeReturn + ", Return Invoice Price: " + priceAfterReturn);
+
         return this;
     }
+
+
     private String waitForNonEmptyText(By locator) {
         WebDriverWait wait = new WebDriverWait(driver.get(), Duration.ofSeconds(10));
 
@@ -403,12 +419,26 @@ public class OrderPage {
         driver.element().clickElementByJS(cancelproductsbutton);
         driver.element().clickElement(checkproducttocancel);
         driver.element().clickElement(sendorderaftercancelproduct);
+
         driver.element().clickElement(customerresoncancelbutton);
+        if (driver.element().isElementVisible(okbuttononordertype)) {
+            driver.get().switchTo().activeElement().sendKeys(Keys.ESCAPE);
+
+        }
         driver.element().clickElement(opensentordersbutton);
         String totalpriceoforderaftercancel = driver.element().getElementText(totalpriceaftersendorder);
         double totalPriceAfterCancel = Double.parseDouble(totalpriceoforderaftercancel);
-        if (totalPriceBeforeCancel != totalPriceAfterCancel + priceOfProductToCancel) {
-            throw new AssertionError("Total price mismatch: before cancel: " + totalPriceBeforeCancel + ", after cancel: " + totalPriceAfterCancel + ", price of product to cancel: " + priceOfProductToCancel);
+        double expected = totalPriceAfterCancel + priceOfProductToCancel;
+        double actual = totalPriceBeforeCancel;
+
+        if (Math.abs(actual - expected) > 0.01) {
+            throw new AssertionError(
+                    "❌ Total price mismatch: " +
+                            "before cancel: " + actual +
+                            ", after cancel: " + totalPriceAfterCancel +
+                            ", price of product to cancel: " + priceOfProductToCancel +
+                            ", expected: " + expected
+            );
         }
     
         LogsManager.info("Total price before cancel: " + totalPriceBeforeCancel + ", Total price after cancel: " + totalPriceAfterCancel + ", price of product to cancel: " + priceOfProductToCancel);
@@ -535,6 +565,13 @@ public class OrderPage {
 
         return Integer.parseInt(quantityText);
     }
+    @Step("Get All Prodcuts From API")
+    public OrderPage get_All_Product_From_API(){
+        UserManagmentAPI userManagmentAPI=new UserManagmentAPI(driver);
+        userManagmentAPI.getAllProductNames();
+
+       return  new OrderPage(driver);
+    }
 
     //validation
     @Step("Validate that order is sent successfully")
@@ -588,8 +625,12 @@ public class OrderPage {
 
 
         driver.element().clickElement(By.xpath("//div[contains(@class,'productName') and normalize-space(text())='" + productName + "']"));
-        if (volumemodal!=null){
+        if (driver.element().isElementVisible(volumeByIndex(1))) {
             driver.element().clickElement(volumeByIndex(1));
+        }
+        if (driver.element().isElementVisible(sidedishPOPUP)){
+            driver.element().clickElement(sidedishitem);
+            driver.element().clickElement(By.xpath("//div[contains(@class,'modal-NewSideDishes')]//button[contains(@class,'btn-primary') and contains(@class,'btnEdit')]"));
         }
         int actualQuantity= Integer.parseInt(driver.element().getElementText(By.xpath("//div[contains(@class,'productName') and normalize-space(text())='" + productName + "'] /ancestor::div[contains(@class,'product-card')] //div[contains(@class,'productAvalQty')]//span")));
 

@@ -101,10 +101,13 @@ public class DailyStockPage {
         Thread.sleep(3000);
 
         driver.element().clickElement(createNewButton);
+        Thread.sleep(2000);
 
         driver.element().clickElement(selectallproduct);
 
-        Thread.sleep(3000);
+        Thread.sleep(5000);
+        driver.element().clickElement(insertItemQuantityButton);
+//        driver.element().clear(insertItemQuantityButton);
         driver.element().typeText(insertItemQuantityButton, "10");
 
         driver.element().clickElement(savebutton);

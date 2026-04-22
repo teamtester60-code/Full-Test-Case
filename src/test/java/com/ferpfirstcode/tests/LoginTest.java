@@ -27,23 +27,13 @@ public class LoginTest extends BaseTest {
 
 
 
-    @DataProvider(name = "parallelUsers", parallel = true)
-    public Object[][] data() {
-        return new Object[][] {
-                {1},
-                {2},
-                {3},
-                {4},
-                {5},
-        };
-    }
 
     @Epic("POS System")
     @Feature("Login Management")
     @Story("Login With Valid Data")
     @Severity(SeverityLevel.BLOCKER)
     @Owner("Ahmed Hassan")
-    @Test(dataProvider = "parallelUsers")
+    @Test()
     public void Valid_Login_TC(int runNumber) throws InterruptedException {
         Allure.step("Step " + runNumber + " - Login With Valid Data");
         new LoginPage(guiDriver)

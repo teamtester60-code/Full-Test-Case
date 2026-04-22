@@ -580,6 +580,7 @@ public class OrderPage {
     public OrderPage validateOrderIsSentSuccessfully() throws InterruptedException {
         ScreenShotsManager.takeFullPageScreenshot(driver.get(), "Before Sending Order");
         String priceBeforeSendOrder = driver.element().getElementText(totalpricebeforesendorder);
+        Thread.sleep(2000);
         driver.element().clickElement(sendorderbutton);
         if (driver.element().isElementVisible(ordertypes)){
 

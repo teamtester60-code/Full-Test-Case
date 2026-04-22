@@ -75,6 +75,6 @@ public class LoginTest extends BaseTest {
             .clickPinField()
             .clickLoginButton();
             new LoginPage(guiDriver)
-            .verifyMessageLabel(" كلمة المرور مطلوبة ", " Password Is Required ");
+            .verifyMessageLabel(" كلمة المرور مطلوبة ", " Password Is Required ");//a
     }
 }   

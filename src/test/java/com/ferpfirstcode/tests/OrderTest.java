@@ -1,4 +1,5 @@
 package com.ferpfirstcode.tests;
+import com.ferpfirstcode.apis.UserManagmentAPI;
 import com.ferpfirstcode.pages.components.*;
 
 import io.qameta.allure.*;
@@ -7,9 +8,13 @@ import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import java.time.LocalDateTime;
+
 @Listeners(com.ferpfirstcode.customlisteners.TestNGListeners.class)
 public class OrderTest extends AuthenticatedBaseTest {
-    
+
+
+
 
     @Epic("POS System")
     @Feature("Create Order")
@@ -26,7 +31,9 @@ public class OrderTest extends AuthenticatedBaseTest {
                      .clickOnHomeButton();
              homePage.gotoorderpage()
                      .selectOrderTypebyindex()
-                     .clickOnProduct()
+                     .get_All_Product_From_API()
+                     .searchRandomAPIProductInUI()
+                     .selectSearchedProduct()
                      .validateOrderIsSentSuccessfully();
     }
 
@@ -39,6 +46,7 @@ public class OrderTest extends AuthenticatedBaseTest {
     @Test
     public void Cancel_order_TC() throws InterruptedException{
 
+        UserManagmentAPI reportsAPI = new UserManagmentAPI (guiDriver);
             HomePage homePage = new HomePage(guiDriver);
             homePage.gotoSettingPage()
                     .disable_Use_Daily_Stock()
@@ -47,8 +55,15 @@ public class OrderTest extends AuthenticatedBaseTest {
 
             homePage.gotoorderpage()
             .selectOrderTypebyindex()
-            .clickOnProduct()
-            .cancelOrder();
+             .get_All_Product_From_API()
+             .searchRandomAPIProductInUI()
+             .selectSearchedProduct()
+                    .cancelOrder();
+        LocalDateTime exactTimeFromAPI = reportsAPI.getLatestCanceledOrderTimeFromAPI();
+            homePage.gotoSalesReportPage();
+            SalesReport salesReport = new SalesReport(guiDriver);
+            salesReport.navigateToCancelledOrdersandgetlatestorder();
+            salesReport.validateTimeMatchesAPI(exactTimeFromAPI);
     }
 
     @Epic("Order Management")

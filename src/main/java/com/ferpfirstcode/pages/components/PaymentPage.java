@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -30,9 +31,9 @@ public class PaymentPage {
     private final By selectcustomerbutton = By.cssSelector("button.btnPLus.btn-link");
     private final By selectaddressbutton = By.xpath("(//*[@id=\"collapseOne_@i\"]/td[5]/button)[1]");
     private final By closecustomerselectionmodalbutton = By.xpath("(//*[@id=\"nav-home\"]/div/div[2]/div[2]/div/button)[1]");
-    private final By discountbypercentagebutton = By.xpath("//*[@id=\"modal-DetailDiscount\"]/div/div/div[2]/div[1]/ul/li[8]/a");
+    private final By discountbypercentagebutton = By.xpath("(//input[starts-with(@id, 'DiscountPercentage')])[1]");
     private final By okbuttonofdiscountmodal = By.xpath("(//*[@id=\"modal-DetailDiscount\"]/div/div/div[3]/button)[1]");
-    private final By ordercost = By.xpath("//*[@id=\"OverLayPin\"]/div/div[2]/div/app-payment/div[1]/div/div[1]/div/div[4]/div/div/div[1]/div/div[2]/table/tbody/tr[1]/td");
+    private final By ordercost = By.xpath("//th[normalize-space(text())='Grand Total' or contains(text(), 'الاجمالي النهائي') or contains(text(), 'الإجمالي النهائي')]/preceding-sibling::td");
     private final By totaldiscountamount = By.xpath("//*[@id=\"OverLayPin\"]/div/div[2]/div/app-payment/div[1]/div/div[1]/div/div[4]/div/div/div[1]/div/div[2]/table/tbody/tr[6]/td");
     private final By manageOrdersbutton = By.xpath("//a[@href=\"/manageorderlist\"]");
     private final By totalprice = By.xpath("(//div[contains(@class,'col-4') and contains(@class,'text-right')])[1]");
@@ -159,36 +160,55 @@ public class PaymentPage {
 
 
     //validation
-    @Step("Validate Discount Calculation")
-    public PaymentPage validateDiscountCalculation(double discountPercentage) {
+    @Step("Apply discount percentage in UI: {discountPercentage}%")
+    private void applyDiscountInUI(int discountPercentage) {
+        // 1. اضغط على زر إضافة خصم
+        driver.element().clickElement(discountbutton);
+
+        // 2. اكتب الرقم العشوائي في حقل الخصم
+        driver.element().typeText(discountbypercentagebutton, String.valueOf(discountPercentage));
+
+        // 3. اضغط حفظ أو تأكيد
+        driver.element().clickElement(okbuttonofdiscountmodal);
+    }
+
+    @Step("Validate Random Discount Calculation")
+    public PaymentPage validateRandomDiscountCalculation() {
         if (driver.element().isElementVisible(manageOrdersbutton)) {
             return this;
         }
-        // 1. Read the total price before discount
+
+        // 1. استخراج السعر قبل الخصم
         String beforeText = driver.element().getElementText(ordercost).replace(",", "").trim();
         double totalBefore = Double.parseDouble(beforeText);
-
-        // Take screenshot for documentation
         ScreenShotsManager.takeFullPageScreenshot(driver.get(), "Total Price Before Discount");
 
-        // 2. Calculate the expected price after discount
-        double expectedAfter = totalBefore - (totalBefore * discountPercentage / 100);
+        // 2. توليد نسبة خصم عشوائية (مثلاً بين 1% و 99%)
+        Random rand = new Random();
+        int randomDiscountPercentage = rand.nextInt(99) + 1; // +1 لضمان عدم اختيار 0%
+        Allure.step("🎲 Generated Random Discount: " + randomDiscountPercentage + "%");
 
-        // 3. Apply discount steps from the UI
-        selectDiscount();
+        // 3. حساب الإجمالي المتوقع
+        // ملاحظة برمجية: نستخدم 100.0 بدلاً من 100 لتجنب مشكلة قسمة الأعداد الصحيحة في الجافا
+        double expectedAfter = totalBefore - (totalBefore * randomDiscountPercentage / 100.0);
 
-        // 4. Read the total price after discount
-        String afterText = driver.element().getElementText(totaldiscountamount).replace(",", "").trim();
+        // 4. تطبيق الخصم العشوائي في واجهة المستخدم (UI)
+        // ⚠️ انتبه: يجب أن تقوم بتحديث دالتك القديمة لتستقبل هذا الرقم وتكتبه في الشاشة
+        applyDiscountInUI(randomDiscountPercentage);
+
+        // 5. استخراج السعر بعد الخصم من الشاشة
+        String afterText = driver.element().getElementText(ordercost).replace(",", "").trim();
         double totalAfter = Double.parseDouble(afterText);
-
-        // Take screenshot for documentation
         ScreenShotsManager.takeFullPageScreenshot(driver.get(), "Total Price After Discount");
 
-        // 5. Assert the calculation
+        // 6. التحقق (Assertion)
         if (Math.abs(expectedAfter - totalAfter) < 0.01) {
-            System.out.println("✅ Discount is correct: Expected = " + expectedAfter + " | Actual = " + totalAfter);
+            Allure.step("✅ Discount is correct: Expected = " + expectedAfter + " | Actual = " + totalAfter);
+            System.out.println("✅ Discount applied successfully: " + randomDiscountPercentage + "%");
         } else {
-            throw new AssertionError("❌ Discount is incorrect: Expected = " + expectedAfter + " | Actual = " + totalAfter);
+            throw new AssertionError("❌ Discount calculation failed! " +
+                    "Applied: " + randomDiscountPercentage + "% | " +
+                    "Expected = " + expectedAfter + " | Actual = " + totalAfter);
         }
 
         return this;

@@ -7,10 +7,13 @@ import com.jayway.jsonpath.JsonPath;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.testng.Assert;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -147,7 +150,7 @@ public class UserManagmentAPI {
         String POSdocumentID = "6903c153f6a6de2248add31d";
 
         // 1. Array of common letters to search for (English, Arabic, and even a space)
-        String[] searchCharacters = {"a","A","M", "m", "s", "م", "ا", "س", " "};
+        String[] searchCharacters = {"a", "A", "M", "m", "s", "م", "ا", "س", " "};
 
         // 2. Loop through the characters one by one
         for (String letter : searchCharacters) {
@@ -186,6 +189,48 @@ public class UserManagmentAPI {
 
         return null;
     }
+
+
+    @Step("Get Latest Canceled Order Time from API")
+    public LocalDateTime getLatestCanceledOrderTimeFromAPI() {
+        java.time.format.DateTimeFormatter payloadFormatter = java.time.format.DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm a", java.util.Locale.ENGLISH);
+        String currentDate = java.time.LocalDateTime.now().format(payloadFormatter);
+        String myJsonPayload = "{\n" +
+                "  \"FromDate\": \"" + currentDate + "\",\n" +
+                "  \"ProductwithoutsideDish\": false,\n" +
+                "  \"ToDate\": \"" + currentDate + "\"\n" +
+                "}";
+
+        // 1. استدعاء الـ API
+        Response response = RestAssured.given()
+                .baseUri("http://localhost:56740")
+                .contentType(ContentType.JSON)
+                .body(myJsonPayload) // الـ JSON الخاص بك
+                .log().all()
+                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiJkMWYyYzY3Ny1kOGQ3LTQxMGUtODgzMC0yMzc3NmY2OGNjNzkiLCJyb2xlIjoiQWRtaW4iLCJVc2VyTmFtZSI6ImFkbWluIiwibmJmIjoxNzc3MTg0OTcyLCJleHAiOjE3NzcyNzEzNzIsImlhdCI6MTc3NzE4NDk3Mn0.uiVRPiNOeX3JdOWYMVTZvKX7lkahSLbIz1azoObXROI" ) // أزل التعليق إذا كان الـ API يحتاج توكن
+                .header("PointOfSaleDocumentId","6903c153f6a6de2248add31d")
+                .when()
+                .post("/api/SalesReport/GetCanceledProductsReport")
+                .then()
+                .statusCode(200) // التأكد أن الـ API يعمل بنجاح
+                .extract().response();
+
+        String canceledDate = response.jsonPath().getString("[-1].Canceleddate"); // سيجلب "23/04/2026"
+        String canceledTime = response.jsonPath().getString("[-1].Canceledtime"); // سيجلب "12:40:21"
+
+        // دمجهم في نص واحد
+        String fullDateTimeStr = canceledDate + " " + canceledTime;
+        Allure.step("🕒 Latest Canceled Time from API: " + fullDateTimeStr);
+
+        // 3. تحويل النص إلى وقت حقيقي
+        // النمط يطابق: يوم/شهر/سنة ساعة:دقيقة:ثانية
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+
+        LocalDateTime apiCancelTime = LocalDateTime.parse(fullDateTimeStr, formatter);
+
+        return apiCancelTime;
+    }
+
 
 
     @Step("Get all product names from FirstOpen API")

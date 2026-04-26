@@ -28,10 +28,12 @@ public class PaymentTest extends AuthenticatedBaseTest {
                 .clickOnHomeButton();
         homePage.gotoorderpage()
                 .selectOrderTypebyindex()
-                .clickOnProduct()
+                .get_All_Product_From_API()
+                .searchRandomAPIProductInUI()
+                .selectSearchedProduct()
                 .validateOrderIsSentSuccessfully()
                 .selectOrderToPay()
-                .validateDiscountCalculation(50)
+                .validateRandomDiscountCalculation()
                 .validateDeliveryOrder();
     }
 
@@ -51,10 +53,12 @@ public class PaymentTest extends AuthenticatedBaseTest {
 
              homePage.gotoorderpage()
              .selectOrderTypebyindex()
-             .clickOnProduct()
+             .get_All_Product_From_API()
+             .searchRandomAPIProductInUI()
+             .selectSearchedProduct()
              .validateOrderIsSentSuccessfully()
              .selectOrderToPay()
-             .validateDiscountCalculation(50)
+             .validateRandomDiscountCalculation()
              .validateDeliveryOrder()
              .makeAReturnOrder();
     }
@@ -71,7 +75,9 @@ public class PaymentTest extends AuthenticatedBaseTest {
             new HomePage(guiDriver)
                     .gotoorderpage()
                     .makeTakeAwayOrder()
-                    .clickOnProduct()
+                    .get_All_Product_From_API()
+                    .searchRandomAPIProductInUI()
+                    .selectSearchedProduct()
                     .goToPaymentForTakeawayOrder();
 
     long orderNumber = paymentPage.getOrderNumberFromUI();
@@ -95,7 +101,9 @@ public class PaymentTest extends AuthenticatedBaseTest {
          new HomePage(guiDriver)
                 .gotoorderpage()
                  .makeTakeAwayOrder()
-                 .clickOnProduct()
+                 .get_All_Product_From_API()
+                 .searchRandomAPIProductInUI()
+                 .selectSearchedProduct()
                  .goToPaymentForTakeawayOrder();
             long orderNumber = paymentPage.getOrderNumberFromUI();
             paymentPage.setOrderNumber(orderNumber)
@@ -115,7 +123,9 @@ public class PaymentTest extends AuthenticatedBaseTest {
         new HomePage(guiDriver)
                 .gotoorderpage()
                 .makeTakeAwayOrder()
-                .clickOnProduct()
+                .get_All_Product_From_API()
+                .searchRandomAPIProductInUI()
+                .selectSearchedProduct()
                 .goToPaymentForTakeawayOrder();
         paymentPage
                 .pay_With_Multiple_Payment()
@@ -134,10 +144,12 @@ public class PaymentTest extends AuthenticatedBaseTest {
         new HomePage(guiDriver)
                 .gotoorderpage()
                 .makeTakeAwayOrder()
-                .clickOnProduct()
+                .get_All_Product_From_API()
+                .searchRandomAPIProductInUI()
+                .selectSearchedProduct()
                 .goToPaymentForTakeawayOrder();
         paymentPage
-                .validate_Discount_By_Fixed_Amount()
+                .validateRandomDiscountCalculation()
                 .closeOrder();
 
 
@@ -155,7 +167,9 @@ public class PaymentTest extends AuthenticatedBaseTest {
         new HomePage(guiDriver)
                 .gotoorderpage()
                 .makeTakeAwayOrder()
-                .clickOnProduct()
+                .get_All_Product_From_API()
+                .searchRandomAPIProductInUI()
+                .selectSearchedProduct()
                 .goToPaymentForTakeawayOrder();
         paymentPage
                 .payLessThanTotalCost()

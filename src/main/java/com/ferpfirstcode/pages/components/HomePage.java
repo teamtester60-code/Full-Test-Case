@@ -28,7 +28,8 @@ public class HomePage {
     private final By transactionbutton = By.xpath("//i[contains(@class,'fa-donate')]/ancestor::div[contains(@class,'ms-panel-body')]");
     private final By dailystockbutton = By.cssSelector("a.d-flex[href='/dailystock']");
     private final By customerorderbutton = By.xpath("//a[@href='/CustomerOrders']");
-
+    private final By reportbutton = By.xpath("//div[contains(@class, 'ms-widget')][.//h5[normalize-space(text())='التقارير' or normalize-space(text())='Report']]");
+    private final By salesReport = By.xpath("//a[contains(normalize-space(.), 'Sales report') or contains(normalize-space(.), 'تقرير المبيعات')]");
 
 
     //Actions
@@ -51,6 +52,12 @@ public class HomePage {
         }
         Thread.sleep(4000);
         return this;
+    }
+    @Step("Go To Sales Report Page")
+    public SalesReport gotoSalesReportPage() {
+        driver.element().clickElement(reportbutton);
+        driver.element().clickElement(salesReport);
+        return new SalesReport(driver);
     }
 
     @Step("Click Shift Open Button if it is enabled")

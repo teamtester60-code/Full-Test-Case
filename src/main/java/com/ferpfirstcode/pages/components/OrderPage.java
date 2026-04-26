@@ -19,12 +19,17 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 
 public class OrderPage {
     private final GUIDriver driver;
+    private List<String> apiProductsList;
+    private String currentSearchedProduct;
+    private LocalDateTime exactCancelTime;
 
     public OrderPage(GUIDriver driver) {
         this.driver = driver;
@@ -103,6 +108,14 @@ public class OrderPage {
     }
     private By sideDishByIndex(int index) {
         return By.xpath("(//div[@id='modal-NewSideDishes']//li[contains(@class,'liSide')]//button[contains(@class,'btn-success')])["+ index +"]");
+    }
+
+    private By getProductCardByName(String productName) {
+        // XPath عبقري: يبحث عن كارت المنتج الذي يحتوي بداخله على ديف (productName) يحمل هذا الاسم بالضبط
+        // نستخدم normalize-space() لتجاهل أي مسافات زائدة يضعها الـ Angular
+        String dynamicXpath = "//div[contains(@class, 'product-card')][.//div[contains(@class, 'productName') and normalize-space(text())='" + productName + "']]";
+
+        return By.xpath(dynamicXpath);
     }
     private By hallByindex(int index) {
         return By.xpath("(//li[contains(@class,'tab')])["+index+"]");
@@ -404,7 +417,7 @@ public class OrderPage {
 
 
     @Step("Cancel Order")
-    public OrderPage cancelOrder() throws InterruptedException {
+    public HomePage cancelOrder() throws InterruptedException {
         driver.element().clickElement(sendorderbutton);
         if (driver.element().isElementVisible(okbuttononordertype)) {
             driver.get().switchTo().activeElement().sendKeys(Keys.ESCAPE);
@@ -413,42 +426,26 @@ public class OrderPage {
         driver.element().clickElement(opensentordersbutton);
         Thread.sleep(2000);
         driver.element().clickElement(selectorderbutton);
-        String priceOfProductTocancel = driver.element().getElementText(priceOfProductToCancel);
-        String totalpriceBeforderbeforecancel = driver.element().getElementText(totalpricebeforesendorder);
-        double priceOfProductToCancel = Double.parseDouble(priceOfProductTocancel);
-        double totalPriceBeforeCancel = Double.parseDouble(totalpriceBeforderbeforecancel);
+        Thread.sleep(2000);
         driver.element().clickElementByJS(cancelproductsbutton);
         driver.element().clickElement(checkproducttocancel);
         driver.element().clickElement(sendorderaftercancelproduct);
 
         driver.element().clickElement(customerresoncancelbutton);
+        this.exactCancelTime = LocalDateTime.now();
         if (driver.element().isElementVisible(okbuttononordertype)) {
             driver.get().switchTo().activeElement().sendKeys(Keys.ESCAPE);
 
         }
-        driver.element().clickElement(opensentordersbutton);
+        driver.element().clickElement(homebutton);
         Thread.sleep(2000);
-        String totalpriceoforderaftercancel = driver.element().getElementText(totalpriceaftersendorder);
-        double totalPriceAfterCancel = Double.parseDouble(totalpriceoforderaftercancel);
-        double expected = totalPriceAfterCancel + priceOfProductToCancel;
-        double actual = totalPriceBeforeCancel;
 
-        if (Math.abs(actual - expected) > 0.01) {
-            throw new AssertionError(
-                    "❌ Total price mismatch: " +
-                            "before cancel: " + actual +
-                            ", after cancel: " + totalPriceAfterCancel +
-                            ", price of product to cancel: " + priceOfProductToCancel +
-                            ", expected: " + expected
-            );
-        }
-    
-        LogsManager.info("Total price before cancel: " + totalPriceBeforeCancel + ", Total price after cancel: " + totalPriceAfterCancel + ", price of product to cancel: " + priceOfProductToCancel);
-        Allure.step("Total price before cancel: " + totalPriceBeforeCancel + ", Total price after cancel: " + totalPriceAfterCancel + ", price of product to cancel: " + priceOfProductToCancel);
-
-        return this;
+        return new HomePage(driver);
     }
 
+    public LocalDateTime getExactCancelTime() {
+        return this.exactCancelTime;
+    }
 
     @Step("Select first takeaway (تيك اواي / سفري / takeaway)")
     public OrderPage makeTakeAwayOrder() throws InterruptedException {
@@ -567,12 +564,63 @@ public class OrderPage {
 
         return Integer.parseInt(quantityText);
     }
-    @Step("Get All Prodcuts From API")
+    @Step("Get All Products From API")
     public OrderPage get_All_Product_From_API(){
         UserManagmentAPI userManagmentAPI=new UserManagmentAPI(driver);
-        userManagmentAPI.getAllProductNames();
+        // استلام المنتجات من الـ API وتخزينها في المتغير
+        this.apiProductsList = userManagmentAPI.getAllProductNames();
 
-       return  new OrderPage(driver);
+        // تسجيل عدد المنتجات في تقرير Allure لسهولة التتبع
+        Allure.step("✅ Successfully fetched " + apiProductsList.size() + " products from API");
+
+        return this; // إرجاع الصفحة الحالية للحفاظ على التسلسل (Fluent Pattern)
+    }
+
+    @Step("Search for a random product from API in UI")
+    public OrderPage searchRandomAPIProductInUI() {
+        Assert.assertNotNull(apiProductsList, "🚨 الـ API لم يقم بجلب المنتجات بعد!");
+        Assert.assertTrue(apiProductsList.size() > 0, "🚨 القائمة في الـ API فارغة!");
+
+        // اختيار اسم منتج عشوائي وحفظه في متغير الكلاس لكي تراه الدوال الأخرى
+        Random rand = new Random();
+        this.currentSearchedProduct = apiProductsList.get(rand.nextInt(apiProductsList.size()));
+
+        // كتابة الاسم في حقل البحث
+        driver.element().typeText(searchinput, this.currentSearchedProduct);
+
+        Allure.step("✅ Searched for product: " + this.currentSearchedProduct);
+        return this;
+    }
+
+    @Step("Select the dynamically searched product from the screen")
+    public OrderPage selectSearchedProduct() {
+
+        // التأكد من أننا قمنا بالبحث عن منتج أولاً
+        Assert.assertNotNull(this.currentSearchedProduct, "🚨 يجب استدعاء دالة البحث أولاً قبل محاولة النقر!");
+
+        // استدعاء دالة النقر الأساسية مع تمرير الاسم الذي تم حفظه
+        return selectSpecificProduct(this.currentSearchedProduct);
+    }
+
+    @Step("Select specific product from the screen: {productName}")
+    public OrderPage selectSpecificProduct(String productName) {
+
+        // توليد المحدد الخاص بهذا المنتج
+        By targetProductCard = getProductCardByName(productName);
+
+        // الانتظار حتى يظهر الكارت على الشاشة
+        driver.element().isElementVisible(targetProductCard); // (نصيحة: يفضل استخدام Wait هنا كما اتفقنا سابقاً)
+
+        // النقر على الكارت
+        driver.element().clickElement(targetProductCard);
+
+        // التعامل مع البوب أب
+        handleVolumeIfShown();
+        handleSideDishIfShown();
+
+        Allure.step("✅ Successfully clicked on product: " + productName);
+
+        return this;
     }
 
     //validation

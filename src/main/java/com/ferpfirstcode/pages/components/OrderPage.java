@@ -11,6 +11,7 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Step;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import org.apache.xmlbeans.impl.xb.xsdschema.All;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -30,6 +31,8 @@ public class OrderPage {
     private List<String> apiProductsList;
     private String currentSearchedProduct;
     private LocalDateTime exactCancelTime;
+    private List<String> apiordertypelist;
+    private By currentordertype;
 
     public OrderPage(GUIDriver driver) {
         this.driver = driver;
@@ -97,6 +100,7 @@ public class OrderPage {
     private final By  takeawayordertype1=By.xpath("//a[contains(@class,'nav-link') and (     contains(normalize-space(text()),'تيكاوي') or     contains(normalize-space(text()),'تيك اواى') or     contains(translate(normalize-space(text()),         'ABCDEFGHIJKLMNOPQRSTUVWXYZ',         'abcdefghijklmnopqrstuvwxyz'),'takeaway') )]");
     private final By searchinput=By.xpath("//input[@id='searchOrder']");
     private final By volumemodal= By.xpath("//div[@id='modal-Volums' and contains(@class,'show')]");
+    private final By ordertypemodal= By.xpath("//div[@id='modal-OrderType']");
 
 
     //dynamic locator
@@ -574,6 +578,39 @@ public class OrderPage {
         Allure.step("✅ Successfully fetched " + apiProductsList.size() + " products from API");
 
         return this; // إرجاع الصفحة الحالية للحفاظ على التسلسل (Fluent Pattern)
+    }
+    @Step("Get all Order Type From Api")
+    public OrderPage get_all_Order_Type_From_API(){
+         UserManagmentAPI userManagmentAPI= new UserManagmentAPI(driver);
+         this.apiordertypelist = userManagmentAPI.getAllOrderTypes();
+        Allure.step("✅ Successfully fetched " + apiordertypelist.size() + " order types from API");
+        return this;
+    }
+    @Step("Select A Random Order Type")
+    public OrderPage selectRandomOrderType() {
+
+        Assert.assertNotNull(apiordertypelist, "🚨 الـ API لم يقم بجلب أنواع الطلبات بعد!");
+        Assert.assertTrue(apiordertypelist.size() > 0, "🚨 القائمة في الـ API فارغة!");
+
+        Random rand = new Random();
+        String randomTypeName = apiordertypelist.get(rand.nextInt(apiordertypelist.size()));
+
+        By randomOrderTypeLocator = By.xpath("//div[@id='modal-OrderType']//a[contains(normalize-space(text()), '" + randomTypeName + "')]");
+
+        this.currentordertype = randomOrderTypeLocator;
+
+        if (!isOrderTypePopupOpen()) {
+            Allure.step("⚠️ Modal is closed. Opening it now...");
+            driver.element().clickElement(ordertypebutton);
+
+
+        }
+
+        driver.element().clickElement(randomOrderTypeLocator);
+
+        Allure.step("✅ Selected Order Type: " + randomTypeName);
+
+        return this;
     }
 
     @Step("Search for a random product from API in UI")

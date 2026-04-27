@@ -65,6 +65,21 @@ public class OrderTest extends AuthenticatedBaseTest {
             salesReport.navigateToCancelledOrdersandgetlatestorder();
             salesReport.validateTimeMatchesAPI(exactTimeFromAPI);
     }
+    @Test
+    public void get_all_Order_Type_From_API() throws InterruptedException {
+        UserManagmentAPI reportsAPI = new UserManagmentAPI (guiDriver);
+        OrderPage orderPage = new OrderPage(guiDriver);
+        HomePage homePage = new HomePage(guiDriver);
+        homePage.gotoSettingPage()
+                .disable_Use_Daily_Stock()
+                .clickOnSaveButton()
+                .clickOnHomeButton();
+
+        homePage.gotoorderpage();
+
+        orderPage.get_all_Order_Type_From_API()
+                .selectRandomOrderType();
+    }
 
     @Epic("Order Management")
     @Feature("Daily Stock")

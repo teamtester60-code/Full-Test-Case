@@ -237,8 +237,8 @@ public class UserManagmentAPI {
     public List<String> getAllProductNames() {
 
         // Variables for easy maintenance
-        String token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiJkMWYyYzY3Ny1kOGQ3LTQxMGUtODgzMC0yMzc3NmY2OGNjNzkiLCJyb2xlIjoiQWRtaW4iLCJVc2VyTmFtZSI6ImFkbWluIiwibmJmIjoxNzc2NjcwMDk2LCJleHAiOjE3NzY3NTY0OTYsImlhdCI6MTc3NjY3MDA5Nn0.gDGQaKjs5U0NlsNgs5WHL8oBfe5BvWQIuRoQGhENNLk";
-        String POSdocumentID = "6903c153f6a6de2248add31d";
+        String token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiJkNWVmNmQxMS0wZGRlLTQxODEtYjE4ZC02OTk0ZDdiZjljZjUiLCJyb2xlIjoiQWRtaW4iLCJVc2VyTmFtZSI6ImFkbWluIiwibmJmIjoxNzc3MjczNTg5LCJleHAiOjE3NzczNTk5ODksImlhdCI6MTc3NzI3MzU4OX0.EYk7xnV4wkSJozLt6UWqAO-Ym1lNjS5tI5yx5bq1SEA";
+        String POSdocumentID = "683310db8a28e71b98b320a8";
 
         Response response = RestAssured.given()
                 .header("Authorization", token)
@@ -272,6 +272,49 @@ public class UserManagmentAPI {
         Allure.addAttachment("📜 Full Product List (" + allProducts.size() + " Items)", "text/plain", formattedProducts);
 
         return allProducts;
+    }
+
+
+    @Step("Get all order types from FirstOpen API")
+    public List<String> getAllOrderTypes() {
+
+        // Variables for easy maintenance
+        String token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiJkNWVmNmQxMS0wZGRlLTQxODEtYjE4ZC02OTk0ZDdiZjljZjUiLCJyb2xlIjoiQWRtaW4iLCJVc2VyTmFtZSI6ImFkbWluIiwibmJmIjoxNzc3MjczNTg5LCJleHAiOjE3NzczNTk5ODksImlhdCI6MTc3NzI3MzU4OX0.EYk7xnV4wkSJozLt6UWqAO-Ym1lNjS5tI5yx5bq1SEA";
+        String POSdocumentID = "683310db8a28e71b98b320a8";
+
+        Response response = RestAssured.given()
+                .header("Authorization", token)
+                .header("Accept", "application/json")
+                .header("Content-Type", "application/json")
+                .header("PointOfSaleDocumentId", POSdocumentID)
+                .when()
+                .get("http://localhost:56740/api/Order/FirstOpen");
+
+        int statusCode = response.getStatusCode();
+        Allure.step("Status code: " + statusCode);
+
+        // Hard Assertion: If status is not 200, the test STOPS here immediately.
+        Assert.assertEquals(statusCode, 200, "🚨 API Request failed! Expected status code 200 but found: " + statusCode);
+
+        // If the code reaches this line, it means the status code is definitely 200
+        String responseBody = response.getBody().asString();
+
+        // 👈 التعديل الأهم هنا: استخراج أسماء أنواع الطلبات بناءً على مسار JSON الجديد
+        List<String> allOrderTypes = JsonPath.read(responseBody, "$.ordertypes[*].Name");
+
+        // Validating the parsed data to prevent NullPointerException
+        Assert.assertNotNull(allOrderTypes, "🚨 The extracted order types list is null! Check the JSONPath.");
+        Assert.assertFalse(allOrderTypes.isEmpty(), "🚨 The order types list is empty! No order types were found.");
+
+        Allure.step("The number of order types fetched: " + allOrderTypes.size());
+
+        // 1. Format the list to have each order type on a new line instead of one big block
+        String formattedOrderTypes = String.join("\n", allOrderTypes);
+
+        // 2. Add it as a clean text attachment inside the Allure Report
+        Allure.addAttachment("📜 Full Order Types List (" + allOrderTypes.size() + " Items)", "text/plain", formattedOrderTypes);
+
+        return allOrderTypes;
     }
 
 }

@@ -1,1 +1,1 @@
-[{"uid":"99cdab1c7adad849","name":"Cancel_order_TC","time":{"start":1777189296983,"stop":1777189402326,"duration":105343},"status":"passed","severity":"critical"}]
+[{"uid":"a8df215d0bcbfced","name":"Check_Available_Quantity_From_Daily_Stock_That_Equals_To_The_Quantity_in_Order","time":{"start":1777197041013,"stop":1777197066516,"duration":25503},"status":"passed","severity":"critical"}]

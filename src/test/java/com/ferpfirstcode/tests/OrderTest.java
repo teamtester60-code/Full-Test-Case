@@ -89,7 +89,7 @@ public class OrderTest extends AuthenticatedBaseTest {
         ProductStockData stockData = dailyStockPage.getProductNameAndLastQuantity();
 
         String productName = stockData.getProductName();
-        int expectedQuantity = stockData.getLastQuantity();
+        int expectedQuantity  = stockData.getLastQuantity();
 
         dailyStockPage.clickOnHomeButton()
                 .gotoorderpage()

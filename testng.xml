@@ -10,7 +10,7 @@
 
     <test name="All Automated Tests">
         <packages>
-            <package name="com.ferpfirstcode.tests.*"/>
+            <package name="com.ferpfirstcode.tests"/>
         </packages>
     </test>
 

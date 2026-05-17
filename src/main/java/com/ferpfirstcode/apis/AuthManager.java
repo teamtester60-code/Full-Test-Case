@@ -1,10 +1,11 @@
 package com.ferpfirstcode.apis;
 
+import org.testng.Assert;
+
 import io.qameta.allure.Allure;
 import io.restassured.RestAssured;
-import io.restassured.response.Response;
 import io.restassured.http.ContentType;
-import org.testng.Assert;
+import io.restassured.response.Response;
 
 public class AuthManager {
 

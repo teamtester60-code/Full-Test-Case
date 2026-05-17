@@ -1,10 +1,12 @@
 package com.ferpfirstcode.pages.components;
 
+import org.openqa.selenium.By;
+
 import com.ferpfirstcode.driver.GUIDriver;
 import com.ferpfirstcode.media.ScreenShotsManager;
 import com.ferpfirstcode.utils.logs.LogsManager;
+
 import io.qameta.allure.Step;
-import org.openqa.selenium.By;
 
 
 public class HomePage {
@@ -30,6 +32,9 @@ public class HomePage {
     private final By customerorderbutton = By.xpath("//a[@href='/CustomerOrders']");
     private final By reportbutton = By.xpath("//div[contains(@class, 'ms-widget')][.//h5[normalize-space(text())='التقارير' or normalize-space(text())='Report']]");
     private final By salesReport = By.xpath("//a[contains(normalize-space(.), 'Sales report') or contains(normalize-space(.), 'تقرير المبيعات')]");
+    private final By inputs=By.xpath("//div[contains(@class,'ms-panel-body')][contains(.,'Inputs') or contains(.,'المدخلات')]");
+    private final By ordertypesettingbutton=By.xpath("//a[normalize-space()='Order Type' or normalize-space()='نوع الفاتورة']");
+
 
 
     //Actions
@@ -130,6 +135,14 @@ public class HomePage {
         ScreenShotsManager.takeFullPageScreenshot(driver.get(), "HomePageAfterShiftOpen");
         return this;
     }
+    @Step("Go to Order Type Setting Page")
+    public OrderTypeSettingPage gotoOrderTypeSettingPage() {
+        driver.element().clickElement(inputs);
+        driver.element().clickElement(ordertypesettingbutton);
+        return new OrderTypeSettingPage(driver);
+                
+    }
+
 
 }
 

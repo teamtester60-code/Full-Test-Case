@@ -1,2 +1,2 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","10025","Get_Products_Name_From_API","Default Suite","2026-04-30","passed","2026-04-30","com.ferpfirstcode.tests.OrderTest","FirstProjectFERP","com.ferpfirstcode.tests.OrderTest","Get_Products_Name_From_API"
+"","185921","Change_Order_Type_After_Send_Order","Surefire suite","2026-05-17","passed","2026-05-17","com.ferpfirstcode.tests.OrderTest","Surefire test","com.ferpfirstcode.tests.OrderTest","Change_Order_Type_After_Send_Order"

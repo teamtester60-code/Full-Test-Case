@@ -1,9 +1,11 @@
 package com.ferpfirstcode.pages.components;
 
-import com.ferpfirstcode.driver.GUIDriver;
-import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+
+import com.ferpfirstcode.driver.GUIDriver;
+
+import io.qameta.allure.Step;
 
 public class SettingPage {
     private final GUIDriver driver;
@@ -17,6 +19,7 @@ public class SettingPage {
     private final By UseDailyStock = By.cssSelector("input[name='UseDailyStock']");
     private final By savebutton = By.cssSelector("button.btn.btn-danger.mt-0");
     private final By homebutton = By.cssSelector("a.mainTitle.padNone i.material-icons");
+    private final By changeordertypeaftersave= By.xpath("//input[@name='ChangeOrderTypeAfterSave']");
 
 
     @Step("Enable show products available quantity settings")
@@ -111,6 +114,18 @@ public class SettingPage {
     public HomePage clickOnHomeButton(){
         driver.element().clickElement(homebutton);
         return new HomePage(driver);
+    }
+    @Step("Make Change Order Type After Send Order Allow")
+    public SettingPage changeordertypeaftersend() throws InterruptedException {
+        Thread.sleep(3000);
+        WebElement checkbox = driver.get().findElement(changeordertypeaftersave);
+        Thread.sleep(3000);
+
+        if (!checkbox.isSelected()) {
+            checkbox.click();
+        }
+
+        return this;
     }
 
 }

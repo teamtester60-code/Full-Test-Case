@@ -1,8 +1,24 @@
 package com.ferpfirstcode.pages.components;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+import java.util.stream.Collectors;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
 import com.ferpfirstcode.apis.UserManagmentAPI;
 import com.ferpfirstcode.driver.GUIDriver;
 import com.ferpfirstcode.media.ScreenShotsManager;
+import com.ferpfirstcode.pojos.ProductData;
+import com.ferpfirstcode.utils.dataReader.DataBaseReader;
 import com.ferpfirstcode.utils.dataReader.PropertyReader;
 import com.ferpfirstcode.utils.logs.LogsManager;
 
@@ -11,24 +27,11 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Step;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import org.apache.xmlbeans.impl.xb.xsdschema.All;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
-
-import java.time.Duration;
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
 
 
 public class OrderPage {
     private final GUIDriver driver;
-    private List<String> apiProductsList;
+    private List<ProductData> apiProductsList;
     private String currentSearchedProduct;
     private LocalDateTime exactCancelTime;
     private List<String> apiordertypelist;
@@ -50,9 +53,10 @@ public class OrderPage {
     private final By sidedishPOPUP= By.xpath("//div[@id='modal-NewSideDishes' and contains(@class,'show')]");
     private final By sidedishitem= By.xpath("(//div[contains(@class,'row')]//input[@type='checkbox'])[2]");
     private final By searchbynamefield= By.xpath("(//input[@placeholder='Search By Name'])[1]");
+    private final By searchbyphonefield= By.xpath("(//input[@placeholder='Phone Number'])[1]");
     private final By selectcustomerbutton= By.cssSelector("button.btnPLus.btn-link");
-    private final By selectaddressbutton= By.xpath("(//*[@id=\"collapseOne_@i\"]/td[5]/button)[1]");
-    private final By closecustomerselectionmodalbutton= By.xpath("//*[@id=\"nav-home\"]/div/div[2]/div[2]/div/button");
+    private final By selectaddressbutton= By.xpath("(//button[contains(@class, 'btn-success') and (contains(., 'اختر') or contains(., 'Select'))])[1]");
+    private final By closecustomerselectionmodalbutton= By.xpath("//div[contains(@class, 'show')]//button[contains(@data-dismiss, 'modal') and (contains(., 'اغلاق') or contains(., 'Close'))]");
     private final By opensentordersbutton= By.xpath("//*[@id=\"OverLayPin\"]/div/div[1]/div[2]/div[3]/div/nav/ul/li[4]/a");
     private final By totalpricebeforesendorder=By.xpath("//li[contains(@class,'bg-maingreen')]//h5[last()]");
     private final By totalpriceaftersendorder=By.xpath("//table[contains(@class,'table')]//tbody//tr[1]/td[3]");
@@ -101,7 +105,9 @@ public class OrderPage {
     private final By searchinput=By.xpath("//input[@id='searchOrder']");
     private final By volumemodal= By.xpath("//div[@id='modal-Volums' and contains(@class,'show')]");
     private final By ordertypemodal= By.xpath("//div[@id='modal-OrderType']");
-
+    private final By deleveryordertypemodal=By.cssSelector("div.modal.show");
+    private final By selectorderlist=By.xpath("(//div[contains(@class,'menu-txt-hld')][.//span[contains(text(),'افتح القائمة')]])[1]");
+    private final By employeebuttonselect=By.xpath("(//tbody/tr)[1]//button[contains(text(),'Select')]");
 
     //dynamic locator
     private By productByIndex(int index) {
@@ -413,12 +419,14 @@ public class OrderPage {
         driver.element().clickElement(payementbutton);
         return new PaymentPage(driver);
     }
-    // @Step("Select table if order type is dine in")
-    // public OrderPage selectTable() {
-    //     driver.element().clickElement(selecttablebutton);
-    //     return this;
-    // }
 
+
+    @Step("Select Order To Change Order Type")
+    public OrderPage selectOrderToChangeOrderType() {
+        driver.element().clickElement(selectorderlist);
+        driver.element().clickElement(selectorderbutton);
+        return this;
+    }
 
     @Step("Cancel Order")
     public HomePage cancelOrder() throws InterruptedException {
@@ -517,8 +525,73 @@ public class OrderPage {
             return false;
         }
     }
+    private boolean isDileveryOrderTypePopupOpen() {
+        try {
+            WebElement popup = driver.get().findElement(By.cssSelector("div.modal.show"));
+            return popup.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+    private boolean isordertypeisdinein() {
+        try {
+            WebElement popup = driver.get().findElement(By.xpath("(//div[contains(@class, 'pull-left') and contains(text(), 'table1')])[1]"));
+            return popup.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+private boolean isordertypeforemployee() {
+        try {
+            WebElement popup = driver.get().findElement(By.xpath("//div[@id='modal-Waiter']"));
+            return popup.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
 
 
+    @Step("Change Order Type After Send Order")
+    public OrderPage changeordertypeaftersendorder() {
+    
+        // 1. استدعاء الدالة لجلب البيانات واختيار النوع (سيتم الضغط داخلياً في الدالة)
+        // لاحظ: لا نضعها داخل clickElement هنا لأنها تضغط بالفعل بداخلها
+        if (isOrderTypePopupOpen()) {
+            selectRandomOrderType(); 
+        } 
+        else {
+            driver.element().clickElement(ordertypebutton);
+            selectRandomOrderType(); 
+        }
+    
+        // --- الكود سيكمل طبيعياً هنا بعد اختيار النوع ---
+    
+        // 2. التعامل مع طلبات التوصيل (Delivery)
+        if (isDileveryOrderTypePopupOpen()) {
+            driver.element().clickElement(searchbyphonefield);
+            driver.element().typeText(searchbyphonefield, "0111");
+            driver.element().clickElement(selectcustomerbutton);
+            
+            if (driver.element().isElementVisible(selectaddressbutton)) {
+                driver.element().clickElement(selectaddressbutton);
+            }
+            driver.element().clickElement(closecustomerselectionmodalbutton);
+        }
+    
+        // 3. التعامل مع طلبات الصالة (Dine-in)
+        // تأكد أن هذه الدالة تفحص النوع الذي تم اختياره لتوّه
+        if (isordertypeisdinein()) {
+            selectRandomeTable();
+            Allure.step("✅ Table selected successfully");
+        }
+        if (isordertypeforemployee()) {
+            driver.element().clickElement(employeebuttonselect);
+            Allure.step("✅ Employee selected successfully");
+        }
+    
+        Allure.step("✅ Order type changed successfully");
+        return this;
+    }
 
     @Step("Go to Payment for Takeaway Order")
     public PaymentPage goToPaymentForTakeawayOrder() {
@@ -569,15 +642,15 @@ public class OrderPage {
         return Integer.parseInt(quantityText);
     }
     @Step("Get All Products From API")
-    public OrderPage get_All_Product_From_API(){
-        UserManagmentAPI userManagmentAPI=new UserManagmentAPI(driver);
-        // استلام المنتجات من الـ API وتخزينها في المتغير
-        this.apiProductsList = userManagmentAPI.getAllProductNames();
-
-        // تسجيل عدد المنتجات في تقرير Allure لسهولة التتبع
-        Allure.step("✅ Successfully fetched " + apiProductsList.size() + " products from API");
-
-        return this; // إرجاع الصفحة الحالية للحفاظ على التسلسل (Fluent Pattern)
+    public OrderPage get_All_Product_From_API() {
+        UserManagmentAPI api = new UserManagmentAPI(driver);
+        
+        // 🚨 السطر القادم هو سبب المشكلة، تأكد أنه مكتوب هكذا بالضبط (بدون كلمة List في البداية)
+        // استخدم this.apiProductsList مباشرة!
+        this.apiProductsList = api.getAllProductsWithPrices(); 
+        
+        Allure.step("✅ Successfully fetched " + this.apiProductsList.size() + " products from API");
+        return this;
     }
     @Step("Get all Order Type From Api")
     public OrderPage get_all_Order_Type_From_API(){
@@ -588,44 +661,85 @@ public class OrderPage {
     }
     @Step("Select A Random Order Type")
     public OrderPage selectRandomOrderType() {
+        // 1. تأكد من جلب البيانات أولاً إذا كانت القائمة فارغة
+        if (this.apiordertypelist == null || this.apiordertypelist.isEmpty()) {
+            Allure.step("🔄 القائمة فارغة، يتم جلب أنواع الطلبات من الـ API الآن...");
 
-        Assert.assertNotNull(apiordertypelist, "🚨 الـ API لم يقم بجلب أنواع الطلبات بعد!");
-        Assert.assertTrue(apiordertypelist.size() > 0, "🚨 القائمة في الـ API فارغة!");
+            UserManagmentAPI api = new UserManagmentAPI(driver);
+            this.apiordertypelist = api.getAllOrderTypes(); // استدعاء الدالة التي كتبناها في الكلاس الآخر
+        }
+
+        // 2. التحقق بعد المحاولة
+        Assert.assertNotNull(apiordertypelist, "🚨 فشل جلب البيانات من الـ API، الكائن ما زال Null!");
+        Assert.assertTrue(apiordertypelist.size() > 0, "🚨 القائمة المستلمة من الـ API فارغة!");
 
         Random rand = new Random();
         String randomTypeName = apiordertypelist.get(rand.nextInt(apiordertypelist.size()));
 
+        // 3. بناء الـ Locator
         By randomOrderTypeLocator = By.xpath("//div[@id='modal-OrderType']//a[contains(normalize-space(text()), '" + randomTypeName + "')]");
-
         this.currentordertype = randomOrderTypeLocator;
 
+        // فتح الـ Modal إذا كان مغلقاً
         if (!isOrderTypePopupOpen()) {
-            Allure.step("⚠️ Modal is closed. Opening it now...");
             driver.element().clickElement(ordertypebutton);
-
-
         }
 
         driver.element().clickElement(randomOrderTypeLocator);
-
         Allure.step("✅ Selected Order Type: " + randomTypeName);
 
         return this;
     }
+    public OrderPage selectRandomeTable() {
+        List<WebElement> allTables = driver.get().findElements(By.cssSelector("ul.firstUl li.h"));
 
-    @Step("Search for a random product from API in UI")
+        if (!allTables.isEmpty()) {
+            
+            Random random = new Random();
+            int randomIndex = random.nextInt(allTables.size());
+    
+            WebElement randomTable = allTables.get(randomIndex);
+            
+            String tableName = randomTable.findElement(By.className("pull-left")).getText();
+            Allure.step("🎲 تم اختيار الطاولة العشوائية: " + tableName);
+    
+            randomTable.click();
+            
+        } else {
+            Assert.fail("🚨 لا يوجد أي طاولات متاحة في الشاشة!");
+        }
+        return this;
+    }
+
+    @Step("Search for a random product (Price > 0) from API in UI")
     public OrderPage searchRandomAPIProductInUI() {
         Assert.assertNotNull(apiProductsList, "🚨 الـ API لم يقم بجلب المنتجات بعد!");
-        Assert.assertTrue(apiProductsList.size() > 0, "🚨 القائمة في الـ API فارغة!");
-
-        // اختيار اسم منتج عشوائي وحفظه في متغير الكلاس لكي تراه الدوال الأخرى
+        Assert.assertTrue(apiProductsList.size() > 0, "🚨 القائمة الأصلية في الـ API فارغة!");
+    
+        // 1. فلترة المنتجات: 💡 استخدمنا basePrice بدلاً من price
+        List<ProductData> validProducts = apiProductsList.stream()
+                .filter(product -> product.basePrice != null && product.basePrice > 0.0)
+                .collect(Collectors.toList());
+    
+        // 2. التأكد من وجود منتجات بعد الفلترة لتجنب انهيار التست
+        Assert.assertTrue(validProducts.size() > 0, "🚨 لا يوجد أي منتج سعره الأساسي أكبر من صفر!");
+    
+        // 3. اختيار منتج عشوائي من القائمة المفلترة (الصالحة)
         Random rand = new Random();
-        this.currentSearchedProduct = apiProductsList.get(rand.nextInt(apiProductsList.size()));
-
-        // كتابة الاسم في حقل البحث
+        ProductData randomProduct = validProducts.get(rand.nextInt(validProducts.size()));
+    
+        // 4. حفظ اسم المنتج 
+        this.currentSearchedProduct = randomProduct.name;
+        
+        // (اختياري) إذا كنت تحتفظ بالسعر في متغير بالكلاس، استخدم basePrice هكذا:
+        // this.currentProductPrice = randomProduct.basePrice;
+    
+        // 5. كتابة الاسم في حقل البحث
         driver.element().typeText(searchinput, this.currentSearchedProduct);
-
-        Allure.step("✅ Searched for product: " + this.currentSearchedProduct);
+    
+        // توثيق الخطوة في تقرير Allure مع ذكر السعر
+        Allure.step("✅ Searched for product: " + this.currentSearchedProduct + " | Base Price: " + randomProduct.basePrice);
+        
         return this;
     }
 
@@ -634,6 +748,7 @@ public class OrderPage {
 
         // التأكد من أننا قمنا بالبحث عن منتج أولاً
         Assert.assertNotNull(this.currentSearchedProduct, "🚨 يجب استدعاء دالة البحث أولاً قبل محاولة النقر!");
+        ScreenShotsManager.takeFullPageScreenshot(driver.get(), "After Searching Product");
 
         // استدعاء دالة النقر الأساسية مع تمرير الاسم الذي تم حفظه
         return selectSpecificProduct(this.currentSearchedProduct);
@@ -659,7 +774,11 @@ public class OrderPage {
 
         return this;
     }
-
+    @Step("Send Order")
+    public OrderPage sendOrder() {
+        driver.element().clickElement(sendorderbutton);
+        return this;
+    }
     //validation
     @Step("Validate that order is sent successfully")
     public OrderPage validateOrderIsSentSuccessfully() throws InterruptedException {
@@ -747,6 +866,33 @@ public class OrderPage {
 
         Allure.step("✅ Toast validated: " + actual);
     }
+
+
+
+    @Step("Get All Products with Volumes directly from API")
+public OrderPage get_All_Product_From_API_With_Volumes_From_API() {
+    UserManagmentAPI api = new UserManagmentAPI(driver);
+    
+    // 1. جلب المنتجات وأحجامها من الـ API مباشرة وتخزينها في متغير الكلاس
+    this.apiProductsList = api.getAllProductsWithVolumesFromAPI();
+    
+    // 2. التحقق من أن القائمة ليست فارغة
+    Assert.assertTrue(this.apiProductsList.size() > 0, "🚨 فشل في تكوين قائمة المنتجات المدمجة!");
+    
+    return this;
+}
+@Step("Get All Products directly from Database")
+public OrderPage get_All_Product_From_DB() {
+    
+    // سطر واحد فقط يجلب لك كل شيء (أسماء + أسعار + أحجام) من الداتا بيز!
+    this.apiProductsList = DataBaseReader.getCompleteProductsFromDB();
+    
+    Assert.assertTrue(this.apiProductsList.size() > 0, "🚨 فشل في تكوين قائمة المنتجات من قاعدة البيانات!");
+    
+    return this;
+}
+
+
 
 }
 

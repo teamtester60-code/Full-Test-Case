@@ -1,14 +1,26 @@
 package com.ferpfirstcode.tests;
-import com.ferpfirstcode.apis.UserManagmentAPI;
-import com.ferpfirstcode.pages.components.*;
+import java.time.LocalDateTime;
 
-import io.qameta.allure.*;
-
-import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import java.time.LocalDateTime;
+import com.ferpfirstcode.apis.UserManagmentAPI;
+import com.ferpfirstcode.pages.components.DailyStockPage;
+import com.ferpfirstcode.pages.components.HomePage;
+import com.ferpfirstcode.pages.components.OrderAPI;
+import com.ferpfirstcode.pages.components.OrderPage;
+import com.ferpfirstcode.pages.components.ProductStockData;
+import com.ferpfirstcode.pages.components.SalesReport;
+import com.ferpfirstcode.pages.components.SettingPage;
+
+import io.qameta.allure.Allure;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 
 @Listeners(com.ferpfirstcode.customlisteners.TestNGListeners.class)
 public class OrderTest extends AuthenticatedBaseTest {
@@ -161,4 +173,50 @@ public class OrderTest extends AuthenticatedBaseTest {
 
 
     }
-}
+
+    @Test
+    public void Change_Order_Type_After_Send_Order() throws InterruptedException {
+        HomePage homePage =new HomePage(guiDriver);
+        SettingPage settingPage=new SettingPage(guiDriver);
+        OrderPage orderPage=new OrderPage(guiDriver);
+        homePage.gotoSettingPage()
+                .changeordertypeaftersend()
+                .disable_Allow_Sale_With_No_Quantity_Available()
+                .disable_Use_Daily_Stock()
+                .clickOnSaveButton()
+                .clickOnHomeButton()
+                .gotoOrderTypeSettingPage()
+                .enablePaymentByAnotherUserForAllTypes()
+                .clickOnHomeButton()
+                .gotoorderpage();
+        Thread.sleep(3000);
+               orderPage.get_All_Product_From_DB()
+                .get_All_Product_From_API ()
+               .searchRandomAPIProductInUI()
+               .selectSearchedProduct()
+               .sendOrder()
+               .selectOrderToChangeOrderType()
+               .changeordertypeaftersendorder();
+
+    }
+
+    
+    @Test
+    public void get_All_Product_From_API_And_DB() throws InterruptedException {
+        HomePage homePage =new HomePage(guiDriver);
+        SettingPage settingPage=new SettingPage(guiDriver);
+        OrderPage orderPage=new OrderPage(guiDriver);
+        homePage.gotoSettingPage()
+                .changeordertypeaftersend()
+                .disable_Allow_Sale_With_No_Quantity_Available()
+                .disable_Use_Daily_Stock()
+                .clickOnSaveButton()
+                .clickOnHomeButton()
+                .gotoOrderTypeSettingPage()
+                .enablePaymentByAnotherUserForAllTypes()
+                .clickOnHomeButton()
+                .gotoorderpage();
+        Thread.sleep(3000);
+               orderPage.get_All_Product_From_DB();
+
+}}

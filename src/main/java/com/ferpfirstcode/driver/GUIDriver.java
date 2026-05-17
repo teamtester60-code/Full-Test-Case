@@ -1,12 +1,18 @@
 package com.ferpfirstcode.driver;
 
-import com.ferpfirstcode.utils.actions.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ThreadGuard;
+
+import com.ferpfirstcode.utils.actions.AlertActions;
+import com.ferpfirstcode.utils.actions.BrowserActions;
+import com.ferpfirstcode.utils.actions.ElementActions;
+import com.ferpfirstcode.utils.actions.FrameActions;
 import com.ferpfirstcode.utils.dataReader.PropertyReader;
 import com.ferpfirstcode.utils.logs.LogsManager;
 import com.ferpfirstcode.validations.Validation;
 import com.ferpfirstcode.validations.Verification;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ThreadGuard;
 
 public class GUIDriver {
 
@@ -101,6 +107,10 @@ public class GUIDriver {
 
     public void clearSelectedOrderType() {
         selectedOrderType.remove();
+    }
+
+    public WebElement findElement(By locator) {
+        return get().findElement(locator);
     }
 
 }

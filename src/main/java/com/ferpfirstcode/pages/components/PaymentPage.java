@@ -143,6 +143,15 @@ public class PaymentPage {
 
     @Step("pay the order overprice")
     public PaymentPage payOverPrice() {
+        String orderType = driver.getSelectedOrderType();
+
+        if (orderType != null && !orderType.isBlank() && orderType.toLowerCase().contains("delivery")) {
+
+            io.qameta.allure.Allure.step("✅ Order Type is Delivery. Skipping overprice payment gracefully.");
+            LogsManager.info("Order Type is Delivery. Skipping payOverPrice step.");
+
+            return this;
+        }
 
         double totalAmount = readMoneyOrFail(totalprice, "totalprice");
         double overPrice = totalAmount * 2;

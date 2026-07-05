@@ -1086,3 +1086,84 @@ Driver info: driver.version: unknown
 [INFO] - [05-07-2026 15:51:29] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: //div[contains(@class, 'product-card')][.//div[contains(@class, 'productName') and normalize-space(text())='TEST111']]
 [INFO] - [05-07-2026 15:51:29] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
 [INFO] - [05-07-2026 15:51:29] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [05-07-2026 15:51:30] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [05-07-2026 15:51:30] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [05-07-2026 15:51:31] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [05-07-2026 15:51:31] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [05-07-2026 15:51:32] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [05-07-2026 15:51:32] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [05-07-2026 15:51:33] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [05-07-2026 15:51:34] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [05-07-2026 15:51:34] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [05-07-2026 15:51:35] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [05-07-2026 15:51:35] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [05-07-2026 15:51:36] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [05-07-2026 15:51:36] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [05-07-2026 15:51:37] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [05-07-2026 15:51:37] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [05-07-2026 15:51:38] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [05-07-2026 15:51:38] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [05-07-2026 15:51:39] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [05-07-2026 15:51:39] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [05-07-2026 15:51:40] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [05-07-2026 15:51:40] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [05-07-2026 15:51:41] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [05-07-2026 15:51:41] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [05-07-2026 15:51:42] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [05-07-2026 15:51:42] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [05-07-2026 15:51:43] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [05-07-2026 15:51:44] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [05-07-2026 15:51:44] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [05-07-2026 15:51:45] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [05-07-2026 15:51:45] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [05-07-2026 15:51:46] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [05-07-2026 15:51:46] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [05-07-2026 15:51:47] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [05-07-2026 15:51:47] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [05-07-2026 15:51:48] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [05-07-2026 15:51:48] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[INFO] - [05-07-2026 15:51:49] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.cssSelector: div.modal-content.modal-contentWidth - false
+[ERROR] - [05-07-2026 15:51:49] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Failed to verify visibility of element: By.cssSelector: div.modal-content.modal-contentWidth - Expected condition failed: waiting for com.ferpfirstcode.utils.actions.ElementActions$$Lambda/0x00000156814c6d60@43e865ba
+(tried for 20 seconds with ٥٠٠ milliseconds interval)
+Build info: version: '4.44.0', revision: 'da2039b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '24.0.1'
+Driver info: driver.version: unknown
+[ERROR] - [05-07-2026 15:51:49] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Failed to Capture Screenshot The filename, directory name, or volume label syntax is incorrect
+[INFO] - [05-07-2026 15:51:49] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Screenshot captured: isElementVisible-By.cssSelector: div.modal-content.modal-contentWidth
+[ERROR] - [05-07-2026 15:52:09] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Failed to verify visibility of element: By.xpath: //div[@id='modal-NewSideDishes' and contains(@class,'show')] - Expected condition failed: waiting for com.ferpfirstcode.utils.actions.ElementActions$$Lambda/0x00000156814c6d60@22e4158
+(tried for 20 seconds with ٥٠٠ milliseconds interval)
+[ERROR] - [05-07-2026 15:52:09] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Failed to Capture Screenshot The filename, directory name, or volume label syntax is incorrect
+[INFO] - [05-07-2026 15:52:09] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Screenshot captured: isElementVisible-By.xpath: //div[@id='modal-NewSideDishes' and contains(@class,'show')]
+[INFO] - [05-07-2026 15:52:09] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Capturing Screenshot Succeeded
+[INFO] - [05-07-2026 15:52:09] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Retrieved text from element: By.xpath: //li[contains(@class,'bg-maingreen')]//h5[last()] - 331.58
+[INFO] - [05-07-2026 15:52:12] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Clicked element: By.xpath: //*[@id="ct-tab"]/div[1]
+[ERROR] - [05-07-2026 15:52:32] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Failed to verify visibility of element: By.xpath: //div[contains(@class, 'modal-content') and .//div[contains(@class, 'deliveryCustomer')]] - Expected condition failed: waiting for com.ferpfirstcode.utils.actions.ElementActions$$Lambda/0x00000156814c6d60@228cc217
+(tried for 20 seconds with ٥٠٠ milliseconds interval)
+[ERROR] - [05-07-2026 15:52:32] [main] [com.ferpfirstcode.media.ScreenShotsManager] - Failed to Capture Screenshot The filename, directory name, or volume label syntax is incorrect
+[INFO] - [05-07-2026 15:52:32] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Screenshot captured: isElementVisible-By.xpath: //div[contains(@class, 'modal-content') and .//div[contains(@class, 'deliveryCustomer')]]
+[INFO] - [05-07-2026 15:52:32] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-Waiter - false
+[INFO] - [05-07-2026 15:52:33] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-Waiter - false
+[INFO] - [05-07-2026 15:52:33] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-Waiter - false
+[INFO] - [05-07-2026 15:52:34] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-Waiter - false
+[INFO] - [05-07-2026 15:52:35] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-Waiter - false
+[INFO] - [05-07-2026 15:52:35] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-Waiter - false
+[INFO] - [05-07-2026 15:52:36] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-Waiter - false
+[INFO] - [05-07-2026 15:52:36] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-Waiter - false
+[INFO] - [05-07-2026 15:52:37] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-Waiter - false
+[INFO] - [05-07-2026 15:52:37] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-Waiter - false
+[INFO] - [05-07-2026 15:52:38] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-Waiter - false
+[INFO] - [05-07-2026 15:52:38] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-Waiter - false
+[INFO] - [05-07-2026 15:52:39] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-Waiter - false
+[INFO] - [05-07-2026 15:52:39] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-Waiter - false
+[INFO] - [05-07-2026 15:52:40] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-Waiter - false
+[INFO] - [05-07-2026 15:52:40] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-Waiter - false
+[INFO] - [05-07-2026 15:52:41] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-Waiter - false
+[INFO] - [05-07-2026 15:52:41] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-Waiter - false
+[INFO] - [05-07-2026 15:52:42] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-Waiter - false
+[INFO] - [05-07-2026 15:52:43] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-Waiter - false
+[INFO] - [05-07-2026 15:52:43] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-Waiter - false
+[INFO] - [05-07-2026 15:52:44] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-Waiter - false
+[INFO] - [05-07-2026 15:52:44] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-Waiter - false
+[INFO] - [05-07-2026 15:52:45] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-Waiter - false
+[INFO] - [05-07-2026 15:52:45] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-Waiter - false
+[INFO] - [05-07-2026 15:52:46] [main] [com.ferpfirstcode.utils.actions.ElementActions] - Element visibility for: By.id: modal-Waiter - false

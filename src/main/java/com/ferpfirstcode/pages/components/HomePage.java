@@ -17,6 +17,7 @@ public class HomePage {
     }
 
     // Locators
+    private final By logoutbutton = By.xpath("//a[.//i[contains(@class, 'bi-box-arrow-right')]]");
     private final By visibleUsername = By.xpath("//span[@class='ng-star-inserted']/h6");
     private final By opendaybutton=By.xpath("//button[@data-target='#openDaymodal']");
     private final By shiftOpenbutton=By.xpath("//button[@data-target='#openshiftmodal']");
@@ -34,10 +35,17 @@ public class HomePage {
     private final By salesReport = By.xpath("//a[contains(normalize-space(.), 'Sales report') or contains(normalize-space(.), 'تقرير المبيعات')]");
     private final By inputs=By.xpath("//div[contains(@class,'ms-panel-body')][contains(.,'Inputs') or contains(.,'المدخلات')]");
     private final By ordertypesettingbutton=By.xpath("//a[normalize-space()='Order Type' or normalize-space()='نوع الفاتورة']");
+    private final By homeUserDropdown = By.id("homeUserDropdown");
 
 
 
     //Actions
+    @Step("Click Logout Button")
+    public HomePage clickOnLogoutButton() {
+        driver.element().clickElement(homeUserDropdown);
+        driver.element().clickElement(logoutbutton);
+        return this;
+    }
     @Step("Click Open Day Button if it is enabled")
     public HomePage clickOpenDayButton() throws InterruptedException {
         try {
@@ -136,9 +144,12 @@ public class HomePage {
         return this;
     }
     @Step("Go to Order Type Setting Page")
-    public OrderTypeSettingPage gotoOrderTypeSettingPage() {
+    public OrderTypeSettingPage gotoOrderTypeSettingPage() throws InterruptedException {
+        Thread.sleep(3000);
         driver.element().clickElement(inputs);
+        Thread.sleep(3000);
         driver.element().clickElement(ordertypesettingbutton);
+        Thread.sleep(3000);
         return new OrderTypeSettingPage(driver);
                 
     }

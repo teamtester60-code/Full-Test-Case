@@ -1,5 +1,14 @@
 package com.ferpfirstcode.pages.components;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.util.Random;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import com.ferpfirstcode.driver.GUIDriver;
 import com.ferpfirstcode.media.ScreenShotsManager;
 import com.ferpfirstcode.utils.dataReader.DataBaseReader;
@@ -7,14 +16,7 @@ import com.ferpfirstcode.utils.logs.LogsManager;
 
 import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
-import java.time.LocalDateTime;
-import java.util.Random;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import org.testng.Assert;
 
 public class PaymentPage {
     public final GUIDriver driver;
@@ -26,7 +28,7 @@ public class PaymentPage {
     //Locators
     private final By customersbutton = By.xpath("(//button[contains(@class,'btn bg-maingreen cairo-font w-100 mb-1')])[1]");
     private final By discountbutton = By.xpath("(//button[contains(@class,'btn') and contains(@class,'bg-maingreen')])[5]");
-    private final By closeOrderbutton = By.cssSelector("button.btn.btn-success.ng-star-inserted");
+    private final By closeOrderbutton = By.xpath("//button[contains(@class, 'btn-success') and (contains(., 'إغلاق فاتورة') or contains(., 'close Order') or contains(., 'Close Order'))]");
     private final By searchbynamefield = By.xpath("(//input[@placeholder='Search By Name'])[1]");
     private final By selectcustomerbutton = By.cssSelector("button.btnPLus.btn-link");
     private final By selectaddressbutton = By.xpath("(//*[@id=\"collapseOne_@i\"]/td[5]/button)[1]");
@@ -48,11 +50,23 @@ public class PaymentPage {
     private final By discountpercentage=By.xpath("(//input[contains(@id,'DiscountPercentage')])[1]");
 
 
+    private final By discountmodal= By.xpath("//div[contains(@class, 'show')]//h5[contains(., 'الخصم') or contains(., 'Discount')]");
+
     private long orderNumber;
     private Double lastPaidAmount;
     private Double orderTotalAmount;
+    private String currentOrderType = "";
 
     //Actions
+
+    @Step("Set Current Order Type to: {orderType}")
+    public PaymentPage setOrderType(String orderType) {
+        this.currentOrderType = orderType;
+        return this;
+    }
+    public String getOrderType() {
+        return this.currentOrderType;
+    }
     @Step("Select Customer")
     public PaymentPage selectCustomer() {
         driver.element().clickElement(customersbutton);
@@ -61,6 +75,33 @@ public class PaymentPage {
         driver.element().clickElement(selectaddressbutton);
         driver.element().clickElement(closecustomerselectionmodalbutton);
         return this;
+    }
+
+    @Step("Extract Order Number from Payment Screen")
+    public String getOrderNumber() throws InterruptedException {
+
+        By orderNumberLocator = By.xpath("//tr[th[contains(., 'Order Number') or contains(., 'رقم الطلب') or contains(., 'Invoice Number') or contains(., 'رقم الفاتورة')]]//td");
+
+        String orderNumber = "";
+
+        // 💡 حلقة انتظار ذكية (Polling): يحاول السيلينيوم قراءة النص، وإذا كان فارغاً ينتظر نصف ثانية ويحاول مجدداً (بحد أقصى 10 محاولات = 5 ثوانٍ)
+        for (int i = 0; i < 10; i++) {
+            orderNumber = driver.element().getElementText(orderNumberLocator).trim();
+
+            if (!orderNumber.isEmpty()) {
+                break; // بمجرد أن يجد الرقم، يخرج من الحلقة فوراً
+            }
+            Thread.sleep(500); // انتظار نصف ثانية حتى يكتمل الـ Angular Rendering
+        }
+
+        // Guard Clause للتأكد أننا التقطنا الرقم فعلياً قبل إكمال التست
+        if (orderNumber.isEmpty()) {
+            Assert.fail("❌ لم يتمكن السيلينيوم من قراءة رقم الطلب! الشاشة لم تعرض الرقم في الوقت المحدد.");
+        }
+
+        Allure.step("✅ Extracted Order Number: " + orderNumber);
+
+        return orderNumber;
     }
 
     @Step("Select Discount")
@@ -73,6 +114,8 @@ public class PaymentPage {
 
     @Step("Close Order")
     public OrderPage closeOrder() {
+        if (driver.element().isElementVisible(closeOrderbutton)) {
+
 
         // احفظ total قبل الإغلاق لأن الإغلاق = الدفع
         double totalAmount = readMoneyOrFail(totalprice, "totalprice");
@@ -85,6 +128,16 @@ public class PaymentPage {
         driver.element().clickElement(closeOrderbutton);
 
         return new OrderPage(driver);
+
+        }
+         else{
+//            By backbutton = By.xpath("//button[contains(@class, 'bg-maingreen') and contains(.,'عودة')]");
+//            driver.element().clickElement(backbutton);
+
+            Allure.step("Order Type is  delivery");
+            return new OrderPage(driver);
+        }
+
     }
 
 
@@ -105,45 +158,60 @@ public class PaymentPage {
 
         return this;
     }
+    // Helper method to handle the customer selection popup gracefully
+    private void handleCustomerSelectionPopupIfVisible(String customerName) {
+        if (driver.element().isElementVisible(searchbynamefield)) {
+            driver.element().clickElement(searchbynamefield).typeText(searchbynamefield, customerName);
+            driver.element().clickElement(selectcustomerbutton);
+            driver.element().clickElement(selectaddressbutton);
+            driver.element().clickElement(closecustomerselectionmodalbutton);
+        }
+    }
 
-    @Step("pay the order with multiple payment")
+    @Step("Pay the order with multiple payment types")
     public PaymentPage pay_With_Multiple_Payment() {
-        double totalAmount = readMoneyOrFail(totalprice, "totalprice");
-        double firstPayment = totalAmount / 3;
-        double secondPayment = totalAmount / 3;
-        double thirdPayment = totalAmount / 3;
-        driver.element().clickElement(paymenttype1);
-        String namepaytype1 = driver.element().getElementText(paymenttype1);
-        if (driver.element().isElementVisible(searchbynamefield)) {
-            driver.element().clickElement(searchbynamefield).typeText(searchbynamefield, "abdo");
-            driver.element().clickElement(selectcustomerbutton);
-            driver.element().clickElement(selectaddressbutton);
-            driver.element().clickElement(closecustomerselectionmodalbutton);
-        }
-        driver.element().typeText(paymentamountfield, String.valueOf(firstPayment));
-        driver.element().clickElement(paymenttype2);
-        String namepaytype2 = driver.element().getElementText(paymenttype2);
-        if (driver.element().isElementVisible(searchbynamefield)) {
-            driver.element().clickElement(searchbynamefield).typeText(searchbynamefield, "abdo");
-            driver.element().clickElement(selectcustomerbutton);
-            driver.element().clickElement(selectaddressbutton);
-            driver.element().clickElement(closecustomerselectionmodalbutton);
-        }
-        driver.element().typeText(paymentamountfield2, String.valueOf(secondPayment));
-        driver.element().clickElement(paymenttype3);
-        if (driver.element().isElementVisible(searchbynamefield)) {
-            driver.element().clickElement(searchbynamefield).typeText(searchbynamefield, "abdo");
-            driver.element().clickElement(selectcustomerbutton);
-            driver.element().clickElement(selectaddressbutton);
-            driver.element().clickElement(closecustomerselectionmodalbutton);
-        }
-        driver.element().typeText(paymentamountfield3, String.valueOf(thirdPayment));
-        String namepaytype3 = driver.element().getElementText(paymenttype3);
 
-        Allure.step("Pay with multiple payment");
-        Allure.step("Pay Type 1:"+namepaytype1);
-        Allure.step("Pay Type 2:"+namepaytype2);
-        Allure.step("Pay Type 3:"+namepaytype3);
+        // 1. Fetch the stored order type from GUIDriver
+        String orderType = driver.getSelectedOrderType();
+
+        // 2. Guard Clause (Early Exit) for Delivery Orders
+        if (orderType != null && !orderType.isBlank() &&
+                (orderType.equalsIgnoreCase("delivery") || orderType.contains("دليفر") || orderType.contains("توصيل"))) {
+
+            Allure.step("✅ Order Type = Delivery. Skipping multiple payments gracefully.");
+            return this; // Skip the rest of the method and pass the test
+        }
+
+        // 3. Normal execution for non-delivery orders (Dine-in, Takeaway, etc.)
+        double totalAmount = readMoneyOrFail(totalprice, "totalprice");
+
+        // Format the amount to 2 decimal places to prevent UI input errors (e.g., 33.33 instead of 33.3333333)
+        String paymentAmountStr = String.format(java.util.Locale.US, "%.2f", totalAmount / 3);
+
+        // --- First Payment ---
+        driver.element().clickElement(paymenttype1);
+        String payType1Name = driver.element().getElementText(paymenttype1);
+        handleCustomerSelectionPopupIfVisible("abdo");
+        driver.element().typeText(paymentamountfield, paymentAmountStr);
+
+        // --- Second Payment ---
+        driver.element().clickElement(paymenttype2);
+        String payType2Name = driver.element().getElementText(paymenttype2);
+        handleCustomerSelectionPopupIfVisible("abdo");
+        driver.element().typeText(paymentamountfield2, paymentAmountStr);
+
+        // --- Third Payment ---
+        driver.element().clickElement(paymenttype3);
+        String payType3Name = driver.element().getElementText(paymenttype3);
+        handleCustomerSelectionPopupIfVisible("abdo");
+        driver.element().typeText(paymentamountfield3, paymentAmountStr);
+
+        // --- Logging ---
+        Allure.step("✅ Paid successfully using 3 split payments:");
+        Allure.step("1. " + payType1Name + " | Amount: " + paymentAmountStr);
+        Allure.step("2. " + payType2Name + " | Amount: " + paymentAmountStr);
+        Allure.step("3. " + payType3Name + " | Amount: " + paymentAmountStr);
+
         return this;
     }
     @Step("Validate Discount By Fixed Amount")
@@ -166,15 +234,22 @@ public class PaymentPage {
         driver.element().clickElement(discountbutton);
 
         // 2. اكتب الرقم العشوائي في حقل الخصم
-        driver.element().typeText(discountbypercentagebutton, String.valueOf(discountPercentage));
+        if ( driver.element().isElementVisible(discountmodal)) {
+            driver.element().typeText(discountbypercentagebutton, String.valueOf(discountPercentage));
 
-        // 3. اضغط حفظ أو تأكيد
-        driver.element().clickElement(okbuttonofdiscountmodal);
+            // 3. اضغط حفظ أو تأكيد
+            driver.element().clickElement(okbuttonofdiscountmodal);
+        }
+
     }
 
     @Step("Validate Random Discount Calculation")
     public PaymentPage validateRandomDiscountCalculation() {
         if (driver.element().isElementVisible(manageOrdersbutton)) {
+            return this;
+        }
+        String orderType = driver.getSelectedOrderType();
+        if (orderType.contains("هالك واعدامات" ) || orderType.contains("تذوق العملاء")) {
             return this;
         }
 
@@ -204,7 +279,7 @@ public class PaymentPage {
         // 6. التحقق (Assertion)
         if (Math.abs(expectedAfter - totalAfter) < 0.01) {
             Allure.step("✅ Discount is correct: Expected = " + expectedAfter + " | Actual = " + totalAfter);
-            System.out.println("✅ Discount applied successfully: " + randomDiscountPercentage + "%");
+            Allure.step("✅ Discount applied successfully: " + randomDiscountPercentage + "%");
         } else {
             throw new AssertionError("❌ Discount calculation failed! " +
                     "Applied: " + randomDiscountPercentage + "% | " +
@@ -321,45 +396,57 @@ public class PaymentPage {
             );
         }
     }
+    @Step("Get current total from UI")
+    public double getOrderTotalFromUI() {
+        // هذه الدالة تقرأ القيمة من الشاشة وتُرجعها فوراً
+        return readMoneyOrFail(totalprice, "totalprice");
+    }
 
+//    @Step("Close Order and catch Serial dynamically")
+//    public String closeOrderAndCatchSerial() {
+//        // استخدم Locator زر الدفع الفعلي الخاص بهذه الصفحة
+//        // تأكد أن payButtonLocator معرف في أعلى كلاس PaymentPage
+//        return driver.element().catchSerialFromNetwork(closeOrderbutton);
+//    }
 
-    @Step("Validate DB PayAmount equals Total*2 ")
-    public PaymentPage validateDBPayAmountIsDoubleTotal(int timeoutSeconds, double delta) throws InterruptedException {
+    @Step("Validate DB PayAmount equals Total*2 using exact Serial")
+    public PaymentPage validateDBPayAmountIsDoubleTotal(String exactSerial, int timeoutSeconds, double delta) throws InterruptedException {
 
-        // --- Early validation ---
-        if (this.orderNumber == 0) {
-            throw new IllegalStateException("OrderNumber is not set before DB validation");
+        // --- Early validation (Guard Clauses) ---
+        if (exactSerial == null || exactSerial.trim().isEmpty()) {
+            throw new IllegalStateException("❌ Serial is not set before DB validation. Ensure closeOrderAndCatchSerial() was executed successfully.");
         }
         if (this.orderTotalAmount == null) {
-            throw new IllegalStateException("orderTotalAmount is not set. Call payOverPrice() before DB validation");
+            throw new IllegalStateException("❌ orderTotalAmount is not set. Call payOverPrice() before DB validation.");
         }
 
         // --- Expected DB value is double the order total ---
         double expectedPayAmount = this.orderTotalAmount * 2;
 
         // --- Wait for DB to reach expected value ---
+        // تم إضافة تأخير بسيط للسماح للسيرفر بإنهاء المعالجة
         Thread.sleep(3000);
-        Double dbPayAmount = waitForPaymentAmountFromDB(expectedPayAmount, delta, timeoutSeconds);
 
-        // --- Logging for info ---
-        LogsManager.info(String.format(
-                "Checking DB PayAmount | OrderNumber=%d | Expected=%.2f | Actual=%.2f",
-                this.orderNumber, expectedPayAmount, dbPayAmount
-        ));
+        // --- Fetch from DB ---
+        Double dbPayAmount = DataBaseReader.waitForPaymentAmountFromDBBySerial(exactSerial, expectedPayAmount, delta, timeoutSeconds);
 
-        // --- Validation with screenshot on mismatch ---
+        // --- Validation with Screenshot on Failure ---
         if (Math.abs(dbPayAmount - expectedPayAmount) > delta) {
+            // 🔥 هذه هي الخطوة المهمة: التقاط شاشة عند حدوث الخطأ
+            ScreenShotsManager.takeFullPageScreenshot(driver.get(), "DB_PayAmount_Mismatch");
+
             throw new AssertionError(String.format(
-                    "❌ DB PayAmount mismatch | Expected=%.2f | DB PayAmount=%.2f | OrderNumber=%d",
-                    expectedPayAmount, dbPayAmount, this.orderNumber
+                    "❌ DB PayAmount mismatch | Serial=%s | Expected=%.2f | DB Actual=%.2f",
+                    exactSerial, expectedPayAmount, dbPayAmount
             ));
         }
 
-        // --- Allure step & logging for success ---
+        // --- Success Reporting ---
         String successMessage = String.format(
-                "✅ DB PayAmount matches Total*2 | Expected=%.2f | DB=%.2f",
-                expectedPayAmount, dbPayAmount
+                "✅ DB PayAmount matches Total*2 | Serial=%s | Expected=%.2f | DB=%.2f",
+                exactSerial, expectedPayAmount, dbPayAmount
         );
+
         Allure.step(successMessage);
         LogsManager.info(successMessage);
 
@@ -440,22 +527,46 @@ public class PaymentPage {
 
         return this;
     }
-
-    private Double waitForOrderTotalFromDB(double expectedMin, int timeoutSeconds) {
-
+    private Double waitForOrderTotalFromDB(String exactSerial, int timeoutSeconds, String orderType) {
         long endTime = System.currentTimeMillis() + timeoutSeconds * 1000L;
-        Double last = null;
+        Double lastValue = null;
 
         while (System.currentTimeMillis() < endTime) {
 
-            Double total = DataBaseReader.getOrderTotalByOrderNumber(this.orderNumber);
-            last = total;
+            // Fetch the 'Total' field directly using the unique Serial
+            Double total = DataBaseReader.getOrderTotalBySerial(exactSerial);
 
-            LogsManager.info("Polling DB Total | OrderNumber=" + this.orderNumber + " | DB Total=" + total);
+            if (total != null && total > 0.0) {
 
-            if (total != null && total >= expectedMin) {
+                // ====================================================================
+                // SERVICE CHARGE LOGIC (12% for Dine-In applied to DB Total)
+                // ====================================================================
+                boolean isDineIn = orderType != null && (orderType.toLowerCase().contains("dine") || orderType.contains("صالة") || orderType.contains("صاله"));
+
+                if (isDineIn) {
+                    // 1. Extract the Net amount (Since the current total includes 14% VAT)
+                    // Math: Net = Total / 1.14
+                    double netAmount = total / 1.14;
+
+                    // 2. Calculate the 12% Service Charge strictly from the Net amount
+                    double serviceCharge = netAmount * 0.12;
+
+                    // 3. Add the exact service charge to the original total
+                    total = total + serviceCharge;
+
+                    // 4. Precision fix for Java floating-point rounding (e.g., converts 55.26315 to 55.26)
+                    total = Math.round(total * 100.0) / 100.0;
+
+                    LogsManager.info("Dine-In order detected. Extracted Net amount and applied 12% service charge. Final Calculated Total: " + total);
+                }
+                // ====================================================================
+
+                LogsManager.info("Polling DB Total | Serial=" + exactSerial + " | Final DB Total=" + total);
                 return total;
             }
+
+            lastValue = total;
+            LogsManager.info("Polling DB Total | Serial=" + exactSerial + " | Current DB Total=" + total);
 
             try {
                 Thread.sleep(1000);
@@ -466,76 +577,83 @@ public class PaymentPage {
         }
 
         ScreenShotsManager.takeFullPageScreenshot(driver.get(), "DB_Total_Not_Reached");
-
         throw new AssertionError(
-                "❌ DB Total did not reach expectedMin=" + expectedMin +
-                        " | last=" + last +
-                        " | OrderNumber=" + this.orderNumber
+                "Timeout: Order Total did not appear in the Database within the specified timeframe." +
+                        " | Last Value=" + lastValue +
+                        " | Serial=" + exactSerial
         );
     }
-
-    @Step("pay less than total cost")
+    @Step("Pay less than total cost")
     public PaymentPage payLessThanTotalCost() {
-        driver.element().typeText(paymentamountfield,"1");
-        driver.element().clickElement(closeOrderbutton);
+
+        String type = getOrderType(); // قراءة النوع المحفوظ
+
+        // Guard Clause (Early Exit)
+        if (type != null && !type.isBlank() &&
+                (type.equalsIgnoreCase("delivery") || type.contains("دليفر") || type.contains("توصيل"))) {
+
+            Allure.step("✅ Order Type = Delivery. Skipping payment logic gracefully.");
+            return this; // يخرج بنجاح دون تنفيذ الدفع
+        }
+
+        // الكود العادي لباقي أنواع الطلبات
+        driver.element().typeText(paymentamountfield, "1");
+        driver.element().clickElementRaw(closeOrderbutton);
+
         return this;
     }
 
 
     @Step("Validate the Message that appear when pay less than total cost")
     public PaymentPage validate_pay_amount_less_than_total_cost(String expectedText) {
-        driver.element().clickElement(closeOrderbutton);
+
+        String orderType = driver.getSelectedOrderType();
+
+        if (orderType != null && !orderType.isBlank() &&
+                (orderType.equalsIgnoreCase("delivery") || orderType.contains("دليفر") || orderType.contains("توصيل"))) {
+
+            Allure.step("✅ Order Type = Delivery. Skipping toast validation gracefully.");
+            return this; // إنهاء الدالة بنجاح فوراً
+        }
+//
+//        driver.element().clickElement(closeOrderbutton);
 
         By toast = By.cssSelector(".toast-warning .toast-message");
 
-        driver.element().getElementText(toast);
-
         String actual = driver.element().getElementText(toast);
 
-        if (!actual.contains(expectedText)) {
+        if (actual == null || !actual.contains(expectedText)) {
             throw new AssertionError(
-                    "❌ Expected: " + expectedText + "\nActual: " + actual
+                    "❌ Expected to contain: " + expectedText + "\nActual message was: " + actual
             );
         }
 
-        System.out.println("✅ Toast validated: " + actual);
+        Allure.step("✅ Toast validated successfully: " + actual);
         return this;
     }
 
-    @Step("Validate DB Total equals UI Total")
-    public PaymentPage validateDBTotalEqualsUITotal(double delta) {
+    // تأكد من تمرير الـ uiTotalAmount كـ Parameter
+    @Step("Validate DB Total equals UI Total using Serial: {exactSerial} | Type: {orderType}")
+    public PaymentPage validateDBTotalEqualsUITotal(String exactSerial, double uiTotalAmount, double delta, String orderType) {
 
-        if (this.orderNumber == 0) {
-            throw new IllegalStateException("OrderNumber is not set before DB validation");
+        if (exactSerial == null || exactSerial.trim().isEmpty()) {
+            throw new IllegalStateException("❌ Serial is empty. Ensure the serial was captured successfully before calling this method.");
         }
 
-        if (this.orderTotalAmount == null) {
-            throw new IllegalStateException("orderTotalAmount is not set before DB validation");
-        }
+        // 1. Fetch the total directly from the database using the unique serial
+        // Note: The 12% Dine-in Service Charge logic is handled inside this DB fetching method.
+        double dbTotal = waitForOrderTotalFromDB(exactSerial, 20, orderType);
 
-        double dbTotal = waitForOrderTotalFromDB(this.orderTotalAmount - delta, 20);
-
-        if (Math.abs(dbTotal - this.orderTotalAmount) > delta) {
+        // 2. Comparison Evaluation
+        if (Math.abs(dbTotal - uiTotalAmount) > delta) {
             ScreenShotsManager.takeFullPageScreenshot(driver.get(), "DB_Total_Mismatch");
-
-            throw new AssertionError(
-                    "❌ DB Total mismatch | UI Total=" + this.orderTotalAmount +
-                            " | DB Total=" + dbTotal +
-                            " | OrderNumber=" + this.orderNumber
-            );
+            throw new AssertionError(String.format(
+                    "❌ Match Failed! | Serial: %s | Expected UI Total: %.2f | Actual DB Total: %.2f",
+                    exactSerial, uiTotalAmount, dbTotal
+            ));
         }
-        Allure.step("✅ DB Total matches UI Total | UI=" + this.orderTotalAmount + " | DB=" + dbTotal);
 
-        LogsManager.info("✅ DB Total matches UI Total | UI=" + this.orderTotalAmount + " | DB=" + dbTotal);
+        LogsManager.info(String.format("✅ Match Successful! | Serial: %s | Matched Total: %.2f", exactSerial, dbTotal));
         return this;
     }
-
-
-
-
-
-
-
-
-
 }

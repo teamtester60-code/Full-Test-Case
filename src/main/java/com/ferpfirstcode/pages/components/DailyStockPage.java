@@ -86,7 +86,7 @@ public class DailyStockPage {
             String rowText = row.getText().trim();
 
             if (rowText.contains(today)) {
-                System.out.println("✅ Today's stock found");
+                Allure.step("✅ Today's stock found");
 
                 row.click();
                 Thread.sleep(3000);

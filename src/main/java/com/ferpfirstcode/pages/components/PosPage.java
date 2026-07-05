@@ -18,6 +18,9 @@ public class PosPage {
     private final By homebutton= By.xpath("(//a[.//i[text()='home']])[1]");
     private final By visibleIcon = By.cssSelector("img.ms-user-img");
     private final By yesbutton= By.xpath("//button[contains(@class, \"swal2-confirm\") and contains(@class, \"swal2-styled\")]");
+    private final By deletelinksmodal=By.cssSelector(".swal2-popup");
+    private final By canceldeletelinks=By.cssSelector(".swal2-cancel");
+
 
 
     //Actions
@@ -29,10 +32,14 @@ public class PosPage {
     @Step("Click Authorize/UnAuthorize Button")
     public PosPage clickAuthorAndUnAuthorButton() {
         driver.element().clickElement(authorandUnAthor);
-        if (driver.element().isElementVisible(yesbutton)){
-            ScreenShotsManager.takeFullPageScreenshot(driver.get(),"BeforeClickYesButton");
-            driver.element().clickElement(yesbutton);
+        if (driver.element().isElementVisible(deletelinksmodal)){
+            ScreenShotsManager.takeFullPageScreenshot(driver.get(),"BeforeClickDeleteLinks");
+            driver.element().clickElement(canceldeletelinks);
         }
+//        if (driver.element().isElementVisible(yesbutton)){
+//            ScreenShotsManager.takeFullPageScreenshot(driver.get(),"BeforeClickYesButton");
+//            driver.element().clickElement(yesbutton);
+//        }
         return this;
     }
     @Step("Click Save POS Button")

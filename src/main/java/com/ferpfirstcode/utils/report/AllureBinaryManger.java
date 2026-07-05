@@ -3,7 +3,6 @@ package com.ferpfirstcode.utils.report;
 import com.ferpfirstcode.utils.OSUtils;
 import com.ferpfirstcode.utils.TerminalUtils;
 import com.ferpfirstcode.utils.logs.LogsManager;
-
 import org.jsoup.Jsoup;
 
 import java.io.BufferedInputStream;
@@ -17,18 +16,28 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 public class AllureBinaryManger {
+
+    // 💡 Fallback version in case GitHub is down or network is disconnected
+    private static final String FALLBACK_VERSION = "2.34.1";
+
     private static class LazyHolder {
-        static final String VERSION = resolveVersion(); //2.34.1
+        static final String VERSION = resolveVersion();
 
         private static String resolveVersion() {
             try {
+                // Added a 5-second timeout to prevent the framework from hanging
                 String url = Jsoup.connect("https://github.com/allure-framework/allure2/releases/latest")
-                        .followRedirects(true).execute().url().toString();
+                        .timeout(5000)
+                        .followRedirects(true)
+                        .execute()
+                        .url()
+                        .toString();
                 return url.split("/tag/")[1];
             } catch (Exception e) {
-                throw new IllegalStateException("Unable to resolve Allure version", e);
+                // 🔥 Instead of throwing an exception and crashing the test, use the fallback version
+                LogsManager.error("GitHub is unreachable (Timeout/504). Falling back to stable version: " + FALLBACK_VERSION, e.getMessage());
+                return FALLBACK_VERSION;
             }
-
         }
     }
 
@@ -36,74 +45,69 @@ public class AllureBinaryManger {
         try {
             String version = LazyHolder.VERSION;
             Path extractionDir = Paths.get(AllureConstants.EXTRACTION_DIR.toString(), "allure-" + version);
-            //c:\Users\hussi\.m2\repository\allure\allure-2.34.1
+
             if (Files.exists(extractionDir)) {
-                LogsManager.info("Allure binaries already exist.");
+                LogsManager.info("Allure binaries already exist for version: " + version);
                 return;
             }
 
-            // Give execute permissions to the binary if not on Windows
-            if (!OSUtils.getOperatingSystemType().equals(OSUtils.OSType.WINDOWS)) {
-                TerminalUtils.executeTerminalCommand("chmod", "u+x", AllureConstants.USER_DIR.toString());
-            }
-
-
+            LogsManager.info("Starting download for Allure binaries version: " + version);
             Path zipPath = downloadZip(version);
-            extractZip(zipPath);
 
-            LogsManager.info("Allure binaries downloaded and extracted.");
-            // Give execute permissions to the binary if not on Windows
-            if (!OSUtils.getOperatingSystemType().equals(OSUtils.OSType.WINDOWS)) {
-                TerminalUtils.executeTerminalCommand("chmod", "u+x", getExecutable().toString());
+            if (zipPath != null && Files.exists(zipPath)) {
+                extractZip(zipPath);
+                LogsManager.info("Allure binaries downloaded and extracted successfully.");
+
+                // Give execute permissions to the binary file on Mac/Linux
+                if (!OSUtils.getOperatingSystemType().equals(OSUtils.OSType.WINDOWS)) {
+                    TerminalUtils.executeTerminalCommand("chmod", "u+x", getExecutable().toString());
+                }
+
+                // 🔥 Clean up the exact zip file directly (Cleaner and safer)
+                Files.deleteIfExists(zipPath);
             }
-            // Clean up the zip file after extraction
-            Files.deleteIfExists(Files.list(AllureConstants.EXTRACTION_DIR).filter(p -> p.toString().endsWith(".zip")).findFirst().orElseThrow());
 
         } catch (Exception e) {
-            LogsManager.error("Error downloading or extracting binaries", e.getMessage());
+            LogsManager.error("Error during downloading or extracting Allure binaries", e.getMessage());
         }
     }
 
     public static Path getExecutable() {
         String version = LazyHolder.VERSION;
-        //C:\Users\pc\.m2\repository\allure\allure-2.34.1\bin
         Path binaryPath = Paths.get(AllureConstants.EXTRACTION_DIR.toString(), "allure-" + version, "bin", "allure");
+
         return OSUtils.getOperatingSystemType() == OSUtils.OSType.WINDOWS
                 ? binaryPath.resolveSibling(binaryPath.getFileName() + ".bat")
                 : binaryPath;
     }
 
-    // download ZIP file for Allure
+    // Download ZIP file for Allure
     private static Path downloadZip(String version) {
         try {
-            //https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.34.1/allure-commandline-2.34.1.zip
             String url = AllureConstants.ALLURE_ZIP_BASE_URL + version + "/allure-commandline-" + version + ".zip";
-            //C:\Users\hussi\.m2\repository\allure
             Path zipFile = Paths.get(AllureConstants.EXTRACTION_DIR.toString(), "allure-" + version + ".zip");
+
             if (!Files.exists(zipFile)) {
                 Files.createDirectories(AllureConstants.EXTRACTION_DIR);
                 try (BufferedInputStream in = new BufferedInputStream(new URI(url).toURL().openStream());
                      OutputStream out = Files.newOutputStream(zipFile)) {
                     in.transferTo(out);
-                } catch (Exception e) {
-                    LogsManager.error("Invalid URL for Allure download: ", e.getMessage());
                 }
             }
             return zipFile;
         } catch (Exception e) {
-            LogsManager.error("Error downloading Allure zip file", e.getMessage());
-            return Paths.get("");
+            LogsManager.error("Error downloading Allure zip file from URL", e.getMessage());
+            return null;
         }
-
-
     }
 
-    //Extract ZIP file for Allure
+    // Extract ZIP file for Allure
     private static void extractZip(Path zipPath) {
         try (ZipInputStream zipInputStream = new ZipInputStream(Files.newInputStream(zipPath))) {
             ZipEntry entry;
             while ((entry = zipInputStream.getNextEntry()) != null) {
-                Path filePath = Paths.get(AllureConstants.EXTRACTION_DIR.toString(), File.separator, entry.getName());
+                Path filePath = Paths.get(AllureConstants.EXTRACTION_DIR.toString(), entry.getName());
+
                 if (entry.isDirectory()) {
                     Files.createDirectories(filePath);
                 } else {
@@ -115,5 +119,4 @@ public class AllureBinaryManger {
             LogsManager.error("Error extracting Allure zip file", e.getMessage());
         }
     }
-
 }

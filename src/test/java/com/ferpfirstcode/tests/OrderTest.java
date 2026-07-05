@@ -1,17 +1,14 @@
 package com.ferpfirstcode.tests;
 import java.time.LocalDateTime;
 
+import com.ferpfirstcode.pages.components.*;
+import com.ferpfirstcode.utils.dataReader.DataBaseReader;
+import com.ferpfirstcode.utils.logs.LogsManager;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import java.util.ArrayList;
 
 import com.ferpfirstcode.apis.UserManagmentAPI;
-import com.ferpfirstcode.pages.components.DailyStockPage;
-import com.ferpfirstcode.pages.components.HomePage;
-import com.ferpfirstcode.pages.components.OrderAPI;
-import com.ferpfirstcode.pages.components.OrderPage;
-import com.ferpfirstcode.pages.components.ProductStockData;
-import com.ferpfirstcode.pages.components.SalesReport;
-import com.ferpfirstcode.pages.components.SettingPage;
 
 import io.qameta.allure.Allure;
 import io.qameta.allure.Description;
@@ -33,18 +30,13 @@ public class OrderTest extends AuthenticatedBaseTest {
     @Story("Create and Pay Order Delivery")
     @Severity(SeverityLevel.CRITICAL)
     @Owner("Ahmed Hassan")
-
     @Test
     public void Create_Order_And_Pay_Successfully() throws InterruptedException {
              HomePage homePage = new HomePage(guiDriver);
-             homePage.gotoSettingPage()
-                     .disable_Use_Daily_Stock()
-                     .clickOnSaveButton()
-                     .clickOnHomeButton();
              homePage.gotoorderpage()
-                     .selectOrderTypebyindex()
-                     .get_All_Product_From_API()
-                     .searchRandomAPIProductInUI()
+                     .selectRandomOrderType()
+                     .get_All_Product_From_DB()
+                     .searchRandomDBProductInUI()
                      .selectSearchedProduct()
                      .validateOrderIsSentSuccessfully();
     }
@@ -60,15 +52,10 @@ public class OrderTest extends AuthenticatedBaseTest {
 
         UserManagmentAPI reportsAPI = new UserManagmentAPI (guiDriver);
             HomePage homePage = new HomePage(guiDriver);
-            homePage.gotoSettingPage()
-                    .disable_Use_Daily_Stock()
-                    .clickOnSaveButton()
-                    .clickOnHomeButton();
-
             homePage.gotoorderpage()
-            .selectOrderTypebyindex()
-             .get_All_Product_From_API()
-             .searchRandomAPIProductInUI()
+            .selectRandomOrderType()
+             .get_All_Product_From_DB()
+             .searchRandomDBProductInUI()
              .selectSearchedProduct()
                     .cancelOrder();
         LocalDateTime exactTimeFromAPI = reportsAPI.getLatestCanceledOrderTimeFromAPI();
@@ -82,13 +69,7 @@ public class OrderTest extends AuthenticatedBaseTest {
         UserManagmentAPI reportsAPI = new UserManagmentAPI (guiDriver);
         OrderPage orderPage = new OrderPage(guiDriver);
         HomePage homePage = new HomePage(guiDriver);
-        homePage.gotoSettingPage()
-                .disable_Use_Daily_Stock()
-                .clickOnSaveButton()
-                .clickOnHomeButton();
-
         homePage.gotoorderpage();
-
         orderPage.get_all_Order_Type_From_API()
                 .selectRandomOrderType();
     }
@@ -99,35 +80,37 @@ public class OrderTest extends AuthenticatedBaseTest {
     @Severity(SeverityLevel.CRITICAL)
     @Description("Verify that the available quantity shown in the order page is equal to the last quantity from daily stock for the same product")
     @Owner("Ahmed Hassan")
-    @Test
-    public void Check_Available_Quantity_From_Daily_Stock_That_Equals_To_The_Quantity_in_Order() throws InterruptedException {
+    @Test(description = "Validate order available quantity matches daily stock")
+    public void validateAvailableQuantityMatchesDailyStock() throws InterruptedException {
+
+        // 1. Database Setup: Enable daily stock settings
+        DataBaseReader.enableDailyStockSettings();
+
+//        // 2. Session Refresh: Logout and login to apply new DB settings
         HomePage homePage = new HomePage(guiDriver);
+        homePage.clickOnLogoutButton();
+
+        LoginPage loginPage = new LoginPage(guiDriver);
+        loginPage.loginwithpin();
+
+        // 3. Fetch Expected Data from Daily Stock
         DailyStockPage dailyStockPage = new DailyStockPage(guiDriver);
 
-        homePage.gotoSettingPage()
-                .enable_ShowProducts_AvaliableQuantity_Settings()
-                .enable_Use_Daily_Stock()
-                .clickOnSaveButton()
-                .clickOnHomeButton()
-                .gotoDailyStockPage()
+        homePage.gotoDailyStockPage()
                 .gotoDailyStockListPage()
                 .openTodayDailyStockOrCreateNew();
 
         ProductStockData stockData = dailyStockPage.getProductNameAndLastQuantity();
-
         String productName = stockData.getProductName();
-        int expectedQuantity  = stockData.getLastQuantity();
+        int expectedQuantity = stockData.getLastQuantity();
 
+        LogsManager.info(String.format("Fetched from Daily Stock -> Product: %s | Expected Quantity: %d", productName, expectedQuantity));
+
+        // 4. Validate Actual Quantity in Order Page
         dailyStockPage.clickOnHomeButton()
                 .gotoorderpage()
-                .validateAvailableQuantityMatchesDailyStock(
-                        productName,
-                        expectedQuantity
-                );
-
+                .validateAvailableQuantityMatchesDailyStock(productName, expectedQuantity);
     }
-
-
     @Epic("Order Management")
     @Feature("Daily Stock")
     @Story("Validate available quantity in order page matches daily stock quantity")
@@ -136,23 +119,27 @@ public class OrderTest extends AuthenticatedBaseTest {
     @Owner("Ahmed Hassan")
     @Test
     public void check_Product_Out_Of_Stock() throws InterruptedException {
+
+        // 1. Inject settings into the database
+        DataBaseReader.enableDailyStockSettings();
         HomePage homePage = new HomePage(guiDriver);
         DailyStockPage dailyStockPage = new DailyStockPage(guiDriver);
-        homePage.gotoSettingPage()
-                .enable_ShowProducts_AvaliableQuantity_Settings()
-                .enable_Use_Daily_Stock()
-                .clickOnSaveButton()
-                .clickOnHomeButton()
-                .gotoDailyStockPage()
+        homePage.clickOnLogoutButton();
+        LoginPage loginPage = new LoginPage(guiDriver);
+        loginPage.loginwithpin();
+        // 3.Navigate directly to execute the Business Logic
+        homePage.gotoDailyStockPage()
                 .gotoDailyStockListPage()
                 .openTodayDailyStockOrCreateNew();
-                 ProductStockData stockData = dailyStockPage.getProductNameAndLastQuantity();
-                 String productName = stockData.getProductName();
-                 int expectedQuantity = stockData.getLastQuantity();
-                 dailyStockPage.clickOnHomeButton()
+
+        ProductStockData stockData = dailyStockPage.getProductNameAndLastQuantity();
+        String productName = stockData.getProductName();
+        int expectedQuantity = stockData.getLastQuantity();
+
+        dailyStockPage.clickOnHomeButton()
                 .gotoorderpage()
                 .createOrderWithProductIsOutOfStock(productName, expectedQuantity)
-                .validateToastContains("لا يوجد كميه متاحه من الوجبه");
+               .validateToastContains("لا يوجد كميه متاحه من الوجبه");
     }
 
     @Test
@@ -176,46 +163,35 @@ public class OrderTest extends AuthenticatedBaseTest {
 
     @Test
     public void Change_Order_Type_After_Send_Order() throws InterruptedException {
-        HomePage homePage =new HomePage(guiDriver);
-        SettingPage settingPage=new SettingPage(guiDriver);
-        OrderPage orderPage=new OrderPage(guiDriver);
-        homePage.gotoSettingPage()
-                .changeordertypeaftersend()
-                .disable_Allow_Sale_With_No_Quantity_Available()
-                .disable_Use_Daily_Stock()
-                .clickOnSaveButton()
-                .clickOnHomeButton()
-                .gotoOrderTypeSettingPage()
-                .enablePaymentByAnotherUserForAllTypes()
-                .clickOnHomeButton()
-                .gotoorderpage();
-        Thread.sleep(3000);
-               orderPage.get_All_Product_From_DB()
-                .get_All_Product_From_API ()
-               .searchRandomAPIProductInUI()
-               .selectSearchedProduct()
-               .sendOrder()
-               .selectOrderToChangeOrderType()
-               .changeordertypeaftersendorder();
 
+        // 1.Inject the required setting into the database in milliseconds
+        DataBaseReader.enableChangeOrderTypeAfterSaveSetting();
+
+        // 2.Refresh the page so the system reads the new configuration
+        guiDriver.get().navigate().refresh();
+
+        HomePage homePage = new HomePage(guiDriver);
+        OrderPage orderPage = new OrderPage(guiDriver);
+
+        homePage.gotoorderpage();
+
+        Thread.sleep(3000); // Kept your sync wait for stability
+
+        orderPage.selectRandomOrderType()
+                .get_All_Product_From_DB()
+                .searchRandomDBProductInUI()
+                .selectSearchedProduct()
+                .sendOrder()
+                .selectOrderToChangeOrderType()
+                .changeordertypeaftersendorder();
     }
 
     
     @Test
     public void get_All_Product_From_API_And_DB() throws InterruptedException {
         HomePage homePage =new HomePage(guiDriver);
-        SettingPage settingPage=new SettingPage(guiDriver);
         OrderPage orderPage=new OrderPage(guiDriver);
-        homePage.gotoSettingPage()
-                .changeordertypeaftersend()
-                .disable_Allow_Sale_With_No_Quantity_Available()
-                .disable_Use_Daily_Stock()
-                .clickOnSaveButton()
-                .clickOnHomeButton()
-                .gotoOrderTypeSettingPage()
-                .enablePaymentByAnotherUserForAllTypes()
-                .clickOnHomeButton()
-                .gotoorderpage();
+        homePage.gotoorderpage();
         Thread.sleep(3000);
                orderPage.get_All_Product_From_DB();
 

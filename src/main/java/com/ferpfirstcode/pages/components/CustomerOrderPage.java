@@ -3,9 +3,11 @@ package com.ferpfirstcode.pages.components;
 import com.ferpfirstcode.apis.UserManagmentAPI;
 import com.ferpfirstcode.driver.GUIDriver;
 import com.ferpfirstcode.utils.actions.ElementActions;
+import com.ferpfirstcode.utils.logs.LogsManager;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -43,6 +45,9 @@ public class CustomerOrderPage {
 
     //Actions
 
+
+
+
     // 1. دالة جلب الاسم
     @Step("Get First Available Customer Name From Network")
     public String getCustomerNameFromNetwork() {
@@ -59,11 +64,22 @@ public class CustomerOrderPage {
         // 3. Return the name to type it in the search bar
         return fetchedName;
     }
+    @Step("Remove Toast from DOM")
+    public void destroyToast() {
+        try {
+            JavascriptExecutor js = (JavascriptExecutor) driver.get(); // أو webDriver حسب تعريفك
+            // هذا الكود يمسح حاوية التنبيهات بالكامل من المتصفح في جزء من الثانية
+            js.executeScript("var toast = document.getElementById('toast-container'); if(toast) { toast.remove(); }");
+        } catch (Exception e) {
+            LogsManager.info("No toast to remove.");
+        }
+    }
 
     // 2. دالة النقر على الزر
     @Step("Click on add button")
-    public void clickOnAddButton() {
+    public CustomerOrderPage clickOnAddButton() {
         driver.element().clickElement(addnewcustomerorderbutton);
+        return this;
     }
 
     // 3. دالة الكتابة (لاحظ أننا أضفنا parameter لتستقبل الاسم)
@@ -107,7 +123,7 @@ public class CustomerOrderPage {
         String selectedText = driver.element().getElementText(randomOptionLocator);
         driver.element().clickElement(randomOptionLocator);
 
-       Allure.step("✅ Dynamically selected Random Order Type: " + selectedText);
+       Allure.step("✅ Dynamically selected Random Order Pay Type: " + selectedText);
         return this;
     }
 

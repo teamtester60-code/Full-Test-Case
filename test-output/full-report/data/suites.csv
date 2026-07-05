@@ -1,2 +1,4 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","185921","Change_Order_Type_After_Send_Order","Surefire suite","2026-05-17","passed","2026-05-17","com.ferpfirstcode.tests.OrderTest","Surefire test","com.ferpfirstcode.tests.OrderTest","Change_Order_Type_After_Send_Order"
+"","1833","Login_With_Empty_Fields","Default Suite","2026-07-05","passed","2026-07-05","com.ferpfirstcode.tests.LoginTest","FirstProjectFERP","com.ferpfirstcode.tests.LoginTest","Login_With_Empty_Fields"
+"","7061","Valid_Login_TC","Default Suite","2026-07-05","passed","2026-07-05","com.ferpfirstcode.tests.LoginTest","FirstProjectFERP","com.ferpfirstcode.tests.LoginTest","Valid_Login_TC"
+"","3281","Invalid_Login_TC_with_Wrong_PIN","Default Suite","2026-07-05","passed","2026-07-05","com.ferpfirstcode.tests.LoginTest","FirstProjectFERP","com.ferpfirstcode.tests.LoginTest","Invalid_Login_TC_with_Wrong_PIN"

@@ -1,63 +1,27 @@
 package com.ferpfirstcode.apis;
 
-import org.testng.Assert;
-
 import io.qameta.allure.Allure;
-import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
-import io.restassured.response.Response;
 
 public class AuthManager {
 
-    private static String dynamicToken;
-    private static String currentPin;
+    // 🔥 ضع التوكن الثابت الخاص بك هنا (تأكد من وجود كلمة Bearer قبل التوكن)
+    private static final String STATIC_TOKEN = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiJlM2NmNTY5ZC0zMzMyLTQ3NGYtYTdiNS1iNzYyM2U3M2ZjN2UiLCJyb2xlIjoiQWRtaW4iLCJVc2VyTmFtZSI6ImFkbWluIiwibmJmIjoxNzgzMjMyOTg3LCJleHAiOjE3ODMzMTkzODcsImlhdCI6MTc4MzIzMjk4N30.ZLklAPsEdEtpDu-fZG34-e8ckS8i1XOqajK8n2X1Hbc";
 
-    // وضعنا رقم نقطة البيع الخاص ببيئة الاختبار هنا مباشرة (لأنه يمثل الجهاز وليس المستخدم)
-    private static final String ENVIRONMENT_POS_ID = "683310db8a28e71b98b320a8";
+    // رقم نقطة البيع الخاص ببيئة الاختبار
+    private static final String ENVIRONMENT_POS_ID = "6a3250d9d4b72754bc18ab73";
 
     public static void setupAuth(String pin) {
-        // إذا كان التوكن موجوداً لنفس المستخدم، لا تُعد تسجيل الدخول
-        if (dynamicToken != null && pin.equals(currentPin)) {
-            return;
-        }
-
-        Allure.step("🔐 Authenticating via Login API to get Dynamic Token...");
-
-        // الـ Payload الصحيح الذي اكتشفناه معاً!
-        String loginPayload = "{\n" +
-                "  \"LoginUserName\": 1,\n" +
-                "  \"LoginPassword\": \"" + pin + "\",\n" +
-                "  \"LoginWithCard\": false\n" +
-                "}";
-
-        Response loginResponse = RestAssured.given()
-                .baseUri("http://localhost:56740")
-                .contentType(ContentType.JSON)
-                // 💡 إضافة الهيدر هنا اختياري، ولكن بعض الأنظمة تفضله لربط الجلسة
-                .header("PointOfSaleDocumentId", ENVIRONMENT_POS_ID)
-                .body(loginPayload)
-                .when()
-                .post("api/User/Login");
-
-        Assert.assertEquals(loginResponse.getStatusCode(), 200, "🚨 Login API failed!");
-
-        // استخراج التوكن بنجاح
-        String extractedToken = loginResponse.jsonPath().getString("token");
-        Assert.assertNotNull(extractedToken, "🚨 التوكن المستخرج قيمته Null!");
-
-        dynamicToken = "Bearer " + extractedToken;
-        currentPin = pin;
-
-        Allure.step("✅ Token Generated Successfully!" + dynamicToken);
+        // لم نعد بحاجة لاستدعاء الـ API، فقط نوثق في التقرير أننا نستخدم توكن ثابت
+        Allure.step("🔐 Using Static/Hardcoded Token for Authentication");
     }
 
-    // دالة استدعاء التوكن (ديناميكية)
+    // دالة استدعاء التوكن (الآن ترجع التوكن الثابت دائماً)
     public static String getToken(String pin) {
         setupAuth(pin);
-        return dynamicToken;
+        return STATIC_TOKEN;
     }
 
-    // دالة استدعاء الـ POS ID (تُرجع إعدادات البيئة)
+    // دالة استدعاء الـ POS ID
     public static String getPOSDocumentId() {
         return ENVIRONMENT_POS_ID;
     }

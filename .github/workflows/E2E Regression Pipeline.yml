@@ -20,7 +20,7 @@ env:
   MONGO_DB: Smile
 
 jobs:
-  login_test:
+  e2e_execution:
     runs-on: self-hosted
 
     steps:

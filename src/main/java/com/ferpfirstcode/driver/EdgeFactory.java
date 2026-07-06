@@ -5,6 +5,9 @@ import com.ferpfirstcode.utils.logs.LogsManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 public class EdgeFactory extends AbstractDriver {
 
@@ -15,7 +18,17 @@ public class EdgeFactory extends AbstractDriver {
     private EdgeOptions buildOptions(String executionType) {
         EdgeOptions options = new EdgeOptions();
 
-        // Base options (always)
+        // 1. Disable Password Manager and Save Password prompts
+        Map<String, Object> prefs = new HashMap<>();
+        prefs.put("credentials_enable_service", false);
+        prefs.put("profile.password_manager_enabled", false);
+        options.setExperimentalOption("prefs", prefs);
+
+        // 2. Hide automation bar and disable automation extension
+        options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
+        options.setExperimentalOption("useAutomationExtension", false);
+
+        // 3. Base options
         options.addArguments(
                 "--remote-allow-origins=*",
                 "--disable-notifications",
@@ -23,25 +36,18 @@ public class EdgeFactory extends AbstractDriver {
                 "--start-maximized"
         );
 
-        // Normalize
+        // 4. Handle Execution Types
         String exec = executionType == null ? DEFAULT_EXECUTION : executionType.trim().toLowerCase();
 
         if ("localheadless".equals(exec)) {
             options.addArguments(
                     "--headless=new",
                     "--disable-gpu",
-                    "--disable-extensions"
+                    "--disable-extensions",
+                    "--no-sandbox",
+                    "--disable-dev-shm-usage"
             );
-
-            // على Windows غالبًا غير ضرورية، لكن لا تضر
-            options.addArguments("--no-sandbox", "--disable-dev-shm-usage");
-
-            // ⚠️ لو عندك تعارض بورت أو parallel شيلها
-            // options.addArguments("--remote-debugging-port=9222");
-
         } else if ("remote".equals(exec)) {
-            // أنت قلت remote غير مدعوم عندك حاليا
-            // لو هتدعمه لاحقًا هنرجع نضيف RemoteWebDriver هنا
             options.addArguments("--headless=new", "--disable-gpu", "--disable-extensions");
         }
 

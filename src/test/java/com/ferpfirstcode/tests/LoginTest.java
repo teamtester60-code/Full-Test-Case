@@ -50,7 +50,7 @@ public class LoginTest extends BaseTest {
                                 .enterPin("741963")
                                 .clickLoginButton();
                 new LoginPage(guiDriver)
-                                .verifyErrorMessage("Username or Password is incorrect.");
+                                .verifyErrorMessage("The username or password is incorrect, or the user is inactive");
 
         }
 

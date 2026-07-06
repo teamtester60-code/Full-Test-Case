@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.ferpfirstcode.utils.logs.LogsManager;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -110,6 +111,12 @@ public List<ProductData> getAllProductsWithPrices() {
 
         int statusCode = response.getStatusCode();
         Allure.step("Status code: " + statusCode);
+        if (response.statusCode() != 200) {
+            String errorBody = response.getBody().asPrettyString();
+            LogsManager.error("🚨 API Failed with Status Code: " + response.statusCode());
+            LogsManager.error("🚨 Server Error Response Body: \n" + errorBody);
+        }
+
         Assert.assertEquals(statusCode, 200, "🚨 API Request failed! Expected status code 200 but found: " + statusCode);
 
         String responseBody = response.getBody().asString();

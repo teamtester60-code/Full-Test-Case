@@ -2,14 +2,16 @@ package com.ferpfirstcode.pages.components;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
+
+import org.openqa.selenium.*;
+import org.openqa.selenium.devtools.v148.network.Network;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -29,6 +31,15 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
 
+import org.openqa.selenium.devtools.DevTools;
+import org.openqa.selenium.devtools.HasDevTools;
+import org.openqa.selenium.devtools.v148.network.Network; // تأكد من رقم الإصدار لديك
+import org.openqa.selenium.devtools.v148.network.model.RequestId;
+import java.util.Optional;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+
 public class OrderPage {
     private final GUIDriver driver;
     private List<ProductData> apiProductsList;
@@ -36,6 +47,7 @@ public class OrderPage {
     private LocalDateTime exactCancelTime;
     private List<String> apiordertypelist;
     private By currentordertype;
+    private String savedOrderNumber = "";
 
     public OrderPage(GUIDriver driver) {
         this.driver = driver;
@@ -71,7 +83,7 @@ public class OrderPage {
     private final By cancelprintbutton= By.xpath("//button[normalize-space()='Cancel']");
     private final By paytheordersbutton= By.xpath("//a[@aria-controls='tab144']");
     private final By selcetordertopaybutton= By.xpath("//tbody/tr[last()]/td[1]//input[contains(@class,'e-checkbox')]");
-    private final By paybutton= By.cssSelector("#coact-tab");
+    private final By paybutton= By.xpath("//button[contains(@class, 'btn-success') and contains(@class, 'btnEdit') and (contains(., 'تسديد') or contains(., 'Pay'))]");
     private final By ordertypes = By.xpath("//div[@id='v-pills-tab']//a");
     private final By clickOk= By.xpath("//*[@id=\"modal-OrderType\"]/div/div/div[3]/button");
     private final By cancelproductsbutton=By.xpath("//div[contains(@class, 'fiixedCancel')]");
@@ -107,7 +119,13 @@ public class OrderPage {
     private final By ordertypemodal= By.xpath("//div[@id='modal-OrderType']");
     private final By deleveryordertypemodal=By.cssSelector("div.modal.show");
     private final By selectorderlist=By.xpath("(//div[contains(@class,'menu-txt-hld')][.//span[contains(text(),'افتح القائمة')]])[1]");
-    private final By employeebuttonselect=By.xpath("(//tbody/tr)[1]//button[contains(text(),'Select')]");
+    private final By employeebuttonselect=By.xpath("(//tbody//tr)[1]//button[contains(.,'اختر') or contains(.,'Select')]");
+    private final By captainModal = By.id("modal-Waiter");
+    private final By   selectcaptain= By.xpath("//div[@id='modal-Waiter']//tbody//tr[1]//button[contains(.,'اختر') or contains(.,'Select')]");
+    private final By expectedReturnTotalLocator = By.cssSelector("div.payment-price");
+
+    private final By selectdriver=By.xpath("//div[contains(@class, 'deliveryCustomer')]//table//tbody//tr[1]//button[contains(., 'Select') or contains(., 'اختر')]");
+    private final By drivermodal=By.xpath("//div[contains(@class, 'modal-content') and .//div[contains(@class, 'deliveryCustomer')]]");
 
     //dynamic locator
     private By productByIndex(int index) {
@@ -269,83 +287,131 @@ public class OrderPage {
         return this;
     }
 
-    @Step("Make A Return Order (Full Return)")
-    public OrderPage makeAReturnOrder() throws InterruptedException {
+    // داخل كلاس OrderPage
+    public OrderPage createReadyOrder() throws InterruptedException {
+        Thread.sleep(3000); // Kept your sync wait for stability
+        driver.browser().refreshPage();
+        Thread.sleep(3000);
+        return this.selectRandomOrderType()
+                .get_All_Product_From_DB()
+                .searchRandomDBProductInUI()
+                .selectSearchedProduct()
+                .validateOrderIsSentSuccessfully();
+    }
+
+    @Step("Execute Full Return Order Process for Document ID: {documentId}")
+    public OrderPage makeAReturnOrder(String documentId) throws InterruptedException {
+
         String orderType = driver.getSelectedOrderType();
+        Allure.step("Initiating return for DocID: " + documentId + " | Type: " + orderType);
 
-        if (orderType == null || orderType.isBlank()) {
-            throw new IllegalStateException("Order type is null. Make sure selectOrderTypebyindex() was executed successfully.");
+        // 1. Handle Navigation and Modals
+        ensureReturnOrderScreenIsActive();
+
+        // 2. Locate and Select Order
+        selectOrderFromGrid(documentId);
+
+        // 3. Product Selection
+        driver.element().clickElement(showordertoreturn);
+        driver.element().clickElement(selectallproductroreturn);
+        String returnedItemInfo = waitForNonEmptyText(returneditem);
+
+        // 4. Calculate Expected Value (Refactored logic)
+        double uiTotal = safeParseDouble(waitForNonEmptyText(expectedReturnTotalLocator), "UI Total");
+        double expectedReturnAmount = calculateExpectedReturnAmount(uiTotal, orderType);
+
+        // 5. Save and Validate
+        driver.element().clickElement(savetheReturn);
+        driver.element().clickElement(returnorderlist);
+        driver.browser().refreshPage();
+
+        new WebDriverWait(driver.get(), Duration.ofSeconds(10))
+                .until(ExpectedConditions.presenceOfElementLocated(thepriceofreturnorder));
+
+        double actualReturnPrice = Math.round(safeParseDouble(waitForNonEmptyText(thepriceofreturnorder), "Actual Return Price") * 100.0) / 100.0;
+
+        // 6. Final Assertion
+        Assert.assertEquals(actualReturnPrice, expectedReturnAmount, 0.01, String.format(
+                "❌ Return Calculation Mismatch! Expected: %.2f | Actual: %.2f | Items: %s",
+                expectedReturnAmount, actualReturnPrice, returnedItemInfo));
+
+        LogsManager.info("✅ Full Return Successful. Final Amount: " + actualReturnPrice);
+        return new OrderPage(driver);
+    }
+
+    // Helper Method: Handles the calculation logic in one place
+    private double calculateExpectedReturnAmount(double uiTotal, String orderType) {
+        boolean isDineIn = orderType != null &&
+                (orderType.toLowerCase().contains("dine") ||
+                        orderType.contains("صالة") ||
+                        orderType.contains("صاله"));
+
+        double amount = uiTotal;
+        if (isDineIn) {
+            // Net = UI_Total / 1.26 | Amount_Without_Service = Net * 1.14
+            double net = uiTotal / 1.26;
+            amount = net * 1.14;
+            LogsManager.info("Dine-In order: Excluding 12% service charge from total.");
         }
+        return Math.round(amount * 100.0) / 100.0;
+    }
+    @Step("Select Order from Grid using Serial/Document ID: {identifier}")
+    private void selectOrderFromGrid(String identifier) {
+        // نستخدم الـ identifier كمعيار بحث فريد في الجدول
+        By targetRow = By.xpath("//tr[td[normalize-space()='" + identifier + "']]");
+        By nextButton = By.cssSelector("div.e-next.e-icon-next.e-nextpage");
+        JavascriptExecutor js = (JavascriptExecutor) driver.get();
+        boolean isOrderFound = false;
 
-        Allure.step("Using Order Type: " + orderType);
+        // Loop through pages
+        for (int page = 0; page < 10; page++) {
+            List<WebElement> matchingRows = driver.get().findElements(targetRow);
 
-        // 1. التعامل مع إغلاق الطلب (لغير التوصيل)
-        if (!orderType.equalsIgnoreCase("delivery") && !orderType.equalsIgnoreCase("توصيل")) {
-            driver.element().clickElement(closeorderbutton);
-            Thread.sleep(2000);
+            if (!matchingRows.isEmpty()) {
+                WebElement rowToClick = matchingRows.get(0);
 
-            // استبدال الـ Sleep بانتظار ذكي للـ Popup
-            if(isOrderTypePopupOpen()) {
-                driver.element().clickElement(okbuttononordertype);
+                // Clicking the checkbox/row selection
+                try {
+                    WebElement checkbox = rowToClick.findElement(By.xpath(".//input[@type='checkbox']"));
+                    js.executeScript("arguments[0].click();", checkbox);
+                } catch (Exception e) {
+                    js.executeScript("arguments[0].click();", rowToClick.findElement(By.xpath("./td[1]")));
+                }
+
+                isOrderFound = true;
+                Allure.step("✅ Found and selected Order with Identifier: " + identifier + " on page " + (page + 1));
+                break;
             }
 
-            if (driver.element().isElementVisible(checktocloseorder)) {
-                driver.element().clickElement(confirmorderbutton);
+            // Move to next page if possible
+            List<WebElement> nextBtnList = driver.get().findElements(nextButton);
+            if (!nextBtnList.isEmpty() && !nextBtnList.get(0).getAttribute("class").contains("e-disabled")) {
+                js.executeScript("arguments[0].click();", nextBtnList.get(0));
+                try { Thread.sleep(1500); } catch (InterruptedException e) { Thread.currentThread().interrupt(); }
+            } else {
+                break; // Last page reached
             }
         }
 
-        // 2. التنقل لشاشة المرتجعات بذكاء
+        if (!isOrderFound) {
+            ScreenShotsManager.takeFullPageScreenshot(driver.get(), "Order_Not_Found_In_Grid");
+            Assert.fail("❌ Critical Failure: Identifier [" + identifier + "] was NOT found in the grid!");
+        }
+    }
+
+    // Helper Method: Logic to reach the return screen
+    private void ensureReturnOrderScreenIsActive() {
+        if (isOrderTypePopupOpen()) driver.element().clickElement(okbuttononordertype);
         if (!driver.element().isElementVisible(returnordersbutton)) {
             driver.element().clickElement(homebutton);
             driver.element().clickElement(OrderListsButton);
         }
-
         driver.element().clickElement(returnordersbutton);
 
-        // ملاحظة: الـ Refresh قد يكون حلاً لمشكلة في الـ Angular (Sync issue)، لا بأس بتركه إذا كان يحل مشكلة فعلية.
-//        driver.browser().refreshPage();
-
-
-        // 3. إنشاء المرتجع
-        Thread.sleep(4000);
-        driver.element().clickElement(createreturnorderbutton);
-        driver.element().clickElement(selectordertomakereturnorder);
-        driver.element().clickElement(showordertoreturn);
-        driver.element().clickElement(selectallproductroreturn);
-
-        // 4. الحسابات (Math & Extractions)
-        String pricebeforereturn = waitForNonEmptyText(pricebforereturn);
-        double priceBeforeReturn = safeParseDouble(pricebeforereturn, "Price before return");
-
-        String returnedItem = waitForNonEmptyText(returneditem); // تم حذف السطر المكرر هنا
-
-        // 5. حفظ المرتجع والعودة للقائمة
-        driver.element().clickElement(savetheReturn);
-        ScreenShotsManager.takeFullPageScreenshot(driver.get(), "Before_CreateReturnOrder");
-        driver.element().clickElement(returnorderlist);
-
-        // 6. التحقق النهائي (Full Return Assumption)
-        String priceafterreturn = waitForNonEmptyText(thepriceofreturnorder);
-        double priceAfterReturn = safeParseDouble(priceafterreturn, "Price of Return Invoice");
-
-        double expectedAfterReturn = priceBeforeReturn; // لأننا اخترنا selectallproductroreturn
-
-        if (Math.abs(expectedAfterReturn - priceAfterReturn) > 0.1) {
-            throw new AssertionError(
-                    "❌ Return calculation mismatch | " +
-                            "Original Order Total = " + priceBeforeReturn +
-                            " | Returned Items = " + returnedItem +
-                            " | Return Invoice Total = " + priceAfterReturn
-            );
-        }
-
-        ScreenShotsManager.takeFullPageScreenshot(driver.get(), "After_ReturnOrder_Success");
-        LogsManager.info("✅ Full Return Successful. Original Price: " + priceBeforeReturn + ", Return Invoice Price: " + priceAfterReturn);
-        Allure.step("✅ Full Return Successful. Original Price: " + priceBeforeReturn + ", Return Invoice Price: " + priceAfterReturn);
-
-        return this;
+        WebElement returnBtn = new WebDriverWait(driver.get(), Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(createreturnorderbutton));
+        ((JavascriptExecutor) driver.get()).executeScript("arguments[0].click();", returnBtn);
     }
-
 
     private String waitForNonEmptyText(By locator) {
         WebDriverWait wait = new WebDriverWait(driver.get(), Duration.ofSeconds(10));
@@ -366,7 +432,11 @@ public class OrderPage {
         }
 
         try {
-            return Double.parseDouble(value.trim());
+            // 🔥 السطر السحري: إزالة الفواصل (الخاصة بالآلاف) وأي مسافات قبل التحويل
+            String cleanValue = value.replace(",", "").trim();
+
+            return Double.parseDouble(cleanValue);
+
         } catch (NumberFormatException e) {
             throw new RuntimeException("❌ Invalid number format in " + fieldName + ": " + value);
         }
@@ -380,42 +450,56 @@ public class OrderPage {
         driver.element().clickElement(okbuttononpersonscountbar);
         return this;
     }
-    @Step("Select Order To Pay")
+    @Step("Select Order to Pay")
     public PaymentPage selectOrderToPay() throws InterruptedException {
+        
         driver.element().clickElement(selectorderbutton);
-        String tabName = driver.element().getElementText(ordertypebutton);
-        if (tabName.toLowerCase().contains("توصيل") || tabName.toLowerCase().contains("delivery")) {
+        
+        if (driver.element().isElementVisible(ordertypes)) {
+            driver.element().clickElement(clickOk);
+        }
+        
+        String tabName = driver.element().getElementText(ordertypebutton).toLowerCase().trim();
+        
+        boolean isDeliveryOrder = (tabName.contains("توصيل") && !tabName.contains("بدون")) || tabName.contains("delivery");
+    
+        if (isDeliveryOrder) {
+            Allure.step("Processing payment flow for Delivery Order");
+            
             driver.element().clickElement(cashieroperationbutton);
             driver.element().clickElement(followorderbutton);
             driver.element().clickElement(returndriver);
+            
             if (driver.element().isElementVisible(selectreturndriver)) {
-
                 driver.element().clickElement(selectreturndriver);
-                
-            }
-            else{
+            } else {
                 driver.element().clickElement(closereturndriver);
             }
+            
             driver.element().clickElement(checklorderbutton);
             driver.element().clickElement(assignbutton);
             driver.element().clickElement(assigntodriverbutton);
+            
             if (driver.element().isElementVisible(cancelprintbutton)) {
                 driver.element().clickElement(cancelprintbutton); 
             }
             if (driver.element().isElementVisible(cancelassigndriver)) {
                 driver.element().clickElement(cancelassigndriver);
             }
+            
             driver.element().clickElement(paytheordersbutton);
             driver.element().clickElement(selcetordertopaybutton);
             driver.element().clickElement(paybutton);
+            
             return new PaymentPage(driver);
         }
-
-        if (driver.element().isElementVisible(ordertypes)){
-
+    
+        Allure.step("Processing payment flow for Non-Delivery Order");
+        
+        if (driver.element().isElementVisible(ordertypes)) {
             driver.element().clickElement(clickOk);
         }
-
+    
         driver.element().clickElement(payementbutton);
         return new PaymentPage(driver);
     }
@@ -488,7 +572,6 @@ public class OrderPage {
                 Allure.step("✅ Selecting Order Type: " + el.getText().trim());
                 el.click();
 
-                // لو بتستخدم context في GUIDriver
                 driver.setSelectedOrderType(el.getText().trim());
 
                 return this;
@@ -527,7 +610,7 @@ public class OrderPage {
     }
     private boolean isDileveryOrderTypePopupOpen() {
         try {
-            WebElement popup = driver.get().findElement(By.cssSelector("div.modal.show"));
+            WebElement popup = driver.get().findElement(By.xpath("//input[contains(@placeholder, 'Customer Balance') or contains(@placeholder, 'رصيد العميل')]"));
             return popup.isDisplayed();
         } catch (Exception e) {
             return false;
@@ -543,7 +626,7 @@ public class OrderPage {
     }
 private boolean isordertypeforemployee() {
         try {
-            WebElement popup = driver.get().findElement(By.xpath("//div[@id='modal-Waiter']"));
+            WebElement popup = driver.get().findElement(By.xpath("//perfect-scrollbar[.//th[contains(., 'الموظف') or contains(., 'Employee')]]"));
             return popup.isDisplayed();
         } catch (Exception e) {
             return false;
@@ -552,43 +635,39 @@ private boolean isordertypeforemployee() {
 
 
     @Step("Change Order Type After Send Order")
-    public OrderPage changeordertypeaftersendorder() {
-    
-        // 1. استدعاء الدالة لجلب البيانات واختيار النوع (سيتم الضغط داخلياً في الدالة)
-        // لاحظ: لا نضعها داخل clickElement هنا لأنها تضغط بالفعل بداخلها
-        if (isOrderTypePopupOpen()) {
-            selectRandomOrderType(); 
-        } 
-        else {
+    public OrderPage changeordertypeaftersendorder() throws InterruptedException {
+
+        // 1. Handle initial selection
+        if (!isOrderTypePopupOpen()) {
             driver.element().clickElement(ordertypebutton);
-            selectRandomOrderType(); 
         }
-    
-        // --- الكود سيكمل طبيعياً هنا بعد اختيار النوع ---
-    
-        // 2. التعامل مع طلبات التوصيل (Delivery)
+        selectRandomOrderType();
+
+        // 2. Wait for UI transition (Implicit sync)
+        // Add a wait here to ensure the popup is fully loaded based on selection
+
+        // 3. Handle Delivery Logic
         if (isDileveryOrderTypePopupOpen()) {
-            driver.element().clickElement(searchbyphonefield);
             driver.element().typeText(searchbyphonefield, "0111");
             driver.element().clickElement(selectcustomerbutton);
-            
+
+            // Wait for address modal visibility explicitly
             if (driver.element().isElementVisible(selectaddressbutton)) {
                 driver.element().clickElement(selectaddressbutton);
             }
             driver.element().clickElement(closecustomerselectionmodalbutton);
         }
-    
-        // 3. التعامل مع طلبات الصالة (Dine-in)
-        // تأكد أن هذه الدالة تفحص النوع الذي تم اختياره لتوّه
-        if (isordertypeisdinein()) {
-            selectRandomeTable();
+        // 4. Handle Dine-in (Using else if to prevent overlapping execution)
+        else if (isordertypeisdinein()) {
+            selectRandomFreeTable();
             Allure.step("✅ Table selected successfully");
         }
-        if (isordertypeforemployee()) {
+        // 5. Handle Employee
+        else if (isordertypeforemployee()) {
             driver.element().clickElement(employeebuttonselect);
             Allure.step("✅ Employee selected successfully");
         }
-    
+
         Allure.step("✅ Order type changed successfully");
         return this;
     }
@@ -652,6 +731,42 @@ private boolean isordertypeforemployee() {
         Allure.step("✅ Successfully fetched " + this.apiProductsList.size() + " products from API");
         return this;
     }
+
+    @Step("Select a Random Employee from the Modal")
+    public OrderPage selectRandomEmployee() {
+
+        // 1. محدد (Locator) لجلب كل الصفوف التي تحتوي على زر اختيار (يدعم اللغتين عربي/إنجليزي)
+        By allEmployeeRows = By.xpath("//table//tbody//tr[.//button[contains(.,'اختر') or contains(.,'Select')]]");
+
+        // 2. معرفة عدد الموظفين المتاحين في الشاشة
+        int totalEmployees = driver.get().findElements(allEmployeeRows).size();
+
+        // Guard Clause: حماية التست من الانهيار إذا كانت القائمة فارغة
+        if (totalEmployees == 0) {
+            Assert.fail("No employees found to select in the modal!");
+        }
+
+        // 3. توليد رقم عشوائي (من 1 إلى إجمالي العدد) لأن XPath يبدأ العد من 1
+        Random random = new Random();
+        int randomIndex = random.nextInt(totalEmployees) + 1;
+
+        // 4. بناء محددات (Locators) ديناميكية للصف العشوائي الذي تم اختياره
+        By randomEmployeeNameLocator = By.xpath("(//table//tbody//tr[.//button[contains(.,'اختر') or contains(.,'Select')]])[" + randomIndex + "]//th");
+        By randomEmployeeSelectButton = By.xpath("(//table//tbody//tr[.//button[contains(.,'اختر') or contains(.,'Select')]])[" + randomIndex + "]//button[contains(.,'اختر') or contains(.,'Select')]");
+
+        // 5. استخراج اسم الموظف للتوثيق
+        String employeeName = driver.element().getElementText(randomEmployeeNameLocator).trim();
+
+        // 6. النقر على زر الاختيار الخاص بهذا الموظف العشوائي
+        driver.element().clickElement(randomEmployeeSelectButton);
+
+        // 7. توثيق الخطوة بنجاح في Allure
+        Allure.step("Randomly selected employee: " + employeeName);
+
+        return this;
+    }
+
+
     @Step("Get all Order Type From Api")
     public OrderPage get_all_Order_Type_From_API(){
          UserManagmentAPI userManagmentAPI= new UserManagmentAPI(driver);
@@ -660,7 +775,7 @@ private boolean isordertypeforemployee() {
         return this;
     }
     @Step("Select A Random Order Type")
-    public OrderPage selectRandomOrderType() {
+    public OrderPage selectRandomOrderType() throws InterruptedException {
         // 1. تأكد من جلب البيانات أولاً إذا كانت القائمة فارغة
         if (this.apiordertypelist == null || this.apiordertypelist.isEmpty()) {
             Allure.step("🔄 القائمة فارغة، يتم جلب أنواع الطلبات من الـ API الآن...");
@@ -685,29 +800,135 @@ private boolean isordertypeforemployee() {
             driver.element().clickElement(ordertypebutton);
         }
 
+        Thread.sleep(2000);
         driver.element().clickElement(randomOrderTypeLocator);
+        Thread.sleep(2000);
+        if (isDileveryOrderTypePopupOpen()) {
+            driver.element().clickElement(searchbyphonefield);
+            driver.element().typeText(searchbyphonefield, "0111");
+            driver.element().clickElement(selectcustomerbutton);
+            
+            if (driver.element().isElementVisible(selectaddressbutton)) {
+                driver.element().clickElement(selectaddressbutton);
+            }
+            driver.element().clickElement(closecustomerselectionmodalbutton);
+        }
+        if (isordertypeisdinein()) {
+            selectRandomFreeTable();
+            Allure.step("✅ Table selected successfully");
+        }
+        if (isordertypeforemployee()) {
+            selectRandomEmployee();
+            Allure.step("✅ Employee selected successfully");
+        }
+        
         Allure.step("✅ Selected Order Type: " + randomTypeName);
+        driver.setSelectedOrderType(randomTypeName);
 
         return this;
     }
-    public OrderPage selectRandomeTable() {
-        List<WebElement> allTables = driver.get().findElements(By.cssSelector("ul.firstUl li.h"));
 
-        if (!allTables.isEmpty()) {
-            
-            Random random = new Random();
-            int randomIndex = random.nextInt(allTables.size());
-    
-            WebElement randomTable = allTables.get(randomIndex);
-            
-            String tableName = randomTable.findElement(By.className("pull-left")).getText();
-            Allure.step("🎲 تم اختيار الطاولة العشوائية: " + tableName);
-    
-            randomTable.click();
-            
-        } else {
-            Assert.fail("🚨 لا يوجد أي طاولات متاحة في الشاشة!");
+
+    @Step("Select a Random Free Table")
+    public OrderPage selectRandomFreeTable() {
+
+        // 1. تحديد الطاولات الفارغة
+        By freeTablesLocator = By.cssSelector("ul.firstUl li.h:not(.TableBusy)");
+        List<WebElement> freeTables = driver.get().findElements(freeTablesLocator);
+
+        // 2. Guard Clause
+        if (freeTables.isEmpty()) {
+            Assert.fail("❌ No FREE tables found on the screen! All tables might be busy.");
         }
+
+        // 3. اختيار طاولة عشوائية
+        Random random = new Random();
+        int randomIndex = random.nextInt(freeTables.size());
+        WebElement randomFreeTable = freeTables.get(randomIndex);
+
+        // 4. استخراج اسم الطاولة
+        String tableName = randomFreeTable.findElement(By.className("pull-left")).getText().trim();
+        Allure.step("✅ Random FREE table selected successfully: " + tableName);
+
+        // 🔥 5. الحل السحري: النقر باستخدام الجافاسكريبت لتخطي خطأ Element not interactable
+        JavascriptExecutor js = (JavascriptExecutor) driver.get();
+        js.executeScript("arguments[0].click();", randomFreeTable);
+
+        return this;
+    }
+
+    @Step("Search for a random product (Price > 0) from DB in UI with fallback for stopped products")
+    public OrderPage searchRandomDBProductInUI() {
+        if (isDileveryOrderTypePopupOpen()) {
+            driver.element().clickElement(searchbyphonefield);
+            driver.element().typeText(searchbyphonefield, "0111");
+            driver.element().clickElement(selectcustomerbutton);
+
+            if (driver.element().isElementVisible(selectaddressbutton)) {
+                driver.element().clickElement(selectaddressbutton);
+            }
+            driver.element().clickElement(closecustomerselectionmodalbutton);
+        }
+
+        // 1. التأكد من أن البيانات تم جلبها من الDB
+        Assert.assertNotNull(this.apiProductsList, "🚨 قاعدة البيانات لم تقم بجلب المنتجات بعد!");
+
+        // 🔥 إضافة طبقة تشخيصية (Diagnostic Logs) لنرى ماذا أحضرنا من الـ DB قبل الفلترة
+        System.out.println("📦 Total products fetched from DB: " + this.apiProductsList.size());
+        if(this.apiProductsList.size() > 0) {
+            System.out.println("🔍 Sample of first product: Name=" + this.apiProductsList.get(0).name + " | Price=" + this.apiProductsList.get(0).basePrice);
+        }
+
+        // 2. فلترة المنتجات الصالحة
+        List<ProductData> validProducts = new ArrayList<>(this.apiProductsList.stream()
+                .filter(product -> product.basePrice != null && product.basePrice > 0.0)
+                .collect(Collectors.toList()));
+
+        // طباعة عدد المنتجات الصالحة بعد الفلتر
+        Allure.step("📊 Active products with price > 0 : " + validProducts.size() + " out of " + this.apiProductsList.size());
+
+        Assert.assertTrue(validProducts.size() > 0, "🚨 لا يوجد أي منتج في قاعدة البيانات سعره أكبر من صفر! يرجى مراجعة الـ API Mapping أو بيانات قاعدة البيانات.");
+
+        Random rand = new Random();
+        boolean productFoundOnUI = false;
+
+        // 💡 الـ Loop السحرية
+        while (!validProducts.isEmpty()) {
+
+            int randomIndex = rand.nextInt(validProducts.size());
+            ProductData randomProduct = validProducts.get(randomIndex);
+            String productName = randomProduct.name;
+
+            // 3. تنظيف حقل البحث أولاً
+            try {
+                driver.get().findElement(searchinput).clear();
+            } catch (Exception e) {
+                driver.element().typeText(searchinput, "");
+            }
+
+            // 4. كتابة اسم المنتج المراد اختباره
+            driver.element().clickElement(searchinput);
+            driver.element().typeText(searchinput, productName);
+
+            try { Thread.sleep(1000); } catch (InterruptedException e) { e.printStackTrace(); }
+
+            // 5. توليد محدد الكارت والتحقق من وجوده
+            By targetProductCard = getProductCardByName(productName);
+            boolean isDisplayed = !driver.get().findElements(targetProductCard).isEmpty();
+
+            if (isDisplayed) {
+                this.currentSearchedProduct = productName;
+                productFoundOnUI = true;
+                Allure.step("✅ Successfully found active product on UI: " + productName + " | Base Price: " + randomProduct.basePrice);
+                break;
+            } else {
+                System.out.println("⚠️ This Product Is Stopped: " + productName + " -> Fetching another product from DB...");
+                validProducts.remove(randomIndex);
+            }
+        }
+
+        Assert.assertTrue(productFoundOnUI, "🚨 تم تجربة جميع المنتجات النشطة في قاعدة البيانات ولم يظهر أي منها في البحث على الشاشة!");
+
         return this;
     }
 
@@ -786,6 +1007,15 @@ private boolean isordertypeforemployee() {
         String priceBeforeSendOrder = driver.element().getElementText(totalpricebeforesendorder);
         Thread.sleep(2000);
         driver.element().clickElement(sendorderbutton);
+        if(driver.element().isElementVisible(drivermodal)){
+            driver.element().clickElement(selectdriver);
+            driver.element().clickElement(sendorderbutton);
+
+        }
+
+        if(driver.element().isElementVisible(captainModal)){
+            driver.element().clickElement(selectcaptain);
+        }
         if (driver.element().isElementVisible(ordertypes)){
 
             driver.element().clickElement(clickOk);
@@ -800,6 +1030,92 @@ private boolean isordertypeforemployee() {
         }
         return this;
     }
+
+
+    @Step("Close Order and Catch Serial from Request Payload")
+    public String closeOrderAndCatchSerial() {
+
+        // 1. استخراج الـ Driver في متغير محلي لتفادي مشاكل الـ ThreadLocal مع الـ Async Listener
+        WebDriver localDriver = driver.get();
+        DevTools devTools = ((HasDevTools) localDriver).getDevTools();
+        devTools.createSession();
+        devTools.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty()));
+
+        // 2. استخدام AtomicReference لأنه آمن (Thread-Safe) للتعديل من داخل الـ Lambda
+        AtomicReference<String> caughtSerial = new AtomicReference<>(null);
+
+        devTools.addListener(Network.requestWillBeSent(), request -> {
+            String url = request.getRequest().getUrl().toLowerCase();
+
+            // 3. التحقق من الرابط المستهدف
+            if (url.contains("closeorder") || url.contains("updatepaidorderasync") || url.contains("updateorder")) {
+
+                LogsManager.info("🌐 [Network Sniffer] Intercepted Target URL: " + url);
+
+                Optional<String> postData = request.getRequest().getPostData();
+
+                if (postData.isPresent()) {
+                    String payload = postData.get();
+                    LogsManager.info("📦 [Network Sniffer] Raw Payload: " + payload);
+
+                    // 4. Regex محسّن: يدعم كلمة Serial أو SerialNumber، ويلتقط القيمة سواء كانت نص "123" أو رقم 123
+                    Pattern pattern = Pattern.compile("(?i)\"?(?:serial|serialnumber)\"?\\s*:\\s*\"?([^\",}\\s]+)\"?");
+                    Matcher matcher = pattern.matcher(payload);
+
+                    if (matcher.find()) {
+                        caughtSerial.set(matcher.group(1)); // حفظ القيمة بأمان
+                        LogsManager.info("🎯 [Network Sniffer] SUCCESS! Caught Serial: " + caughtSerial.get());
+                    } else {
+                        LogsManager.error("⚠️ Payload caught, but Regex couldn't find the Serial!");
+                    }
+                } else {
+                    LogsManager.error("⚠️ Request caught, but PostData (Body) is empty!");
+                }
+            }
+        });
+
+        try {
+            // 5. الضغط على الزر (يجب أن يحدث "بعد" تفعيل الـ Listener)
+            driver.element().clickElementRaw(closeorderbutton);
+
+            // 6. الانتظار حتى تتغير قيمة الـ AtomicReference
+            new WebDriverWait(localDriver, Duration.ofSeconds(10))
+                    .until(d -> caughtSerial.get() != null);
+
+            return caughtSerial.get();
+
+        } catch (Exception e) {
+            throw new RuntimeException("❌ Timeout: Did not catch the Serial within 10 seconds! Check logs to see if the request was actually sent.");
+        } finally {
+            // 7. إغلاق الـ Sniffer فور الانتهاء لتنظيف الذاكرة
+            devTools.send(Network.disable());
+            devTools.close();
+        }
+    }
+    @Step("Extract Latest Order Number from Orders Grid")
+    public String getLatestOrderNumber() throws InterruptedException {
+
+        By latestOrderNumberLocator = By.xpath("(//tbody//tr[1]//th[@scope='row'])[1]");
+        String rawText = "";
+
+        for (int i = 0; i < 10; i++) {
+            if (!driver.get().findElements(latestOrderNumberLocator).isEmpty()) {
+                rawText = driver.element().getElementText(latestOrderNumberLocator).trim();
+                if (!rawText.isEmpty()) break;
+            }
+            Thread.sleep(500);
+        }
+
+        if (rawText.isEmpty()) {
+            Assert.fail("❌ لم يتمكن السيلينيوم من قراءة رقم الطلب من القائمة!");
+        }
+
+        String cleanOrderNumber = rawText.replaceAll("[^0-9]", "");
+        Allure.step("✅ Extracted Latest Order Number cleanly: " + cleanOrderNumber);
+
+        return cleanOrderNumber;
+    }
+
     @Step("Validate available quantity matches daily stock")
     public OrderPage validateAvailableQuantityMatchesDailyStock(String productName, int expectedQuantity) throws InterruptedException {
         Thread.sleep(3000);
@@ -842,31 +1158,35 @@ private boolean isordertypeforemployee() {
         int actualQuantity= Integer.parseInt(driver.element().getElementText(By.xpath("//div[contains(@class,'productName') and normalize-space(text())='" + productName + "'] /ancestor::div[contains(@class,'product-card')] //div[contains(@class,'productAvalQty')]//span")));
 
         Allure.step("✅ Available quantity for product: " + productName + " is: " + actualQuantity);
+
+
         int quantityToOrder = actualQuantity+1;
         driver.element().clickElement(quantityinput);
         driver.element().typeText(quantityinput, String.valueOf(quantityToOrder));
-        driver.element().clickElement(paybutton);
-        driver.element().clickElement(closeorderbutton);
+        driver.element().clickElement(payementbutton);
+        driver.element().clickElementRaw(closeorderbutton);
         return this;
     }
-    public void validateToastContains(String expectedText) {
 
-        By toast = By.cssSelector(".toast-info .toast-message");
 
-        driver.element().hoverOverElement(toast);
-        driver.element().getElementText(toast);
 
-        String actual = driver.element().getElementText(toast);
+    @Step("Validate Toast Message Contains: {expectedText}")
+    public OrderPage validateToastContains(String expectedText) {
 
-        if (!actual.contains(expectedText)) {
+        // 1. الدالة المركزية تقوم بكل العمل الشاق: (Hover + قراءة + تدمير)
+        String actualText = driver.element().getToastMessageAndDestroyIt();
+
+        // 2. التحقق من النتيجة (Assertion)
+        if (!actualText.contains(expectedText)) {
             throw new AssertionError(
-                    "❌ Expected: " + expectedText + " but found: " + actual
+                    "❌ Expected: [" + expectedText + "] but found: [" + actualText + "]"
             );
         }
 
-        Allure.step("✅ Toast validated: " + actual);
-    }
+        Allure.step("✅ Toast validated successfully: " + actualText);
 
+        return this;
+    }
 
 
     @Step("Get All Products with Volumes directly from API")

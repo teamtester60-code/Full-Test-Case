@@ -69,6 +69,8 @@ public class GUIDriver {
         }
 
         driverThreadLocal.set(driver);
+    
+        
     }
 
     private static String firstNonBlank(String... values) {

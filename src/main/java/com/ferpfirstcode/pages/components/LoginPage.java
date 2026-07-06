@@ -94,14 +94,33 @@ public class LoginPage {
 //        driver.verify().isElementVisible(visibleIcon);
 //        return new HomePage(driver);
 //    }
-    @Step("Verify Error Message")
-    public LoginPage verifyErrorMessage(String expectedMessage) {
-        String actual = driver.element().getElementText(errorMessage);
-        if (!expectedMessage.equals(actual)) {
-            throw new AssertionError("Expected: " + expectedMessage + " but found: " + actual);
-        }
-        return this;
+@Step("Verify error message matches: {expectedMessage}")
+public LoginPage verifyErrorMessage(String expectedMessage) {
+
+    String actual = driver.element().getElementText(errorMessage);
+
+    // 1. Null Safety Check
+    if (actual == null) {
+        throw new AssertionError("❌ Error message element text is null. Ensure the element is visible before reading text.");
     }
+    if (expectedMessage == null) {
+        throw new IllegalArgumentException("❌ Expected message cannot be null.");
+    }
+
+    // 2. Whitespace and Non-breaking Space Normalization
+    String cleanActual = actual.replace("\u00a0", " ").replaceAll("\\s+", " ").trim();
+    String cleanExpected = expectedMessage.replace("\u00a0", " ").replaceAll("\\s+", " ").trim();
+
+    // 3. Robust Assertion with clear formatting
+    if (!cleanExpected.equals(cleanActual)) {
+        throw new AssertionError(String.format(
+                "❌ Error message mismatch!\nExpected: [%s]\nActual:   [%s]",
+                cleanExpected, cleanActual
+        ));
+    }
+
+    return this;
+}
 
     @Step("Verify Message Label")
 public LoginPage verifyMessageLabel(String... expectedMessages) {

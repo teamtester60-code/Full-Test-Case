@@ -24,16 +24,32 @@ public class ElementActions {
     public ElementActions clickElement(By locator) {
         try {
             waitsManager.fluentWait().until(d -> {
+                // 🔥 1. تدمير التنبيهات قبل البحث عن العنصر والنزول إليه
+                destroyObstacles();
+
                 WebElement element = d.findElement(locator);
                 scrollToElement(locator);
+
+                // 🔥 2. تدمير التنبيهات مرة أخرى (تحسباً لظهور تنبيه أثناء عمل Scroll)
+                destroyObstacles();
+
                 element.click();
                 LogsManager.info("Clicked element: " + locator);
                 return true;
             });
         } catch (Exception e) {
-            LogsManager.error("Failed to click element: " + locator + " - " + e.getMessage());
-            takeScreenshot("clickElement-" + locator.toString());
-            throw e;
+            LogsManager.error("Failed to normal click element: " + locator + " - " + e.getMessage());
+
+            // 🛡️ خط الدفاع الأخير: إذا فشل الضغط العادي (بسبب Angular Animations مثلاً)
+            // سنستخدم دالة JS Click الموجودة لديك بالفعل كمنقذ أخير قبل إعلان فشل التست!
+            try {
+                LogsManager.info("🔄 Attempting Fallback JS Click for: " + locator);
+                clickElementByJS(locator);
+            } catch (Exception jsException) {
+                // إذا فشل كلاهما، نأخذ سكرين شوت ونرمي الخطأ
+                takeScreenshot("clickElement-" + locator.toString());
+                throw e; // نرمي الخطأ الأصلي
+            }
         }
         return this;
     }
@@ -229,5 +245,124 @@ public class ElementActions {
             return 0;
         }
     }
+
+    public void destroyObstacles() {
+        try {
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            // ❌ الكود القديم: كان يمسح الـ Container بالكامل
+            // js.executeScript("var toast = document.getElementById('toast-container'); if(toast) { toast.remove(); }");
+
+            // ✅ الكود الجديد: يمسح التنبيهات الفردية المعروضة فقط، ويترك الـ Container حياً
+            js.executeScript("var toasts = document.querySelectorAll('.ngx-toastr'); toasts.forEach(function(toast) { toast.remove(); });");
+        } catch (Exception e) {
+            // صمت تام
+        }
+    }
+    // ==========================================
+    // 🍞 Toast Validation Methods
+    // ==========================================
+    public String getToastMessageAndDestroyIt() {
+        By toastLocator = By.cssSelector(".toast-message");
+        try {
+            // 🔥 إضافة الـ Hover هنا لمنع التنبيه من الاختفاء قبل قراءته
+            hoverOverElement(toastLocator);
+
+            String toastText = waitsManager.fluentWait().until(d -> {
+                WebElement element = d.findElement(toastLocator);
+                String text = element.getText();
+                if (text != null && !text.isEmpty()) {
+                    return text;
+                }
+                return null;
+            });
+
+            LogsManager.info("✅ Toast message captured: " + toastText);
+
+            // 🔥 تدمير التنبيه بعد قراءته لتنظيف الشاشة
+            destroyObstacles();
+
+            return toastText;
+
+        } catch (Exception e) {
+            LogsManager.error("❌ Failed to capture toast message: " + e.getMessage());
+            takeScreenshot("ToastCaptureFailure");
+            return "";
+        }
+    }
+    // ==========================================
+    // 🎯 Raw Click (Without Toast Destruction)
+    // ==========================================
+    public ElementActions clickElementRaw(By locator) {
+        try {
+            waitsManager.fluentWait().until(d -> {
+                WebElement element = d.findElement(locator);
+                scrollToElement(locator);
+
+                // ضغط طبيعي بدون استدعاء destroyObstacles()
+                element.click();
+
+                LogsManager.info("Raw Clicked element (Kept Toasts Alive): " + locator);
+                return true;
+            });
+        } catch (Exception e) {
+            LogsManager.error("Failed to raw click element: " + locator + " - " + e.getMessage());
+            takeScreenshot("rawClickElement-" + locator.toString());
+
+            // محاولة أخيرة بالـ JS إذا فشل الضغط العادي
+            try {
+                LogsManager.info("🔄 Attempting Fallback JS Raw Click for: " + locator);
+                ((JavascriptExecutor) driver).executeScript("arguments[0].click()", driver.findElement(locator));
+            } catch (Exception jsException) {
+                throw e; // رمي الخطأ الأصلي
+            }
+        }
+        return this;
+    }
+//
+//    public String catchSerialFromNetwork(By buttonToClick) {
+//        // 1. تفعيل الـ DevTools بطريقة مختصرة
+//        org.openqa.selenium.devtools.DevTools devTools = ((org.openqa.selenium.devtools.HasDevTools) driver.get()).getDevTools();
+//        devTools.createSession();
+//
+//        // 🔥 بدلاً من .enable() الطويلة، سنستخدم الأسلوب المباشر
+//        devTools.send(org.openqa.selenium.devtools.v147.network.Network.enable(java.util.Optional.empty(),
+//                java.util.Optional.empty(),
+//                java.util.Optional.empty(),
+//                java.util.Optional.empty(),
+//                java.util.Optional.empty()));
+//        final String[] caughtSerial = new String[1];
+//
+//        // 2. استخدام الإصدار المطابق v148 الخاص بمشروعك
+//        devTools.addListener(org.openqa.selenium.devtools.v147.network.Network.requestWillBeSent(), request -> {
+//            String url = request.getRequest().getUrl().toLowerCase();
+//
+//            if (url.contains("closeorder") || url.contains("updateorder") || url.contains("updatepaidorderasync")) {
+//                if (request.getRequest().getPostData().isPresent()) {
+//                    String payload = request.getRequest().getPostData().get();
+//                    java.util.regex.Matcher matcher = java.util.regex.Pattern.compile("(?i)\"?serial\"?\\s*:\\s*\"([^\"]+)\"").matcher(payload);
+//                    if (matcher.find()) {
+//                        caughtSerial[0] = matcher.group(1);
+//                        LogsManager.info("🎯 Captured Serial: " + caughtSerial[0]);
+//                    }
+//                }
+//            }
+//        });
+//
+//        // 3. الضغط على الزر
+//        clickElementRaw(buttonToClick);
+//
+//        // 4. الانتظار
+//        try {
+//            new org.openqa.selenium.support.ui.WebDriverWait(driver.get(), java.time.Duration.ofSeconds(10))
+//                    .until(d -> caughtSerial[0] != null);
+//        } catch (Exception e) {
+//            throw new RuntimeException("❌ Timeout: Serial was not captured.");
+//        } finally {
+//            devTools.send(org.openqa.selenium.devtools.v148.network.Network.disable());
+//            devTools.close();
+//        }
+//
+//        return caughtSerial[0];
+//    }
 }
 

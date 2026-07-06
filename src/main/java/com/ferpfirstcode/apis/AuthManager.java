@@ -5,7 +5,7 @@ import io.qameta.allure.Allure;
 public class AuthManager {
 
     // 🔥 ضع التوكن الثابت الخاص بك هنا (تأكد من وجود كلمة Bearer قبل التوكن)
-    private static final String STATIC_TOKEN = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiJlM2NmNTY5ZC0zMzMyLTQ3NGYtYTdiNS1iNzYyM2U3M2ZjN2UiLCJyb2xlIjoiQWRtaW4iLCJVc2VyTmFtZSI6ImFkbWluIiwibmJmIjoxNzgzMjMyOTg3LCJleHAiOjE3ODMzMTkzODcsImlhdCI6MTc4MzIzMjk4N30.ZLklAPsEdEtpDu-fZG34-e8ckS8i1XOqajK8n2X1Hbc";
+    private static final String STATIC_TOKEN = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiJlM2NmNTY5ZC0zMzMyLTQ3NGYtYTdiNS1iNzYyM2U3M2ZjN2UiLCJyb2xlIjoiQWRtaW4iLCJVc2VyTmFtZSI6ImFkbWluIiwibmJmIjoxNzgzMzI0OTQwLCJleHAiOjE3ODM0MTEzNDAsImlhdCI6MTc4MzMyNDk0MH0.Rjfbe4V8dN76ZM83-RVY-rB8iq_QjWB444gJ0o0orwg";
 
     // رقم نقطة البيع الخاص ببيئة الاختبار
     private static final String ENVIRONMENT_POS_ID = "6a3250d9d4b72754bc18ab73";
